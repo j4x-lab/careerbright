@@ -10,43 +10,48 @@ export default async function BelajarPage({ params }: { params: Promise<{ slug: 
   if (!course) notFound();
 
   return (
-    <main className="mx-auto max-w-3xl px-4 py-10">
-      <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
+    <main className="mx-auto min-h-[100dvh] max-w-3xl bg-ink-950 px-4 py-10">
+      <a href="/#jalur" className="link-more">
+        ← Semua jalur
+      </a>
+      <p className="mt-6 inline-block rounded-full border border-white/10 px-3 py-1 font-mono text-[11px] text-zinc-400">
         Kursus demo · {course.lessons.length} pelajaran
       </p>
-      <h1 className="mt-3 text-3xl font-bold tracking-tight">{course.title}</h1>
-      <div className="relative mt-6 aspect-[21/9] overflow-hidden rounded-2xl border border-white/10">
+      <h1 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">{course.title}</h1>
+      <div className="photo-cine mt-6 aspect-[21/9] rounded-2xl border border-white/10">
         <img
-          src="https://picsum.photos/seed/sb-study-desk/1050/450?grayscale"
-          alt="Meja belajar mahasiswa"
+          src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1050&auto=format&fit=crop"
+          alt="Mahasiswa menulis catatan belajar dengan laptop di meja"
           loading="lazy"
+          decoding="async"
+          sizes="(max-width: 768px) 100vw, 768px"
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink-950/85 via-ink-950/20 to-transparent" />
-        <div className="absolute inset-0 bg-accent/15 mix-blend-overlay" />
-        <p className="absolute bottom-3 left-4 font-mono text-[11px] text-zinc-200">superbright · lab bahasa indonesia</p>
+        <p className="absolute bottom-3 left-4 font-mono text-[11px] text-zinc-200">
+          superbright · lab bahasa indonesia
+        </p>
       </div>
-      <div className="mt-8 space-y-10">
+      <div className="mt-10 space-y-4">
         {course.lessons.map((l) => (
-          <article key={l.slug} className="border-t border-white/10 pt-6">
-            <p className="font-mono text-[11px] text-zinc-500">
+          <article key={l.slug} className="rounded-2xl border border-white/10 bg-ink-900 p-6 md:p-8">
+            <p className="font-mono text-[11px] text-accent">
               Pelajaran {l.no} · {l.skkni}
             </p>
-            <h2 className="mt-1 text-xl font-bold tracking-tight">{l.title}</h2>
-            <div className="mt-3 space-y-2">
+            <h2 className="mt-2 text-xl font-bold tracking-tight">{l.title}</h2>
+            <div className="mt-4 space-y-2.5">
               {l.body.map((p, i) => (
-                <p key={i} className="text-sm leading-relaxed text-zinc-300">
+                <p key={i} className="max-w-[65ch] text-sm leading-relaxed text-zinc-300">
                   {p}
                 </p>
               ))}
             </div>
             {l.quiz && (
-              <div className="mt-4">
+              <div className="mt-6">
                 <McqQuiz id={`${slug}-${l.slug}`} questions={l.quiz} />
               </div>
             )}
             {l.lab && (
-              <div className="mt-4">
+              <div className="mt-6">
                 <CodeLab id={`${slug}-${l.slug}`} starter={l.lab.starter} tests={l.lab.tests} />
               </div>
             )}
