@@ -1,5 +1,7 @@
 // Student Dashboard — backend: learningPath.progress, lesson.complete,
 // assessment.submit, credential.issue, order.create
+import { UpgradeButton } from "./upgrade-button";
+
 const cards = [
   { t: "Jalur aktif", v: "Junior Accountant — 62%" },
   { t: "Streak belajar", v: "12 hari" },
@@ -24,9 +26,9 @@ export default function StudentDashboard() {
         <p className="mt-1 text-sm text-zinc-400">
           Selesaikan jalur, bayar via Midtrans di dasbor, lalu dijadwalkan ke LSP mitra (TUK/online).
         </p>
-        <button className="mt-4 rounded-full bg-action px-5 py-2.5 text-sm font-semibold text-white transition active:translate-y-[1px]">
-          Upgrade — IDR 1.250.000
-        </button>
+        <div className="mt-4">
+          <UpgradeButton learningPathId="junior-accountant" priceLabel="IDR 1.250.000" />
+        </div>
       </div>
     </main>
   );
