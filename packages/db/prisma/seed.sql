@@ -1,4 +1,4 @@
--- CareerBright seed (mirrors packages/db/src/seed.ts).
+-- Career SuperBright seed (mirrors packages/db/src/seed.ts).
 -- Applied via psql because Prisma runtime engines cannot load on Android.
 -- IDs are stable/semantic so re-runs are idempotent via ON CONFLICT DO NOTHING.
 

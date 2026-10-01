@@ -5,9 +5,9 @@
   "main": "./src/index.ts",
   "types": "./src/index.ts",
   "scripts": {
-    "db:generate": "prisma generate",
-    "db:push": "prisma db push",
-    "db:seed": "tsx ./src/seed.ts"
+    "db:generate": "node ../../node_modules/prisma/build/index.js generate --schema=prisma/schema.prisma",
+    "db:push": "node ../../node_modules/prisma/build/index.js db push --schema=prisma/schema.prisma",
+    "db:seed": "node ../../node_modules/tsx/dist/cli.mjs ./src/seed.ts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^6.19.3",

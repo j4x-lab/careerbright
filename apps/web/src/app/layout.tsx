@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "CareerBright — Siap Kerja, Siap Bersaing",
+  title: "Career SuperBright — Siap Kerja, Siap Bersaing",
   description:
     "Platform kesiapan karier AI untuk mahasiswa Indonesia. Jalur berbasis peran, selaras SKKNI/KKNI, dinilai AI.",
 };

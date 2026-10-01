@@ -15,6 +15,17 @@ export default async function BelajarPage({ params }: { params: Promise<{ slug: 
         Kursus demo · {course.lessons.length} pelajaran
       </p>
       <h1 className="mt-3 text-3xl font-bold tracking-tight">{course.title}</h1>
+      <div className="relative mt-6 aspect-[21/9] overflow-hidden rounded-2xl border border-white/10">
+        <img
+          src="https://picsum.photos/seed/sb-study-desk/1050/450?grayscale"
+          alt="Meja belajar mahasiswa"
+          loading="lazy"
+          className="h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink-950/85 via-ink-950/20 to-transparent" />
+        <div className="absolute inset-0 bg-accent/15 mix-blend-overlay" />
+        <p className="absolute bottom-3 left-4 font-mono text-[11px] text-zinc-200">superbright · lab bahasa indonesia</p>
+      </div>
       <div className="mt-8 space-y-10">
         {course.lessons.map((l) => (
           <article key={l.slug} className="border-t border-white/10 pt-6">

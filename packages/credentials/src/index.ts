@@ -1,5 +1,5 @@
 // Open Badges 3.0 + W3C VC 2.0 issuance (pure builders — signing in Phase 4).
-export function buildVerificationUrl(id: string, base = "https://careerbright.id") {
+export function buildVerificationUrl(id: string, base = "https://superbright.id") {
   return `${base}/verify/${id}`;
 }
 
@@ -28,17 +28,17 @@ export function buildOpenBadgeCredential(b: BadgeInput) {
     id: buildVerificationUrl(b.id),
     type: ["VerifiableCredential", "OpenBadgeCredential"],
     issuer: {
-      id: "https://careerbright.id",
+      id: "https://superbright.id",
       type: "Profile",
-      name: b.issuerName ?? "CareerBright",
-      url: "https://careerbright.id",
+      name: b.issuerName ?? "Career SuperBright",
+      url: "https://superbright.id",
     },
     issuanceDate: b.issuanceDate ?? new Date().toISOString(),
     credentialSubject: {
       id: b.recipientDid,
       type: "AchievementSubject",
       achievement: {
-        id: `https://careerbright.id/badges/${b.id}`,
+        id: `https://superbright.id/badges/${b.id}`,
         type: ["Achievement", "MicroCredential"],
         name: b.nameId,
         description: b.descriptionId,

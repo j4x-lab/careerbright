@@ -1,12 +1,12 @@
 import { Reveal } from "@/components/reveal";
 
-const ROLES = [
-  { slug: "ai-engineer", id: "AI Engineer", salary: "12–25 jt", weeks: 24, hot: true },
+const ROLES: { slug: string; id: string; salary: string; weeks: number; hot: boolean; img?: string; alt?: string }[] = [
+  { slug: "ai-engineer", id: "AI Engineer", salary: "12–25 jt", weeks: 24, hot: true, img: "https://picsum.photos/seed/sb-ai-lab/800/450?grayscale", alt: "Ruang kerja insinyur AI" },
   { slug: "soc-analyst", id: "Analis SOC", salary: "8–18 jt", weeks: 20, hot: true },
-  { slug: "ehs-specialist", id: "Spesialis EHS", salary: "7–15 jt", weeks: 20, hot: true },
+  { slug: "ehs-specialist", id: "Spesialis EHS", salary: "7–15 jt", weeks: 20, hot: true, img: "https://picsum.photos/seed/sb-field-safety/800/450?grayscale", alt: "Inspeksi keselamatan lapangan" },
   { slug: "junior-accountant", id: "Akuntan Junior", salary: "6–9 jt", weeks: 24, hot: false },
   { slug: "it-project-manager", id: "IT Project Manager", salary: "10–25 jt", weeks: 16, hot: false },
-  { slug: "mining-coordinator", id: "Koordinator Tambang", salary: "7–14 jt", weeks: 16, hot: false },
+  { slug: "mining-coordinator", id: "Koordinator Tambang", salary: "7–14 jt", weeks: 16, hot: false, img: "https://picsum.photos/seed/sb-mine-site/800/450?grayscale", alt: "Operasi site tambang" },
   { slug: "performance-marketer", id: "Performance Marketer", salary: "6–15 jt", weeks: 12, hot: false },
   { slug: "b2b-sales", id: "B2B Sales", salary: "7–15 jt", weeks: 8, hot: false },
 ];
@@ -29,10 +29,21 @@ export default function HomePage() {
     <main className="overflow-x-clip bg-ink-950 text-zinc-100">
       {/* ── 1 · HERO ─────────────────────────────── */}
       <section className="relative min-h-[100dvh] border-b border-white/10">
+        <div className="absolute inset-0" aria-hidden>
+          <img
+            src="https://picsum.photos/seed/sb-campus-night/1600/900?grayscale"
+            alt=""
+            loading="eager"
+            className="h-full w-full object-cover opacity-35"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-ink-950/70 via-ink-950/55 to-ink-950" />
+          <div className="absolute inset-0 bg-accent/10 mix-blend-overlay" />
+        </div>
         <div className="hero-glow" aria-hidden />
-        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
+        <nav className="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
           <span className="font-mono text-sm font-bold tracking-tight">
-            CAREER<span className="text-accent">BRIGHT</span>
+            SUPER<span className="text-accent">BRIGHT</span>
+            <span className="ml-2 hidden font-mono text-[10px] font-normal tracking-[0.22em] text-zinc-500 sm:inline">CAREER</span>
           </span>
           <div className="flex items-center gap-4">
             <span className="hidden font-mono text-[11px] text-zinc-500 sm:inline">ID / EN</span>
@@ -42,7 +53,7 @@ export default function HomePage() {
             </a>
           </div>
         </nav>
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 pb-16 pt-10 md:grid-cols-12 md:pt-16">
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 pb-16 pt-10 md:grid-cols-12 md:pt-16">
           <div className="md:col-span-7 md:self-end">
             <Reveal>
               <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
@@ -118,10 +129,18 @@ keyakinan AI: 0.91 ✓`}
             <Reveal key={r.slug} delay={(i % 4) * 70}>
               <a
                 href={`/id/paths/${r.slug}`}
-                className={`group block h-full rounded-2xl border border-white/10 bg-ink-900 p-5 transition hover:border-accent/60 active:translate-y-[1px] ${
+                className={`group block h-full overflow-hidden rounded-2xl border border-white/10 bg-ink-900 transition hover:border-accent/60 active:translate-y-[1px] ${
                   i === 0 ? "lg:col-span-2 lg:row-span-1" : ""
                 }`}
               >
+                {r.img && (
+                  <div className="relative aspect-[16/9] overflow-hidden">
+                    <img src={r.img} alt={r.alt ?? r.id} loading="lazy" className="h-full w-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink-900 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-accent/15 mix-blend-overlay" />
+                  </div>
+                )}
+                <div className="p-5">
                 <div className="flex items-start justify-between">
                   <p className="text-lg font-semibold tracking-tight group-hover:text-accent">{r.id}</p>
                   {r.hot && (
@@ -134,6 +153,7 @@ keyakinan AI: 0.91 ✓`}
                   <div className="flex justify-between"><dt>Gaji awal</dt><dd className="text-zinc-100">IDR {r.salary}</dd></div>
                   <div className="flex justify-between"><dt>Durasi</dt><dd className="text-zinc-100">{r.weeks} minggu</dd></div>
                 </dl>
+                </div>
               </a>
             </Reveal>
           ))}
@@ -192,6 +212,17 @@ keyakinan AI: 0.91 ✓`}
                 Bukan kursus generik. Setiap badge yang kamu kumpulkan memetakan
                 kode kompetensi yang diakui industri dan LSP di seluruh Indonesia.
               </p>
+              <div className="relative mt-6 aspect-[16/10] overflow-hidden rounded-2xl border border-white/10">
+                <img
+                  src="https://picsum.photos/seed/sb-workshop-detail/640/400?grayscale"
+                  alt="Detail workshop industri"
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink-950/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-accent/15 mix-blend-overlay" />
+                <p className="absolute bottom-3 left-4 font-mono text-[11px] text-zinc-200">TUK · tempat uji kompetensi</p>
+              </div>
             </Reveal>
           </div>
           <div className="md:col-span-8">
@@ -291,7 +322,7 @@ keyakinan AI: 0.91 ✓`}
         <footer className="border-t border-white/10">
           <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-6 sm:flex-row">
             <span className="font-mono text-xs text-zinc-500">
-              CAREER<span className="text-accent">BRIGHT</span> © 2026
+              CAREER SUPER<span className="text-accent">BRIGHT</span> © 2026
             </span>
             <span className="font-mono text-[11px] text-zinc-600">SKKNI-native · OB 3.0 · W3C VC 2.0</span>
           </div>

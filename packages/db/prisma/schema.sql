@@ -1,4 +1,4 @@
--- CareerBright DDL (mirrors prisma/schema.prisma).
+-- Career SuperBright DDL (mirrors prisma/schema.prisma).
 -- Applied manually via psql because Prisma engines cannot load on Android.
 -- Enums stored as TEXT (validated app-side by Prisma Client types).
 

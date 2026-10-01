@@ -1,4 +1,4 @@
-# CareerBright — Master Build Plan
+# Career SuperBright — Master Build Plan
 > Indonesia AI-Powered Career Readiness Platform for College Students
 > Version: 1.0 | Date: 2026-10-01 | Status: APPROVED FOR IMPLEMENTATION
 

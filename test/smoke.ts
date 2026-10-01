@@ -43,7 +43,7 @@ assert.ok(prompt.includes("SKKNI-M.691090.005.01") && prompt.includes("judge-v1"
 // credentials
 const ob = buildOpenBadgeCredential({
   id: "badge-1",
-  recipientDid: "did:web:careerbright.id:student:1",
+  recipientDid: "did:web:superbright.id:student:1",
   nameId: "Dasar Pajak",
   descriptionId: "Kompeten pajak dasar",
   criteriaNarrativeId: "Lulus asesmen AI ≥70",
