@@ -1,0 +1,17 @@
+{
+  "nav": { "login": "Log in", "start": "Start Free", "dashboard": "Dashboard" },
+  "hero": {
+    "eyebrow": "SKKNI · KKNI · AI-Graded",
+    "title": "What will you become after graduation?",
+    "subtitle": "Pick your dream role. Follow an SKKNI-aligned path with AI-graded assessments."
+  },
+  "roles": { "title": "Pick your role" },
+  "dashboard": {
+    "overview": "Overview",
+    "learning": "My Learning",
+    "assessments": "Assessments",
+    "wallet": "Credentials",
+    "billing": "Billing",
+    "upgradeLsp": "Upgrade to BNSP Certificate"
+  }
+}

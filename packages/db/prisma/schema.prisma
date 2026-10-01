@@ -1,0 +1,219 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  STUDENT
+  INSTRUCTOR
+  ADMIN
+  LSP_ASSESSOR
+  EMPLOYER
+  UNIVERSITY
+}
+
+enum RoleCategory {
+  TECH
+  GREEN
+  FINANCE
+  PM
+  MINING
+  MARKETING
+  SALES
+}
+
+enum AssessmentType {
+  CODE_CHALLENGE
+  SOFT_SKILL_SIM
+  PROJECT
+  MCQ
+  PORTFOLIO
+}
+
+enum SubmissionStatus {
+  PENDING
+  GRADING
+  GRADED
+  NEEDS_HUMAN_REVIEW
+  FAILED
+}
+
+enum CredentialType {
+  MICRO_BADGE
+  PATHWAY_CREDENTIAL
+  LSP_CERTIFICATE
+}
+
+model CompetencyFramework {
+  id        String           @id @default(cuid())
+  code      String           @unique
+  name      String
+  nameEn    String?
+  sector    String
+  kkniLevel Int
+  version   String           @default("1.0")
+  status    String           @default("Active")
+  units     CompetencyUnit[]
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+}
+
+model CompetencyUnit {
+  id          String               @id @default(cuid())
+  code        String               @unique
+  title      String
+  titleEn    String?
+  description String?
+  frameworkId String
+  framework   CompetencyFramework  @relation(fields: [frameworkId], references: [id])
+  level       Int                  @default(1)
+  milestones  LearningPathMilestone[]
+}
+
+model LearningPath {
+  id             String         @id @default(cuid())
+  slug           String         @unique
+  titleId        String
+  titleEn        String
+  category       RoleCategory
+  targetRole     String
+  targetKkniLevel Int
+  salaryMin      Int
+  salaryMax      Int
+  demandLevel    String         @default("HIGH")
+  estimatedWeeks Int
+  price          Int            @default(0)
+  lspCertPrice   Int?
+  lspPartnerId   String?
+  milestones     LearningPathMilestone[]
+  enrollments    UserLearningPath[]
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+}
+
+model LearningPathMilestone {
+  id               String          @id @default(cuid())
+  learningPathId   String
+  learningPath     LearningPath    @relation(fields: [learningPathId], references: [id], onDelete: Cascade)
+  titleId          String
+  titleEn          String?
+  order            Int
+  competencyUnitId String?
+  competencyUnit   CompetencyUnit? @relation(fields: [competencyUnitId], references: [id])
+  skkniUnitCode    String
+  assessmentId     String?
+  isRequired       Boolean         @default(true)
+
+  @@unique([learningPathId, order])
+}
+
+model AppUser {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  phone         String?  @unique
+  name          String
+  role          UserRole @default(STUDENT)
+  kkniLevel     Int?
+  nik           String?  @unique
+  ktpVerified   Boolean  @default(false)
+  language      String   @default("id")
+  timezone      String   @default("Asia/Jakarta")
+  enrollments   UserLearningPath[]
+  submissions   AssessmentSubmission[]
+  credentials   Credential[]
+  orders        Order[]
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model UserLearningPath {
+  id                String       @id @default(cuid())
+  userId            String
+  user              AppUser      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  learningPathId    String
+  learningPath      LearningPath @relation(fields: [learningPathId], references: [id], onDelete: Cascade)
+  status            String       @default("ACTIVE")
+  currentMilestone  Int          @default(0)
+  progress          Float        @default(0)
+  completedAt       DateTime?
+  lspUpgradeStatus  String       @default("NONE")
+  lspUpgradePaidAt  DateTime?
+  startedAt         DateTime     @default(now())
+
+  @@unique([userId, learningPathId])
+}
+
+model Assessment {
+  id           String         @id @default(cuid())
+  titleId      String
+  titleEn      String?
+  type         AssessmentType
+  aiConfig     Json?
+  timeLimit    Int?
+  maxAttempts  Int            @default(3)
+  passingScore Int            @default(70)
+  starterCode  String?
+  testCases    Json?
+  language     String?
+  scenarioConfig Json?
+  submissions  AssessmentSubmission[]
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+}
+
+model AssessmentSubmission {
+  id            String           @id @default(cuid())
+  assessmentId  String
+  assessment    Assessment       @relation(fields: [assessmentId], references: [id], onDelete: Cascade)
+  userId        String
+  user          AppUser          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  code          String?
+  output        String?
+  conversation  Json?
+  status        SubmissionStatus @default(PENDING)
+  score         Float?
+  feedback      Json?
+  confidence    Float?
+  gradedBy      String?
+  attemptNumber Int              @default(1)
+  startedAt     DateTime         @default(now())
+  submittedAt   DateTime?
+
+  @@index([userId, assessmentId])
+}
+
+model Credential {
+  id                   String         @id @default(cuid())
+  userId               String
+  user                 AppUser        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type                 CredentialType
+  vcJson               Json?
+  obJson               Json?
+  verificationUrl      String         @unique
+  qrCodeUrl            String?
+  pdfUrl               String?
+  lspId                String?
+  lspCertificateNumber String?        @unique
+  bnspVerified         Boolean        @default(false)
+  issuedAt             DateTime       @default(now())
+  expiresAt            DateTime?
+}
+
+model Order {
+  id             String   @id @default(cuid())
+  userId         String
+  user           AppUser  @relation(fields: [userId], references: [id])
+  orderNumber    String   @unique
+  status         String   @default("PENDING")
+  totalAmount    Int
+  currency       String   @default("IDR")
+  paymentGateway String   @default("MIDTRANS")
+  gatewayOrderId String?
+  gatewayPayload Json?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}

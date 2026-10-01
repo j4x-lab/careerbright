@@ -1,0 +1,17 @@
+{
+  "nav": { "login": "Masuk", "start": "Mulai Gratis", "dashboard": "Dasbor" },
+  "hero": {
+    "eyebrow": "SKKNI · KKNI · Dinilai AI",
+    "title": "Mau jadi apa setelah lulus?",
+    "subtitle": "Pilih peran impianmu. Ikuti jalur selaras SKKNI, kerjakan asesmen yang dinilai AI."
+  },
+  "roles": { "title": "Pilih peranmu" },
+  "dashboard": {
+    "overview": "Ringkasan",
+    "learning": "Belajarku",
+    "assessments": "Asesmen",
+    "wallet": "Kredensial",
+    "billing": "Tagihan",
+    "upgradeLsp": "Upgrade ke Sertifikat BNSP"
+  }
+}
