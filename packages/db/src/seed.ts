@@ -1,4 +1,4 @@
-import { prisma } from "./index";
+import { prisma } from "./index.ts";
 
 const FRAMEWORKS = [
   { code: "SKKNI-2016-282", name: "Pengembangan Perangkat Lunak — Pemrograman", nameEn: "Software Development — Programming", sector: "ICT", kkniLevel: 6 },
