@@ -126,6 +126,7 @@ model AppUser {
   submissions   AssessmentSubmission[]
   credentials   Credential[]
   orders        Order[]
+  courses       Course[]
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }
@@ -216,4 +217,96 @@ model Order {
   gatewayPayload Json?
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
+}
+
+// ---- Phase 1: LMS content ----
+enum CourseStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+model Course {
+  id           String       @id @default(cuid())
+  slug         String       @unique
+  titleId      String
+  titleEn      String?
+  description  String?
+  status       CourseStatus @default(DRAFT)
+  instructorId String?
+  instructor   AppUser?     @relation(fields: [instructorId], references: [id])
+  modules      Module[]
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+}
+
+model Module {
+  id       String   @id @default(cuid())
+  courseId String
+  course   Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  titleId  String
+  order    Int      @default(0)
+  lessons  Lesson[]
+}
+
+model Lesson {
+  id       String @id @default(cuid())
+  moduleId String
+  module   Module @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  titleId  String
+  type     String @default("READING")
+  order    Int    @default(0)
+  content  Json?
+}
+
+// ---- Phase 1: Better Auth core tables (standard schema) ----
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  emailVerified Boolean   @default(false)
+  name          String?
+  image         String?
+  phoneNumber   String?   @unique
+  phoneVerified Boolean   @default(false)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  sessions      Session[]
+  accounts      Account[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  token     String   @unique
+  expiresAt DateTime
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Account {
+  id                    String    @id @default(cuid())
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accountId             String
+  providerId            String
+  accessToken           String?
+  refreshToken          String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+}
+
+model Verification {
+  id         String   @id @default(cuid())
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
