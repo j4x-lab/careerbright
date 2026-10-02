@@ -80,7 +80,7 @@ export function SiteNav() {
           >
             <nav aria-label="Navigasi utama" className="mx-auto flex h-[68px] w-full max-w-7xl items-center justify-between gap-4 px-4">
               <a href="/" className="flex flex-none items-center gap-2.5">
-                <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 font-mono text-[13px] font-bold text-white shadow-lg">
+                <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-700 font-mono text-[13px] font-bold text-white shadow-lg">
                   SB
                 </span>
                 <span className="text-[15px] font-extrabold tracking-tight text-ink">
@@ -183,7 +183,7 @@ export function SiteFooter() {
         <div className="mt-12 grid gap-10 md:grid-cols-6">
           <div className="md:col-span-2">
             <p className="flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 font-mono text-[13px] font-bold text-white">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-700 font-mono text-[13px] font-bold text-white">
                 SB
               </span>
               <span className="text-[15px] font-extrabold tracking-tight">

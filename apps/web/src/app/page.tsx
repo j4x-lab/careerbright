@@ -165,7 +165,7 @@ export default function HomePage() {
         </Reveal>
         <div className="mt-9 grid grid-cols-1 gap-4 md:grid-cols-12">
           {ROLES.map((g, i) => (
-            <Reveal key={g.h} delay={(i % 4) * 60} className={g.big ? "md:col-span-6" : "md:col-span-4"}>
+            <Reveal key={g.h} delay={(i % 4) * 60} className={i < 2 || i > 4 ? "md:col-span-6" : "md:col-span-4"}>
               <a href={g.href} className={`spot group flex h-full flex-col justify-between overflow-hidden rounded-[24px] border border-line p-6 md:p-7 ${g.big ? "bg-ink text-white" : "bg-white"}`}>
                 <div>
                   <p className={`card-num ${g.big ? "!bg-white/10 !text-amber-300" : ""}`}>{g.salary}</p>

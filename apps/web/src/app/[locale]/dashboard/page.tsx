@@ -23,7 +23,7 @@ export default function StudentDashboard() {
         {/* sidebar */}
         <aside className="shell-side hidden h-fit gap-1 p-3 lg:grid">
           <a href="/" className="flex items-center gap-2 px-2 py-2">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 font-mono text-[12px] font-bold text-white">SB</span>
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-700 font-mono text-[12px] font-bold text-white">SB</span>
             <span className="text-[14px] font-extrabold tracking-tight">SUPER<span className="text-brand-700">BRIGHT</span></span>
           </a>
           {NAV.map(([label, href, on]) => (

@@ -72,7 +72,7 @@ export function AuthForm({ mode }: { mode: "in" | "up" }) {
       <div className="hero-light relative hidden overflow-hidden border-r border-line md:block">
         <div className="relative flex h-full flex-col justify-between p-10">
           <a href="/" className="flex items-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 font-mono text-[13px] font-bold text-white">SB</span>
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-700 font-mono text-[13px] font-bold text-white">SB</span>
             <span className="text-[15px] font-extrabold tracking-tight">SUPER<span className="text-brand-700">BRIGHT</span></span>
           </a>
           <div>
