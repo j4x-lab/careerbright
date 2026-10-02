@@ -1,5 +1,28 @@
 # Changelog — Career SuperBright
 
+## v0.2.1 — Light-OS Restoration + i18n + Self-Hosted Visuals (2026-10-03)
+
+Patch release on the v0.2 line. Restores the light-OS design language across
+the whole site and finishes English i18n coverage.
+
+### Design tokens (`globals.css`)
+- Single light-OS system: cobalt scale, signal amber family, ok/danger
+  feedback, paper → card → paper-inset surfaces (no theme inversion)
+- Removed dead/duplicate tokens (accent, brand-950/100, navy inverters)
+- Shape lock as radius tokens (btn 14px · card 24px · media 20px · input 12px)
+- All CSS literals converted to `var()` references
+
+### i18n (all pages, `messages/id.json` + `messages/en.json`)
+- Deterministic locale resolution (explicit messages, no middleware dependence)
+- Full EN coverage incl. curriculum mirror (lessons, quizzes, catalog, paths)
+- Roboto Mono variable replaces IBM Plex Mono for `font-mono`
+
+### Visuals (`public/images/`)
+- Self-hosted compressed crops (~9x smaller, offline-safe): Jakarta towers,
+  street-snack discussion (top band), café independence-day crew
+- Per-course heroes, per-path photos, signup panel art, #pekerjaan banner
+- 21/9 container refinement (zero-crop fit)
+
 ## v0.2.0 — Midnight Paper Redesign (2026-10-02)
 
 Full-site redesign on all aspects, built on frozen v0.1.0 baseline.
