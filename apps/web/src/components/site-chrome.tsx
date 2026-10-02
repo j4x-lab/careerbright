@@ -21,23 +21,23 @@ export function IdNoticeBar() {
   const t = useTranslations("nav");
   const c = useTranslations("common");
   return (
-    <div className="border-b border-line bg-card">
-      <div className="mx-auto flex h-11 w-full max-w-7xl items-center justify-between gap-4 px-4 font-mono text-[12px]">
-        <p className="flex min-w-0 items-center gap-2 text-soft">
+    <div className="border-b border-line/60 bg-paper">
+      <div className="mx-auto flex h-9 w-full max-w-7xl items-center justify-between gap-4 px-4 font-mono text-[11px]">
+        <p className="flex min-w-0 items-center gap-2 text-faint">
           <IdFlag label={t("flag")} />
           <span className="truncate">
-            <strong className="font-bold text-signal-strong">{t("madeIn")}</strong>
+            <span className="font-medium text-muted">{t("madeIn")}</span>
             <span className="hidden sm:inline"> · {t("dataJakarta")}</span>
             <span className="sm:hidden"> · {t("dataJakarta")}</span>
           </span>
         </p>
-        <nav aria-label={t("region")} className="hidden flex-none items-center gap-4 text-muted md:flex">
-          <a href="/#siap" className="transition hover:text-ink">{t("forCampus")}</a>
-          <a href="/#siap" className="transition hover:text-ink">{t("forEmployers")}</a>
-          <a href="/id/verify/contoh" className="transition hover:text-ink">{t("verify")}</a>
-          <span className="rounded-md border border-line px-2 py-1 text-soft">{c("langToggle")}</span>
+        <nav aria-label={t("region")} className="hidden flex-none items-center gap-5 text-faint md:flex">
+          <a href="/#siap" className="py-2 transition hover:text-ink">{t("forCampus")}</a>
+          <a href="/#siap" className="py-2 transition hover:text-ink">{t("forEmployers")}</a>
+          <a href="/id/verify/contoh" className="py-2 transition hover:text-ink">{t("verify")}</a>
+          <span className="text-faint">{c("langToggle")}</span>
         </nav>
-        <span className="flex-none text-muted md:hidden">{c("langToggle")}</span>
+        <span className="flex-none text-faint md:hidden">{c("langToggle")}</span>
       </div>
     </div>
   );
@@ -75,23 +75,23 @@ export function SiteNav() {
           <header
             className={`transition-all duration-500 ${
               scrolled
-                ? "mx-auto max-w-6xl rounded-2xl border border-line bg-card/85 shadow-[0_20px_60px_-24px_rgba(10,17,40,0.25)] backdrop-blur-2xl"
-                : "border-b border-line bg-card/90 backdrop-blur-xl"
+                ? "mx-auto max-w-6xl rounded-card border border-line bg-card shadow-[0_24px_70px_-24px_rgba(10,17,40,0.38)]"
+                : "border-b border-transparent bg-paper/80 backdrop-blur-xl"
             }`}
           >
-            <nav aria-label={t("mainNav")} className="mx-auto flex h-[68px] w-full max-w-7xl items-center justify-between gap-4 px-4">
-              <a href="/" className="flex flex-none items-center gap-2.5 py-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-700 font-mono text-[13px] font-bold text-white shadow-lg">
+            <nav aria-label={t("mainNav")} className="mx-auto flex h-[68px] w-full max-w-7xl items-center justify-between gap-3 px-4">
+              <a href="/" className="flex min-w-0 flex-none items-center gap-2.5 py-2">
+                <span className="flex h-11 w-11 items-center justify-center rounded-btn bg-brand-700 font-mono text-[14px] font-extrabold text-white shadow-[0_10px_24px_-10px_rgba(29,78,216,0.7)] ring-1 ring-brand-800/20">
                   CS
                 </span>
-                <span className="hidden text-[15px] font-extrabold tracking-tight text-ink min-[420px]:inline">
+                <span className="hidden text-[16px] font-extrabold tracking-[-0.02em] text-ink min-[420px]:inline">
                   Career <span className="text-brand-700">SuperBright</span>
                 </span>
-                <span className="hidden font-mono text-[10px] tracking-[0.2em] text-faint xl:inline">ID</span>
+                <span className="hidden rounded-full border border-line bg-card px-2 py-0.5 font-mono text-[10px] font-bold tracking-[0.18em] text-brand-700 xl:inline">ID</span>
               </a>
-              <div className="hidden items-center gap-1 text-[13.5px] font-medium text-soft lg:flex">
+              <div className="hidden items-center gap-1 text-[14px] font-semibold text-soft lg:flex">
                 {NAV_LINKS.map(({ key, href }) => (
-                  <a key={href + key} href={href} className="rounded-lg px-3 py-3 transition hover:bg-paper hover:text-ink">
+                  <a key={href + key} href={href} className="rounded-btn px-4 py-3 transition hover:bg-cream hover:text-ink">
                     {t(key)}
                   </a>
                 ))}
@@ -99,26 +99,25 @@ export function SiteNav() {
               <div className="flex flex-none items-center gap-2">
                 <a
                   href="/id/katalog"
-                  className="hidden items-center gap-2 rounded-xl border border-line bg-paper px-3.5 py-3 font-mono text-[13px] text-muted transition hover:border-ink hover:text-ink md:flex"
+                  className="hidden min-h-[44px] items-center gap-2 rounded-btn px-3 py-3 text-[13px] font-semibold text-muted transition hover:text-ink md:flex"
                 >
                   <span aria-hidden>⌕</span> {t("searchRoles")}
-                  <kbd className="rounded-md border border-line bg-card px-1.5 py-1 text-[11px]">/</kbd>
                 </a>
-                <a href="/id/auth/masuk" className="hidden px-3 py-3 text-[13.5px] font-medium text-soft transition hover:text-ink sm:block">
+                <a href="/id/auth/masuk" className="hidden min-h-[44px] items-center px-3 py-3 text-[14px] font-semibold text-muted transition hover:text-ink sm:flex">
                   {t("login")}
                 </a>
-                <a href="/#pekerjaan" className="btn-amber group px-4 py-3 text-[13px]">
+                <a href="/#pekerjaan" className="btn-amber group min-h-[44px] whitespace-nowrap px-3.5 py-3 text-[13px] font-extrabold sm:px-5 sm:text-[14px]">
                   {t("exploreRoles")}
-                  <span className="btn-island btn-island-dark !h-6 !w-6 text-xs">↗</span>
+                  <span className="btn-island btn-island-dark hidden !h-6 !w-6 text-xs min-[420px]:inline-flex">↗</span>
                 </a>
                 <button
                   onClick={() => setOpen(!open)}
                   aria-expanded={open}
                   aria-label={open ? t("closeMenu") : t("openMenu")}
-                  className="relative flex h-11 w-11 flex-none items-center justify-center rounded-input border border-line bg-paper lg:hidden"
+                  className="relative flex h-11 w-11 flex-none items-center justify-center rounded-btn border border-line bg-card lg:hidden"
                 >
-                  <span className={`absolute h-px w-4 bg-ink transition-all duration-300 ${open ? "rotate-45" : "-translate-y-[3px]"}`} />
-                  <span className={`absolute h-px w-4 bg-ink transition-all duration-300 ${open ? "-rotate-45" : "translate-y-[3px]"}`} />
+                  <span className={`absolute h-0.5 w-4 rounded-full bg-ink transition-all duration-300 ${open ? "rotate-45" : "-translate-y-[3px]"}`} />
+                  <span className={`absolute h-0.5 w-4 rounded-full bg-ink transition-all duration-300 ${open ? "-rotate-45" : "translate-y-[3px]"}`} />
                 </button>
               </div>
             </nav>
@@ -128,23 +127,35 @@ export function SiteNav() {
 
       {open && (
         <div className="fixed inset-0 z-40 bg-paper lg:hidden">
-          <div className="relative flex min-h-[100dvh] flex-col justify-center gap-1 px-8 pt-28">
-            {[...NAV_LINKS.map(({ key, href }) => ({ label: t(key), href })), { label: t("login"), href: "/id/auth/masuk" }].map(({ label, href }, i) => (
-              <a
-                key={href + label}
-                href={href}
-                onClick={() => setOpen(false)}
-                style={{ animationDelay: `${80 + i * 55}ms` }}
-                className="hero-enter border-b border-line py-3 text-3xl font-bold tracking-tight text-ink"
-              >
-                {label}
-              </a>
-            ))}
-            <div className="mt-4 flex gap-3">
-              <a href="/id/katalog" onClick={() => setOpen(false)} className="btn-ghost flex-1 justify-center">
+          <div className="relative flex min-h-[100dvh] flex-col justify-center gap-2 overflow-y-auto px-8 pb-10 pt-32">
+            {[...NAV_LINKS.map(({ key, href }) => ({ label: t(key), href })), { label: t("login"), href: "/id/auth/masuk" }].map(({ label, href }, i, arr) => {
+              const isAccount = i === arr.length - 1;
+              return (
+                <a
+                  key={href + label}
+                  href={href}
+                  onClick={() => setOpen(false)}
+                  style={{ animationDelay: `${80 + i * 55}ms` }}
+                  className={
+                    isAccount
+                      ? "hero-enter py-4 text-lg font-bold text-muted"
+                      : "hero-enter py-2 text-[40px] font-extrabold leading-[1.05] tracking-[-0.03em] text-ink"
+                  }
+                >
+                  {!isAccount && (
+                    <span aria-hidden className="mr-3 align-super font-mono text-[11px] font-bold tracking-[0.2em] text-brand-700">
+                      0{i + 1}
+                    </span>
+                  )}
+                  {label}
+                </a>
+              );
+            })}
+            <div className="mt-6 flex gap-3">
+              <a href="/id/katalog" onClick={() => setOpen(false)} className="btn-ghost min-h-[52px] flex-1 justify-center text-[15px]">
                 {t("searchCta")}
               </a>
-              <a href="/#pekerjaan" onClick={() => setOpen(false)} className="btn-amber group flex-1 justify-center">
+              <a href="/#pekerjaan" onClick={() => setOpen(false)} className="btn-amber group min-h-[52px] flex-1 justify-center text-[15px]">
                 {t("exploreRoles")} <span className="btn-island btn-island-dark">↗</span>
               </a>
             </div>
@@ -167,62 +178,62 @@ export function SiteFooter() {
   return (
     <footer className="relative overflow-hidden border-t border-line bg-card">
       <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-16">
-        <div className="panel-warm flex flex-col gap-6 p-6 md:flex-row md:items-center md:justify-between md:p-8">
-          <div>
+        <div className="panel-warm flex flex-col gap-8 p-8 md:flex-row md:items-center md:justify-between md:p-12">
+          <div className="max-w-xl">
             <p className="eyebrow-light">{t("ctaEyebrow")}</p>
-            <p className="mt-2 max-w-[28ch] text-2xl font-bold leading-tight tracking-tight md:text-3xl">
+            <p className="mt-3 text-[32px] font-extrabold leading-[1.02] tracking-[-0.03em] text-ink md:text-5xl">
               {t("ctaTitle")}
             </p>
           </div>
-          <div className="flex w-full max-w-md flex-col gap-2 sm:flex-row sm:items-center">
-            <a href="/id/auth/daftar" className="btn-amber flex-none justify-center px-5">
+          <div className="flex w-full max-w-md flex-col gap-3 sm:flex-row sm:items-center md:w-auto md:flex-none md:flex-col md:items-stretch lg:flex-row lg:items-center">
+            <a href="/id/auth/daftar" className="btn-amber min-h-[52px] flex-none justify-center px-7 py-4 text-[15px] font-extrabold">
               {t("ctaButton")}
             </a>
-            <p className="font-mono text-[11px] leading-relaxed text-muted">
+            <p className="max-w-[32ch] font-mono text-[12px] leading-relaxed text-muted">
               {t("ctaNote")}
             </p>
           </div>
         </div>
 
-        <div className="mt-12 grid gap-10 md:grid-cols-6">
+        <div className="mt-14 grid gap-10 md:grid-cols-6">
           <div className="md:col-span-2">
             <p className="flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-700 font-mono text-[13px] font-bold text-white">
+              <span className="flex h-11 w-11 items-center justify-center rounded-btn bg-brand-700 font-mono text-[14px] font-extrabold text-white shadow-[0_10px_24px_-10px_rgba(29,78,216,0.7)]">
                 CS
               </span>
-              <span className="text-[15px] font-extrabold tracking-tight">
+              <span className="text-[16px] font-extrabold tracking-[-0.02em] text-ink">
                 Career <span className="text-brand-700">SuperBright</span>
               </span>
             </p>
-            <p className="mt-3 max-w-[36ch] text-[13px] leading-relaxed text-soft">
+            <p className="mt-4 max-w-[36ch] text-[14px] leading-relaxed text-soft">
               {t("tagline")}
             </p>
-            <p className="mt-4 flex items-center gap-2 font-mono text-[11px] text-muted">
+            <p className="mt-5 flex items-center gap-2 font-mono text-[11px] text-faint">
               <IdFlag label={nc("flag")} /> {t("madeLine")}
             </p>
           </div>
           {FOOTER_COLS.map(({ headKey, links }) => (
             <nav key={headKey} aria-label={t(headKey)}>
-              <p className="font-mono text-[12px] uppercase tracking-[0.18em] text-faint">{t(headKey)}</p>
-              <ul className="mt-3 space-y-2 text-[13px] text-soft">
+              <p className="font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-muted">{t(headKey)}</p>
+              <ul className="mt-4 space-y-1 text-[15px] font-medium text-soft">
                 {links.map(({ key, href }) => (
                   <li key={key}>
-                    <a href={href} className="transition hover:text-brand-700 px-3 py-1">{t(key)}</a>
+                    <a href={href} className="block py-2 pr-4 transition hover:text-brand-700">{t(key)}</a>
                   </li>
                 ))}
               </ul>
             </nav>
           ))}
         </div>
-        <div className="mt-12 flex flex-col gap-3 border-t border-line pt-6 md:flex-row md:items-center md:justify-between">
-          <p className="max-w-[70ch] font-mono text-[12px] leading-relaxed text-faint">
+        <div className="mt-14 flex flex-col gap-3 border-t border-line/70 pt-6 md:flex-row md:items-center md:justify-between">
+          <p className="max-w-[70ch] font-mono text-[11px] leading-relaxed text-faint">
             {t("legalLine")}
           </p>
-          <nav aria-label={t("legal")} className="flex flex-none flex-wrap gap-x-5 gap-y-2 text-[12px] text-muted">
-            <a href="/id/verify/contoh" className="transition hover:text-ink px-3 py-1">{t("privacy")}</a>
-            <a href="/id/verify/contoh" className="transition hover:text-ink px-3 py-1">{t("terms")}</a>
-            <a href="/id/verify/contoh" className="transition hover:text-ink px-3 py-1">{t("verify")}</a>
-            <span className="font-mono text-[12px] text-faint">© 2026</span>
+          <nav aria-label={t("legal")} className="flex flex-none flex-wrap items-center gap-x-5 gap-y-2 text-[12px] text-faint">
+            <a href="/id/verify/contoh" className="py-2 transition hover:text-muted">{t("privacy")}</a>
+            <a href="/id/verify/contoh" className="py-2 transition hover:text-muted">{t("terms")}</a>
+            <a href="/id/verify/contoh" className="py-2 transition hover:text-muted">{t("verify")}</a>
+            <span className="font-mono text-[11px] text-faint">© 2026</span>
           </nav>
         </div>
       </div>

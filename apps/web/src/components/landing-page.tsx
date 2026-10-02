@@ -10,7 +10,9 @@ import { LOCAL } from "@/lib/visual";
  * Design read: concise consumer landing for Indonesian students /
  * fresh grads, calm trust-first language, Tailwind v4 +
  * Jakarta Sans + Plex Mono, restrained purposeful motion.
- * Dials: VARIANCE 6 / MOTION 4 / DENSITY 3.
+ * Visual language: PREMIUM-BOLD — big confident display type, strong
+ * contrast, dramatic whitespace, one hero element per viewport.
+ * Dials: VARIANCE 8 / MOTION 5 / DENSITY 4.
  *
  * No usecase / real-case content on this page: generic method preview,
  * role rows, and honesty badges only. Per-role depth lives in
@@ -58,45 +60,55 @@ export default async function LandingPage({ locale }: { locale: string }) {
       <SiteNav />
 
       {/* ── HERO · THE JOB ─────────────────────────────────── */}
-      <section className="hero-light relative overflow-hidden pt-[132px]">
+      <section className="hero-light relative overflow-hidden pt-[120px] md:pt-[144px]">
         <div className="grid-light absolute inset-0" aria-hidden />
         <div
           id="konten"
-          className="relative mx-auto grid w-full max-w-7xl scroll-mt-32 items-center gap-12 px-4 pb-12 pt-6 lg:grid-cols-2"
+          className="relative mx-auto grid w-full max-w-7xl scroll-mt-32 items-center gap-14 px-4 pb-20 pt-8 md:pb-28 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16"
         >
           <div>
-            <p className="hero-enter hero-enter-1 eyebrow-light">
+            <p className="hero-enter hero-enter-1 eyebrow-light flex items-center gap-3">
+              <span aria-hidden className="inline-block h-[2px] w-8 flex-none bg-brand-700" />
               {t("heroEyebrow")}
             </p>
-            <h1 className="hero-enter hero-enter-2 mt-5 max-w-[20ch] text-4xl font-extrabold leading-[1.04] tracking-tight md:text-6xl">
+            <h1 className="hero-enter hero-enter-2 mt-6 max-w-[16ch] text-[clamp(2.75rem,10.5vw,5.25rem)] font-extrabold leading-[0.98] tracking-tight">
               {t("heroTitle")}
             </h1>
-            <p className="hero-enter hero-enter-3 mt-5 max-w-[48ch] text-[15px] leading-relaxed text-soft md:text-base">
+            <p className="hero-enter hero-enter-3 mt-6 max-w-[46ch] text-base leading-relaxed text-soft md:text-lg">
               {t("heroSub")}
             </p>
-            <div className="hero-enter hero-enter-3 mt-7 flex flex-wrap items-center gap-3">
-              <a href="#pekerjaan" className="btn-amber group">
+            <div className="hero-enter hero-enter-3 mt-8 flex flex-wrap items-center gap-4">
+              <a href="#pekerjaan" className="btn-amber group min-h-[52px] px-7 text-[15px]">
                 {t("heroCta1")}
                 <span className="btn-island btn-island-dark" aria-hidden>
                   ↗
                 </span>
               </a>
-              <a href="#cara-kerja" className="btn-ghost">
+              <a href="#cara-kerja" className="btn-ghost min-h-[52px] px-7">
                 {t("heroCta2")}
               </a>
             </div>
-            <p className="hero-enter hero-enter-4 mt-6 font-mono text-[11px] leading-relaxed text-faint">
+            <p className="hero-enter hero-enter-4 mt-8 max-w-[52ch] border-t border-line pt-5 font-mono text-[11px] leading-relaxed text-faint">
               {t("heroFlavor")}
             </p>
           </div>
 
           {/* Hero visual — generic method preview, no real case */}
-          <div className="hero-enter hero-enter-4">
-            <div className="glass-light overflow-hidden">
-              <div className="flex items-center gap-2 border-b border-line px-5 py-3.5">
+          <div className="hero-enter hero-enter-4 relative">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -inset-3 rounded-card border border-brand-700/15"
+            />
+            <div className="glass-light relative overflow-hidden">
+              <div className="flex items-center gap-2.5 border-b border-line bg-card px-5 py-4 md:px-6">
                 <span className="live-dot" aria-hidden />
-                <span className="font-mono text-[11px] text-muted">
+                <span className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-ink">
                   {t("methodLabel")}
+                </span>
+                <span aria-hidden className="ml-auto flex gap-1.5">
+                  <span className="h-2 w-2 rounded-full bg-cream" />
+                  <span className="h-2 w-2 rounded-full bg-cream" />
+                  <span className="h-2 w-2 rounded-full bg-signal" />
                 </span>
               </div>
               <ol className="divide-y divide-line">
@@ -105,23 +117,23 @@ export default async function LandingPage({ locale }: { locale: string }) {
                   ["02", t("m2t"), t("m2d")],
                   ["03", t("m3t"), t("m3d")],
                 ].map(([n, tt, d]) => (
-                  <li key={n} className="flex gap-4 px-5 py-4">
-                    <span className="tnum mt-0.5 font-mono text-[11px] font-bold text-brand-700">
+                  <li key={n} className="flex gap-5 px-5 py-5 md:px-6 md:py-6">
+                    <span className="tnum mt-0.5 font-mono text-[13px] font-bold text-brand-700">
                       {n}
                     </span>
                     <span>
-                      <span className="block text-[14px] font-extrabold tracking-tight">
+                      <span className="block text-[16px] font-extrabold tracking-tight">
                         {tt}
                       </span>
-                      <span className="mt-0.5 block text-[13px] leading-relaxed text-soft">
+                      <span className="mt-1 block max-w-[44ch] text-[13px] leading-relaxed text-soft">
                         {d}
                       </span>
                     </span>
                   </li>
                 ))}
               </ol>
-              <div className="border-t border-line bg-paper px-5 py-3">
-                <a href="#cara-kerja" className="link-more">
+              <div className="border-t border-line bg-paper px-5 py-2 md:px-6">
+                <a href="#cara-kerja" className="link-more inline-flex min-h-[44px] items-center">
                   {t("methodLink")}
                 </a>
               </div>
@@ -133,36 +145,37 @@ export default async function LandingPage({ locale }: { locale: string }) {
       {/* ── THE PROBLEM ──────────────────────────────────── */}
       <section
         id="masalah"
-        className="mx-auto max-w-7xl scroll-mt-28 px-4 py-16 md:py-24"
+        className="mx-auto max-w-7xl scroll-mt-28 px-4 py-20 md:py-32"
       >
         <Reveal>
-          <h2 className="max-w-[22ch] text-4xl font-extrabold md:text-5xl">
+          <div aria-hidden className="mb-7 h-1 w-12 bg-brand-700" />
+          <h2 className="max-w-[20ch] text-[2.5rem] font-extrabold leading-[1.02] tracking-tight md:text-6xl">
             {t("probTitle")}
           </h2>
-          <p className="mt-3 max-w-[60ch] text-[15px] leading-relaxed text-soft">
+          <p className="mt-5 max-w-[58ch] text-base leading-relaxed text-soft md:text-lg">
             {t("probSub")}
           </p>
         </Reveal>
-        <div className="mt-9 grid gap-4 md:grid-cols-2">
+        <div className="mt-12 grid gap-5 md:grid-cols-2">
           <Reveal>
-            <div className="panel h-full p-6 md:p-8">
+            <div className="panel h-full p-8 md:p-10">
               <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint">
                 {t("probLeftLabel")}
               </p>
-              <p className="mt-2 text-2xl font-extrabold tracking-tight">
+              <p className="mt-4 text-[1.75rem] font-extrabold leading-[1.08] tracking-tight md:text-4xl">
                 {t("probQuote")}
               </p>
-              <p className="mt-2 font-mono text-[11px] leading-relaxed text-faint">
+              <p className="mt-4 font-mono text-[11px] leading-relaxed text-faint">
                 {t("probLeftCap")}
               </p>
             </div>
           </Reveal>
           <Reveal delay={80}>
-            <div className="panel h-full p-6 md:p-8">
+            <div className="panel h-full p-8 md:p-10">
               <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint">
                 {t("probRightLabel")}
               </p>
-              <ul className="mt-3 grid grid-cols-2 gap-2">
+              <ul className="mt-5 grid grid-cols-2 gap-2">
                 {[t("task1"), t("task2"), t("task3"), t("task4"), t("task5"), t("task6")].map((x) => (
                   <li key={x} className="chip justify-center !text-[12px]">
                     {x}
@@ -173,7 +186,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
           </Reveal>
         </div>
         <Reveal delay={120}>
-          <figure className="photo-cine mt-4 aspect-[21/9]">
+          <figure className="photo-cine mt-6 aspect-[21/9]">
             <img
               src={LOCAL.diskusiWide}
               alt={t("probPhotoAlt")}
@@ -193,26 +206,27 @@ export default async function LandingPage({ locale }: { locale: string }) {
       {/* ── 01 · DEMAND PROOF ────────────────────────────── */}
       <section
         id="pekerjaan"
-        className="mx-auto max-w-7xl scroll-mt-32 px-4 pt-16 md:pt-24 pb-10 md:pb-12"
+        className="mx-auto max-w-7xl scroll-mt-32 px-4 pb-12 pt-20 md:pb-16 md:pt-32"
       >
         <Reveal>
-          <h2 className="max-w-[22ch] text-4xl font-extrabold md:text-5xl">
+          <div aria-hidden className="mb-7 h-1 w-12 bg-brand-700" />
+          <h2 className="max-w-[20ch] text-[2.5rem] font-extrabold leading-[1.02] tracking-tight md:text-6xl">
             {t("jobsTitle")}
           </h2>
-          <p className="mt-3 max-w-[62ch] text-[15px] leading-relaxed text-soft">
+          <p className="mt-5 max-w-[58ch] text-base leading-relaxed text-soft md:text-lg">
             {t("jobsSub")}
           </p>
         </Reveal>
-        <dl className="mt-8 grid gap-6 border-y border-line py-7 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-line">
+        <dl className="mt-10 grid gap-8 border-y border-line py-8 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-line md:py-10">
           {DEMAND_STATS.map(([v, l]) => (
             <Reveal
               key={l}
               className="sm:px-8 sm:first:pl-0 sm:last:pr-0"
             >
-              <dt className="tnum font-mono text-2xl font-extrabold tracking-tight md:text-3xl">
+              <dt className="tnum text-4xl font-extrabold tracking-tight text-ink md:text-5xl">
                 {v}
               </dt>
-              <dd className="mt-1 text-[12px] leading-snug text-muted">{l}</dd>
+              <dd className="mt-2 max-w-[28ch] text-[13px] leading-snug text-muted">{l}</dd>
             </Reveal>
           ))}
         </dl>
@@ -223,24 +237,24 @@ export default async function LandingPage({ locale }: { locale: string }) {
         id="contoh-event"
         className="scroll-mt-28 border-y border-line bg-card"
       >
-        <div className="mx-auto max-w-7xl px-4 py-12 md:py-16">
+        <div className="mx-auto max-w-7xl px-4 py-14 md:py-20">
         {/* Contoh 1 dari 4 — the single playable spotlight */}
         <Reveal>
           <div className="overflow-hidden rounded-card border-2 border-ink bg-paper">
-            <div className="grid gap-3 px-6 py-5 md:grid-cols-12 md:items-center">
+            <div className="grid gap-4 px-6 py-6 md:grid-cols-12 md:items-center md:gap-6 md:px-10 md:py-8">
               <div className="md:col-span-4">
-                <p className="inline-block rounded-full bg-signal/15 px-2.5 py-0.5 font-mono text-[10px] font-bold text-signal-strong">
+                <p className="inline-block rounded-full bg-signal/15 px-3 py-1 font-mono text-[11px] font-bold text-signal-strong">
                   {t("eventBadge")}
                 </p>
-                <p className="mt-2 text-[15px] font-extrabold tracking-tight">
+                <p className="mt-3 text-2xl font-extrabold leading-tight tracking-tight md:text-[1.75rem]">
                   Event &amp; Brand Activation Supervisor
                 </p>
-                <p className="mt-1 text-[13px] leading-relaxed text-soft">
+                <p className="mt-2 max-w-[40ch] text-[15px] leading-relaxed text-soft">
                   {t("eventMission")}
                 </p>
               </div>
               <ul
-                className="flex flex-wrap gap-1.5 md:col-span-4"
+                className="flex flex-wrap content-center gap-1.5 md:col-span-4"
                 aria-label={t("eventCapsLabel")}
               >
                 {["Campaign Planning", "Vendor Management", "Crisis Management"].map((c) => (
@@ -250,10 +264,10 @@ export default async function LandingPage({ locale }: { locale: string }) {
                 ))}
               </ul>
               <div className="md:col-span-4 md:text-right">
-                <p className="font-mono text-[11px] leading-relaxed text-muted">
+                <p className="max-w-[36ch] font-mono text-[11px] leading-relaxed text-muted md:ml-auto">
                   {t("eventSignal")}
                 </p>
-                <a href="/id/auth/daftar" className="link-more mt-1.5 inline-block">
+                <a href="/id/auth/daftar" className="btn-primary mt-4 min-h-[48px] px-6 md:mt-5">
                   {t("eventCta")}
                 </a>
               </div>
@@ -266,30 +280,33 @@ export default async function LandingPage({ locale }: { locale: string }) {
       {/* ── 03 · ROLE INDEX ────────────────────────────────── */}
       <section
         id="semua-peran"
-        className="mx-auto max-w-7xl scroll-mt-28 px-4 pt-12 md:pt-16 pb-16 md:pb-24"
+        className="mx-auto max-w-7xl scroll-mt-28 px-4 pb-20 pt-14 md:pb-32 md:pt-20"
       >
         {/* Wave-1 rows — list, not twin cards */}
         <Reveal>
           <div className="overflow-hidden rounded-card border border-line bg-card">
-            <p className="border-b border-line bg-paper px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
+            <p className="border-b border-line bg-paper px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] text-muted md:px-10">
               {t("waveBand")}
             </p>
             <ul className="divide-y divide-line">
-              {WAVE1.map((row) => (
+              {WAVE1.map((row, i) => (
                 <li
                   key={row.name}
-                  className="grid gap-3 px-6 py-5 md:grid-cols-12 md:items-center"
+                  className="grid gap-4 px-6 py-7 md:grid-cols-12 md:items-center md:gap-6 md:px-10"
                 >
                   <div className="md:col-span-4">
-                    <p className="text-[15px] font-extrabold tracking-tight">
+                    <p aria-hidden className="tnum font-mono text-[12px] font-bold tracking-[0.14em] text-faint">
+                      {String(i + 1).padStart(2, "0")}
+                    </p>
+                    <p className="mt-1.5 text-lg font-extrabold tracking-tight md:text-xl">
                       {row.name}
                     </p>
-                    <p className="mt-1 text-[13px] leading-relaxed text-soft">
+                    <p className="mt-1.5 text-sm leading-relaxed text-soft">
                       {row.mission}
                     </p>
                   </div>
                   <ul
-                    className="flex flex-wrap gap-1.5 md:col-span-4"
+                    className="flex flex-wrap content-center gap-1.5 md:col-span-4"
                     aria-label={`${t("capsLabel")} ${row.name}`}
                   >
                     {row.caps.map((c) => (
@@ -302,12 +319,12 @@ export default async function LandingPage({ locale }: { locale: string }) {
                     <p className="font-mono text-[11px] leading-relaxed text-muted">
                       {row.signal}
                     </p>
-                    <p className="tnum mt-0.5 font-mono text-[12px] font-bold text-brand-700">
+                    <p className="tnum mt-1 font-mono text-[12px] font-bold text-brand-700">
                       {row.salary}
                     </p>
                     <a
                       href="/id/auth/daftar"
-                      className="link-more mt-1.5 inline-block"
+                      className="link-more mt-2 inline-flex min-h-[44px] items-center"
                     >
                       {t("earlyCta")}
                     </a>
@@ -319,12 +336,12 @@ export default async function LandingPage({ locale }: { locale: string }) {
         </Reveal>
 
         <Reveal delay={80}>
-          <div className="mt-4 flex flex-col gap-2 rounded-card border border-dashed border-line bg-paper px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-5 flex flex-col gap-2 rounded-card border border-dashed border-line bg-paper px-6 py-5 sm:flex-row sm:items-center sm:justify-between md:px-10">
             <p className="text-sm text-soft">
               <strong className="text-ink">{t("soon")}</strong>{" "}
               {WAVE2.join(" · ")}
             </p>
-            <a href="/id/auth/daftar" className="link-more flex-none">
+            <a href="/id/auth/daftar" className="link-more inline-flex min-h-[44px] flex-none items-center">
               {t("earlyCta")}
             </a>
           </div>
@@ -333,7 +350,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
           </p>
         </Reveal>
         <Reveal delay={120}>
-          <figure className="photo-cine mt-4 aspect-[21/9]">
+          <figure className="photo-cine mt-6 aspect-[21/9]">
             <img
               src={LOCAL.kantorJakarta}
               alt={t("jobsPhotoAlt")}
@@ -353,21 +370,25 @@ export default async function LandingPage({ locale }: { locale: string }) {
       {/* ── HOW ROLEPATH WORKS ───────────────────────────────── */}
       <section
         id="cara-kerja"
-        className="mx-auto max-w-7xl scroll-mt-28 px-4 py-16 md:py-24"
+        className="mx-auto max-w-7xl scroll-mt-28 px-4 py-20 md:py-32"
       >
         <Reveal>
-          <h2 className="max-w-[22ch] text-4xl font-extrabold md:text-5xl">
+          <div aria-hidden className="mb-7 h-1 w-12 bg-brand-700" />
+          <h2 className="max-w-[20ch] text-[2.5rem] font-extrabold leading-[1.02] tracking-tight md:text-6xl">
             {t("stepsTitle")}
           </h2>
         </Reveal>
-        <ol className="mt-9 grid gap-x-6 gap-y-7 border-t border-line pt-7 sm:grid-cols-2 lg:grid-cols-5">
+        <ol className="mt-12 grid gap-x-6 gap-y-9 border-t border-line pt-8 sm:grid-cols-2 lg:grid-cols-5">
           {STEPS.map(([st, d], i) => (
             <Reveal key={st} delay={i * 60}>
               <li>
-                <p className="tnum font-mono text-sm font-bold text-brand-700">
+                <p aria-hidden className="tnum text-4xl font-extrabold tracking-tight text-brand-700/15 md:text-5xl">
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+                <p className="mt-3 text-[15px] font-extrabold leading-snug tracking-tight text-ink">
                   {st}
                 </p>
-                <p className="mt-1.5 text-sm leading-relaxed text-soft">{d}</p>
+                <p className="mt-2 text-sm leading-relaxed text-soft">{d}</p>
               </li>
             </Reveal>
           ))}
@@ -376,26 +397,27 @@ export default async function LandingPage({ locale }: { locale: string }) {
 
       {/* ── 08 · FINAL CTA ───────────────────────────────────── */}
       <section id="siap" className="scroll-mt-28 border-t border-line bg-card">
-        <div className="mx-auto max-w-7xl px-4 py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 py-20 md:py-32">
           <Reveal>
-            <h2 className="max-w-[22ch] text-4xl font-extrabold md:text-5xl">
+            <div aria-hidden className="mb-7 h-1 w-12 bg-brand-700" />
+            <h2 className="max-w-[20ch] text-[2.5rem] font-extrabold leading-[1.02] tracking-tight md:text-6xl">
               {t("ctaTitle")}
             </h2>
-            <p className="mt-3 max-w-[60ch] text-[15px] leading-relaxed text-soft">
+            <p className="mt-5 max-w-[58ch] text-base leading-relaxed text-soft md:text-lg">
               {t("ctaSub")}
             </p>
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              <a href="#pekerjaan" className="btn-amber group">
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <a href="#pekerjaan" className="btn-amber group min-h-[52px] px-7 text-[15px]">
                 {t("cta1")}
                 <span className="btn-island btn-island-dark" aria-hidden>
                   ↗
                 </span>
               </a>
-              <a href="/id/auth/daftar" className="btn-ghost">
+              <a href="/id/auth/daftar" className="btn-ghost min-h-[52px] px-7">
                 {t("cta2")}
               </a>
             </div>
-            <p className="mt-4 font-mono text-[11px] leading-relaxed text-faint">
+            <p className="mt-5 font-mono text-[11px] leading-relaxed text-faint">
               {t("ctaNote")}
             </p>
           </Reveal>
