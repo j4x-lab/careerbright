@@ -161,7 +161,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
       {/* ── THE PROBLEM ──────────────────────────────────── */}
       <section
         id="masalah"
-        className="mx-auto max-w-7xl scroll-mt-28 px-4 py-20 md:py-32"
+        className="mx-auto max-w-7xl scroll-mt-32 px-4 py-20 md:py-32"
       >
         <Reveal>
           <div aria-hidden className="mb-7 h-1 w-12 bg-brand-700" />
@@ -251,7 +251,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
       {/* ── 02 · FEATURED EXAMPLE (full-bleed band) ─────────── */}
       <section
         id="contoh-event"
-        className="scroll-mt-28 border-y border-line bg-card"
+        className="scroll-mt-32 border-y border-line bg-card"
       >
         <div className="mx-auto max-w-7xl px-4 py-14 md:py-20">
         {/* Contoh 1 dari 4 — the single playable spotlight */}
@@ -296,7 +296,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
       {/* ── 03 · ROLE INDEX ────────────────────────────────── */}
       <section
         id="semua-peran"
-        className="mx-auto max-w-7xl scroll-mt-28 px-4 pb-20 pt-14 md:pb-32 md:pt-20"
+        className="mx-auto max-w-7xl scroll-mt-32 px-4 pb-20 pt-14 md:pb-32 md:pt-20"
       >
         {/* Wave-1 rows — list, not twin cards */}
         <Reveal>
@@ -386,7 +386,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
       {/* ── HOW ROLEPATH WORKS ───────────────────────────────── */}
       <section
         id="cara-kerja"
-        className="mx-auto max-w-7xl scroll-mt-28 px-4 py-20 md:py-32"
+        className="mx-auto max-w-7xl scroll-mt-32 px-4 py-20 md:py-32"
       >
         <Reveal>
           <div aria-hidden className="mb-7 h-1 w-12 bg-brand-700" />
@@ -412,7 +412,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
       </section>
 
       {/* ── 08 · FINAL CTA ───────────────────────────────────── */}
-      <section id="siap" className="scroll-mt-28">
+      <section id="siap" className="scroll-mt-32">
         <div className="mx-auto max-w-7xl px-4 py-20 md:py-32">
           <Reveal>
             <div className="relative overflow-hidden rounded-card bg-brand-700 px-6 py-12 md:p-16">
