@@ -64,14 +64,14 @@ export default async function LandingPage({ locale }: { locale: string }) {
         <div className="grid-light absolute inset-0" aria-hidden />
         <div
           id="konten"
-          className="relative mx-auto grid w-full max-w-7xl scroll-mt-32 items-center gap-14 px-4 pb-20 pt-8 md:pb-28 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16"
+          className="relative mx-auto grid w-full max-w-7xl scroll-mt-32 items-start gap-10 px-4 pb-20 pt-8 md:pb-28 lg:grid-cols-12 lg:gap-8"
         >
-          <div>
+          <div className="lg:col-span-5">
             <p className="hero-enter hero-enter-1 eyebrow-nova flex items-center gap-3">
               <span aria-hidden className="inline-block h-[2px] w-8 flex-none bg-ember" />
               {t("heroEyebrow")}
             </p>
-            <h1 className="hero-enter hero-enter-2 font-nova mt-6 max-w-[16ch] text-[clamp(3rem,9vw,6rem)] font-bold leading-[0.95] tracking-[-0.02em]">
+            <h1 className="hero-enter hero-enter-2 font-nova mt-6 max-w-[18ch] text-[clamp(3.25rem,10vw,7rem)] font-bold leading-[0.95] tracking-[-0.02em]">
               {t("heroTitle")}
             </h1>
             <p className="hero-enter hero-enter-3 mt-6 max-w-[46ch] text-base leading-relaxed text-bark md:text-lg">
@@ -94,7 +94,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
           </div>
 
           {/* Hero visual — generic method preview, no real case */}
-          <div className="hero-enter hero-enter-4 relative">
+          <div className="hero-enter hero-enter-4 relative lg:col-span-6 lg:col-start-7 lg:mt-10">
             <div
               aria-hidden
               className="pointer-events-none absolute -inset-3 rounded-card border border-ember/15"
@@ -172,8 +172,8 @@ export default async function LandingPage({ locale }: { locale: string }) {
             {t("probSub")}
           </p>
         </Reveal>
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
-          <Reveal>
+        <div className="mt-12 grid gap-5 md:grid-cols-12">
+          <Reveal className="md:col-span-7">
             <div className="panel h-full p-8 md:p-10">
               <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-sand">
                 {t("probLeftLabel")}
@@ -186,7 +186,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
               </p>
             </div>
           </Reveal>
-          <Reveal delay={80}>
+          <Reveal delay={80} className="md:col-span-5">
             <div className="panel h-full p-8 md:p-10">
               <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-sand">
                 {t("probRightLabel")}
@@ -233,11 +233,11 @@ export default async function LandingPage({ locale }: { locale: string }) {
             {t("jobsSub")}
           </p>
         </Reveal>
-        <dl className="mt-10 grid gap-8 border-y border-dune py-8 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-dune md:py-10">
+        <dl className="mt-10 grid gap-8 sm:grid-cols-3">
           {DEMAND_STATS.map(([v, l]) => (
             <Reveal
               key={l}
-              className="sm:px-8 sm:first:pl-0 sm:last:pr-0"
+              className="border-t-2 border-espresso pt-5"
             >
               <dt className="tnum font-nova text-4xl font-bold tracking-[-0.02em] text-espresso md:text-5xl">
                 {v}
@@ -258,11 +258,11 @@ export default async function LandingPage({ locale }: { locale: string }) {
         <Reveal>
           <div className="overflow-hidden rounded-card border-2 border-ink bg-parchment">
             <div className="grid gap-4 px-6 py-6 md:grid-cols-12 md:items-center md:gap-6 md:px-10 md:py-8">
-              <div className="md:col-span-4">
+              <div className="md:col-span-5">
                 <p className="inline-block rounded-full bg-signal/15 px-3 py-1 font-mono text-[11px] font-bold text-signal-strong">
                   {t("eventBadge")}
                 </p>
-                <p className="font-nova mt-3 text-2xl font-bold leading-tight tracking-[-0.02em] md:text-[1.75rem]">
+                <p className="font-nova mt-3 text-3xl font-bold leading-[1.05] tracking-[-0.02em] md:text-4xl">
                   Event &amp; Brand Activation Supervisor
                 </p>
                 <p className="mt-2 max-w-[40ch] text-[15px] leading-relaxed text-bark">
@@ -270,7 +270,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
                 </p>
               </div>
               <ul
-                className="flex flex-wrap content-center gap-1.5 md:col-span-4"
+                className="flex flex-wrap content-center gap-1.5 md:col-span-3"
                 aria-label={t("eventCapsLabel")}
               >
                 {["Campaign Planning", "Vendor Management", "Crisis Management"].map((c) => (
@@ -412,30 +412,36 @@ export default async function LandingPage({ locale }: { locale: string }) {
       </section>
 
       {/* ── 08 · FINAL CTA ───────────────────────────────────── */}
-      <section id="siap" className="scroll-mt-28 border-t border-dune bg-card">
+      <section id="siap" className="scroll-mt-28">
         <div className="mx-auto max-w-7xl px-4 py-20 md:py-32">
           <Reveal>
-            <div aria-hidden className="mb-7 h-1 w-12 bg-ember" />
-            <h2 className="font-nova max-w-[20ch] text-[2.5rem] font-bold leading-[1.02] tracking-[-0.02em] md:text-6xl">
-              {t("ctaTitle")}
-            </h2>
-            <p className="mt-5 max-w-[58ch] text-base leading-relaxed text-bark md:text-lg">
-              {t("ctaSub")}
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a href="#pekerjaan" className="btn-ember group min-h-[52px] px-7 text-[15px]">
-                {t("cta1")}
-                <span className="btn-island btn-island-dark" aria-hidden>
-                  ↗
-                </span>
-              </a>
-              <a href="/id/auth/daftar" className="btn-ember-ghost min-h-[52px] px-7">
-                {t("cta2")}
-              </a>
+            <div className="relative overflow-hidden rounded-card bg-ember px-6 py-12 md:p-16">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-2xl"
+              />
+              <div aria-hidden className="mb-7 h-1 w-12 bg-white/60" />
+              <h2 className="font-nova relative max-w-[20ch] text-[2.5rem] font-bold leading-[1.02] tracking-[-0.02em] text-white md:text-6xl">
+                {t("ctaTitle")}
+              </h2>
+              <p className="relative mt-5 max-w-[58ch] text-base leading-relaxed text-white/90 md:text-lg">
+                {t("ctaSub")}
+              </p>
+              <div className="relative mt-8 flex flex-wrap items-center gap-4">
+                <a href="#pekerjaan" className="inline-flex min-h-[52px] items-center gap-2.5 rounded-btn bg-white px-7 text-[15px] font-extrabold text-ember transition hover:bg-parchment active:translate-y-[1px]">
+                  {t("cta1")}
+                  <span className="btn-island btn-island-dark" aria-hidden>
+                    ↗
+                  </span>
+                </a>
+                <a href="/id/auth/daftar" className="inline-flex min-h-[52px] items-center rounded-btn border-[1.5px] border-white/50 px-7 text-[15px] font-bold text-white transition hover:bg-white/10 active:translate-y-[1px]">
+                  {t("cta2")}
+                </a>
+              </div>
+              <p className="relative mt-5 font-mono text-[11px] leading-relaxed text-white/85">
+                {t("ctaNote")}
+              </p>
             </div>
-            <p className="mt-5 font-mono text-[11px] leading-relaxed text-sand">
-              {t("ctaNote")}
-            </p>
           </Reveal>
         </div>
       </section>
