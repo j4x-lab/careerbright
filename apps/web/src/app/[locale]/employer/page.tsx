@@ -1,12 +1,12 @@
 // Employer — search skill profiles by SKKNI/KKNI, verify via /verify/[id]
 export default function EmployerDashboard() {
   return (
-    <main className="mx-auto min-h-[100dvh] max-w-7xl bg-ink-950 px-4 py-10">
+    <main className="mx-auto min-h-[100dvh] max-w-7xl bg-paper px-4 py-10">
       <a href="/" className="link-more">
         ← Beranda
       </a>
-      <h1 className="mt-4 text-3xl font-bold tracking-tight">Employer</h1>
-      <p className="mt-2 max-w-[60ch] text-sm leading-relaxed text-zinc-400">
+      <h1 className="mt-4 text-3xl font-semibold tracking-tight">Employer</h1>
+      <p className="mt-2 max-w-[60ch] text-sm leading-relaxed text-soft">
         Cari profil skill terverifikasi berdasarkan SKKNI/KKNI/peran, verifikasi kredensial, pasang lowongan.
       </p>
       <div className="mt-8 grid gap-4 md:grid-cols-3">
@@ -15,9 +15,9 @@ export default function EmployerDashboard() {
           ["Verifikasi 1-klik", "Pindai QR di CV → buka /verify/[id] → lihat SKKNI + status BNSP."],
           ["Pasang lowongan", "Targetkan kota Wave 1: Jakarta, Surabaya, Bandung."],
         ].map(([h, d]) => (
-          <div key={h} className="rounded-2xl border border-white/10 bg-ink-900 p-6">
+          <div key={h} className="rounded-2xl border border-ink/10 bg-card p-6">
             <p className="font-semibold">{h}</p>
-            <p className="mt-2 text-sm leading-relaxed text-zinc-400">{d}</p>
+            <p className="mt-2 text-sm leading-relaxed text-soft">{d}</p>
           </div>
         ))}
       </div>

@@ -1,7 +1,7 @@
 export default async function VerifyPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   return (
-    <main className="mx-auto min-h-[100dvh] max-w-3xl bg-ink-950 px-4 py-16 text-center">
+    <main className="mx-auto min-h-[100dvh] max-w-3xl bg-paper px-4 py-16 text-center">
       <a href="/" className="link-more">
         ← Beranda
       </a>
@@ -10,7 +10,7 @@ export default async function VerifyPage({ params }: { params: Promise<{ id: str
           <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
             Verifikasi Kredensial
           </p>
-          <h1 className="tnum mt-3 break-all font-mono text-lg">credential:{id}</h1>
+          <h1 className="tnum mt-3 break-all font-mono text-lg text-zinc-100">credential:{id}</h1>
           <p className="mt-3 max-w-[52ch] text-sm leading-relaxed text-zinc-400">
             Endpoint publik — backend memverifikasi tanda tangan VC 2.0 / OB 3.0 dan status BNSP.
           </p>
