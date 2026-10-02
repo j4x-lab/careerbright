@@ -29,6 +29,15 @@ const robotoMono = localFont({
   fallback: ["ui-monospace", "SFMono-Regular", "monospace"],
 });
 
+const grotesk = localFont({
+  src: [
+    { path: "../../public/fonts/SpaceGrotesk-Variable.woff2", weight: "300 700", style: "normal" },
+  ],
+  variable: "--font-grotesk",
+  display: "swap",
+  fallback: ["ui-sans-serif", "system-ui", "sans-serif"],
+});
+
 export const metadata: Metadata = {
   title: "Career SuperBright — Coba Contoh Kerja 30 Hari Sebelum Lulus",
   description:
@@ -52,7 +61,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html
       lang="id"
       suppressHydrationWarning
-      className={`${jakarta.variable} ${robotoMono.variable}`}
+      className={`${jakarta.variable} ${robotoMono.variable} ${grotesk.variable}`}
     >
       <body className="min-h-[100dvh] bg-paper text-ink antialiased">
         <NextIntlClientProvider locale="id" messages={idMessages as unknown as AbstractIntlMessages}>{children}</NextIntlClientProvider>

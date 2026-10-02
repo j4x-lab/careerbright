@@ -45,6 +45,25 @@
   --color-danger: #dc2626;
   --color-danger-bg: #fef2f2;
 
+  /* ── Nova landing theme (additive — used ONLY by the landing page).
+   Ember concept: warm parchment paper, espresso ink, ember CTA, forest
+   secondary. Every text/background pair below passes WCAG AA
+   (verified 2026-10-03: espresso 16.6 · bark 7.6 · sand 5.5 ·
+   white-on-ember 5.8 · white-on-forest 7.4 · white-on-emberdeep 7.9). */
+  --color-parchment: #FAF6ED;
+  --color-espresso: #231407;
+  --color-bark: #5F4B38;
+  --color-sand: #75604C;
+  --color-dune: rgba(35, 20, 7, 0.14);
+  --color-ember: #B83A12;
+  --color-ember-bright: #D9481C;
+  --color-ember-deep: #93300F;
+  --color-forest: #20604A;
+  --color-forest-bg: #E7F0EB;
+
+  /* Nova display face (landing only — body stays Jakarta). */
+  --font-nova: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+
   /* ── Shape lock v2: buttons 14px · cards 24px · media 20px · inputs 12px. */
   --radius-btn: 14px;
   --radius-card: 24px;
@@ -268,6 +287,45 @@ html.js .hero-enter { opacity: 0; transform: translateY(18px); animation: fade-u
 .shell-active { background: var(--color-brand-700); color: #fff; border-radius: var(--radius-input); }
 .chip { border-radius: 999px; border: 1px solid rgba(10,17,40,0.12); padding: 6px 14px; font-size: 13px; background: var(--color-card); }
 .chip-on { background: var(--color-brand-700); color: #fff; border-color: var(--color-brand-700); }
+
+/* ---- Nova landing theme (landing page only) ---- */
+.nova-hero {
+  background:
+    radial-gradient(56rem 30rem at 88% -12%, rgba(217, 72, 28, 0.12), transparent 62%),
+    radial-gradient(44rem 26rem at -6% 108%, rgba(32, 96, 74, 0.1), transparent 60%),
+    linear-gradient(180deg, #fffdf8 0%, var(--color-parchment) 100%);
+}
+.eyebrow-nova {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--color-ember);
+}
+.btn-ember {
+  display: inline-flex; align-items: center; gap: 10px;
+  border-radius: var(--radius-btn); font-weight: 800; font-size: 15px;
+  background: var(--color-ember); color: #fff; padding: 16px 28px;
+  box-shadow: 0 16px 34px -14px rgba(184, 58, 18, 0.65);
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1), background 0.3s, box-shadow 0.3s;
+  will-change: transform;
+}
+.btn-ember:hover { background: var(--color-ember-deep); box-shadow: 0 20px 40px -14px rgba(147, 48, 15, 0.7); }
+.btn-ember:active { transform: scale(0.98) translateY(1px); }
+.btn-ember-ghost {
+  display: inline-flex; align-items: center; gap: 10px;
+  border-radius: var(--radius-btn); font-weight: 700; font-size: 15px;
+  border: 1.5px solid rgba(35, 20, 7, 0.22); color: var(--color-espresso);
+  padding: 16px 28px; background: transparent;
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1), border-color 0.3s, background 0.3s;
+}
+.btn-ember-ghost:hover { border-color: var(--color-ember); background: rgba(184, 58, 18, 0.06); }
+.btn-ember-ghost:active { transform: scale(0.98) translateY(1px); }
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex; width: max-content;
+  animation: marquee-x 36s linear infinite;
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
