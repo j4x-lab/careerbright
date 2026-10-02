@@ -5,12 +5,8 @@
   --font-display: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex), ui-monospace, SFMono-Regular, monospace;
 
-  /* ── Cerah v2 “Midnight Paper” ─────────────────────────────
-     Dark cinematic hero (ink) → warm paper body.
-     Iris primary, amber signal (dark only), mint ok. */
-
-  --color-paper: #faf8f3;
-  --color-cream: #f1ece1;
+  --color-paper: #F6F7F9;
+  --color-cream: #eef1f5;
   --color-card: #ffffff;
   --color-ink: #0a0f1e;
   --color-ink2: #060a13;
@@ -42,6 +38,35 @@
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* ── Jakarta Light concept ─────────────────────────────
+   Full light mode: airy paper surfaces, iris brand, amber signal
+   reserved for CTAs + eyebrows. One dark accent card max per viewport —
+   sections never invert the page theme. */
+.hero-light {
+  background:
+    radial-gradient(52rem 28rem at 85% -10%, rgba(79, 70, 229, 0.12), transparent 62%),
+    radial-gradient(40rem 24rem at 4% 100%, rgba(245, 158, 11, 0.1), transparent 60%),
+    linear-gradient(180deg, #ffffff 0%, #F6F7F9 100%);
+}
+.grid-light {
+  background-image: linear-gradient(to right, rgba(10,15,30,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(10,15,30,0.05) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: radial-gradient(75% 70% at 50% 0%, black 30%, transparent 100%);
+}
+.glass-light {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(10, 15, 30, 0.1);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 24px;
+  box-shadow: 0 24px 64px -32px rgba(10, 15, 30, 0.22);
+}
+.eyebrow-light {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: #b45309;
 }
 
 /* SHAPE LOCK v2: buttons 14px · cards 24px · media 20px · inputs 12px · pills full */

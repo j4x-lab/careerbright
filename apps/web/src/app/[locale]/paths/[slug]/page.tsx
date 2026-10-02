@@ -144,35 +144,34 @@ export default async function PathPage({ params }: { params: Promise<{ slug: str
     <main className="overflow-x-clip bg-paper text-ink">
       <a href="#konten" className="skip-link">Lewati ke konten</a>
 
-      {/* Header split v2: dark goal-first + glass enroll card */}
-      <section className="hero-dark relative overflow-hidden pt-[140px] text-white">
-        <div className="aurora-blob" aria-hidden />
+      {/* Header split: light role-first + enroll card */}
+      <section className="hero-light relative overflow-hidden pt-[140px]">
         <div id="konten" className="relative mx-auto grid max-w-7xl items-start gap-8 px-4 pb-12 pt-2 md:pb-14 lg:grid-cols-5">
           <div className="lg:col-span-3">
-            <a href="/#jalur" className="font-mono text-[12px] text-white/50 underline decoration-white/25 underline-offset-4 hover:text-white">← Katalog jalur</a>
-            <p className="eyebrow-dark mt-6">Learning Path · {p.level}</p>
-            <h1 className="mt-4 max-w-[18ch] text-4xl font-extrabold leading-[1.05] md:text-6xl">{p.title}</h1>
-            <p className="mt-3 max-w-[30ch] text-[15px] font-bold text-amber-200">{p.goal}</p>
-            <p className="mt-2 max-w-[52ch] text-[15px] leading-relaxed text-white/60">{p.desc}</p>
-            <p className="tnum mt-4 font-mono text-[13px] text-white/45">{p.salary} · {p.weeks}</p>
+            <a href="/#peran" className="font-mono text-[12px] text-muted underline decoration-line underline-offset-4 hover:text-ink">← Pilih peran</a>
+            <p className="eyebrow-light mt-6">Jalur Peran · {p.level}</p>
+            <h1 className="mt-4 max-w-[18ch] text-4xl font-extrabold leading-[1.05] tracking-tight md:text-6xl">{p.title}</h1>
+            <p className="mt-3 max-w-[30ch] text-[15px] font-bold text-amber-700">{p.goal}</p>
+            <p className="mt-2 max-w-[52ch] text-[15px] leading-relaxed text-soft">{p.desc}</p>
+            <p className="tnum mt-4 font-mono text-[13px] text-muted">{p.salary} · {p.weeks}</p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <a href="/id/auth/daftar" className="btn-amber group">
                 Mulai Gratis
                 <span className="btn-island btn-island-dark" aria-hidden>↗</span>
               </a>
-              <a href="/id/belajar/js-dasar-analis" className="btn-dark">Coba Lab Demo</a>
+              <a href="/id/belajar/js-dasar-analis" className="btn-ghost">Coba Lab Demo</a>
             </div>
           </div>
           <aside className="lg:col-span-2">
-            <div className="glass-dark p-6">
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/45">Yang kamu dapat</p>
-              <ul className="mt-3 space-y-2.5 text-sm text-white/75">
+            <div className="glass-light p-6">
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-faint">Yang kamu dapat</p>
+              <ul className="mt-3 space-y-2.5 text-sm text-soft">
                 <li>✓ {p.stages.length} tahap terstruktur</li>
                 <li>✓ {p.skills.length} skill terukur di Skill Graph</li>
                 <li>✓ 1 proyek portofolio + sertifikat QR</li>
                 <li>✓ Simulasi interview + Bright AI</li>
               </ul>
-              <p className="mt-4 rounded-[12px] bg-amber-400/12 px-3.5 py-2.5 font-mono text-[11px] text-amber-300">Gratis mulai · Plus untuk sertifikat</p>
+              <p className="mt-4 rounded-[12px] bg-amber-400/20 px-3.5 py-2.5 font-mono text-[11px] text-amber-700">Gratis mulai · Plus untuk sertifikat</p>
             </div>
           </aside>
         </div>

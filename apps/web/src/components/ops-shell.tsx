@@ -1,4 +1,4 @@
-// Cerah v2 shell for ops dashboards — dark header + panel cards.
+// Jakarta Light shell for ops dashboards — light header + panel cards.
 import type { ReactNode } from "react";
 
 export function OpsShell({
@@ -6,13 +6,12 @@ export function OpsShell({
 }: { eyebrow: string; title: string; desc: string; children: ReactNode }) {
   return (
     <main className="min-h-[100dvh] bg-paper text-ink">
-      <section className="hero-dark relative overflow-hidden pt-[140px] text-white">
-        <div className="aurora-blob" aria-hidden />
+      <section className="hero-light relative overflow-hidden border-b border-line pt-[140px]">
         <div className="relative mx-auto max-w-7xl px-4 pb-10">
-          <a href="/" className="font-mono text-[12px] text-white/50 underline decoration-white/25 underline-offset-4 hover:text-white">← Beranda</a>
-          <p className="eyebrow-dark mt-6">{eyebrow}</p>
+          <a href="/" className="font-mono text-[12px] text-muted underline decoration-line underline-offset-4 hover:text-ink">← Beranda</a>
+          <p className="eyebrow-light mt-6">{eyebrow}</p>
           <h1 className="mt-3 text-4xl font-extrabold tracking-tight md:text-5xl">{title}</h1>
-          <p className="mt-3 max-w-[62ch] text-[14px] leading-relaxed text-white/60">{desc}</p>
+          <p className="mt-3 max-w-[62ch] text-[14px] leading-relaxed text-soft">{desc}</p>
         </div>
       </section>
       <div className="mx-auto max-w-7xl px-4 py-8">{children}</div>

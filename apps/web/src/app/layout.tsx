@@ -1,32 +1,43 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Plus_Jakarta_Sans, IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-// Light OS system: Jakarta Sans display + body (designed for Indonesian,
-// legible on cheap Androids), Plex Mono for codes + figures. No serif.
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
+// Jakarta Light concept: Plus Jakarta Sans (400–800) + IBM Plex Mono —
+// both self-hosted, zero Google Fonts downloads (offline/Termux-safe).
+const jakarta = localFont({
+  src: [
+    { path: "../../public/fonts/PlusJakartaSans-Regular.ttf", weight: "400", style: "normal" },
+    { path: "../../public/fonts/PlusJakartaSans-Medium.ttf", weight: "500", style: "normal" },
+    { path: "../../public/fonts/PlusJakartaSans-SemiBold.ttf", weight: "600", style: "normal" },
+    { path: "../../public/fonts/PlusJakartaSans-Bold.ttf", weight: "700", style: "normal" },
+    { path: "../../public/fonts/PlusJakartaSans-ExtraBold.ttf", weight: "800", style: "normal" },
+  ],
   variable: "--font-jakarta",
   display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
+  fallback: ["ui-sans-serif", "system-ui", "-apple-system", "sans-serif"],
 });
-const plex = IBM_Plex_Mono({
-  subsets: ["latin"],
+
+const plex = localFont({
+  src: [
+    { path: "../../public/fonts/IBMPlexMono-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../../public/fonts/IBMPlexMono-Medium.woff2", weight: "500", style: "normal" },
+    { path: "../../public/fonts/IBMPlexMono-SemiBold.woff2", weight: "600", style: "normal" },
+  ],
   variable: "--font-plex",
   display: "swap",
-  weight: ["400", "500", "600"],
+  fallback: ["ui-monospace", "SFMono-Regular", "monospace"],
 });
 
 export const metadata: Metadata = {
-  title: "SuperBright — Dari Belajar Jadi Bisa",
+  title: "SuperBright — Mau Jadi Apa Setelah Lulus?",
   description:
-    "Pilih tujuanmu: dapat kerja, naik level, mulai usaha. Kuasai skill praktis konteks Indonesia dengan Bright AI, sampai portofolio dan sertifikat terverifikasi.",
+    "Pilih peran impianmu. Ikuti jalur selaras SKKNI, kerjakan asesmen yang dinilai AI sampai portofolio dan sertifikat terverifikasi.",
   metadataBase: new URL("https://careerbright.id"),
   openGraph: {
-    title: "SuperBright — Dari Belajar Jadi Bisa",
+    title: "SuperBright — Mau Jadi Apa Setelah Lulus?",
     description:
-      "Skill praktis konteks Indonesia: jalur tujuan, Bright AI, proyek nyata, portofolio publik, sertifikat terverifikasi.",
+      "Pilih peran, ikuti jalur SKKNI, bangun portofolio, raih sertifikat terverifikasi.",
     type: "website",
     locale: "id_ID",
   },

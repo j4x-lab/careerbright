@@ -73,21 +73,20 @@ export default async function BelajarPage({ params }: { params: Promise<{ slug: 
     <main className="overflow-x-clip bg-paper text-ink">
       <a href="#konten" className="skip-link">Lewati ke konten</a>
 
-      {/* Course header v2 — dark */}
-      <section className="hero-dark relative overflow-hidden pt-[140px] text-white">
-        <div className="aurora-blob" aria-hidden />
+      {/* Course header — light */}
+      <section className="hero-light relative overflow-hidden pt-[140px]">
         <div id="konten" className="relative mx-auto max-w-7xl px-4 pb-12">
-          <a href="/#jalur" className="font-mono text-[12px] text-white/50 underline decoration-white/25 underline-offset-4 hover:text-white">← Katalog</a>
+          <a href="/#peran" className="font-mono text-[12px] text-muted underline decoration-line underline-offset-4 hover:text-ink">← Pilih peran</a>
           <div className="mt-6 flex flex-wrap gap-2">
             {[meta.level, meta.duration, "Bahasa Indonesia", "Sertifikat ✓", "Proyek ✓"].map((c) => (
-              <span key={c} className="rounded-full border border-white/12 bg-white/6 px-3.5 py-1.5 font-mono text-[11px] text-white/70">{c}</span>
+              <span key={c} className="chip font-mono !text-[11px]">{c}</span>
             ))}
           </div>
-          <h1 className="mt-4 max-w-[20ch] text-4xl font-extrabold leading-tight md:text-6xl">{course.title}</h1>
-          <p className="mt-3 max-w-[60ch] text-[15px] leading-relaxed text-white/60">
+          <h1 className="mt-4 max-w-[20ch] text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">{course.title}</h1>
+          <p className="mt-3 max-w-[60ch] text-[15px] leading-relaxed text-soft">
             Belajar sambil membangun: tiap pelajaran berakhir di kuis atau lab yang dinilai otomatis.
           </p>
-          <p className="mt-3 font-mono text-[11px] text-white/40">Tim SuperBright · Terverifikasi · Diperbarui {meta.updated}</p>
+          <p className="mt-3 font-mono text-[11px] text-faint">Tim SuperBright · Terverifikasi · Diperbarui {meta.updated}</p>
 
           <figure className="photo-cine mt-8 aspect-[21/9]">
               <img
@@ -105,26 +104,26 @@ export default async function BelajarPage({ params }: { params: Promise<{ slug: 
           </figure>
 
           <div className="mt-4 grid items-start gap-4 lg:grid-cols-2">
-            <div className="rounded-[24px] border border-amber-300/30 bg-amber-400/10 p-6 backdrop-blur">
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-amber-300">Yang akan kamu bangun</p>
-              <p className="mt-2 text-[15px] font-extrabold leading-relaxed">{meta.project}</p>
+            <div className="rounded-[24px] border border-amber-600/25 bg-amber-50 p-6">
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-amber-700">Yang akan kamu bangun</p>
+              <p className="mt-2 text-[15px] font-extrabold leading-relaxed tracking-tight">{meta.project}</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {meta.skills.map((s) => (
-                  <span key={s} className="rounded-full border border-white/12 bg-white/6 px-3 py-1.5 font-mono text-[11px] text-white/70">{s}</span>
+                  <span key={s} className="chip font-mono !text-[11px]">{s}</span>
                 ))}
               </div>
             </div>
-            <div className="glass-dark p-6">
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/45">Isi kursus</p>
+            <div className="rounded-[24px] border border-line bg-white p-6 shadow-[0_24px_64px_-32px_rgba(10,15,30,0.22)]">
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-faint">Isi kursus</p>
               <ul className="mt-3 flex flex-wrap gap-2">
                 {EXPERIENCE.map((e) => (
-                  <li key={e} className="flex items-center gap-2 rounded-full border border-white/12 bg-white/6 px-3.5 py-1.5 text-[13px] text-white/75">
-                    <span aria-hidden className="font-mono text-[11px] font-bold text-amber-300">✓</span>{e}
+                  <li key={e} className="flex items-center gap-2 rounded-full border border-line bg-paper px-3.5 py-1.5 text-[13px] text-soft">
+                    <span aria-hidden className="font-mono text-[11px] font-bold text-brand-700">✓</span>{e}
                   </li>
                 ))}
               </ul>
-              <p className="mt-3 rounded-[12px] bg-white/6 px-3.5 py-2.5 text-[13px] text-white/65">
-                Stuck? Tanya <strong className="text-white">Bright AI</strong> — terikat materi, bukan chatbot bebas.
+              <p className="mt-3 rounded-[12px] bg-paper px-3.5 py-2.5 text-[13px] text-soft">
+                Stuck? Tanya <strong className="text-ink">Bright AI</strong> — terikat materi, bukan chatbot bebas.
               </p>
             </div>
           </div>

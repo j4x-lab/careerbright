@@ -69,28 +69,27 @@ export function AuthForm({ mode }: { mode: "in" | "up" }) {
   return (
     <div className="grid min-h-[100dvh] bg-paper text-ink md:grid-cols-2">
       {/* brand panel */}
-      <div className="hero-dark relative hidden overflow-hidden text-white md:block">
-        <div className="aurora-blob" aria-hidden />
+      <div className="hero-light relative hidden overflow-hidden border-r border-line md:block">
         <div className="relative flex h-full flex-col justify-between p-10">
           <a href="/" className="flex items-center gap-2.5">
             <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 font-mono text-[13px] font-bold text-white">SB</span>
-            <span className="text-[15px] font-extrabold tracking-tight">SUPER<span className="text-amber-300">BRIGHT</span></span>
+            <span className="text-[15px] font-extrabold tracking-tight">SUPER<span className="text-brand-700">BRIGHT</span></span>
           </a>
           <div>
-            <p className="eyebrow-dark">Dari Belajar Jadi Bisa</p>
-            <p className="mt-3 max-w-[20ch] text-4xl font-extrabold leading-[1.05]">
+            <p className="eyebrow-light">Mau jadi apa setelah lulus?</p>
+            <p className="mt-3 max-w-[20ch] text-4xl font-extrabold leading-[1.05] tracking-tight">
               Malam ini 15 menit. Bulan depan portofolio.
             </p>
-            <div className="mt-6 grid grid-cols-3 gap-4 border-t border-white/10 pt-6">
-              {[["50–100", "kursus inti"], ["7", "pilar"], ["ID/EN", "bilingual"]].map(([v, l]) => (
+            <div className="mt-6 grid grid-cols-3 gap-4 border-t border-line pt-6">
+              {[["25+", "peran"], ["7", "kategori"], ["ID/EN", "bilingual"]].map(([v, l]) => (
                 <div key={l}>
-                  <p className="tnum font-mono text-xl font-bold text-amber-300">{v}</p>
-                  <p className="mt-0.5 font-mono text-[11px] text-white/50">{l}</p>
+                  <p className="tnum font-mono text-xl font-bold text-brand-700">{v}</p>
+                  <p className="mt-0.5 font-mono text-[11px] text-muted">{l}</p>
                 </div>
               ))}
             </div>
           </div>
-          <p className="font-mono text-[11px] text-white/40">Data di Jakarta · QRIS / GoPay / VA · WA ID/EN</p>
+          <p className="font-mono text-[11px] text-faint">Data di Jakarta · QRIS / GoPay / VA · WA ID/EN</p>
         </div>
       </div>
 

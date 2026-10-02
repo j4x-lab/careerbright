@@ -3,20 +3,21 @@ import { SiteNav, SiteFooter } from "@/components/site-chrome";
 import { PX } from "@/lib/visual";
 
 /*
- * Cerah v2 “Midnight Paper” — full redesign.
- * Dark cinematic hero → warm paper body → dark konteks band → dark footer.
- * 10 sections: hero / marquee / goals / pillars / kasus / jalur / konteks / AI / bukti+outcomes / pricing+FAQ.
- * Anchors preserved: #tujuan #jalur #kasus #konteks #ai #bukti #harga #organisasi #konten
+ * Jakarta Light concept — full light mode, Plus Jakarta Sans + Plex Mono self-hosted.
+ * Role-first: hero role question → 7-category role chooser → pillars → kasus →
+ * peran paths (Akuntan + UMKM) → konteks light band → AI → bukti → pricing → CTA.
+ * Anchors: #peran #jalur #kasus #konteks #ai #bukti #harga #organisasi #konten
  * Shape lock v2: buttons 14px · cards 24px · media 20px · inputs 12px.
  */
 
-const GOALS = [
-  { h: "Dapat Kerja Baru", d: "CV, portofolio, interview, tes teknis sampai tawaran pertama.", m: "Rina · 22 · fresh graduate", salary: "IDR 7–18 jt", big: true },
-  { h: "Naikkan Skill", d: "Level terukur per skill — bukan jam nonton.", m: "Frontend Lv 3 → Lv 5", salary: "+38% gaji", big: true },
-  { h: "Mulai Usaha", d: "UMKM digital end-to-end, 10 modul.", m: "Kopi Bandung fiktif", salary: "Omzet", big: false },
-  { h: "Kuasai Teknologi", d: "Web, AI, data, cloud, security.", m: "50+ kursus inti", salary: "IDR 8–25 jt", big: false },
-  { h: "Jadi Leader", d: "Manajemen, komunikasi, negosiasi.", m: "Simulasi workplace", salary: "Manager track", big: false },
-  { h: "Tumbuh Pribadi", d: "Finansial, produktivitas, literasi digital.", m: "Bahasa Indonesia", salary: "Seumur hidup", big: false },
+const ROLES = [
+  { h: "Tech & Digital", d: "Data Analyst · SOC Analyst · selaras SKKNI, 4–6 bulan.", m: "Jalur: Data Analyst", salary: "IDR 7–18 jt", href: "/id/paths/data-analyst", big: true },
+  { h: "Keuangan & Akuntansi", d: "Akuntan Junior (Pajak) · SKKNI M.691090, KKNI 6, 24 minggu.", m: "Jalur: Akuntan Junior", salary: "IDR 6–9 jt", href: "/id/paths/junior-accountant", big: true },
+  { h: "Marketing & Kreatif", d: "Performance Marketing · SKKNI 124/2022, live commerce.", m: "10 modul · fleksibel", salary: "IDR 6–12 jt", href: "/id/paths/umkm-digital-entrepreneur", big: false },
+  { h: "Sales & BD", d: "B2B Sales · Partnerships · Account Management.", m: "Simulasi pitching", salary: "IDR 5–12 jt+", href: "/id/katalog", big: false },
+  { h: "Manajemen Proyek", d: "IT PM · Digital PM · CAPM → PMP/PSM.", m: "Kampus & perusahaan", salary: "IDR 8–20 jt", href: "/id/katalog", big: false },
+  { h: "Green & ESG", d: "EHS/HSE · ESG Analyst · energi terbarukan.", m: "Demand +54%", salary: "IDR 7–15 jt", href: "/id/katalog", big: false },
+  { h: "Mining & Energi", d: "Mining Coordinator · HSE · geoteknik.", m: "Nikel & alat berat", salary: "IDR 8–18 jt", href: "/id/katalog", big: false },
 ];
 
 const PILLARS = [
@@ -29,12 +30,11 @@ const PILLARS = [
   { n: "07", h: "Local Context", d: "QRIS, pajak, hierarki, regulasi — ber-tanggal." },
 ];
 
-const FE_PATH = [
-  ["Beginner", "HTML → CSS → JavaScript", "Video · Bacaan · Kuis"],
-  ["Intermediate", "TypeScript → React → API → Git", "Lab kode · Simulasi"],
-  ["Advanced", "Testing → Arsitektur → Deployment", "Proyek · Review AI"],
-  ["Portofolio", "Website bisnis Indonesia asli", "Fiktif · Tanpa afiliasi"],
-  ["Karier", "CV → Interview → Tes teknis", "Simulator HR"],
+const ACC_PATH = [
+  ["Fase 1", "Dasar Akuntansi Keuangan", "Video · Kuis"],
+  ["Fase 2", "Pajak Badan & e-Faktur", "Simulasi e-Faktur"],
+  ["Fase 3", "Pelaporan PSAK/IFRS", "Studi kasus"],
+  ["Capstone", "SPT Klien Mock + Asesmen AI", "Portofolio"],
 ];
 const UMKM_PATH = ["Bisnis dasar", "Riset pelanggan", "Branding", "Marketplace", "Sosmed", "Iklan digital", "Akuntansi", "Pajak dasar", "AI bisnis", "Analitik"];
 
@@ -56,98 +56,97 @@ export default function HomePage() {
       <a href="#konten" className="skip-link">Lewati ke konten</a>
       <SiteNav />
 
-      {/* ── 1 · HERO DARK ─────────────────────────────────── */}
-      <section className="hero-dark relative overflow-hidden pt-[140px] text-white">
-        <div className="aurora-blob" aria-hidden />
-        <div className="grid-dark absolute inset-0" aria-hidden />
+      {/* ── 1 · HERO LIGHT ────────────────────────────────── */}
+      <section className="hero-light relative overflow-hidden pt-[140px]">
+        <div className="aurora-blob opacity-60" aria-hidden />
+        <div className="grid-light absolute inset-0" aria-hidden />
         <div id="konten" className="relative mx-auto grid w-full max-w-7xl items-center gap-12 px-4 pb-14 pt-6 lg:grid-cols-2">
           <div>
-            <p className="hero-enter hero-enter-1 eyebrow-dark">
-              Belajar · Berkembang · Jadi Lebih Bright
+            <p className="hero-enter hero-enter-1 eyebrow-light">
+              SKKNI · KKNI · Dinilai AI
             </p>
-            <h1 className="hero-enter hero-enter-2 mt-5 max-w-[14ch] text-5xl font-extrabold leading-[1.02] md:text-7xl">
-              Dari Belajar <span className="bg-gradient-to-r from-amber-300 via-orange-300 to-amber-200 bg-clip-text text-transparent">Jadi Bisa.</span>
+            <h1 className="hero-enter hero-enter-2 mt-5 max-w-[14ch] text-5xl font-extrabold leading-[1.02] tracking-tight md:text-7xl">
+              Mau jadi apa <span className="text-brand-700">setelah lulus?</span>
             </h1>
-            <p className="hero-enter hero-enter-3 mt-5 max-w-[48ch] text-[15px] leading-relaxed text-white/65 md:text-base">
-              Pilih tujuanmu — dapat kerja, naik level, mulai usaha. Kuasai skill praktis
-              konteks Indonesia dengan Bright AI, sampai portofolio dan sertifikat terverifikasi.
+            <p className="hero-enter hero-enter-3 mt-5 max-w-[48ch] text-[15px] leading-relaxed text-soft md:text-base">
+              Pilih peran impianmu. Ikuti jalur selaras SKKNI, kerjakan asesmen yang dinilai AI.
             </p>
             <div className="hero-enter hero-enter-3 mt-7 flex flex-wrap items-center gap-3">
-              <a href="/id/auth/daftar" className="btn-amber group">
-                Mulai Gratis
+              <a href="#peran" className="btn-amber group">
+                Pilih Peranmu
                 <span className="btn-island btn-island-dark" aria-hidden>↗</span>
               </a>
-              <a href="#tujuan" className="btn-dark">Pilih Tujuan</a>
+              <a href="#pilar" className="btn-ghost">Lihat Cara Kerja</a>
             </div>
-            <dl className="hero-enter hero-enter-4 mt-9 grid grid-cols-3 gap-6 border-t border-white/10 pt-6">
+            <dl className="hero-enter hero-enter-4 mt-9 grid grid-cols-3 gap-6 border-t border-line pt-6">
               {[
-                ["50–100", "kursus inti peluncuran"],
+                ["25+", "peran siap dilamar"],
                 ["4–6 bln", "nol → siap lamar"],
-                ["7", "pilar Learn → Konteks"],
+                ["7", "kategori peran SKKNI"],
               ].map(([v, l]) => (
                 <div key={l}>
-                  <dt className="tnum font-mono text-2xl font-bold text-white md:text-3xl">{v}</dt>
-                  <dd className="mt-1 text-[12px] leading-snug text-white/50">{l}</dd>
+                  <dt className="tnum font-mono text-2xl font-bold text-ink md:text-3xl">{v}</dt>
+                  <dd className="mt-1 text-[12px] leading-snug text-muted">{l}</dd>
                 </div>
               ))}
             </dl>
           </div>
 
           <div className="hero-enter hero-enter-4">
-            <div className="glass-dark overflow-hidden" role="img" aria-label="Konsol SuperBright: Bright AI menjelaskan API, skill 87, siap terbit">
-              <div className="flex items-center gap-2 border-b border-white/10 px-5 py-3.5">
+            <div className="glass-light overflow-hidden" role="img" aria-label="Konsol SuperBright: Bright AI menjelaskan JOIN, skor 87, siap terbit">
+              <div className="flex items-center gap-2 border-b border-line px-5 py-3.5">
                 <span className="live-dot" aria-hidden />
-                <span className="font-mono text-[11px] text-white/60">SuperBright Console · live</span>
+                <span className="font-mono text-[11px] text-muted">SuperBright Console · live</span>
                 <span className="ml-auto hidden gap-2 font-mono text-[11px] sm:flex">
-                  <span className="rounded-md bg-amber-400/15 px-2 py-0.5 text-amber-300">Bright AI</span>
-                  <span className="px-2 py-0.5 text-white/40">Jalur</span>
-                  <span className="px-2 py-0.5 text-white/40">Portofolio</span>
+                  <span className="rounded-md bg-amber-400/20 px-2 py-0.5 text-amber-700">Bright AI</span>
+                  <span className="px-2 py-0.5 text-faint">Jalur</span>
+                  <span className="px-2 py-0.5 text-faint">Portofolio</span>
                 </span>
               </div>
               <div className="grid sm:grid-cols-5">
-                <div className="border-b border-white/10 p-5 sm:col-span-3 sm:border-b-0 sm:border-r">
-                  <p className="font-mono text-xs text-white/50">bright-ai · “Saya tidak mengerti API.”</p>
-                  <p className="mt-2.5 rounded-2xl border border-white/10 bg-white/6 p-3.5 text-[13px] leading-relaxed text-white/75">
-                    Anggap API seperti kasir restoran: kamu pesan, dapur proses, kasir antar.
-                    Lanjutan: REST API · 12 mnt · lab otomatis.
+                <div className="border-b border-line p-5 sm:col-span-3 sm:border-b-0 sm:border-r">
+                  <p className="font-mono text-xs text-muted">bright-ai · “Saya tidak mengerti JOIN.”</p>
+                  <p className="mt-2.5 rounded-2xl border border-line bg-paper p-3.5 text-[13px] leading-relaxed text-soft">
+                    Anggap SQL JOIN seperti saringan kopi: dua tabel masuk, satu hasil keluar.
+                    Lanjutan: SQL dasar · 12 mnt · lab otomatis.
                   </p>
                   <div className="mt-5 space-y-3.5">
-                    {[["JavaScript", "92%"], ["TypeScript", "74%"], ["React", "61%"]].map(([k, v]) => (
+                    {[["SQL", "86%"], ["Excel", "78%"], ["Power BI", "64%"]].map(([k, v]) => (
                       <div key={k}>
                         <div className="flex justify-between font-mono text-[11px]">
-                          <span className="text-white/50">{k}</span>
-                          <span className="tnum font-bold text-amber-300">{v}</span>
+                          <span className="text-muted">{k}</span>
+                          <span className="tnum font-bold text-amber-700">{v}</span>
                         </div>
-                        <div className="bar-track bar-track-dark mt-1.5"><div className="bar-fill bar-fill-amber" style={{ width: v }} /></div>
+                        <div className="bar-track mt-1.5"><div className="bar-fill bar-fill-amber" style={{ width: v }} /></div>
                       </div>
                     ))}
                   </div>
                 </div>
                 <div className="p-5 sm:col-span-2">
-                  <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/40">Skill berikutnya</p>
-                  <p className="mt-2 text-[15px] font-bold">Automated testing</p>
-                  <p className="mt-1 font-mono text-[11px] leading-relaxed text-white/45">Skill Graph · 4–6 bulan</p>
-                  <p className="tnum mt-3 font-mono text-4xl font-bold text-amber-300">87</p>
-                  <p className="mt-1 text-[13px] font-semibold text-emerald-300">KOMPETEN · QR siap</p>
-                  <a href="#ai" className="mt-4 inline-block font-mono text-[12px] text-white/60 underline decoration-white/25 underline-offset-4 hover:text-white">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-faint">Skill berikutnya</p>
+                  <p className="mt-2 text-[15px] font-bold">Dasbor Power BI</p>
+                  <p className="mt-1 font-mono text-[11px] leading-relaxed text-muted">Jalur Data Analyst · 4–6 bulan</p>
+                  <p className="tnum mt-3 font-mono text-4xl font-bold text-brand-700">87</p>
+                  <p className="mt-1 text-[13px] font-semibold text-ok">KOMPETEN · QR siap</p>
+                  <a href="#ai" className="mt-4 inline-block font-mono text-[12px] text-brand-700 underline decoration-brand-700/30 underline-offset-4 hover:text-brand-600">
                     Lihat cara AI menilai →
                   </a>
                 </div>
               </div>
             </div>
-            <p className="mt-3 text-center font-mono text-[11px] text-white/35">
+            <p className="mt-3 text-center font-mono text-[11px] text-faint">
               Skor live dari lab demo · tanpa kartu kredit
             </p>
           </div>
         </div>
 
         {/* marquee */}
-        <div className="relative border-t border-white/10 bg-black/20">
+        <div className="relative border-t border-line bg-white">
           <div className="marquee-mask overflow-hidden py-4">
             <div className="marquee-track items-center gap-10 pr-10" aria-hidden>
               {[...HIRING, ...HIRING].map(([slug, name], i) => (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img key={slug + i} src={`https://cdn.simpleicons.org/${slug}/FFFFFF`} alt="" width={24} height={24} loading="lazy" className="opacity-45" title={name} />
+                <img key={slug + i} src={`https://cdn.simpleicons.org/${slug}/0A0F1E`} alt="" width={24} height={24} loading="lazy" className="opacity-40" title={name} />
               ))}
             </div>
           </div>
@@ -155,19 +154,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 2 · GOALS ─────────────────────────────────────── */}
-      <section id="tujuan" className="mx-auto max-w-7xl scroll-mt-32 px-4 py-16 md:py-24">
+      {/* ── 2 · PERAN ─────────────────────────────────────── */}
+      <section id="peran" className="mx-auto max-w-7xl scroll-mt-32 px-4 py-16 md:py-24">
         <Reveal>
-          <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">Mulai dari tujuan</p>
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">Mulai dari peran</p>
           <h2 className="mt-3 max-w-[20ch] text-4xl font-extrabold md:text-5xl">Halo, mau jadi apa?</h2>
           <p className="mt-3 max-w-[60ch] text-[15px] leading-relaxed text-soft">
-            Bukan “kursus apa?” tapi “mau mencapai apa?” Pilih satu — kami susun jalur, proyek, dan bukti sampai siap.
+            Bukan “kursus apa?” tapi “mau jadi siapa?” Pilih peran — kami susun jalur, proyek, dan bukti sampai siap.
           </p>
         </Reveal>
         <div className="mt-9 grid grid-cols-1 gap-4 md:grid-cols-12">
-          {GOALS.map((g, i) => (
-            <Reveal key={g.h} delay={(i % 4) * 60} className={g.big ? "md:col-span-6" : "md:col-span-3"}>
-              <a href="#jalur" className={`spot group flex h-full flex-col justify-between overflow-hidden rounded-[24px] border border-line p-6 md:p-7 ${g.big ? "bg-ink text-white" : "bg-white"}`}>
+          {ROLES.map((g, i) => (
+            <Reveal key={g.h} delay={(i % 4) * 60} className={g.big ? "md:col-span-6" : "md:col-span-4"}>
+              <a href={g.href} className={`spot group flex h-full flex-col justify-between overflow-hidden rounded-[24px] border border-line p-6 md:p-7 ${g.big ? "bg-ink text-white" : "bg-white"}`}>
                 <div>
                   <p className={`card-num ${g.big ? "!bg-white/10 !text-amber-300" : ""}`}>{g.salary}</p>
                   <p className={`mt-3 text-xl font-extrabold tracking-tight ${g.big ? "text-white" : "group-hover:text-brand-700"}`}>{g.h}</p>
@@ -265,18 +264,18 @@ export default function HomePage() {
       {/* ── 5 · JALUR ─────────────────────────────────────── */}
       <section id="jalur" className="mx-auto max-w-7xl scroll-mt-28 px-4 py-16 md:py-24">
         <Reveal>
-          <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">Jalur terstruktur</p>
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">Jalur per peran</p>
           <h2 className="mt-3 max-w-[24ch] text-4xl font-extrabold md:text-5xl">Jalur jelas, proyek Indonesia asli.</h2>
-          <p className="mt-3 max-w-[62ch] text-[15px] text-soft">Setiap jalur berakhir di portofolio dan persiapan karier — bukan sekadar tontonan.</p>
+          <p className="mt-3 max-w-[62ch] text-[15px] text-soft">Setiap peran punya jalur berakhir di portofolio dan persiapan karier — bukan sekadar tontonan.</p>
         </Reveal>
         <div className="mt-9 grid items-start gap-4 lg:grid-cols-2">
           <Reveal>
             <div className="panel overflow-hidden">
               <div className="flex items-center justify-between bg-ink px-6 py-4 text-white">
-                <span className="text-[15px] font-extrabold">Become a Frontend Developer</span>
-                <span className="rounded-full bg-amber-400/15 px-3 py-1 font-mono text-[11px] text-amber-300">4–6 bln</span>
+                <span className="text-[15px] font-extrabold">Akuntan Junior (Fokus Pajak)</span>
+                <span className="rounded-full bg-amber-400/15 px-3 py-1 font-mono text-[11px] text-amber-300">24 minggu</span>
               </div>
-              {FE_PATH.map(([stage, items, fmt], i) => (
+              {ACC_PATH.map(([stage, items, fmt], i) => (
                 <div key={stage} className={`flex items-start gap-4 px-6 py-4 ${i > 0 ? "border-t border-line" : ""}`}>
                   <span className="card-num mt-0.5">{String(i + 1).padStart(2, "0")}</span>
                   <div>
@@ -287,7 +286,7 @@ export default function HomePage() {
                 </div>
               ))}
               <div className="border-t border-line bg-paper px-6 py-4">
-                <a href="/id/paths/frontend-developer" className="link-more">Lihat silabus lengkap →</a>
+                <a href="/id/paths/junior-accountant" className="link-more">Lihat silabus lengkap →</a>
               </div>
             </div>
           </Reveal>
@@ -313,28 +312,27 @@ export default function HomePage() {
           </Reveal>
         </div>
         <Reveal delay={120}>
-          <a href="/id/katalog" className="link-more mt-8 inline-block">Cari 6 kursus + 5 jalur di Katalog →</a>
+          <a href="/id/katalog" className="link-more mt-8 inline-block">Pilih peranmu di Katalog →</a>
         </Reveal>
       </section>
 
-      {/* ── 6 · KONTEKS (dark band) ───────────────────────── */}
-      <section id="konteks" className="hero-dark relative scroll-mt-28 overflow-hidden text-white">
-        <div className="aurora-blob" aria-hidden />
+      {/* ── 6 · KONTEKS (light band) ───────────────────────── */}
+      <section id="konteks" className="relative scroll-mt-28 overflow-hidden border-y border-line bg-white">
         <div className="relative mx-auto max-w-7xl px-4 py-16 md:py-24">
           <Reveal>
-            <p className="eyebrow-dark">Konteks Indonesia</p>
-            <h2 className="mt-3 max-w-[22ch] text-4xl font-extrabold md:text-5xl">Global diajarkan, Indonesia dijelaskan.</h2>
-            <p className="mt-3 max-w-[54ch] text-[15px] text-white/60">Lapisan konteks di tiap kursus: pembayaran lokal, regulasi ber-tanggal, hierarki, kasus nyata.</p>
+            <p className="eyebrow-light">Konteks Indonesia</p>
+            <h2 className="mt-3 max-w-[22ch] text-4xl font-extrabold tracking-tight md:text-5xl">Global diajarkan, Indonesia dijelaskan.</h2>
+            <p className="mt-3 max-w-[54ch] text-[15px] text-soft">Lapisan konteks di tiap peran: pembayaran lokal, regulasi ber-tanggal, hierarki, kasus nyata.</p>
           </Reveal>
           <Reveal delay={80}>
-            <div className="glass-dark mt-8 p-6 md:p-7">
+            <div className="mt-8 rounded-[24px] border border-line bg-paper p-6 md:p-7">
               <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <p className="text-base font-extrabold">Product Management — Indonesian Market</p>
-                <p className="font-mono text-[11px] text-white/45">Lapisan konteks · 8 modul</p>
+                <p className="text-base font-extrabold tracking-tight">Product Management — Indonesian Market</p>
+                <p className="font-mono text-[11px] text-faint">Lapisan konteks · 8 modul</p>
               </div>
               <div className="mt-4 flex flex-wrap gap-2">
                 {["Perilaku konsumen", "QRIS & VA", "Regulasi", "Marketplace lokal", "Hierarki bisnis", "Riset user ID", "Pricing lokal", "Studi kasus ID"].map((t) => (
-                  <span key={t} className="rounded-full border border-white/12 bg-white/6 px-3.5 py-1.5 text-[13px] text-white/75">{t}</span>
+                  <span key={t} className="chip">{t}</span>
                 ))}
               </div>
             </div>
@@ -347,10 +345,10 @@ export default function HomePage() {
               ["04", "Budaya & Harian", "Keuangan pribadi, scam online, data pribadi."],
             ].map(([n, h, d], i) => (
               <Reveal key={h} delay={i * 60}>
-                <div className="h-full rounded-[24px] border border-white/10 bg-white/5 p-6 backdrop-blur">
-                  <p className="font-mono text-xs font-bold text-amber-300">{n}</p>
-                  <p className="mt-2 text-[15px] font-extrabold">{h}</p>
-                  <p className="mt-1 text-[13px] leading-relaxed text-white/60">{d}</p>
+                <div className="h-full rounded-[24px] border border-line bg-paper p-6">
+                  <p className="font-mono text-xs font-bold text-brand-700">{n}</p>
+                  <p className="mt-2 text-[15px] font-extrabold tracking-tight">{h}</p>
+                  <p className="mt-1 text-[13px] leading-relaxed text-soft">{d}</p>
                 </div>
               </Reveal>
             ))}
@@ -381,11 +379,11 @@ export default function HomePage() {
           <Reveal delay={100}>
             <div className="panel p-6 md:p-8">
               <div className="flex items-center justify-between">
-                <p className="font-mono text-[11px] text-soft">Skill graph · Frontend Development</p>
+                <p className="font-mono text-[11px] text-soft">Skill graph · Data Analytics</p>
                 <span className="flex items-center gap-1.5 rounded-full bg-ok-bg px-2.5 py-1 font-mono text-[11px] font-bold text-ok"><span className="live-dot" /> live</span>
               </div>
               <div className="mt-5 space-y-4">
-                {[["JavaScript", "Advanced", "92%"], ["TypeScript", "Intermediate", "74%"], ["React", "Intermediate", "61%"], ["Git", "Intermediate", "58%"], ["API", "Beginner", "34%"]].map(([k, lv, v]) => (
+                {[["Excel", "Mahir", "86%"], ["SQL", "Menengah", "78%"], ["Power BI", "Menengah", "64%"], ["Python", "Menengah", "58%"], ["Interview", "Pemula", "34%"]].map(([k, lv, v]) => (
                   <div key={k}>
                     <div className="flex justify-between text-[13px]">
                       <span className="font-bold">{k} <span className="ml-1 font-mono text-[11px] font-normal text-muted">{lv}</span></span>
@@ -395,7 +393,7 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-              <p className="mt-5 rounded-[14px] bg-brand-50 px-4 py-3 text-[13px] text-soft"><strong className="text-ink">Rekomendasi:</strong> automated testing — proyek dashboard keuangan, estimasi 3 minggu.</p>
+              <p className="mt-5 rounded-[14px] bg-brand-50 px-4 py-3 text-[13px] text-soft"><strong className="text-ink">Rekomendasi:</strong> dasbor retur marketplace — dataset 3 bulan, estimasi 2 minggu.</p>
               <a href="/id/belajar/js-dasar-analis" className="btn-primary mt-5 w-full justify-center">Coba Lab Demo</a>
             </div>
           </Reveal>

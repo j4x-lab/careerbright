@@ -36,19 +36,19 @@ export function KatalogSearch() {
   return (
     <div>
       <div className="panel overflow-hidden">
-        <div className="bg-ink px-5 py-4 md:px-6">
-          <label htmlFor="cari" className="font-mono text-[11px] uppercase tracking-[0.18em] text-amber-300">
-            Cari kursus, skill, atau jalur
+        <div className="border-b border-line bg-paper px-5 py-4 md:px-6">
+          <label htmlFor="cari" className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand-700">
+            Cari peran, jalur, atau kursus
           </label>
           <div className="relative mt-2.5">
-            <span aria-hidden className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-white/40">⌕</span>
+            <span aria-hidden className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-faint">⌕</span>
             <input
               id="cari"
               type="search"
               value={q}
               onChange={(e) => setQ(e.target.value)}
-              placeholder="Contoh: interview, pajak, React…"
-              className="field field-dark !pl-11 !py-3.5 !text-[15px]"
+              placeholder="Contoh: Data Analyst, Akuntan, Barber…"
+              className="field !pl-11 !py-3.5 !text-[15px]"
               autoComplete="off"
             />
           </div>
