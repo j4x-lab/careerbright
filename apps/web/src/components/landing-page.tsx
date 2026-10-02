@@ -190,10 +190,10 @@ export default async function LandingPage({ locale }: { locale: string }) {
         </Reveal>
       </section>
 
-      {/* ── 01 · CHOOSE YOUR ROLE ────────────────────────────── */}
+      {/* ── 01 · DEMAND PROOF ────────────────────────────── */}
       <section
         id="pekerjaan"
-        className="mx-auto max-w-7xl scroll-mt-32 px-4 py-16 md:py-24"
+        className="mx-auto max-w-7xl scroll-mt-32 px-4 pt-16 md:pt-24 pb-10 md:pb-12"
       >
         <Reveal>
           <h2 className="max-w-[22ch] text-4xl font-extrabold md:text-5xl">
@@ -216,9 +216,17 @@ export default async function LandingPage({ locale }: { locale: string }) {
             </Reveal>
           ))}
         </dl>
-        {/* Contoh 1 dari 4 — same row pattern as Wave-1 (equal weight) */}
+      </section>
+
+      {/* ── 02 · FEATURED EXAMPLE (full-bleed band) ─────────── */}
+      <section
+        id="contoh-event"
+        className="scroll-mt-28 border-y border-line bg-card"
+      >
+        <div className="mx-auto max-w-7xl px-4 py-12 md:py-16">
+        {/* Contoh 1 dari 4 — the single playable spotlight */}
         <Reveal>
-          <div className="mt-4 overflow-hidden rounded-card border-2 border-ink bg-card">
+          <div className="overflow-hidden rounded-card border-2 border-ink bg-paper">
             <div className="grid gap-3 px-6 py-5 md:grid-cols-12 md:items-center">
               <div className="md:col-span-4">
                 <p className="inline-block rounded-full bg-signal/15 px-2.5 py-0.5 font-mono text-[10px] font-bold text-signal-strong">
@@ -252,10 +260,17 @@ export default async function LandingPage({ locale }: { locale: string }) {
             </div>
           </div>
         </Reveal>
+        </div>
+      </section>
 
+      {/* ── 03 · ROLE INDEX ────────────────────────────────── */}
+      <section
+        id="semua-peran"
+        className="mx-auto max-w-7xl scroll-mt-28 px-4 pt-12 md:pt-16 pb-16 md:pb-24"
+      >
         {/* Wave-1 rows — list, not twin cards */}
         <Reveal>
-          <div className="mt-4 overflow-hidden rounded-card border border-line bg-card">
+          <div className="overflow-hidden rounded-card border border-line bg-card">
             <p className="border-b border-line bg-paper px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
               {t("waveBand")}
             </p>
