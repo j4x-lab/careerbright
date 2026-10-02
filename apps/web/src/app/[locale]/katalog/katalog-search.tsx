@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { searchCatalog, type CatalogCategory, type CatalogItem, type CatalogKind } from "@/lib/catalog";
 
-/* §29 Search/Discovery — client filter over the real catalog index. */
+/* Cerah v2 — command-bar search + card grid v2. */
 
 const CATEGORIES: (CatalogCategory | "Semua")[] = ["Semua", "Teknologi", "Karier", "Bisnis", "Indonesia"];
 const KINDS: { v: CatalogKind | "Semua"; label: string }[] = [
@@ -16,8 +16,8 @@ function Badge({ label }: { label: CatalogItem["badge"] }) {
   const verified = label === "SuperBright Verified";
   return (
     <span
-      className={`rounded-md px-2 py-0.5 font-mono text-[10px] font-bold ${
-        verified ? "bg-brand-50 text-brand-700" : "bg-paper text-muted"
+      className={`rounded-full px-2.5 py-1 font-mono text-[10px] font-bold ${
+        verified ? "bg-brand-50 text-brand-700" : "bg-cream text-muted"
       }`}
     >
       {verified ? "✓ Verified" : label}
@@ -35,53 +35,60 @@ export function KatalogSearch() {
 
   return (
     <div>
-      <div className="rounded-[20px] border border-line bg-white p-5">
-        <label htmlFor="cari" className="text-[13px] font-bold">Cari kursus, skill, atau jalur</label>
-        <input
-          id="cari"
-          type="search"
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          placeholder="Contoh: interview, pajak, React…"
-          className="field mt-2"
-          autoComplete="off"
-        />
-        <div className="mt-4 flex flex-wrap gap-2">
-          {CATEGORIES.map((c) => (
-            <button
-              key={c}
-              onClick={() => setCategory(c)}
-              aria-pressed={category === c}
-              className={`rounded-[10px] border px-3 py-1.5 text-[13px] font-medium transition ${
-                category === c ? "border-brand-700 bg-brand-50 text-brand-700" : "border-line bg-paper text-soft"
-              }`}
-            >
-              {c}
-            </button>
-          ))}
+      <div className="panel overflow-hidden">
+        <div className="bg-ink px-5 py-4 md:px-6">
+          <label htmlFor="cari" className="font-mono text-[11px] uppercase tracking-[0.18em] text-amber-300">
+            Cari kursus, skill, atau jalur
+          </label>
+          <div className="relative mt-2.5">
+            <span aria-hidden className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-white/40">⌕</span>
+            <input
+              id="cari"
+              type="search"
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+              placeholder="Contoh: interview, pajak, React…"
+              className="field field-dark !pl-11 !py-3.5 !text-[15px]"
+              autoComplete="off"
+            />
+          </div>
         </div>
-        <div className="mt-2 flex flex-wrap items-center gap-2">
-          {KINDS.map((k) => (
+        <div className="px-5 py-4 md:px-6">
+          <div className="flex flex-wrap gap-2">
+            {CATEGORIES.map((c) => (
+              <button
+                key={c}
+                onClick={() => setCategory(c)}
+                aria-pressed={category === c}
+                className={`chip transition ${category === c ? "chip-on" : "hover:border-ink"}`}
+              >
+                {c}
+              </button>
+            ))}
+          </div>
+          <div className="mt-2.5 flex flex-wrap items-center gap-2">
+            {KINDS.map((k) => (
+              <button
+                key={k.v}
+                onClick={() => setKind(k.v)}
+                aria-pressed={kind === k.v}
+                className={`rounded-[10px] border px-3 py-1.5 font-mono text-[11px] transition ${
+                  kind === k.v ? "border-brand-700 bg-brand-50 font-bold text-brand-700" : "border-line bg-paper text-soft hover:border-ink"
+                }`}
+              >
+                {k.label}
+              </button>
+            ))}
             <button
-              key={k.v}
-              onClick={() => setKind(k.v)}
-              aria-pressed={kind === k.v}
+              onClick={() => setKonteksOnly(!konteksOnly)}
+              aria-pressed={konteksOnly}
               className={`rounded-[10px] border px-3 py-1.5 font-mono text-[11px] transition ${
-                kind === k.v ? "border-brand-700 bg-brand-50 text-brand-700" : "border-line bg-paper text-soft"
+                konteksOnly ? "border-brand-700 bg-brand-50 font-bold text-brand-700" : "border-line bg-paper text-soft hover:border-ink"
               }`}
             >
-              {k.label}
+              Konteks ID ✓
             </button>
-          ))}
-          <button
-            onClick={() => setKonteksOnly(!konteksOnly)}
-            aria-pressed={konteksOnly}
-            className={`rounded-[10px] border px-3 py-1.5 font-mono text-[11px] transition ${
-              konteksOnly ? "border-brand-700 bg-brand-50 text-brand-700" : "border-line bg-paper text-soft"
-            }`}
-          >
-            Konteks ID ✓
-          </button>
+          </div>
         </div>
       </div>
 
@@ -90,8 +97,8 @@ export function KatalogSearch() {
       </p>
 
       {results.length === 0 ? (
-        <div className="mt-4 rounded-[20px] border border-dashed border-line bg-white p-10 text-center">
-          <p className="text-[15px] font-bold">Tidak ketemu yang cocok</p>
+        <div className="panel-warm mt-4 border-dashed p-10 text-center">
+          <p className="text-lg font-extrabold tracking-tight">Tidak ketemu yang cocok</p>
           <p className="mx-auto mt-2 max-w-[44ch] text-sm text-soft">
             Coba kata kunci lebih pendek (“pajak”, “CV”, “data”) atau reset filter di atas.
           </p>
@@ -106,16 +113,20 @@ export function KatalogSearch() {
         <ul className="mt-4 grid gap-4 md:grid-cols-2">
           {results.map((r) => (
             <li key={`${r.kind}-${r.slug}`}>
-              <a href={r.href} className="spot flex h-full flex-col rounded-[20px] border border-line bg-white p-6">
+              <a href={r.href} className="spot flex h-full flex-col rounded-[24px] border border-line bg-white p-6 md:p-7">
                 <div className="flex items-center justify-between gap-2">
-                  <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-faint">
-                    {r.kind === "kursus" ? "Kursus" : "Jalur"} · {r.category}
+                  <span className="rounded-lg bg-ink px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-white">
+                    {r.kind === "kursus" ? "Kursus" : "Jalur"}
                   </span>
                   <Badge label={r.badge} />
                 </div>
-                <p className="mt-2 text-[16px] font-bold">{r.title}</p>
+                <p className="mt-3 text-lg font-extrabold tracking-tight">{r.title}</p>
                 <p className="mt-1 flex-1 text-sm leading-relaxed text-soft">{r.desc}</p>
-                <p className="tnum mt-3 font-mono text-[11px] text-muted">{r.level} · {r.meta}</p>
+                <div className="mt-4 flex items-center justify-between border-t border-line pt-3.5">
+                  <p className="tnum font-mono text-[11px] text-muted">{r.category} · {r.level}</p>
+                  <span aria-hidden className="font-mono text-[13px] text-brand-700">→</span>
+                </div>
+                <p className="tnum mt-1 font-mono text-[11px] text-faint">{r.meta}</p>
               </a>
             </li>
           ))}

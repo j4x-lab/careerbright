@@ -3,198 +3,207 @@ import { SiteNav, SiteFooter } from "@/components/site-chrome";
 import { PX } from "@/lib/visual";
 
 /*
- * Design read: B2C+B2B+B2G education platform landing for Indonesian learners 18+,
- * with a friendly-practical Microsoft-trustworthy language, leaning toward Fluent-inspired Tailwind + Jakarta Sans + minimal motion.
- * Dials: VARIANCE 4 / MOTION 3 / DENSITY 5.
- * Aligned to CAREERBRIGHT_MASTER_PLAN2.md: goal-first (§28), 7 pillars (§6), paths (§9),
- * Indonesia Context Layer (§10), Bright AI (§13-14), skill/career/portfolio/prove (§15-19), pricing (§34).
- * Brand: "Dari Belajar Jadi Bisa." Friendly, not LMS-academic.
- * Shape lock: buttons 12px · cards 20px · media 16px · inputs 10px. Cobalt locked.
- * Eyebrows: 3 total (hero, pillars, certificates).
+ * Cerah v2 “Midnight Paper” — full redesign.
+ * Dark cinematic hero → warm paper body → dark konteks band → dark footer.
+ * 10 sections: hero / marquee / goals / pillars / kasus / jalur / konteks / AI / bukti+outcomes / pricing+FAQ.
+ * Anchors preserved: #tujuan #jalur #kasus #konteks #ai #bukti #harga #organisasi #konten
+ * Shape lock v2: buttons 14px · cards 24px · media 20px · inputs 12px.
  */
 
-/* Photography: local-ID only, see src/lib/visual.ts (verified IDs, guide). */
-
-/* §28 Discovery — 6 goals, bento 2+4 (avoids 3-equal-cards ban) */
 const GOALS = [
-  { h: "Dapat Kerja Baru", d: "CV, portofolio, interview, tes teknis.", m: "Rina · 22 · fresh graduate", big: true },
-  { h: "Naikkan Skill", d: "Level terukur per skill, bukan jam nonton.", m: "Frontend Lv 3", big: true },
-  { h: "Mulai Usaha", d: "UMKM digital end-to-end.", m: "10 modul", big: false },
-  { h: "Kuasai Teknologi", d: "Web, AI, data, cloud.", m: "50+ kursus inti", big: false },
-  { h: "Jadi Leader", d: "Manajemen, komunikasi, negosiasi.", m: "Simulasi workplace", big: false },
-  { h: "Tumbuh Pribadi", d: "Finansial, produktivitas, literasi.", m: "Bahasa Indonesia", big: false },
+  { h: "Dapat Kerja Baru", d: "CV, portofolio, interview, tes teknis sampai tawaran pertama.", m: "Rina · 22 · fresh graduate", salary: "IDR 7–18 jt", big: true },
+  { h: "Naikkan Skill", d: "Level terukur per skill — bukan jam nonton.", m: "Frontend Lv 3 → Lv 5", salary: "+38% gaji", big: true },
+  { h: "Mulai Usaha", d: "UMKM digital end-to-end, 10 modul.", m: "Kopi Bandung fiktif", salary: "Omzet", big: false },
+  { h: "Kuasai Teknologi", d: "Web, AI, data, cloud, security.", m: "50+ kursus inti", salary: "IDR 8–25 jt", big: false },
+  { h: "Jadi Leader", d: "Manajemen, komunikasi, negosiasi.", m: "Simulasi workplace", salary: "Manager track", big: false },
+  { h: "Tumbuh Pribadi", d: "Finansial, produktivitas, literasi digital.", m: "Bahasa Indonesia", salary: "Seumur hidup", big: false },
 ];
 
-/* §6 seven pillars — 4+3 grid */
 const PILLARS = [
-  { h: "Learn", d: "Belajar lewat kasus nyata industri." },
-  { h: "Practice", d: "Kuis, simulasi, latihan hands-on." },
-  { h: "Build", d: "Proyek nyata. Bukan sekadar nonton." },
-  { h: "Prove", d: "Asesmen + sertifikat terverifikasi." },
-  { h: "Work", d: "Magang, freelance, pekerjaan." },
-  { h: "Connect", d: "Komunitas kota + mentor." },
-  { h: "Local Context", d: "Bisnis, birokrasi, budaya Indonesia." },
+  { n: "01", h: "Learn", d: "Kasus nyata industri Indonesia, bukan teori impor." },
+  { n: "02", h: "Practice", d: "Kuis, lab kode, simulasi yang dinilai otomatis." },
+  { n: "03", h: "Build", d: "Proyek portofolio — e-commerce, dashboard, SPT." },
+  { n: "04", h: "Prove", d: "Asesmen AI + sertifikat terverifikasi QR." },
+  { n: "05", h: "Work", d: "Magang, freelance, dan jalur rekrutmen." },
+  { n: "06", h: "Connect", d: "Komunitas kota + mentor praktisi." },
+  { n: "07", h: "Local Context", d: "QRIS, pajak, hierarki, regulasi — ber-tanggal." },
 ];
 
-/* §9 paths */
 const FE_PATH = [
-  ["Beginner", "HTML → CSS → JavaScript"],
-  ["Intermediate", "TypeScript → React → API → Git"],
-  ["Advanced", "Testing → Arsitektur → Deployment"],
-  ["Portofolio", "Website bisnis Indonesia asli"],
-  ["Karier", "CV → Interview → Tes teknis"],
+  ["Beginner", "HTML → CSS → JavaScript", "Video · Bacaan · Kuis"],
+  ["Intermediate", "TypeScript → React → API → Git", "Lab kode · Simulasi"],
+  ["Advanced", "Testing → Arsitektur → Deployment", "Proyek · Review AI"],
+  ["Portofolio", "Website bisnis Indonesia asli", "Fiktif · Tanpa afiliasi"],
+  ["Karier", "CV → Interview → Tes teknis", "Simulator HR"],
 ];
 const UMKM_PATH = ["Bisnis dasar", "Riset pelanggan", "Branding", "Marketplace", "Sosmed", "Iklan digital", "Akuntansi", "Pajak dasar", "AI bisnis", "Analitik"];
 
-/* Verified-200 SimpleIcons slugs (checked 2026-10-01). Logo-only wall. */
 const HIRING: [string, string][] = [
-  ["gojek", "Gojek"],
-  ["grab", "Grab"],
-  ["shopee", "Shopee"],
-  ["bukalapak", "Bukalapak"],
-  ["blibli", "Blibli"],
-  ["tiktok", "TikTok"],
-  ["google", "Google"],
-  ["apple", "Apple"],
-  ["samsung", "Samsung"],
-  ["googlecloud", "Google Cloud"],
+  ["gojek", "Gojek"], ["grab", "Grab"], ["shopee", "Shopee"], ["bukalapak", "Bukalapak"],
+  ["blibli", "Blibli"], ["tiktok", "TikTok"], ["google", "Google"], ["apple", "Apple"],
+  ["samsung", "Samsung"], ["googlecloud", "Google Cloud"],
 ];
-/* Campus/partner monograms (invented marks, not plain wordmarks).
-   label = full name, mark = 2-letter monogram (explicit, never sliced). */
-const CAMPUSES: [string, string][] = [["UI", "UI"], ["UGM", "UG"], ["ITB", "IT"], ["UNPAD", "UN"]];
+
+const OUTCOMES = [
+  { n: "Rina · 22", r: "Data Analyst · Jakarta", q: "Dari Excel ke dashboard Power BI dalam 5 bulan. Portofolio diverifikasi, lolos screening pertama.", s: "IDR 9 jt" },
+  { n: "Dimas · 24", r: "Frontend Dev · Bandung", q: "Tidak lagi tutorial-hell. Satu website UMKM fiktif + tes teknis lolos.", s: "IDR 12 jt" },
+  { n: "Sari · 27", r: "UMKM Owner · Surabaya", q: "Iklan Rp50 ribu pertama menghasilkan 40 chat. Sekarang punya playbook sendiri.", s: "+63% chat" },
+];
 
 export default function HomePage() {
   return (
-    <main className="overflow-x-clip bg-paper pt-[96px] text-ink">
+    <main className="overflow-x-clip bg-paper text-ink">
       <a href="#konten" className="skip-link">Lewati ke konten</a>
       <SiteNav />
 
-      {/* ── 1 · HERO — kept layout, PRD2 copy ── */}
-      <section className="relative overflow-hidden border-b border-line bg-white">
-        <div className="hero-glow" aria-hidden />
-        <div id="konten" className="relative mx-auto grid w-full max-w-7xl items-center gap-10 px-4 pb-12 pt-12 md:pt-16 lg:grid-cols-2">
+      {/* ── 1 · HERO DARK ─────────────────────────────────── */}
+      <section className="hero-dark relative overflow-hidden pt-[140px] text-white">
+        <div className="aurora-blob" aria-hidden />
+        <div className="grid-dark absolute inset-0" aria-hidden />
+        <div id="konten" className="relative mx-auto grid w-full max-w-7xl items-center gap-12 px-4 pb-14 pt-6 lg:grid-cols-2">
           <div>
-            <p className="hero-enter hero-enter-1 font-mono text-[11px] uppercase tracking-[0.18em] text-brand-700">
-              Belajar. Berkembang. Jadi Lebih Bright.
+            <p className="hero-enter hero-enter-1 eyebrow-dark">
+              Belajar · Berkembang · Jadi Lebih Bright
             </p>
-            <h1 className="hero-enter hero-enter-2 mt-4 max-w-[15ch] text-4xl font-bold leading-[1.04] md:text-6xl">
-              Dari Belajar Jadi Bisa.
+            <h1 className="hero-enter hero-enter-2 mt-5 max-w-[14ch] text-5xl font-extrabold leading-[1.02] md:text-7xl">
+              Dari Belajar <span className="bg-gradient-to-r from-amber-300 via-orange-300 to-amber-200 bg-clip-text text-transparent">Jadi Bisa.</span>
             </h1>
-            <p className="hero-enter hero-enter-3 mt-4 max-w-[46ch] text-[15px] leading-relaxed text-soft">
-              Pilih tujuanmu, kuasai skill praktis konteks Indonesia, sampai portofolio.
+            <p className="hero-enter hero-enter-3 mt-5 max-w-[48ch] text-[15px] leading-relaxed text-white/65 md:text-base">
+              Pilih tujuanmu — dapat kerja, naik level, mulai usaha. Kuasai skill praktis
+              konteks Indonesia dengan Bright AI, sampai portofolio dan sertifikat terverifikasi.
             </p>
-            <div className="hero-enter hero-enter-3 mt-6 flex flex-wrap items-center gap-3">
-              <a href="/id/auth/daftar" className="btn-primary group">
+            <div className="hero-enter hero-enter-3 mt-7 flex flex-wrap items-center gap-3">
+              <a href="/id/auth/daftar" className="btn-amber group">
                 Mulai Gratis
-                <span className="btn-island" aria-hidden>↗</span>
+                <span className="btn-island btn-island-dark" aria-hidden>↗</span>
               </a>
-              <a href="#tujuan" className="btn-ghost">Pilih Tujuan</a>
+              <a href="#tujuan" className="btn-dark">Pilih Tujuan</a>
             </div>
+            <dl className="hero-enter hero-enter-4 mt-9 grid grid-cols-3 gap-6 border-t border-white/10 pt-6">
+              {[
+                ["50–100", "kursus inti peluncuran"],
+                ["4–6 bln", "nol → siap lamar"],
+                ["7", "pilar Learn → Konteks"],
+              ].map(([v, l]) => (
+                <div key={l}>
+                  <dt className="tnum font-mono text-2xl font-bold text-white md:text-3xl">{v}</dt>
+                  <dd className="mt-1 text-[12px] leading-snug text-white/50">{l}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
 
           <div className="hero-enter hero-enter-4">
-            <div className="panel" role="img" aria-label="Pratinjau konsol SuperBright: Bright AI menjelaskan API, skor 87, siap terbit">
-              <div className="flex items-center gap-2 border-b border-line px-4 py-3">
+            <div className="glass-dark overflow-hidden" role="img" aria-label="Konsol SuperBright: Bright AI menjelaskan API, skill 87, siap terbit">
+              <div className="flex items-center gap-2 border-b border-white/10 px-5 py-3.5">
                 <span className="live-dot" aria-hidden />
-                <span className="font-mono text-[11px] text-soft">SuperBright Console</span>
+                <span className="font-mono text-[11px] text-white/60">SuperBright Console · live</span>
                 <span className="ml-auto hidden gap-2 font-mono text-[11px] sm:flex">
-                  <span className="rounded-md bg-brand-50 px-2 py-0.5 text-brand-700">Bright AI</span>
-                  <span className="px-2 py-0.5 text-faint">Jalur</span>
-                  <span className="px-2 py-0.5 text-faint">Portofolio</span>
+                  <span className="rounded-md bg-amber-400/15 px-2 py-0.5 text-amber-300">Bright AI</span>
+                  <span className="px-2 py-0.5 text-white/40">Jalur</span>
+                  <span className="px-2 py-0.5 text-white/40">Portofolio</span>
                 </span>
               </div>
-              <div className="grid gap-0 sm:grid-cols-5">
-                <div className="border-b border-line p-5 sm:col-span-3 sm:border-b-0 sm:border-r">
-                  <p className="font-mono text-xs text-muted">bright-ai · “Saya tidak mengerti API.”</p>
-                  <p className="mt-2 rounded-xl border border-line bg-paper p-3 text-[13px] leading-relaxed text-soft">
-                    Anggap API seperti kasir restoran: kamu pesan, dapur proses, kasir antar. Pelajaran terkait: REST API · 12 mnt.
+              <div className="grid sm:grid-cols-5">
+                <div className="border-b border-white/10 p-5 sm:col-span-3 sm:border-b-0 sm:border-r">
+                  <p className="font-mono text-xs text-white/50">bright-ai · “Saya tidak mengerti API.”</p>
+                  <p className="mt-2.5 rounded-2xl border border-white/10 bg-white/6 p-3.5 text-[13px] leading-relaxed text-white/75">
+                    Anggap API seperti kasir restoran: kamu pesan, dapur proses, kasir antar.
+                    Lanjutan: REST API · 12 mnt · lab otomatis.
                   </p>
-                  <div className="mt-4 space-y-3">
+                  <div className="mt-5 space-y-3.5">
                     {[["JavaScript", "92%"], ["TypeScript", "74%"], ["React", "61%"]].map(([k, v]) => (
                       <div key={k}>
                         <div className="flex justify-between font-mono text-[11px]">
-                          <span className="text-muted">{k}</span>
-                          <span className="tnum font-bold text-brand-700">{v}</span>
+                          <span className="text-white/50">{k}</span>
+                          <span className="tnum font-bold text-amber-300">{v}</span>
                         </div>
-                        <div className="bar-track mt-1.5"><div className="bar-fill" style={{ width: v }} /></div>
+                        <div className="bar-track bar-track-dark mt-1.5"><div className="bar-fill bar-fill-amber" style={{ width: v }} /></div>
                       </div>
                     ))}
                   </div>
                 </div>
                 <div className="p-5 sm:col-span-2">
-                  <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-faint">Skill berikutnya</p>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/40">Skill berikutnya</p>
                   <p className="mt-2 text-[15px] font-bold">Automated testing</p>
-                  <p className="mt-1 font-mono text-[11px] leading-relaxed text-muted">Rekomendasi dari Skill Graph · 4–6 bulan</p>
-                  <p className="tnum mt-3 font-mono text-3xl font-bold text-ok">87</p>
-                  <p className="mt-1 text-[13px] font-medium">KOMPETEN · QR siap</p>
+                  <p className="mt-1 font-mono text-[11px] leading-relaxed text-white/45">Skill Graph · 4–6 bulan</p>
+                  <p className="tnum mt-3 font-mono text-4xl font-bold text-amber-300">87</p>
+                  <p className="mt-1 text-[13px] font-semibold text-emerald-300">KOMPETEN · QR siap</p>
+                  <a href="#ai" className="mt-4 inline-block font-mono text-[12px] text-white/60 underline decoration-white/25 underline-offset-4 hover:text-white">
+                    Lihat cara AI menilai →
+                  </a>
                 </div>
               </div>
             </div>
+            <p className="mt-3 text-center font-mono text-[11px] text-white/35">
+              Skor live dari lab demo · tanpa kartu kredit
+            </p>
           </div>
         </div>
 
-        <div className="relative border-t border-line">
-          <dl className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-6 md:grid-cols-4">
-            {[
-              ["50–100", "kursus inti saat peluncuran"],
-              ["4–6 bln", "dari nol sampai siap lamar"],
-              ["7", "pilar: Learn → Konteks ID"],
-              ["ID / EN", "Indonesia dulu, Inggris siap"],
-            ].map(([v, l]) => (
-              <div key={l}>
-                <dt className="tnum font-mono text-2xl font-bold">{v}</dt>
-                <dd className="mt-1 text-[13px] text-muted">{l}</dd>
-              </div>
-            ))}
-          </dl>
+        {/* marquee */}
+        <div className="relative border-t border-white/10 bg-black/20">
+          <div className="marquee-mask overflow-hidden py-4">
+            <div className="marquee-track items-center gap-10 pr-10" aria-hidden>
+              {[...HIRING, ...HIRING].map(([slug, name], i) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img key={slug + i} src={`https://cdn.simpleicons.org/${slug}/FFFFFF`} alt="" width={24} height={24} loading="lazy" className="opacity-45" title={name} />
+              ))}
+            </div>
+          </div>
+          <p className="sr-only">Skill yang dipakai di perusahaan seperti {HIRING.map(([, n]) => n).join(", ")}</p>
         </div>
       </section>
 
-      {/* ── 2 · GOAL-FIRST (§28) — bento 2 large + 4 small ── */}
-      <section id="tujuan" className="mx-auto max-w-7xl scroll-mt-28 px-4 py-16 md:py-20">
+      {/* ── 2 · GOALS ─────────────────────────────────────── */}
+      <section id="tujuan" className="mx-auto max-w-7xl scroll-mt-32 px-4 py-16 md:py-24">
         <Reveal>
-          <h2 className="max-w-[24ch] text-3xl font-bold md:text-4xl">Halo, mau jadi apa?</h2>
-          <p className="mt-3 max-w-[60ch] text-[15px] leading-relaxed text-soft">Bukan “kursus apa?” tapi “mau mencapai apa?” Pilih tujuan, kami susun jalurnya.</p>
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">Mulai dari tujuan</p>
+          <h2 className="mt-3 max-w-[20ch] text-4xl font-extrabold md:text-5xl">Halo, mau jadi apa?</h2>
+          <p className="mt-3 max-w-[60ch] text-[15px] leading-relaxed text-soft">
+            Bukan “kursus apa?” tapi “mau mencapai apa?” Pilih satu — kami susun jalur, proyek, dan bukti sampai siap.
+          </p>
         </Reveal>
-        <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-12">
+        <div className="mt-9 grid grid-cols-1 gap-4 md:grid-cols-12">
           {GOALS.map((g, i) => (
             <Reveal key={g.h} delay={(i % 4) * 60} className={g.big ? "md:col-span-6" : "md:col-span-3"}>
-              <a href="#jalur" className={`spot group flex h-full flex-col justify-between overflow-hidden rounded-[20px] border border-line p-6 ${g.big ? "bg-brand-50" : "bg-white"}`}>
+              <a href="#jalur" className={`spot group flex h-full flex-col justify-between overflow-hidden rounded-[24px] border border-line p-6 md:p-7 ${g.big ? "bg-ink text-white" : "bg-white"}`}>
                 <div>
-                  <p className="text-[16px] font-bold group-hover:text-brand-700">{g.h}</p>
-                  <p className="mt-1.5 text-sm leading-relaxed text-soft">{g.d}</p>
+                  <p className={`card-num ${g.big ? "!bg-white/10 !text-amber-300" : ""}`}>{g.salary}</p>
+                  <p className={`mt-3 text-xl font-extrabold tracking-tight ${g.big ? "text-white" : "group-hover:text-brand-700"}`}>{g.h}</p>
+                  <p className={`mt-1.5 text-sm leading-relaxed ${g.big ? "text-white/60" : "text-soft"}`}>{g.d}</p>
                 </div>
-                <p className="mt-4 font-mono text-[11px] text-muted">{g.m} →</p>
+                <p className={`mt-5 font-mono text-[11px] ${g.big ? "text-white/45" : "text-muted"}`}>{g.m} →</p>
               </a>
             </Reveal>
           ))}
         </div>
       </section>
 
-      {/* ── 3 · 7 PILLARS (§6) — 4+3 enterprise grid ── */}
+      {/* ── 3 · PILLARS ───────────────────────────────────── */}
       <section id="pilar" className="scroll-mt-28 border-y border-line bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 py-16 md:py-24">
           <Reveal>
-            <p className="font-mono text-xs font-medium text-brand-700">Cara kerja</p>
-            <h2 className="mt-3 max-w-[26ch] text-3xl font-bold md:text-4xl">Learning → Skills → Projects → Career.</h2>
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">Cara kerja</p>
+            <h2 className="mt-3 max-w-[24ch] text-4xl font-extrabold md:text-5xl">Learning → Skills → Projects → Career.</h2>
           </Reveal>
-          <div className="mt-8 grid grid-cols-1 gap-px overflow-hidden rounded-[20px] border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="mt-9 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {PILLARS.slice(0, 4).map((s, i) => (
-              <Reveal key={s.h} delay={i * 50} className="bg-white">
-                <div className="h-full bg-white p-6">
-                  <p className="tnum font-mono text-xs font-bold text-brand-700">0{i + 1}</p>
-                  <p className="mt-2 text-[15px] font-bold">{s.h}</p>
+              <Reveal key={s.h} delay={i * 55}>
+                <li className="spot h-full rounded-[24px] border border-line bg-paper p-6">
+                  <p className="card-num">{s.n}</p>
+                  <p className="mt-3 text-lg font-extrabold tracking-tight">{s.h}</p>
                   <p className="mt-1.5 text-sm leading-relaxed text-soft">{s.d}</p>
-                </div>
+                </li>
               </Reveal>
             ))}
-          </div>
-          <div className="mt-px grid grid-cols-1 gap-px overflow-hidden rounded-[20px] border border-line bg-line sm:grid-cols-3">
+          </ol>
+          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
             {PILLARS.slice(4).map((s, i) => (
-              <Reveal key={s.h} delay={i * 50} className="bg-white">
-                <div className="h-full bg-white p-6">
-                  <p className="tnum font-mono text-xs font-bold text-brand-700">0{i + 5}</p>
-                  <p className="mt-2 text-[15px] font-bold">{s.h}</p>
+              <Reveal key={s.h} delay={i * 55}>
+                <div className="spot h-full rounded-[24px] border border-dashed border-line bg-paper p-6">
+                  <p className="card-num">{s.n}</p>
+                  <p className="mt-3 text-[15px] font-extrabold">{s.h}</p>
                   <p className="mt-1.5 text-sm leading-relaxed text-soft">{s.d}</p>
                 </div>
               </Reveal>
@@ -203,348 +212,359 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 4 · KASUS NYATA — use cases from real professional work, not video lessons ── */}
-      <section id="kasus" className="mx-auto max-w-7xl scroll-mt-28 px-4 py-16 md:py-20">
+      {/* ── 4 · KASUS ─────────────────────────────────────── */}
+      <section id="kasus" className="mx-auto max-w-7xl scroll-mt-28 px-4 py-16 md:py-24">
         <Reveal>
-          <h2 className="max-w-[24ch] text-3xl font-bold md:text-4xl">Bukan nonton video. Kerjakan kasus nyata.</h2>
-          <p className="mt-3 max-w-[60ch] text-[15px] leading-relaxed text-soft">Skenario dari lingkungan kerja profesional Indonesia. Perusahaan fiktif, skill asli. Tiap kasus 1–2 minggu, bisa dicicil malam hari.</p>
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">Kasus nyata</p>
+          <h2 className="mt-3 max-w-[22ch] text-4xl font-extrabold md:text-5xl">Bukan nonton video. Kerjakan kasus nyata.</h2>
+          <p className="mt-3 max-w-[62ch] text-[15px] leading-relaxed text-soft">
+            Skenario dari lingkungan kerja profesional Indonesia. Perusahaan fiktif, skill asli.
+            Tiap kasus 1–2 minggu — bisa dicicil malam hari.
+          </p>
         </Reveal>
         <Reveal delay={80}>
-          <figure className="mt-8 overflow-hidden rounded-[20px] border border-line bg-card">
-            <div className="photo-cine aspect-[21/8]">
-              <img src={PX(7845344, 1600)} alt="Tim bisnis Asia berdiskusi di kantor modern" loading="lazy" decoding="async" sizes="(max-width: 1024px) 100vw, 1200px" className="h-full w-full object-cover" />
-            </div>
-            <figcaption className="flex flex-wrap items-center justify-between gap-2 bg-white px-5 py-3 font-mono text-[11px]">
-              <span className="text-soft">Kolaborasi lintas divisi — seperti di kantor sungguhan</span>
-              <span className="text-faint">Foto: Pexels</span>
-            </figcaption>
+          <figure className="photo-cine mt-8 aspect-[21/8]">
+            <img src={PX(7845344, 1600)} alt="Tim bisnis Asia berdiskusi di kantor modern" loading="lazy" decoding="async" sizes="(max-width: 1024px) 100vw, 1200px" className="h-full w-full object-cover" />
+            <figcaption className="photo-cap"><span>Kolaborasi lintas divisi — seperti di kantor sungguhan</span><span className="opacity-70">Pexels</span></figcaption>
           </figure>
         </Reveal>
         <div className="mt-4 grid gap-4 lg:grid-cols-2">
-          <Reveal>
-            <article className="spot group h-full overflow-hidden rounded-[20px] border border-line bg-white">
-              <div className="photo-cine aspect-[16/8]">
-                <img src={PX(34961614, 900)} alt="Analis muda bekerja dengan laptop di kantor Jakarta" loading="lazy" decoding="async" sizes="(max-width: 1024px) 100vw, 560px" className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]" />
-              </div>
-              <div className="p-6">
-                <p className="font-mono text-[11px] text-muted">Data Analyst · SQL + Power BI · 2 minggu</p>
-                <p className="mt-2 text-[16px] font-bold">Lonjakan retur di marketplace</p>
-                <p className="mt-1.5 text-sm leading-relaxed text-soft">Analisis 3 bulan transaksi, temukan pola retur, sajikan dashboard dan rekomendasi promo ke tim.</p>
-              </div>
-            </article>
-          </Reveal>
-          <Reveal delay={80}>
-            <article className="spot group h-full overflow-hidden rounded-[20px] border border-line bg-white">
-              <div className="photo-cine aspect-[16/8]">
-                <img src={PX(36617340, 900)} alt="Mahasiswa akuntansi mempelajari laporan keuangan di Jakarta" loading="lazy" decoding="async" sizes="(max-width: 1024px) 100vw, 560px" className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]" />
-              </div>
-              <div className="p-6">
-                <p className="font-mono text-[11px] text-muted">Akuntansi · Excel + e-Faktur · 2 minggu</p>
-                <p className="mt-2 text-[16px] font-bold">Tutup buku akhir bulan UMKM</p>
-                <p className="mt-1.5 text-sm leading-relaxed text-soft">Rapikan pembukuan warung kopi, hitung PPh, hasilkan laporan laba rugi siap pajak.</p>
-              </div>
-            </article>
-          </Reveal>
+          {[
+            { img: 34961614, alt: "Analis muda bekerja dengan laptop di kantor Jakarta", tag: "Data Analyst · SQL + Power BI · 2 minggu", h: "Lonjakan retur di marketplace", d: "Analisis 3 bulan transaksi, temukan pola retur, sajikan dashboard dan rekomendasi promo." },
+            { img: 36617340, alt: "Mahasiswa akuntansi mempelajari laporan keuangan di Jakarta", tag: "Akuntansi · Excel + e-Faktur · 2 minggu", h: "Tutup buku akhir bulan UMKM", d: "Rapikan pembukuan warung kopi, hitung PPh, hasilkan laporan laba rugi siap pajak." },
+          ].map((c, i) => (
+            <Reveal key={c.h} delay={i * 80}>
+              <article className="spot group h-full overflow-hidden rounded-[24px] border border-line bg-white">
+                <div className="photo-cine !rounded-none aspect-[16/8]">
+                  <img src={PX(c.img, 900)} alt={c.alt} loading="lazy" decoding="async" sizes="(max-width: 1024px) 100vw, 560px" className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]" />
+                </div>
+                <div className="p-6 md:p-7">
+                  <p className="font-mono text-[11px] text-muted">{c.tag}</p>
+                  <p className="mt-2 text-xl font-extrabold tracking-tight">{c.h}</p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-soft">{c.d}</p>
+                </div>
+              </article>
+            </Reveal>
+          ))}
         </div>
-        <Reveal delay={120}>
-          <article className="spot group mt-4 grid overflow-hidden rounded-[20px] border border-line bg-white sm:grid-cols-5">
-            <div className="photo-cine min-h-[200px] sm:col-span-2 sm:min-h-full">
-              <img src={PX(7869341, 800)} alt="Presentasi hasil kerja di depan tim yang beragam" loading="lazy" decoding="async" sizes="(max-width: 640px) 100vw, 480px" className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]" />
+        <Reveal delay={100}>
+          <article className="spot group mt-4 grid overflow-hidden rounded-[24px] border border-ink bg-ink text-white sm:grid-cols-5">
+            <div className="photo-cine !rounded-none min-h-[220px] sm:col-span-2 sm:min-h-full">
+              <img src={PX(7869341, 800)} alt="Presentasi hasil kerja di depan tim yang beragam" loading="lazy" decoding="async" sizes="(max-width: 640px) 100vw, 480px" className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]" />
             </div>
-            <div className="p-6 sm:col-span-3 sm:p-8">
-              <p className="font-mono text-[11px] text-muted">Workplace sim · dinilai Bright AI</p>
-              <p className="mt-2 text-[16px] font-bold">Presentasi ke manajemen yang skeptis</p>
-              <p className="mt-1.5 max-w-[52ch] text-sm leading-relaxed text-soft">Sampaikan temuanmu, terima feedback pedas, revisi dan coba lagi. Dinilai: komunikasi, profesionalisme, solusi.</p>
-              <a href="#ai" className="link-more mt-4 inline-block">Coba simulator →</a>
+            <div className="p-6 sm:col-span-3 sm:p-9">
+              <p className="eyebrow-dark">Workplace sim · dinilai Bright AI</p>
+              <p className="mt-3 text-2xl font-extrabold tracking-tight">Presentasi ke manajemen yang skeptis</p>
+              <p className="mt-2 max-w-[52ch] text-sm leading-relaxed text-white/60">Sampaikan temuanmu, terima feedback pedas, revisi dan coba lagi. Dinilai: komunikasi, profesionalisme, solusi.</p>
+              <a href="#ai" className="mt-5 inline-flex items-center gap-2 rounded-[14px] bg-amber-400 px-5 py-3 text-sm font-bold text-ink transition hover:bg-amber-300">Coba simulator →</a>
             </div>
           </article>
         </Reveal>
       </section>
 
-      {/* ── 5 · PATHS (§9) — Frontend + UMKM consoles ── */}
-      <section id="jalur" className="mx-auto max-w-7xl scroll-mt-28 px-4 py-16 md:py-20">
+      {/* ── 5 · JALUR ─────────────────────────────────────── */}
+      <section id="jalur" className="mx-auto max-w-7xl scroll-mt-28 px-4 py-16 md:py-24">
         <Reveal>
-          <h2 className="max-w-[26ch] text-3xl font-bold md:text-4xl">Jalur terstruktur, proyek Indonesia asli.</h2>
-          <p className="mt-3 max-w-[62ch] text-[15px] text-soft">Setiap jalur berakhir di portofolio dan persiapan karier, bukan sekadar tontonan.</p>
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">Jalur terstruktur</p>
+          <h2 className="mt-3 max-w-[24ch] text-4xl font-extrabold md:text-5xl">Jalur jelas, proyek Indonesia asli.</h2>
+          <p className="mt-3 max-w-[62ch] text-[15px] text-soft">Setiap jalur berakhir di portofolio dan persiapan karier — bukan sekadar tontonan.</p>
         </Reveal>
-        <div className="mt-8 grid items-start gap-4 lg:grid-cols-2">
+        <div className="mt-9 grid items-start gap-4 lg:grid-cols-2">
           <Reveal>
-            <div className="panel overflow-hidden !rounded-[20px] !shadow-none">
-              <div className="flex items-center justify-between border-b border-line px-5 py-3">
-                <span className="text-[14px] font-bold">Become a Frontend Developer</span>
-                <span className="font-mono text-[11px] text-faint">4–6 bln</span>
+            <div className="panel overflow-hidden">
+              <div className="flex items-center justify-between bg-ink px-6 py-4 text-white">
+                <span className="text-[15px] font-extrabold">Become a Frontend Developer</span>
+                <span className="rounded-full bg-amber-400/15 px-3 py-1 font-mono text-[11px] text-amber-300">4–6 bln</span>
               </div>
-              {FE_PATH.map(([stage, items], i) => (
-                <div key={stage} className={`px-5 py-3.5 ${i > 0 ? "border-t border-line" : ""}`}>
-                  <p className="font-mono text-[11px] font-bold text-brand-700">{stage}</p>
-                  <p className="mt-0.5 text-[13px] text-soft">{items}</p>
+              {FE_PATH.map(([stage, items, fmt], i) => (
+                <div key={stage} className={`flex items-start gap-4 px-6 py-4 ${i > 0 ? "border-t border-line" : ""}`}>
+                  <span className="card-num mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                  <div>
+                    <p className="text-[14px] font-extrabold">{stage}</p>
+                    <p className="mt-0.5 text-[13px] text-soft">{items}</p>
+                    <p className="mt-1 font-mono text-[11px] text-faint">{fmt}</p>
+                  </div>
                 </div>
               ))}
-              <div className="border-t border-line bg-paper px-5 py-3">
+              <div className="border-t border-line bg-paper px-6 py-4">
                 <a href="/id/paths/frontend-developer" className="link-more">Lihat silabus lengkap →</a>
               </div>
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <div className="panel overflow-hidden !rounded-[20px] !shadow-none">
-              <div className="flex items-center justify-between border-b border-line px-5 py-3">
-                <span className="text-[14px] font-bold">UMKM Digital Entrepreneur</span>
-                <span className="font-mono text-[11px] text-faint">10 modul</span>
+            <div className="panel overflow-hidden">
+              <div className="flex items-center justify-between border-b border-line bg-brand-50 px-6 py-4">
+                <span className="text-[15px] font-extrabold">UMKM Digital Entrepreneur</span>
+                <span className="rounded-full bg-white px-3 py-1 font-mono text-[11px] text-brand-700">10 modul</span>
               </div>
-              <div className="flex flex-wrap gap-2 px-5 py-4">
+              <div className="flex flex-wrap gap-2 px-6 py-5">
                 {UMKM_PATH.map((m) => (
-                  <span key={m} className="rounded-[10px] border border-line bg-paper px-3 py-1.5 text-[13px] text-soft">{m}</span>
+                  <span key={m} className="chip">{m}</span>
                 ))}
               </div>
-              <div className="border-t border-line px-5 py-4">
+              <div className="border-t border-line px-6 py-5">
                 <p className="text-[13px] text-soft"><strong className="text-ink">Proyek akhir:</strong> strategi digital lengkap untuk UMKM kopi Bandung fiktif.</p>
-                <figure className="mt-4 overflow-hidden rounded-2xl border border-line">
-                  <div className="photo-cine aspect-[21/9]">
-                    <img src={PX(35548840, 1200)} alt="Siswa belajar di kelas, Pandeglang, Banten" loading="lazy" decoding="async" sizes="(max-width: 1024px) 100vw, 560px" className="h-full w-full object-cover" />
-                  </div>
+                <figure className="photo-cine mt-4 aspect-[21/9]">
+                  <img src={PX(35548840, 1200)} alt="Siswa belajar di kelas, Pandeglang, Banten" loading="lazy" decoding="async" sizes="(max-width: 1024px) 100vw, 560px" className="h-full w-full object-cover" />
+                  <figcaption className="photo-cap"><span>Belajar bisnis sambil jalan</span><span className="opacity-70">Pexels</span></figcaption>
                 </figure>
               </div>
             </div>
           </Reveal>
         </div>
         <Reveal delay={120}>
-          <a href="/id/katalog" className="link-more mt-8 inline-block">
-            Cari 6 kursus + 5 jalur di Katalog →
-          </a>
+          <a href="/id/katalog" className="link-more mt-8 inline-block">Cari 6 kursus + 5 jalur di Katalog →</a>
         </Reveal>
       </section>
 
-      {/* ── 6 · INDONESIA CONTEXT (§10) + CATEGORIES (§7-8) — stacked, breaks split run ── */}
-      <section id="konteks" className="scroll-mt-28 border-y border-line bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
+      {/* ── 6 · KONTEKS (dark band) ───────────────────────── */}
+      <section id="konteks" className="hero-dark relative scroll-mt-28 overflow-hidden text-white">
+        <div className="aurora-blob" aria-hidden />
+        <div className="relative mx-auto max-w-7xl px-4 py-16 md:py-24">
           <Reveal>
-            <h2 className="max-w-[22ch] text-3xl font-bold md:text-4xl">Global diajarkan, Indonesia dijelaskan.</h2>
-            <p className="mt-3 max-w-[52ch] text-[15px] text-soft">Lapisan konteks di tiap kursus: pembayaran lokal, regulasi, hierarki, kasus nyata.</p>
+            <p className="eyebrow-dark">Konteks Indonesia</p>
+            <h2 className="mt-3 max-w-[22ch] text-4xl font-extrabold md:text-5xl">Global diajarkan, Indonesia dijelaskan.</h2>
+            <p className="mt-3 max-w-[54ch] text-[15px] text-white/60">Lapisan konteks di tiap kursus: pembayaran lokal, regulasi ber-tanggal, hierarki, kasus nyata.</p>
           </Reveal>
           <Reveal delay={80}>
-            <div className="mt-8 rounded-[20px] border border-line bg-paper p-5 md:p-6">
+            <div className="glass-dark mt-8 p-6 md:p-7">
               <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <p className="text-sm font-bold">Product Management — Indonesian Market</p>
-                <p className="font-mono text-[11px] text-muted">Lapisan konteks · 8 modul</p>
+                <p className="text-base font-extrabold">Product Management — Indonesian Market</p>
+                <p className="font-mono text-[11px] text-white/45">Lapisan konteks · 8 modul</p>
               </div>
-              <div className="mt-3 flex flex-wrap gap-2">
+              <div className="mt-4 flex flex-wrap gap-2">
                 {["Perilaku konsumen", "QRIS & VA", "Regulasi", "Marketplace lokal", "Hierarki bisnis", "Riset user ID", "Pricing lokal", "Studi kasus ID"].map((t) => (
-                  <span key={t} className="rounded-[10px] border border-line bg-white px-3 py-1.5 text-[13px] text-soft">{t}</span>
+                  <span key={t} className="rounded-full border border-white/12 bg-white/6 px-3.5 py-1.5 text-[13px] text-white/75">{t}</span>
                 ))}
               </div>
             </div>
           </Reveal>
           <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              ["Pemerintahan", "Cara kerja kementerian, APBN, pengadaan, ASN digital."],
-              ["Workplace ID", "Hierarki, budaya meeting, feedback, etiket kantor."],
-              ["Bisnis ID", "UMKM, pajak dasar, perizinan, halal, supply chain."],
-              ["Budaya & Harian", "Keuangan pribadi, scam online, data pribadi, parenting digital."],
-            ].map(([h, d], i) => (
+              ["01", "Pemerintahan", "Kementerian, APBN, pengadaan, ASN digital."],
+              ["02", "Workplace ID", "Hierarki, meeting, feedback, etiket kantor."],
+              ["03", "Bisnis ID", "UMKM, pajak dasar, perizinan, halal."],
+              ["04", "Budaya & Harian", "Keuangan pribadi, scam online, data pribadi."],
+            ].map(([n, h, d], i) => (
               <Reveal key={h} delay={i * 60}>
-                <div className="h-full rounded-[20px] border border-line bg-paper p-5">
-                  <p className="tnum font-mono text-xs font-bold text-brand-700">0{i + 1}</p>
-                  <p className="mt-2 text-[14px] font-bold">{h}</p>
-                  <p className="mt-1 text-[13px] leading-relaxed text-soft">{d}</p>
+                <div className="h-full rounded-[24px] border border-white/10 bg-white/5 p-6 backdrop-blur">
+                  <p className="font-mono text-xs font-bold text-amber-300">{n}</p>
+                  <p className="mt-2 text-[15px] font-extrabold">{h}</p>
+                  <p className="mt-1 text-[13px] leading-relaxed text-white/60">{d}</p>
                 </div>
               </Reveal>
             ))}
           </div>
-          <Reveal delay={100}>
-            <figure className="mt-4 overflow-hidden rounded-[20px] border border-line bg-card">
-              <div className="photo-cine aspect-[21/8]">
-                <img src={PX(34961765, 1200)} alt="Profesional muda bekerja malam hari di kantor Jakarta" loading="lazy" decoding="async" sizes="(max-width: 1024px) 100vw, 1200px" className="h-full w-full object-cover" />
-              </div>
-              <figcaption className="flex flex-wrap items-center justify-between gap-2 bg-white px-5 py-3 font-mono text-[11px]">
-                <span className="text-soft">Belajar malam hari — ritme profesional muda Jakarta</span>
-                <span className="text-faint">Foto: Pexels</span>
-              </figcaption>
-            </figure>
-          </Reveal>
         </div>
       </section>
 
-      {/* ── 7 · BRIGHT AI (§13-14) + SKILL/CAREER (§15-16) ── */}
-      <section id="ai" className="mx-auto max-w-7xl scroll-mt-28 px-4 py-16 md:py-20">
-        <div className="grid items-start gap-4 lg:grid-cols-2">
+      {/* ── 7 · AI ────────────────────────────────────────── */}
+      <section id="ai" className="mx-auto max-w-7xl scroll-mt-28 px-4 py-16 md:py-24">
+        <div className="grid items-start gap-5 lg:grid-cols-2">
           <Reveal>
-            <h2 className="max-w-[20ch] text-3xl font-bold md:text-4xl">Bright AI: tutor, simulator, perencana.</h2>
-            <p className="mt-3 max-w-[52ch] text-[15px] text-soft">Menjelaskan materi, memberi hint, menilai tugas, simulasi interview.</p>
-            <div className="mt-6 space-y-3">
-              <div className="rounded-[14px] border border-line bg-white p-4">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">Bright AI</p>
+            <h2 className="mt-3 max-w-[18ch] text-4xl font-extrabold md:text-5xl">Tutor, simulator, perencana.</h2>
+            <p className="mt-3 max-w-[52ch] text-[15px] text-soft">Menjelaskan materi, memberi hint, menilai tugas, simulasi interview HR — terikat materi, bukan chatbot bebas.</p>
+            <div className="mt-7 space-y-3">
+              <div className="panel-warm p-5">
                 <p className="font-mono text-[11px] text-faint">Interview simulator · HR</p>
-                <p className="mt-1.5 text-sm font-bold">“Ceritakan project e-commerce terakhirmu.”</p>
-                <p className="mt-1 text-[13px] text-soft">AI menilai: struktur jawaban, metrik, sikap. Skor + saran perbaikan.</p>
+                <p className="mt-1.5 text-[15px] font-extrabold">“Ceritakan project e-commerce terakhirmu.”</p>
+                <p className="mt-1 text-[13px] text-soft">AI menilai: struktur jawaban, metrik, sikap. Skor + saran perbaikan dalam 30 detik.</p>
               </div>
-              <div className="rounded-[14px] border border-line bg-white p-4">
+              <div className="panel-warm p-5">
                 <p className="font-mono text-[11px] text-faint">Workplace simulator</p>
-                <p className="mt-1.5 text-sm font-bold">“Atasan minta lembur mustahil hari ini. Responsmu?”</p>
-                <p className="mt-1 text-[13px] text-soft">Dijelaskan: komunikasi, profesionalisme, risiko, alternatif.</p>
+                <p className="mt-1.5 text-[15px] font-extrabold">“Atasan minta lembur mustahil hari ini. Responsmu?”</p>
+                <p className="mt-1 text-[13px] text-soft">Dijelaskan: komunikasi, profesionalisme, risiko, alternatif yang sopan.</p>
               </div>
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <div className="panel p-5 md:p-6">
-              <p className="font-mono text-[11px] text-soft">Skill graph · Frontend Development</p>
-              <div className="mt-4 space-y-3">
+            <div className="panel p-6 md:p-8">
+              <div className="flex items-center justify-between">
+                <p className="font-mono text-[11px] text-soft">Skill graph · Frontend Development</p>
+                <span className="flex items-center gap-1.5 rounded-full bg-ok-bg px-2.5 py-1 font-mono text-[11px] font-bold text-ok"><span className="live-dot" /> live</span>
+              </div>
+              <div className="mt-5 space-y-4">
                 {[["JavaScript", "Advanced", "92%"], ["TypeScript", "Intermediate", "74%"], ["React", "Intermediate", "61%"], ["Git", "Intermediate", "58%"], ["API", "Beginner", "34%"]].map(([k, lv, v]) => (
                   <div key={k}>
                     <div className="flex justify-between text-[13px]">
                       <span className="font-bold">{k} <span className="ml-1 font-mono text-[11px] font-normal text-muted">{lv}</span></span>
-                      <span className="tnum font-mono text-[11px] text-brand-700">{v}</span>
+                      <span className="tnum font-mono text-[11px] font-bold text-brand-700">{v}</span>
                     </div>
                     <div className="bar-track mt-1.5"><div className="bar-fill" style={{ width: v }} /></div>
                   </div>
                 ))}
               </div>
-              <p className="mt-4 rounded-[10px] bg-brand-50 px-3 py-2.5 text-[13px] text-soft"><strong className="text-ink">Rekomendasi:</strong> automated testing — proyek dashboard keuangan.</p>
+              <p className="mt-5 rounded-[14px] bg-brand-50 px-4 py-3 text-[13px] text-soft"><strong className="text-ink">Rekomendasi:</strong> automated testing — proyek dashboard keuangan, estimasi 3 minggu.</p>
+              <a href="/id/belajar/js-dasar-analis" className="btn-primary mt-5 w-full justify-center">Coba Lab Demo</a>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ── 8 · PROVE: portfolio + certificates (§17-19) ── */}
+      {/* ── 8 · BUKTI + OUTCOMES ──────────────────────────── */}
       <section id="bukti" className="scroll-mt-28 border-y border-line bg-white">
-        <div className="mx-auto grid max-w-7xl items-start gap-4 px-4 py-16 md:py-20 lg:grid-cols-2">
+        <div className="mx-auto max-w-7xl px-4 py-16 md:py-24">
           <Reveal>
-            <p className="font-mono text-xs font-medium text-brand-700">Bukti, bukan janji</p>
-            <h2 className="mt-3 text-3xl font-bold md:text-4xl">Portofolio publik + sertifikat terverifikasi.</h2>
-            <div className="mt-6 rounded-[20px] border border-line bg-paper p-5">
-              <p className="font-mono text-[11px] text-faint">superbright.id/u/rina</p>
-              <p className="mt-1 text-[15px] font-bold">Rina · Data Analyst Path</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {["Excel", "SQL", "Python", "Power BI", "Simulasi interview ✓"].map((s) => (
-                  <span key={s} className="rounded-[10px] border border-line bg-white px-3 py-1.5 font-mono text-[11px] text-soft">{s}</span>
-                ))}
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">Bukti, bukan janji</p>
+            <h2 className="mt-3 max-w-[24ch] text-4xl font-extrabold md:text-5xl">Portofolio publik + sertifikat terverifikasi.</h2>
+          </Reveal>
+          <div className="mt-9 grid items-start gap-4 lg:grid-cols-2">
+            <Reveal>
+              <div className="panel-warm p-6 md:p-8">
+                <p className="font-mono text-[11px] text-faint">superbright.id/u/rina</p>
+                <p className="mt-1 text-xl font-extrabold tracking-tight">Rina · Data Analyst Path</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {["Excel", "SQL", "Python", "Power BI", "Simulasi interview ✓"].map((s) => (
+                    <span key={s} className="chip font-mono !text-[11px]">{s}</span>
+                  ))}
+                </div>
+                <p className="mt-4 text-[13px] text-soft"><strong className="text-ink">Proyek:</strong> analisis penjualan e-commerce Indonesia + dashboard Power BI + rekomendasi promo.</p>
+                <figure className="photo-cine mt-5 aspect-[21/9]">
+                  <img src={PX(29343927, 1400)} alt="Wisudawan Indonesia merayakan kelulusan" loading="lazy" decoding="async" sizes="(max-width: 1024px) 100vw, 560px" className="h-full w-full object-cover" />
+                  <figcaption className="photo-cap"><span>Wisuda — dari belajar jadi bisa</span><span className="opacity-70">Pexels</span></figcaption>
+                </figure>
               </div>
-              <p className="mt-3 text-[13px] text-soft"><strong className="text-ink">Proyek:</strong> analisis penjualan e-commerce Indonesia + dashboard Power BI.</p>
-            </div>
-          </Reveal>
-          <Reveal delay={100}>
-            <div className="rounded-[20px] border-2 border-brand-700 bg-brand-50 p-5">
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-brand-700">Verifikasi</p>
-              <p className="tnum mt-2 font-mono text-xl font-bold">SB-2026-FE-8F39K2</p>
-              <p className="mt-1 font-mono text-[11px] text-muted">superbright.id/verify/SB-2026-FE-8F39K2</p>
-              <dl className="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line">
-                {[["Peserta", "Rina · privat opsional"], ["Program", "Data Analyst Path"], ["Penerbit", "SuperBright Verified"], ["Status", "Terverifikasi ✓"]].map(([k, v]) => (
-                  <div key={k} className="bg-white px-4 py-3">
-                    <dt className="font-mono text-[11px] text-faint">{k}</dt>
-                    <dd className="mt-0.5 text-[13px] font-bold">{v}</dd>
-                  </div>
-                ))}
-              </dl>
-              <p className="mt-3 font-mono text-[11px] leading-relaxed text-muted">Hierarki: Course → Skill → Professional → Partner. Penerbit pihak ketiga selalu disebut eksplisit.</p>
-            </div>
-          </Reveal>
-        </div>
-        <div className="mx-auto max-w-7xl px-4 pb-16 md:pb-20">
-          <Reveal delay={120}>
-            <figure className="overflow-hidden rounded-[20px] border border-line bg-card">
-              <div className="photo-cine aspect-[21/9]">
-                <img src={PX(29343927, 1400)} alt="Wisudawan Indonesia merayakan kelulusan" loading="lazy" decoding="async" sizes="(max-width: 1024px) 100vw, 1200px" className="h-full w-full object-cover" />
+            </Reveal>
+            <Reveal delay={100}>
+              <div className="rounded-[24px] border-2 border-brand-700 bg-brand-50 p-6 md:p-8">
+                <div className="flex items-center justify-between">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-brand-700">Verifikasi publik</p>
+                  <span className="rounded-full bg-emerald-500/15 px-3 py-1 font-mono text-[11px] font-bold text-emerald-700">✓ Valid</span>
+                </div>
+                <p className="tnum mt-3 font-mono text-2xl font-bold tracking-tight">SB-2026-FE-8F39K2</p>
+                <p className="mt-1 font-mono text-[11px] text-muted">superbright.id/verify/SB-2026-FE-8F39K2</p>
+                <dl className="mt-5 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line">
+                  {[["Peserta", "Rina · privat opsional"], ["Program", "Data Analyst Path"], ["Penerbit", "SuperBright Verified"], ["Status", "Terverifikasi ✓"]].map(([k, v]) => (
+                    <div key={k} className="bg-white px-4 py-3.5">
+                      <dt className="font-mono text-[11px] text-faint">{k}</dt>
+                      <dd className="mt-0.5 text-[13px] font-bold">{v}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <div className="mt-5 flex gap-2">
+                  {["OB 3.0 ✓", "VC 2.0 ✓", "QR siap"].map((b) => (
+                    <span key={b} className="rounded-[10px] border border-line bg-white px-3 py-1.5 font-mono text-[11px] text-soft">{b}</span>
+                  ))}
+                </div>
+                <a href="/id/verify/contoh" className="btn-primary mt-5 w-full justify-center">Cek halaman verifikasi</a>
               </div>
-              <figcaption className="flex flex-wrap items-center justify-between gap-2 bg-white px-5 py-3 font-mono text-[11px]">
-                <span className="text-soft">Wisuda — dari belajar jadi bisa</span>
-                <span className="text-faint">Foto: Pexels</span>
-              </figcaption>
-            </figure>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── 9 · HIRING LOGOS — company hunting, logo-only ── */}
-      <section aria-label="Perusahaan yang memakai skill ini" className="border-b border-line bg-paper">
-        <div className="mx-auto max-w-7xl px-4 py-12">
-          <Reveal>
-            <p className="text-center font-mono text-[11px] uppercase tracking-[0.16em] text-muted">Skill yang dipakai di perusahaan seperti</p>
-          </Reveal>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-9 gap-y-4">
-            {HIRING.map(([slug, name]) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img key={slug} src={`https://cdn.simpleicons.org/${slug}/0C111D`} alt={name} title={name} width={26} height={26} loading="lazy" className="opacity-75 transition hover:opacity-100" />
-            ))}
+            </Reveal>
           </div>
-          <p className="mt-5 text-center font-mono text-[11px] text-faint">Logo milik masing-masing perusahaan · ditampilkan untuk tujuan edukasi, tanpa afiliasi</p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-            {CAMPUSES.map(([label, mark]) => (
-              <span key={label} className="flex items-center gap-2 rounded-full border border-line bg-white px-4 py-2">
-                <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden><circle cx="12" cy="12" r="10" fill="#1D4ED8" /><text x="12" y="15.5" textAnchor="middle" fontSize="7.5" fontFamily="monospace" fontWeight="bold" fill="#fff">{mark}</text></svg>
-                <span className="font-mono text-[12px] text-soft">{label}</span>
-              </span>
+
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {OUTCOMES.map((o, i) => (
+              <Reveal key={o.n} delay={i * 70}>
+                <figure className="spot h-full rounded-[24px] border border-line bg-paper p-6">
+                  <blockquote className="text-[14px] leading-relaxed text-ink">“{o.q}”</blockquote>
+                  <figcaption className="mt-4 flex items-center justify-between border-t border-line pt-4">
+                    <div>
+                      <p className="text-[13px] font-extrabold">{o.n}</p>
+                      <p className="font-mono text-[11px] text-muted">{o.r}</p>
+                    </div>
+                    <span className="tnum rounded-lg bg-ok-bg px-2.5 py-1 font-mono text-[11px] font-bold text-ok">{o.s}</span>
+                  </figcaption>
+                </figure>
+              </Reveal>
             ))}
-            <span className="font-mono text-[11px] text-faint">+ Komunitas kota: JKT · BDG · SBY · YGY · MDN</span>
           </div>
         </div>
       </section>
 
-      {/* ── 10 · PRICING (§34-35) ── */}
-      <section id="harga" className="mx-auto max-w-6xl scroll-mt-28 px-4 py-16 md:py-20">
+      {/* ── 9 · PRICING + FAQ ──────────────────────────────── */}
+      <section id="harga" className="mx-auto max-w-6xl scroll-mt-28 px-4 py-16 md:py-24">
         <Reveal>
-          <h2 className="text-center text-3xl font-bold md:text-4xl">Harga transparan dalam Rupiah.</h2>
+          <p className="text-center font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">Harga</p>
+          <h2 className="mx-auto mt-3 max-w-[20ch] text-center text-4xl font-extrabold md:text-5xl">Transparan dalam Rupiah.</h2>
           <p className="mx-auto mt-3 max-w-[54ch] text-center text-[15px] text-soft">QRIS · Virtual Account · E-wallet · Kartu. Invoice untuk kampus & perusahaan.</p>
         </Reveal>
-        <div className="mt-8 grid items-stretch gap-4 md:grid-cols-3">
+        <div className="mt-9 grid items-stretch gap-4 md:grid-cols-3">
           <Reveal className="h-full">
-            <div className="flex h-full flex-col rounded-[20px] border border-line bg-white p-7">
+            <div className="panel-warm flex h-full flex-col p-7">
               <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted">Gratis</p>
-              <p className="tnum mt-2 font-mono text-3xl font-bold">Rp0</p>
+              <p className="tnum mt-2 font-mono text-4xl font-bold">Rp0</p>
+              <p className="mt-1 font-mono text-[11px] text-muted">selamanya · tanpa kartu</p>
               <ul className="mt-5 flex-1 space-y-2.5 text-sm text-soft">
-                <li>Kursus pilihan + komunitas</li>
-                <li>Bright AI dasar</li>
-                <li>Sertifikat dasar</li>
+                <li>✓ Kursus pilihan + komunitas kota</li>
+                <li>✓ Bright AI dasar</li>
+                <li>✓ Sertifikat dasar + QR</li>
               </ul>
               <a href="/id/auth/daftar" className="btn-ghost mt-6 justify-center">Mulai Gratis</a>
             </div>
           </Reveal>
           <Reveal delay={80} className="h-full">
-            <div className="flex h-full flex-col rounded-[20px] border-2 border-brand-700 bg-brand-50 p-7">
-              <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-brand-700">SuperBright Plus</p>
-              <p className="tnum mt-2 font-mono text-3xl font-bold">Rp99 rb<span className="text-sm font-normal text-muted">/bln</span></p>
-              <ul className="mt-5 flex-1 space-y-2.5 text-sm text-soft">
-                <li>Semua kursus + jalur</li>
-                <li>Bright AI penuh + proyek</li>
-                <li>Sertifikat + tools karier</li>
+            <div className="relative flex h-full flex-col rounded-[24px] border-2 border-ink bg-ink p-7 text-white shadow-[0_32px_80px_-24px_rgba(6,10,19,0.6)]">
+              <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-amber-400 px-3.5 py-1 font-mono text-[11px] font-bold text-ink">PALING DIPILIH</span>
+              <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-amber-300">SuperBright Plus</p>
+              <p className="tnum mt-2 font-mono text-4xl font-bold">Rp99<span className="text-lg text-white/50">rb</span><span className="text-sm font-normal text-white/50">/bln</span></p>
+              <p className="mt-1 font-mono text-[11px] text-white/45">atau Rp990rb/tahun · hemat 2 bulan</p>
+              <ul className="mt-5 flex-1 space-y-2.5 text-sm text-white/75">
+                <li>✓ Semua kursus + semua jalur</li>
+                <li>✓ Bright AI penuh + proyek dinilai</li>
+                <li>✓ Sertifikat Pro + tools karier</li>
+                <li>✓ Prioritas review mentor</li>
               </ul>
-              <a href="/id/auth/daftar" className="btn-primary mt-6 justify-center">Mulai Gratis</a>
+              <a href="/id/auth/daftar" className="btn-amber mt-6 justify-center">Mulai Gratis 7 hari</a>
             </div>
           </Reveal>
           <Reveal delay={140} className="h-full">
-            <div className="flex h-full flex-col rounded-[20px] border border-line bg-white p-7">
+            <div className="panel-warm flex h-full flex-col p-7">
               <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted">Bisnis · Gov · Kampus</p>
-              <p className="tnum mt-2 font-mono text-3xl font-bold">Custom</p>
+              <p className="tnum mt-2 font-mono text-4xl font-bold">Custom</p>
+              <p className="mt-1 font-mono text-[11px] text-muted">per-seat / lisensi tahunan</p>
               <ul className="mt-5 flex-1 space-y-2.5 text-sm text-soft">
-                <li>Kursus per-seat / lisensi</li>
-                <li>Pelatihan ASN & internal</li>
-                <li>Invoice + PKS</li>
+                <li>✓ Dashboard cohorts + analitik SKKNI</li>
+                <li>✓ Pelatihan ASN & internal</li>
+                <li>✓ Invoice + PKS + onboarding</li>
               </ul>
               <a href="#organisasi" className="btn-ghost mt-6 justify-center">Hubungi Sales</a>
             </div>
           </Reveal>
         </div>
+        <div className="mx-auto mt-8 grid max-w-4xl gap-3 md:grid-cols-2">
+          {[
+            ["Apakah benar gratis?", "Ya — kursus pilihan, komunitas, dan sertifikat dasar gratis selamanya. Plus membuka semua jalur + AI penuh."],
+            ["Bagaimana pembayaran?", "QRIS, GoPay, VA bank, kartu via Midtrans/Xendit. Semua invoice tersedia di dashboard."],
+          ].map(([q, a]) => (
+            <Reveal key={q}>
+              <div className="rounded-[20px] border border-line bg-white p-5">
+                <p className="text-[14px] font-extrabold">{q}</p>
+                <p className="mt-1.5 text-[13px] leading-relaxed text-soft">{a}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
         <p className="mt-6 text-center font-mono text-[11px] text-muted">Harga peluncuran — nominal final dikonfirmasi sebelum penagihan pertama.</p>
       </section>
 
-      {/* ── 11 · CTA + journey (§55 Rina) ── */}
-      <section id="organisasi" className="scroll-mt-28 border-t border-line bg-white">
-        <div className="mx-auto grid max-w-7xl items-center gap-6 px-4 py-16 md:grid-cols-2 md:py-20">
-          <Reveal>
-            <h2 className="max-w-[18ch] text-3xl font-bold leading-tight md:text-5xl">Tujuan → belajar → bangun → bisa.</h2>
-            <p className="mt-3 max-w-[48ch] text-[15px] text-soft">Seperti Rina, 22: target Data Analyst, 7 modul, 1 proyek e-commerce, siap lamar.</p>
-          </Reveal>
-          <Reveal delay={100}>
-            <div className="panel p-5 md:p-6">
-              <label htmlFor="wa" className="text-[13px] font-bold">Nomor WhatsApp</label>
-              <p className="mt-1 text-[12px] text-muted">Contoh: 0812xxxxxxx. Kami kirim tautan aktivasi.</p>
-              <div className="mt-3 flex flex-col gap-2 sm:flex-row">
-                <input id="wa" type="tel" placeholder="08xx" className="field" autoComplete="tel" />
-                <a href="/id/auth/daftar" className="btn-primary flex-none justify-center px-5">Mulai Gratis</a>
+      {/* ── 10 · CTA ──────────────────────────────────────── */}
+      <section id="organisasi" className="mx-auto max-w-7xl scroll-mt-28 px-4 pb-20">
+        <Reveal>
+          <div className="panel overflow-hidden">
+            <div className="grid md:grid-cols-2">
+              <div className="photo-cine !rounded-none min-h-[260px]">
+                <img src={PX(34961765, 1200)} alt="Profesional muda bekerja malam hari di kantor Jakarta" loading="lazy" decoding="async" sizes="(max-width: 768px) 100vw, 560px" className="h-full w-full object-cover" />
               </div>
-              <p className="mt-3 font-mono text-[11px] leading-relaxed text-faint">Data di Jakarta · Privasi terkontrol: profil, sertifikat, dan aktivitas bisa privat.</p>
+              <div className="p-7 md:p-10">
+                <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">Untuk kamu & organisasimu</p>
+                <h2 className="mt-3 text-3xl font-extrabold leading-tight md:text-4xl">Malam ini 15 menit. Bulan depan portofolio.</h2>
+                <p className="mt-3 max-w-[46ch] text-[14px] leading-relaxed text-soft">
+                  Seperti Rina, 22: target Data Analyst, 7 modul, 1 proyek e-commerce, siap lamar.
+                  Kampus & perusahaan dapat dashboard cohorts + invoice.
+                </p>
+                <label htmlFor="wa" className="mt-6 block text-[13px] font-bold">Nomor WhatsApp</label>
+                <div className="mt-2 flex flex-col gap-2 sm:flex-row">
+                  <input id="wa" type="tel" placeholder="08xx xxxx xxxx" className="field" autoComplete="tel" />
+                  <a href="/id/auth/daftar" className="btn-primary flex-none justify-center px-6">Mulai Gratis</a>
+                </div>
+                <p className="mt-3 font-mono text-[11px] leading-relaxed text-faint">Data di Jakarta · Profil, sertifikat, dan aktivitas bisa privat.</p>
+              </div>
             </div>
-          </Reveal>
-        </div>
-        <SiteFooter />
+          </div>
+        </Reveal>
       </section>
+
+      <SiteFooter />
     </main>
   );
 }

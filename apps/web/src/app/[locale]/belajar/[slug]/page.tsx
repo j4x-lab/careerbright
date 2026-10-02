@@ -70,26 +70,26 @@ export default async function BelajarPage({ params }: { params: Promise<{ slug: 
   };
 
   return (
-    <main className="overflow-x-clip bg-paper pt-[96px] text-ink">
+    <main className="overflow-x-clip bg-paper text-ink">
       <a href="#konten" className="skip-link">Lewati ke konten</a>
 
-      {/* Course header */}
-      <section className="border-b border-line bg-white">
-        <div id="konten" className="mx-auto max-w-7xl px-4 py-10 md:py-12">
-          <a href="/#jalur" className="link-more">← Katalog</a>
+      {/* Course header v2 — dark */}
+      <section className="hero-dark relative overflow-hidden pt-[140px] text-white">
+        <div className="aurora-blob" aria-hidden />
+        <div id="konten" className="relative mx-auto max-w-7xl px-4 pb-12">
+          <a href="/#jalur" className="font-mono text-[12px] text-white/50 underline decoration-white/25 underline-offset-4 hover:text-white">← Katalog</a>
           <div className="mt-6 flex flex-wrap gap-2">
             {[meta.level, meta.duration, "Bahasa Indonesia", "Sertifikat ✓", "Proyek ✓"].map((c) => (
-              <span key={c} className="rounded-lg border border-line bg-paper px-3 py-1.5 font-mono text-[11px] text-soft">{c}</span>
+              <span key={c} className="rounded-full border border-white/12 bg-white/6 px-3.5 py-1.5 font-mono text-[11px] text-white/70">{c}</span>
             ))}
           </div>
-          <h1 className="mt-4 max-w-[20ch] text-3xl font-bold leading-tight md:text-5xl">{course.title}</h1>
-          <p className="mt-3 max-w-[60ch] text-[15px] leading-relaxed text-soft">
+          <h1 className="mt-4 max-w-[20ch] text-4xl font-extrabold leading-tight md:text-6xl">{course.title}</h1>
+          <p className="mt-3 max-w-[60ch] text-[15px] leading-relaxed text-white/60">
             Belajar sambil membangun: tiap pelajaran berakhir di kuis atau lab yang dinilai otomatis.
           </p>
-          <p className="mt-3 font-mono text-[11px] text-faint">Tim SuperBright · Terverifikasi · Diperbarui {meta.updated}</p>
+          <p className="mt-3 font-mono text-[11px] text-white/40">Tim SuperBright · Terverifikasi · Diperbarui {meta.updated}</p>
 
-          <figure className="mt-8 overflow-hidden rounded-[20px] border border-line bg-card">
-            <div className="photo-cine aspect-[21/9]">
+          <figure className="photo-cine mt-8 aspect-[21/9]">
               <img
                 src={PX(PHOTOS.analystJKT, 1400)}
                 alt="Analis muda bekerja dengan laptop di kantor Jakarta"
@@ -98,34 +98,33 @@ export default async function BelajarPage({ params }: { params: Promise<{ slug: 
                 sizes="(max-width: 1024px) 100vw, 1200px"
                 className="h-full w-full object-cover"
               />
-            </div>
-            <figcaption className="flex flex-wrap items-center justify-between gap-2 bg-white px-5 py-3 font-mono text-[11px]">
-              <span className="text-soft">Belajar seperti ritme kerja — fokus, praktik, selesai</span>
-              <span className="text-faint">Foto: Pexels</span>
+            <figcaption className="photo-cap">
+              <span>Belajar seperti ritme kerja — fokus, praktik, selesai</span>
+              <span className="opacity-70">Pexels</span>
             </figcaption>
           </figure>
 
           <div className="mt-4 grid items-start gap-4 lg:grid-cols-2">
-            <div className="rounded-[20px] border-2 border-brand-700 bg-brand-50 p-5">
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-brand-700">Yang akan kamu bangun</p>
-              <p className="mt-2 text-sm font-bold leading-relaxed">{meta.project}</p>
+            <div className="rounded-[24px] border border-amber-300/30 bg-amber-400/10 p-6 backdrop-blur">
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-amber-300">Yang akan kamu bangun</p>
+              <p className="mt-2 text-[15px] font-extrabold leading-relaxed">{meta.project}</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {meta.skills.map((s) => (
-                  <span key={s} className="rounded-[10px] border border-line bg-white px-3 py-1.5 font-mono text-[11px] text-soft">{s}</span>
+                  <span key={s} className="rounded-full border border-white/12 bg-white/6 px-3 py-1.5 font-mono text-[11px] text-white/70">{s}</span>
                 ))}
               </div>
             </div>
-            <div className="rounded-[20px] border border-line bg-white p-5">
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-faint">Isi kursus</p>
+            <div className="glass-dark p-6">
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/45">Isi kursus</p>
               <ul className="mt-3 flex flex-wrap gap-2">
                 {EXPERIENCE.map((e) => (
-                  <li key={e} className="flex items-center gap-2 rounded-[10px] border border-line bg-paper px-3 py-1.5 text-[13px] text-soft">
-                    <span aria-hidden className="font-mono text-[11px] font-bold text-brand-700">✓</span>{e}
+                  <li key={e} className="flex items-center gap-2 rounded-full border border-white/12 bg-white/6 px-3.5 py-1.5 text-[13px] text-white/75">
+                    <span aria-hidden className="font-mono text-[11px] font-bold text-amber-300">✓</span>{e}
                   </li>
                 ))}
               </ul>
-              <p className="mt-3 rounded-[10px] bg-paper px-3 py-2.5 text-[13px] text-soft">
-                Stuck? Tanya <strong className="text-ink">Bright AI</strong> — terikat materi, bukan chatbot bebas.
+              <p className="mt-3 rounded-[12px] bg-white/6 px-3.5 py-2.5 text-[13px] text-white/65">
+                Stuck? Tanya <strong className="text-white">Bright AI</strong> — terikat materi, bukan chatbot bebas.
               </p>
             </div>
           </div>

@@ -1,6 +1,7 @@
 // Instructor Dashboard — backend: course.*, assessment.*, submission.review, payout.*
 import { appRouter } from "@/server/routers";
 import { CreateCourseForm } from "./create-course-form";
+import { OpsShell } from "@/components/ops-shell";
 
 export default async function InstructorDashboard() {
   let courses: { id: string; slug: string; titleId: string; status: string }[] = [];
@@ -13,28 +14,24 @@ export default async function InstructorDashboard() {
   }
 
   return (
-    <main className="mx-auto min-h-[100dvh] max-w-7xl bg-paper px-4 py-10">
-      <a href="/" className="link-more">
-        ← Beranda
-      </a>
-      <h1 className="mt-4 text-3xl font-semibold tracking-tight">Course Studio</h1>
+    <OpsShell eyebrow="Studio · instruktur" title="Course Studio" desc="Buat kursus, petakan SKKNI, bangun asesmen, pantau payout.">
       {!dbOnline && (
-        <p className="mt-3 rounded-xl border border-ink/10 bg-cream p-4 text-sm text-soft">
+        <p className="panel-warm mt-0 p-4 text-sm text-soft">
           Database belum terhubung (atur DATABASE_URL lalu jalankan seed). UI di bawah aktif setelah DB online.
         </p>
       )}
-      <CreateCourseForm />
-      <div className="mt-6 grid gap-4 md:grid-cols-3">
+      <div className="panel mt-4 p-5 md:p-6"><CreateCourseForm /></div>
+      <div className="mt-4 grid gap-4 md:grid-cols-3">
         {courses.length === 0 && dbOnline && (
           <p className="text-sm text-soft">Belum ada kursus. Buat draf pertamamu di atas.</p>
         )}
         {courses.map((c) => (
-          <div key={c.id} className="rounded-2xl border border-ink/10 bg-card p-5">
-            <p className="font-semibold">{c.titleId}</p>
+          <div key={c.id} className="spot panel p-5">
+            <p className="font-extrabold">{c.titleId}</p>
             <p className="mt-1 font-mono text-[11px] text-muted">/{c.slug} · {c.status}</p>
           </div>
         ))}
       </div>
-    </main>
+    </OpsShell>
   );
 }

@@ -141,37 +141,38 @@ export default async function PathPage({ params }: { params: Promise<{ slug: str
   const p = PATHS[slug] ?? PATHS["frontend-developer"];
 
   return (
-    <main className="overflow-x-clip bg-paper pt-[96px] text-ink">
+    <main className="overflow-x-clip bg-paper text-ink">
       <a href="#konten" className="skip-link">Lewati ke konten</a>
 
-      {/* Header split: goal-first + enroll card */}
-      <section className="border-b border-line bg-white">
-        <div id="konten" className="mx-auto grid max-w-7xl items-start gap-8 px-4 py-12 md:py-16 lg:grid-cols-5">
+      {/* Header split v2: dark goal-first + glass enroll card */}
+      <section className="hero-dark relative overflow-hidden pt-[140px] text-white">
+        <div className="aurora-blob" aria-hidden />
+        <div id="konten" className="relative mx-auto grid max-w-7xl items-start gap-8 px-4 pb-12 pt-2 md:pb-14 lg:grid-cols-5">
           <div className="lg:col-span-3">
-            <a href="/#jalur" className="link-more">← Katalog jalur</a>
-            <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-brand-700">Learning Path · {p.level}</p>
-            <h1 className="mt-4 max-w-[18ch] text-4xl font-bold leading-[1.05] md:text-5xl">{p.title}</h1>
-            <p className="mt-3 max-w-[30ch] text-[15px] font-bold text-ink">{p.goal}</p>
-            <p className="mt-2 max-w-[52ch] text-[15px] leading-relaxed text-soft">{p.desc}</p>
-            <p className="tnum mt-4 font-mono text-[13px] text-muted">{p.salary} · {p.weeks}</p>
+            <a href="/#jalur" className="font-mono text-[12px] text-white/50 underline decoration-white/25 underline-offset-4 hover:text-white">← Katalog jalur</a>
+            <p className="eyebrow-dark mt-6">Learning Path · {p.level}</p>
+            <h1 className="mt-4 max-w-[18ch] text-4xl font-extrabold leading-[1.05] md:text-6xl">{p.title}</h1>
+            <p className="mt-3 max-w-[30ch] text-[15px] font-bold text-amber-200">{p.goal}</p>
+            <p className="mt-2 max-w-[52ch] text-[15px] leading-relaxed text-white/60">{p.desc}</p>
+            <p className="tnum mt-4 font-mono text-[13px] text-white/45">{p.salary} · {p.weeks}</p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <a href="/id/auth/daftar" className="btn-primary group">
+              <a href="/id/auth/daftar" className="btn-amber group">
                 Mulai Gratis
-                <span className="btn-island" aria-hidden>↗</span>
+                <span className="btn-island btn-island-dark" aria-hidden>↗</span>
               </a>
-              <a href="/id/belajar/js-dasar-analis" className="btn-ghost">Coba Lab Demo</a>
+              <a href="/id/belajar/js-dasar-analis" className="btn-dark">Coba Lab Demo</a>
             </div>
           </div>
           <aside className="lg:col-span-2">
-            <div className="panel p-5">
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-faint">Yang kamu dapat</p>
-              <ul className="mt-3 space-y-2 text-sm text-soft">
-                <li>{p.stages.length} tahap terstruktur</li>
-                <li>{p.skills.length} skill terukur di Skill Graph</li>
-                <li>1 proyek portofolio + sertifikat</li>
-                <li>Simulasi interview + Bright AI</li>
+            <div className="glass-dark p-6">
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/45">Yang kamu dapat</p>
+              <ul className="mt-3 space-y-2.5 text-sm text-white/75">
+                <li>✓ {p.stages.length} tahap terstruktur</li>
+                <li>✓ {p.skills.length} skill terukur di Skill Graph</li>
+                <li>✓ 1 proyek portofolio + sertifikat QR</li>
+                <li>✓ Simulasi interview + Bright AI</li>
               </ul>
-              <p className="mt-4 rounded-[10px] bg-brand-50 px-3 py-2.5 font-mono text-[11px] text-brand-700">Gratis mulai · Plus untuk sertifikat</p>
+              <p className="mt-4 rounded-[12px] bg-amber-400/12 px-3.5 py-2.5 font-mono text-[11px] text-amber-300">Gratis mulai · Plus untuk sertifikat</p>
             </div>
           </aside>
         </div>
@@ -180,13 +181,11 @@ export default async function PathPage({ params }: { params: Promise<{ slug: str
       {/* Hero visual: learner in context */}
       <section className="border-b border-line bg-paper">
         <div className="mx-auto max-w-7xl px-4 py-10">
-          <figure className="overflow-hidden rounded-[20px] border border-line bg-card">
-            <div className="photo-cine aspect-[21/8]">
+          <figure className="photo-cine aspect-[21/8]">
               <img src={PX(p.photo, 1600)} alt={p.alt} loading="lazy" decoding="async" sizes="(max-width: 1024px) 100vw, 1200px" className="h-full w-full object-cover" />
-            </div>
-            <figcaption className="flex flex-wrap items-center justify-between gap-2 bg-white px-5 py-3 font-mono text-[11px]">
-              <span className="text-soft">{p.caption}</span>
-              <span className="text-faint">Foto: Pexels</span>
+            <figcaption className="photo-cap">
+              <span>{p.caption}</span>
+              <span className="opacity-70">Pexels</span>
             </figcaption>
           </figure>
         </div>
@@ -194,11 +193,12 @@ export default async function PathPage({ params }: { params: Promise<{ slug: str
 
       {/* Stages timeline */}
       <section className="mx-auto max-w-7xl px-4 py-14 md:py-16">
-        <h2 className="max-w-[22ch] text-3xl font-bold md:text-4xl">Tahapan yang jelas, bukan daftar video.</h2>
-        <ol className="mt-8 overflow-hidden rounded-[20px] border border-line bg-white">
+        <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">Silabus</p>
+        <h2 className="mt-3 max-w-[22ch] text-3xl font-extrabold md:text-4xl">Tahapan yang jelas, bukan daftar video.</h2>
+        <ol className="panel mt-8 overflow-hidden">
           {p.stages.map((s, i) => (
-            <li key={s.name} className={`grid gap-2 px-5 py-4 sm:grid-cols-[auto_1fr_auto] sm:items-center sm:gap-4 ${i > 0 ? "border-t border-line" : ""}`}>
-              <span className="tnum flex h-9 w-9 items-center justify-center rounded-[10px] bg-brand-50 font-mono text-xs font-bold text-brand-700">
+            <li key={s.name} className={`grid gap-2 px-6 py-4 sm:grid-cols-[auto_1fr_auto] sm:items-center sm:gap-4 ${i > 0 ? "border-t border-line" : ""}`}>
+              <span className="card-num tnum">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div className="min-w-0">
