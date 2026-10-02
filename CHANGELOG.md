@@ -1,5 +1,15 @@
 # Changelog — Career SuperBright
 
+## v0.3.0 — Premium-Bold + Section Rhythm (2026-10-03)
+
+- Premium-bold redesign: fluid display type, cobalt rule kickers, escalated
+  stats spotlight and role index, timeline steps, 52px CTA pairs
+- Long roles section split into three movements (#pekerjaan stats,
+  #contoh-event band, #semua-peran index)
+- Premium-bold course pages: display heroes, chapter lockups, quiz and lab
+  instruments with progress meter and verdict states
+- Chrome: quiet notice bar, decisive nav states, footer CTA climax
+
 ## v0.2.1 — Light-OS Restoration + i18n + Self-Hosted Visuals (2026-10-03)
 
 Patch release on the v0.2 line. Restores the light-OS design language across
