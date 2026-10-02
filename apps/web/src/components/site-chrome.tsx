@@ -230,9 +230,9 @@ export function SiteFooter() {
             {t("legalLine")}
           </p>
           <nav aria-label={t("legal")} className="flex flex-none flex-wrap items-center gap-x-5 gap-y-2 text-[12px] text-faint">
-            <a href="/id/verify/contoh" className="py-2 transition hover:text-muted">{t("privacy")}</a>
-            <a href="/id/verify/contoh" className="py-2 transition hover:text-muted">{t("terms")}</a>
-            <a href="/id/verify/contoh" className="py-2 transition hover:text-muted">{t("verify")}</a>
+            <a href="/id/verify/contoh" className="inline-flex min-h-[44px] items-center transition hover:text-muted">{t("privacy")}</a>
+            <a href="/id/verify/contoh" className="inline-flex min-h-[44px] items-center transition hover:text-muted">{t("terms")}</a>
+            <a href="/id/verify/contoh" className="inline-flex min-h-[44px] items-center transition hover:text-muted">{t("verify")}</a>
             <span className="font-mono text-[11px] text-faint">© 2026</span>
           </nav>
         </div>
