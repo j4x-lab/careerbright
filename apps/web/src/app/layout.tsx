@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import localFont from "next/font/local";
+import { NextIntlClientProvider, type AbstractIntlMessages } from "next-intl";
+import idMessages from "../../messages/id.json";
 import "./globals.css";
 
-// Jakarta Light concept: Plus Jakarta Sans (400–800) + IBM Plex Mono —
+// Jakarta Light concept: Plus Jakarta Sans (400–800) + Roboto Mono variable —
 // both self-hosted, zero Google Fonts downloads (offline/Termux-safe).
 const jakarta = localFont({
   src: [
@@ -18,26 +20,24 @@ const jakarta = localFont({
   fallback: ["ui-sans-serif", "system-ui", "-apple-system", "sans-serif"],
 });
 
-const plex = localFont({
+const robotoMono = localFont({
   src: [
-    { path: "../../public/fonts/IBMPlexMono-Regular.woff2", weight: "400", style: "normal" },
-    { path: "../../public/fonts/IBMPlexMono-Medium.woff2", weight: "500", style: "normal" },
-    { path: "../../public/fonts/IBMPlexMono-SemiBold.woff2", weight: "600", style: "normal" },
+    { path: "../../public/fonts/RobotoMono-Variable.woff2", weight: "100 700", style: "normal" },
   ],
-  variable: "--font-plex",
+  variable: "--font-roboto-mono",
   display: "swap",
   fallback: ["ui-monospace", "SFMono-Regular", "monospace"],
 });
 
 export const metadata: Metadata = {
-  title: "SuperBright — Mau Jadi Apa Setelah Lulus?",
+  title: "Career SuperBright — Coba Contoh Kerja 30 Hari Sebelum Lulus",
   description:
-    "Pilih peran impianmu. Ikuti jalur selaras SKKNI, kerjakan asesmen yang dinilai AI sampai portofolio dan sertifikat terverifikasi.",
+    "Lihat 4 pilihan peran. 1 contoh Event bisa dicoba penuh 30 hari. 3 lainnya masih pengenalan.",
   metadataBase: new URL("https://careerbright.id"),
   openGraph: {
-    title: "SuperBright — Mau Jadi Apa Setelah Lulus?",
+    title: "Career SuperBright — Don't just learn about the job. Practice doing it.",
     description:
-      "Pilih peran, ikuti jalur SKKNI, bangun portofolio, raih sertifikat terverifikasi.",
+      "Try a 30-day work example before graduating. 1 Event demo playable, 3 intros.",
     type: "website",
     locale: "id_ID",
   },
@@ -52,10 +52,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html
       lang="id"
       suppressHydrationWarning
-      className={`${jakarta.variable} ${plex.variable}`}
+      className={`${jakarta.variable} ${robotoMono.variable}`}
     >
       <body className="min-h-[100dvh] bg-paper text-ink antialiased">
-        {children}
+        <NextIntlClientProvider locale="id" messages={idMessages as unknown as AbstractIntlMessages}>{children}</NextIntlClientProvider>
       </body>
     </html>
   );

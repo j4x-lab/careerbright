@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { snapJsUrl } from "@careerbright/payments";
 
 declare global {
@@ -22,6 +23,7 @@ function loadSnap(): Promise<void> {
 
 // Paid LSP-upgrade checkout. Disabled gracefully when backend has no keys/DB.
 export function UpgradeButton({ learningPathId, priceLabel }: { learningPathId: string; priceLabel: string }) {
+  const t = useTranslations("upgrade");
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
 
@@ -34,12 +36,12 @@ export function UpgradeButton({ learningPathId, priceLabel }: { learningPathId: 
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ learningPathId }),
       });
-      if (!res.ok) throw new Error("Checkout belum tersedia (gateway/DB offline)");
+      if (!res.ok) throw new Error(t("errOffline"));
       const { snapToken } = (await res.json()) as { snapToken: string };
       await loadSnap();
       window.snap?.pay(snapToken);
     } catch (e) {
-      setErr(e instanceof Error ? e.message : "Checkout gagal");
+      setErr(e instanceof Error ? e.message : t("errGeneric"));
     } finally {
       setBusy(false);
     }
@@ -50,11 +52,11 @@ export function UpgradeButton({ learningPathId, priceLabel }: { learningPathId: 
       <button
         onClick={checkout}
         disabled={busy}
-        className="rounded-full bg-action px-5 py-2.5 text-sm font-semibold text-white transition active:translate-y-[1px] disabled:opacity-50"
+        className="btn-amber px-5 py-2.5 text-sm disabled:opacity-50"
       >
-        {busy ? "Memproses…" : `Upgrade — ${priceLabel}`}
+        {busy ? t("processing") : t("cta", { price: priceLabel })}
       </button>
-      {err && <p className="mt-2 text-sm text-action">{err}</p>}
+      {err && <p className="mt-2 text-sm font-semibold text-danger">{err}</p>}
     </div>
   );
 }

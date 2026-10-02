@@ -1,4 +1,5 @@
 import { DEMO_COURSES } from "./demo-content";
+import { curriculumText, getCourse, getCourses } from "./curriculum";
 
 /* Catalog index for §29 Search/Discovery + §30 Recommendations + §26 badges.
    Derived from DEMO_COURSES so search always matches real content. */
@@ -124,8 +125,11 @@ const PATH_INDEX: CatalogItem[] = [
   },
 ];
 
-export const CATALOG: CatalogItem[] = [
-  ...Object.values(DEMO_COURSES).map((c) => {
+function buildCatalog(locale: string): CatalogItem[] {
+  const en = locale === "en";
+  const EN = curriculumText();
+  const courses = Object.values(DEMO_COURSES).map((c) => {
+    const lc = getCourse(c.slug, locale);
     const extra = COURSE_CATEGORY[c.slug] ?? {
       category: "Teknologi" as CatalogCategory,
       desc: c.title,
@@ -134,22 +138,32 @@ export const CATALOG: CatalogItem[] = [
     return {
       kind: "kursus" as const,
       slug: c.slug,
-      title: c.title,
-      desc: extra.desc,
+      title: lc.title,
+      desc: en ? (EN.catalogDesc[c.slug] ?? extra.desc) : extra.desc,
       category: extra.category,
-      level: COURSE_LEVEL[c.slug] ?? "Semua level",
-      meta: `${c.lessons.length} pelajaran · Gratis`,
+      level: en ? (EN.catalogLevel[c.slug] ?? COURSE_LEVEL[c.slug] ?? "Semua level") : (COURSE_LEVEL[c.slug] ?? "Semua level"),
+      meta: en
+        ? EN.catalogMetaLessons.replace("{n}", String(lc.lessons.length))
+        : `${lc.lessons.length} pelajaran · Gratis`,
       badge: "SuperBright Verified" as const,
       konteksID: extra.konteksID,
       href: `/id/belajar/${c.slug}`,
     };
-  }),
-  ...PATH_INDEX,
-];
+  });
+  const paths = PATH_INDEX.map((p) => {
+    if (!en) return p;
+    const ep = (EN as unknown as { pathData: Record<string, Partial<CatalogItem>> }).pathData[p.slug];
+    if (!ep) return p;
+    return { ...p, title: ep.title ?? p.title, desc: ep.desc ?? p.desc, level: (ep.level as CatalogItem["level"]) ?? p.level, meta: ep.meta ?? p.meta };
+  });
+  return [...courses, ...paths];
+}
 
-export function searchCatalog(q: string, category: CatalogCategory | "Semua", kind: CatalogKind | "Semua", konteksOnly: boolean): CatalogItem[] {
+export const CATALOG: CatalogItem[] = buildCatalog("id");
+
+export function searchCatalog(q: string, category: CatalogCategory | "Semua", kind: CatalogKind | "Semua", konteksOnly: boolean, locale = "id"): CatalogItem[] {
   const needle = q.trim().toLowerCase();
-  return CATALOG.filter((item) => {
+  return buildCatalog(locale).filter((item) => {
     if (category !== "Semua" && item.category !== category) return false;
     if (kind !== "Semua" && item.kind !== kind) return false;
     if (konteksOnly && !item.konteksID) return false;
@@ -159,14 +173,25 @@ export function searchCatalog(q: string, category: CatalogCategory | "Semua", ki
 }
 
 /* §30-style rule demo: next course in the same path, else next course overall. */
-export function recommendNext(courseSlug: string): { item: CatalogItem; reason: string } | null {
-  const course = DEMO_COURSES[courseSlug];
+export function recommendNext(courseSlug: string, locale = "id"): { item: CatalogItem; reason: string } | null {
+  const courses = getCourses(locale);
+  const course = courses[courseSlug];
   if (!course) return null;
-  const siblings = Object.values(DEMO_COURSES).filter((c) => c.path === course.path && c.slug !== courseSlug);
-  const picked = siblings[0] ?? Object.values(DEMO_COURSES).find((c) => c.slug !== courseSlug);
+  const siblings = Object.values(courses).filter((c) => c.path === course.path && c.slug !== courseSlug);
+  const picked = siblings[0] ?? Object.values(courses).find((c) => c.slug !== courseSlug);
   if (!picked) return null;
-  const item = CATALOG.find((i) => i.kind === "kursus" && i.slug === picked.slug);
+  const item = buildCatalog(locale).find((i) => i.kind === "kursus" && i.slug === picked.slug);
   if (!item) return null;
+  if (locale === "en") {
+    const EN = curriculumText();
+    return {
+      item,
+      reason:
+        siblings.length > 0
+          ? EN.recSame.replace("{t}", course.title)
+          : EN.recTop.replace("{t}", course.title),
+    };
+  }
   return {
     item,
     reason:

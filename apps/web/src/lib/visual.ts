@@ -22,13 +22,23 @@
 export const PX = (id: number, w: number) =>
   `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
 
+/* Self-hosted compressed crops (public/images, ~130KB each, 2026-10-03).
+   Use these for the three slots below — no Pexels hotlink, offline-safe. */
+export const LOCAL = {
+  kantorJakarta: "/images/kantor-jakarta-21x9.jpg", // Menara Jakarta + bendera — banner #pekerjaan
+  diskusiWide: "/images/diskusi-lapangan-21x9.jpg", // Transaksi jajanan kaki lima — #masalah
+  diskusiAuth: "/images/diskusi-lapangan-16x10.jpg", // Sama, potongan 16/10 — panel signup
+  timKopi: "/images/tim-kopi-16x10.jpg", // Kru kafe muda rayakan kemerdekaan — panel signup
+} as const;
+
 export const PHOTOS = {
   classroomID: 35548840, // Siswa belajar di kelas, Pandeglang Banten
   analystJKT: 34961614, // Analis muda + laptop, kantor Jakarta
   studyJKT: 36617340, // Mahasiswi membaca, Jakarta
   nightJKT: 34961765, // Profesional lembur malam, Jakarta
-  teamAsia: 7845344, // Rapat tim bisnis Asia
+  teamAsia: 7651717, // Rapat tim bisnis Asia
   meetingDiverse: 7869341, // Meeting beragam, termasuk hijab
   campusSmile: 37648143, // Mahasiswa tersenyum di gedung kampus
   wisudaID: 29343927, // Wisudawan Indonesia merayakan kelulusan
+  meetingRoomAsia: 7964413, // Tiga profesional Asia diskusi di ruang rapat
 } as const;

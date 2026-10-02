@@ -1,17 +1,987 @@
 {
-  "nav": { "login": "Log in", "start": "Start Free", "dashboard": "Dashboard" },
-  "hero": {
-    "eyebrow": "SKKNI · KKNI · AI-Graded",
-    "title": "What will you become after graduation?",
-    "subtitle": "Pick your dream role. Follow an SKKNI-aligned path with AI-graded assessments."
+  "common": { "skip": "Skip to content", "langToggle": "ID / EN", "home": "← Home" },
+  "nav": {
+    "flag": "Indonesian flag",
+    "region": "Regional links",
+    "madeIn": "Made in Indonesia",
+    "dataJakarta": "Data in Jakarta",
+    "forCampus": "For Universities",
+    "forEmployers": "For Employers",
+    "verify": "Verify",
+    "mainNav": "Primary",
+    "roles": "Roles",
+    "howItWorks": "How It Works",
+    "searchRoles": "Search roles…",
+    "searchCta": "Search roles",
+    "login": "Log in",
+    "exploreRoles": "Explore Roles",
+    "closeMenu": "Close menu",
+    "openMenu": "Open menu"
   },
-  "roles": { "title": "Pick your role" },
+  "footer": {
+    "ctaEyebrow": "Start tonight · 15 minutes",
+    "ctaTitle": "Start from the role you want.",
+    "ctaButton": "Start Free",
+    "ctaNote": "Free forever for role exploration.",
+    "tagline": "Don't just learn about the job. Practice doing it — down to portfolio and interview readiness.",
+    "madeLine": "Made in Indonesia · ID / EN · v0.2",
+    "colProduct": "Product",
+    "colAccount": "Account",
+    "linkExplore": "Explore Roles",
+    "linkHow": "How It Works",
+    "linkStart": "Get Started",
+    "linkLogin": "Log in",
+    "linkSignup": "Sign up",
+    "linkVerify": "Verify",
+    "legalLine": "PT Career SuperBright Indonesia · South Jakarta, DKI Jakarta · Data in Jakarta region · QRIS / GoPay / VA / Cards · WhatsApp support ID/EN",
+    "legal": "Legal",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "verify": "Verify"
+  },
+  "notfound": {
+    "code": "404 · not found",
+    "title": "This page does not exist.",
+    "body": "The link may be outdated or mistyped. Go back home or explore the paths.",
+    "home": "Back Home",
+    "roles": "See roles →"
+  },
+  "quiz": {
+    "header": "Quiz · {count} questions · Pass {passing}",
+    "best": "Best: {score}",
+    "question": "Question {n}",
+    "submit": "Submit",
+    "progress": "Answered {a}/{b}",
+    "score": "Score: {s}",
+    "pass": "Competent ✓",
+    "fail": "Not yet competent — retry",
+    "retry": "Retry"
+  },
+  "lab": {
+    "header": "lab — javascript · {count} tests",
+    "run": "▶ Run",
+    "editor": "JavaScript code editor",
+    "needSolve": "Define function solve(input) { … }",
+    "codeError": "Code error",
+    "summary": "{p}/{n} passed",
+    "donePass": "Competent ✓",
+    "doneFix": "fix solve()"
+  },
+  "landing": {
+    "skip": "Skip to content",
+    "heroEyebrow": "Hands-on training for final-year students",
+    "heroTitle": "Don't just learn about the job. Practice doing it.",
+    "heroSub": "Real work practice for final-year students. No quizzes, no wall-hanger certificates.",
+    "heroCta1": "Explore Roles",
+    "heroCta2": "See How It Works",
+    "heroFlavor": "Jangan cuma belajar tentang pekerjaannya. Latih cara mengerjakannya.",
+    "methodLabel": "Sample practice flow",
+    "m1t": "Read the role brief",
+    "m1d": "Grasp the mission, decisions, and tools.",
+    "m2t": "Make real decisions",
+    "m2d": "Choose amid constraints and risk.",
+    "m3t": "Bring proof to interviews",
+    "m3d": "Turn practice into stories.",
+    "methodLink": "See how it works →",
+    "probTitle": "Knowing the title doesn't mean knowing the job.",
+    "probSub": "Students know what they want to be — but not what gets done daily, what decisions get made, or whether they're ready.",
+    "probLeftLabel": "What I thought work was",
+    "probQuote": "“Wanna be a Marketing Manager.”",
+    "probLeftCap": "A job title — with no daily substance.",
+    "probRightLabel": "What work actually is",
+    "task1": "Run campaigns",
+    "task2": "Manage budgets",
+    "task3": "Coordinate teams",
+    "task4": "Face stakeholders",
+    "task5": "Make decisions",
+    "task6": "Measure results",
+    "probPhotoAlt": "Two Indonesian women trading at a street snack stall",
+    "probPhotoCap": "Trading in the field — like the real world of work",
+    "jobsTitle": "Pick jobs that are genuinely in demand.",
+    "jobsSub": "We picked 4 roles from 2025–2026 vacancy data. 1 Event example is fully playable. 3 others are brief intros.",
+    "stat1v": "72,511",
+    "stat1l": "sales & marketing vacancies — #1 category (Kemnaker 2025)",
+    "stat2v": "600K+",
+    "stat2l": "tech positions to fill (see footnote)",
+    "stat3v": "5,582 → 43",
+    "stat3l": "applicants fighting over 43 favorite vocational seats (SNBT 2026)",
+    "eventBadge": "Fully playable",
+    "eventMission": "Run events and brand activations, from brief to report.",
+    "eventCapsLabel": "Core capabilities of the Event example",
+    "eventSignal": "Full live simulation · 30-day JobSim",
+    "eventCta": "Start Free →",
+    "waveBand": "Three more roles — intros only",
+    "capsLabel": "Core capabilities of",
+    "w1dmM": "Grow demand through measurable digital channels.",
+    "w1dmS": "72,511 sales & marketing vacancies — #1 nationally",
+    "w1dmPay": "Junior Rp5–15M",
+    "w1daM": "Turn raw data into business decisions.",
+    "w1daS": "Wanted by banks, e-commerce, logistics, government",
+    "w1daPay": "Junior Rp6–15M",
+    "w1uxM": "Design product experiences that are easy & delightful.",
+    "w1uxS": "Portfolio = 2026 hiring currency",
+    "w1uxPay": "Junior Rp6–18M",
+    "earlyCta": "Get early access →",
+    "soon": "Coming soon:",
+    "sources": "Sources: Kemnaker 2025, Jobstreet 2026, SNPMB 2026, NACE Winter 2026.",
+    "jobsPhotoAlt": "Jakarta office towers with the Indonesian flag",
+    "jobsPhotoCap": "Office atmosphere — like the jobs you'll practice",
+    "stepsTitle": "Five steps to job-ready.",
+    "step1t": "01 · Pick",
+    "step1d": "Pick the role you want.",
+    "step2t": "02 · Grasp",
+    "step2d": "See what the work really is.",
+    "step3t": "03 · Practice",
+    "step3d": "Do real tasks and scenarios.",
+    "step4t": "04 · Simulate",
+    "step4d": "Feel the decisions and crises.",
+    "step5t": "05 · Prepare",
+    "step5d": "Build proof and drill interviews.",
+    "ctaTitle": "Which role do you want to prepare for?",
+    "ctaSub": "Explore the job. Practice its decisions. Build your proof.",
+    "cta1": "Explore Roles",
+    "cta2": "Try the Simulation",
+    "ctaNote": "4 role options. 1 Event example fully playable. 3 still intros."
+  },
+  "belajar": {
+    "skip": "Skip to content",
+    "back": "← Pick roles",
+    "langName": "Indonesian",
+    "cert": "Certificate ✓",
+    "proj": "Project ✓",
+    "sub": "Learn by building: every lesson ends in an auto-graded quiz or lab.",
+    "byline": "SuperBright Team · Verified · Updated {u}",
+    "caption": "Learn like you work — focus, practice, finish",
+    "outcomeLabel": "What you'll build",
+    "methodLabel": "How you'll learn: ",
+    "stuckPre": "Stuck? Ask ",
+    "stuckBrand": "Bright AI",
+    "stuckPost": " — bound to the material, not a free chatbot.",
+    "lessonsTitle": "Lessons · {n}",
+    "recTitle": "Next: {title}",
+    "next": "Continue Learning",
+    "experience": ["Short videos", "Readings", "Quizzes", "Hands-on practice", "Real projects", "Assessments", "Certificate"],
+    "metaDefaultLevel": "All levels",
+    "metaDefaultDuration": "{n} lessons",
+    "metaDefaultSkills": "Practical skills",
+    "metaDefaultProject": "A portfolio project at the end of the course.",
+    "metaDefaultUpdated": "Oct 2026 · v1.0",
+    "photoAltDefault": "Young analyst working on a laptop in a Jakarta office",
+    "meta": {
+      "js-dasar-analis": { "level": "Beginner–Intermediate", "duration": "6 hours · 2 lessons", "skills": ["JavaScript", "Arrays", "Functions", "Data aggregation"], "project": "A total-sales function passing 3 automated tests.", "updated": "Oct 2026 · v1.0" },
+      "cv-siap-lamar": { "level": "All levels", "duration": "3 hours · 2 lessons", "skills": ["Résumé", "Portfolio", "Personal branding"], "project": "A one-page résumé + public profile ready to apply.", "updated": "Oct 2026 · v1.0" },
+      "interview-pertama": { "level": "All levels", "duration": "3 hours · 2 lessons", "skills": ["HR interviews", "Salary negotiation", "Communication"], "project": "A 2-minute AI-graded mock interview.", "updated": "Oct 2026 · v1.0" },
+      "digital-marketing-umkm": { "level": "Beginner", "duration": "4 hours · 2 lessons", "skills": ["Marketplace", "Content", "Small-budget ads"], "project": "A Rp50K ad plan that targets chats.", "updated": "Oct 2026 · v1.0" },
+      "keuangan-gaji-bulanan": { "level": "All levels", "duration": "3 hours · 2 lessons", "skills": ["Budgeting", "Emergency fund", "Anti-scam"], "project": "Your 50-30-20 budget + first autodebit.", "updated": "Oct 2026 · v1.0" },
+      "kerja-kantor-indonesia": { "level": "All levels", "duration": "3 hours · 2 lessons", "skills": ["Hierarchy", "Meetings", "Feedback"], "project": "An impossible-task response sim + spicy feedback.", "updated": "Oct 2026 · v1.0" }
+    },
+    "photoAlt": {
+      "js-dasar-analis": "Young analyst working on a laptop in a Jakarta office",
+      "cv-siap-lamar": "Student smiling at a campus building",
+      "interview-pertama": "Professionals discussing in a meeting, including hijab",
+      "digital-marketing-umkm": "University student studying in Jakarta",
+      "keuangan-gaji-bulanan": "Young analyst working on a laptop in a Jakarta office",
+      "kerja-kantor-indonesia": "Three Asian professionals discussing in a meeting room"
+    }
+  },
+  "katalog": {
+    "skip": "Skip to content",
+    "back": "← Home",
+    "eyebrow": "Catalog · roles + paths + courses",
+    "title": "Pick a role, <b>don't scroll.</b>",
+    "sub": "Browse 4 roles, paths, and courses. Marked: 1 fully playable, 3 intros.",
+    "searchLabel": "Search roles, paths, or courses",
+    "searchPh": "E.g.: Data Analyst, Accountant, Barber…",
+    "catAll": "All",
+    "catTech": "Technology",
+    "catCareer": "Careers",
+    "catBiz": "Business",
+    "catId": "Indonesia",
+    "kindAll": "All",
+    "kindCourse": "Course",
+    "kindPath": "Path",
+    "konteks": "ID context ✓",
+    "verifiedBadge": "✓ Verified",
+    "community": "Community",
+    "results": "{n} results",
+    "resultsFor": "for “{q}”",
+    "emptyTitle": "No matches found",
+    "emptyHint": "Try a shorter keyword (“tax”, “CV”, “data”) or reset the filters above.",
+    "resetBtn": "Reset search"
+  },
+  "paths": {
+    "skip": "Skip to content",
+    "back": "← Pick roles",
+    "eyebrow": "Role Path · {level}",
+    "startFree": "Start Free",
+    "tryLab": "Try the demo lab",
+    "enrollTitle": "What you get",
+    "stageCount": "{n} structured stages",
+    "skillCount": "{n} skills measured in the Skill Graph",
+    "certLine": "1 portfolio project + QR certificate",
+    "simLine": "Interview sims + Bright AI",
+    "freeNote": "Free to start · Plus for certificates",
+    "syllabus": "Syllabus",
+    "stagesTitle": "Clear stages, not a video list.",
+    "skillsTitle": "Measured skills",
+    "projectLabel": "Project:",
+    "careerTitle": "Job-ready",
+    "contextTitle": "Indonesian Context",
+    "certTitle": "Certificate",
+    "certLine1": "Professional Program · publicly verified + QR",
+    "certLine2": "Hierarchy: Course → Skill → Professional → Partner",
+    "data": {
+      "frontend-developer": {
+        "title": "Sample path: Frontend Developer",
+        "goal": "“I want to be a frontend developer.”",
+        "desc": "From zero to hire-ready: HTML to deployment, one real Indonesian business website, then career prep.",
+        "weeks": "4–6 months · 5 hrs/week",
+        "level": "Beginner → Job-ready",
+        "salary": "Market range Rp8–25M",
+        "alt": "Young analyst working on a laptop in a Jakarta office",
+        "caption": "Work like a professional — from day one",
+        "stages": [
+          { "name": "Beginner", "items": "HTML → CSS → JavaScript", "formats": "Videos · Readings · Quizzes" },
+          { "name": "Intermediate", "items": "TypeScript → React → API → Git", "formats": "Code labs · Simulations" },
+          { "name": "Advanced", "items": "Testing → Architecture → Performance → Deployment", "formats": "Projects · AI review" },
+          { "name": "Portfolio", "items": "Real Indonesian business website + case study", "formats": "Mock project · No affiliation" },
+          { "name": "Career", "items": "CV → Interview → Technical tests", "formats": "HR simulator · Technical" }
+        ],
+        "skills": ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Git", "REST API", "Testing"],
+        "project": "Company-profile website + online store for a mock Bandung SME.",
+        "career": ["CV + LinkedIn", "superbright.id/u/yourname portfolio", "HR mock interviews", "Technical tests + AI walkthrough"],
+        "context": "Local example: QRIS checkout, inter-island shipping, Indonesian-language catalog."
+      },
+      "umkm-digital-entrepreneur": {
+        "title": "UMKM Digital Entrepreneur",
+        "goal": "“I want my business to go digital.”",
+        "desc": "Ten modules from customer research to analytics — ending in a complete digital strategy for a mock business.",
+        "weeks": "10 modules · flexible",
+        "level": "All levels",
+        "salary": "Revenue, not salary",
+        "alt": "University student studying business material in Jakarta",
+        "caption": "Learn business on the go — even at night",
+        "stages": [
+          { "name": "Foundation", "items": "Business basics → Customer research → Branding", "formats": "Videos · Templates" },
+          { "name": "Selling", "items": "Marketplace → Social media → Digital ads", "formats": "Case studies · Practice" },
+          { "name": "Finance", "items": "Accounting → Basic tax → Analytics", "formats": "Spreadsheets · Quizzes" },
+          { "name": "Final project", "items": "Digital strategy for a mock Bandung coffee SME", "formats": "Presentation · Mentor review" }
+        ],
+        "skills": ["Branding", "Marketplace", "Digital ads", "Accounting", "Basic tax", "Analytics"],
+        "project": "Complete digital strategy doc: positioning, channels, ad budget, 90-day targets.",
+        "career": ["Strategy portfolio", "Investor pitch simulation", "City SME community"],
+        "context": "Halal regulation, licensing, and Indonesian SME tax — always with effective dates."
+      },
+      "data-analyst": {
+        "title": "Data Analyst Path",
+        "goal": "“I want to work as a Data Analyst.”",
+        "desc": "Rina's journey (§55): Excel to Power BI, an Indonesian e-commerce project, skill certificate, ready to apply.",
+        "weeks": "7 modules · 4–5 months",
+        "level": "Beginner → Job-ready",
+        "salary": "IDR 7–18M",
+        "alt": "Asian business team discussing in a modern office",
+        "caption": "Analysis presented, not shelved",
+        "stages": [
+          { "name": "Foundation", "items": "Excel → SQL → Statistics", "formats": "Videos · Dataset exercises" },
+          { "name": "Tools", "items": "Python → Visualization → Power BI", "formats": "Code labs · Projects" },
+          { "name": "Project", "items": "Indonesian e-commerce sales analysis", "formats": "Public datasets · Dashboards" },
+          { "name": "Career", "items": "Certificate → Portfolio → Interview sim", "formats": "Public verification" }
+        ],
+        "skills": ["Excel", "SQL", "Statistics", "Python", "Visualization", "Power BI"],
+        "project": "Power BI dashboard + promo recommendations from 3 months of transactions.",
+        "career": ["Data Analytics Certificate", "Auto-filled portfolio", "HR interview simulation"],
+        "context": "Local datasets: e-commerce transactions, SMEs, Indonesian tourism."
+      },
+      "siap-kerja": {
+        "title": "Job-Ready Fresh Graduate",
+        "goal": "“I want interview calls.”",
+        "desc": "Four weeks from messy CV to complete application: CV, portfolio, interviews, then apply.",
+        "weeks": "4 weeks · 3 hrs/week",
+        "level": "Fresh graduates",
+        "salary": "First offer",
+        "alt": "Student smiling in front of a campus building",
+        "caption": "From campus to office — one application at a time",
+        "stages": [
+          { "name": "CV", "items": "One-page CV + professional email", "formats": "Templates · Quizzes" },
+          { "name": "Portfolio", "items": "superbright.id/u/you: projects + certificates", "formats": "Public link" },
+          { "name": "Interview", "items": "2-minute intro + salary + trick questions", "formats": "HR simulator" },
+          { "name": "Workplace", "items": "Hierarchy + meetings + feedback", "formats": "ID scenarios" },
+          { "name": "Apply", "items": "Apply + polite WA follow-ups", "formats": "Checklist" }
+        ],
+        "skills": ["CV", "Portfolio", "Interview", "LinkedIn", "Office etiquette"],
+        "project": "Complete application pack: CV + public profile + sim recordings.",
+        "career": ["Screening-proof CV", "Verified portfolio", "Interview simulations", "First-day etiquette"],
+        "context": "Market salaries per city, WA etiquette for HR, Indonesian office hierarchy."
+      },
+      "junior-accountant": {
+        "title": "Junior Accountant (Tax Focus)",
+        "goal": "“I want to work at an accounting firm.”",
+        "desc": "Financial accounting to tax returns: e-Faktur, income tax, and a mock-client tax capstone with AI assessment.",
+        "weeks": "24 weeks",
+        "level": "KKNI 6",
+        "salary": "IDR 6–9M/mo",
+        "alt": "Young professional working late in a Jakarta office",
+        "caption": "Books closed on time — every month",
+        "stages": [
+          { "name": "Phase 1", "items": "Financial Accounting Basics", "formats": "Videos · Quizzes" },
+          { "name": "Phase 2", "items": "Corporate Tax & e-Faktur", "formats": "e-Faktur simulations" },
+          { "name": "Phase 3", "items": "PSAK/IFRS Reporting", "formats": "Case studies" },
+          { "name": "Capstone", "items": "Mock Client Tax Return + AI Assessment", "formats": "Portfolio" }
+        ],
+        "skills": ["Accounting", "PPh", "e-Faktur", "PSAK"],
+        "project": "Complete mock-client annual tax return with working papers.",
+        "career": ["Skill certificate", "Working-paper portfolio", "Interview simulation"],
+        "context": "Tax rules cite effective dates and are reviewed when they change."
+      }
+    }
+  },
+  "auth": {
+    "panelEyebrow": "What will you be after graduating?",
+    "panelTitle": "Tonight: 15 minutes. Try the Event example.",
+    "photoAlt": "Young Indonesian café crew celebrating independence day",
+    "photoCap": "Independence-day spirit — start with a small team",
+    "stat1v": "4",
+    "stat1l": "roles",
+    "stat2v": "1",
+    "stat2l": "playable",
+    "stat3v": "3",
+    "stat3l": "intros",
+    "panelFoot": "Data in Jakarta · QRIS / GoPay / VA · WA ID/EN",
+    "back": "← Home",
+    "modeUp": "Free to explore",
+    "modeIn": "Welcome back",
+    "titleUp": "Sign up free",
+    "titleIn": "Log in",
+    "phName": "Full name",
+    "phEmail": "Email",
+    "phPass": "Password (min 8)",
+    "phCode": "6-digit code",
+    "ctaUp": "Sign up free",
+    "ctaIn": "Log in",
+    "hasAccount": "Have an account?",
+    "noAccount": "No account yet?",
+    "otpTitle": "or via WhatsApp / SMS OTP",
+    "otpSend": "Send code",
+    "otpVerify": "Verify & log in",
+    "okSignup": "Signed up. Redirecting…",
+    "okSignin": "Logged in. Redirecting…",
+    "failGeneric": "Something went wrong",
+    "failOtp": "Wrong OTP",
+    "otpSent": "OTP code sent (dev: check server log)."
+  },
   "dashboard": {
-    "overview": "Overview",
-    "learning": "My Learning",
-    "assessments": "Assessments",
-    "wallet": "Credentials",
-    "billing": "Billing",
-    "upgradeLsp": "Upgrade to BNSP Certificate"
+    "navLearn": "Learning",
+    "navPath": "My path",
+    "navAssess": "Assessments",
+    "navWallet": "Wallet",
+    "navSettings": "Settings",
+    "sideTitle": "BNSP upgrade",
+    "sidePrice": "IDR 1.25M",
+    "sideDesc": "Official partner-LSP certificate.",
+    "eyebrow": "Learning dashboard",
+    "title": "Keep going — you're at 62%.",
+    "sub": "Every finished milestone becomes a verified badge + QR.",
+    "sync": "synced · AI on",
+    "s1t": "Active path",
+    "s1v": "Junior Accountant",
+    "s1s": "62% done · Phase 3/5",
+    "s2t": "Learning streak",
+    "s2v": "12 days",
+    "s2s": "Best 21 days",
+    "s3t": "Badges earned",
+    "s3v": "7 / 14",
+    "s3s": "2 pending AI verification",
+    "s4t": "Readiness score",
+    "s4v": "78 / 100",
+    "s4s": "Learning signal, not a job guarantee",
+    "contTitle": "Continue learning",
+    "contSub": "Corporate Tax & e-Faktur · Lesson 3 of 6",
+    "contMeta": "62% · ~2 hours left",
+    "contCta1": "Continue Lesson",
+    "contCta2": "View Path",
+    "upEyebrow": "Upgrade to BNSP",
+    "upTitle": "An official certificate, not just a badge.",
+    "upBody": "Finish the path, pay via Midtrans in the dashboard, get scheduled with a partner LSP.",
+    "price": "IDR 1,250,000",
+    "perOnce": "one-time",
+    "walletTitle": "Credential wallet",
+    "walletSub": "7 practice badges issued · OB 3.0 codes, publicly checkable.",
+    "walletLink": "Open verification →",
+    "valid": "valid",
+    "locked": "+ 3 locked"
+  },
+  "upgrade": {
+    "processing": "Processing…",
+    "cta": "Upgrade — {price}",
+    "errOffline": "Checkout unavailable (gateway/DB offline)",
+    "errGeneric": "Checkout failed"
+  },
+  "verify": {
+    "title": "Credential Verification",
+    "body": "Public check page. We match this code against practice records and certificate status.",
+    "status": "Status: Valid (sample)",
+    "bnspSoon": "BNSP · coming",
+    "cta": "Get your credential"
+  },
+  "employer": {
+    "eyebrow": "Hiring · employer",
+    "title": "Employer",
+    "desc": "Search SKKNI/KKNI/role-verified skill profiles, verify credentials, post jobs.",
+    "c1h": "Find talent",
+    "c1d": "Filter KKNI 5–7 · 7 role categories · AI readiness ≥ 75.",
+    "c2h": "1-click verify",
+    "c2d": "Scan the CV QR → open /verify/[id] → see SKKNI + BNSP status.",
+    "c3h": "Post jobs",
+    "c3d": "Target Wave 1 cities: Jakarta, Surabaya, Bandung.",
+    "cta": "Try Verification"
+  },
+  "university": {
+    "eyebrow": "Campus · cohorts",
+    "title": "University",
+    "desc": "Cohort analytics, curriculum → SKKNI gap map, and graduation export.",
+    "s1t": "Active students",
+    "s1v": "412",
+    "s1s": "3 programs · current semester",
+    "s2t": "SKKNI coverage",
+    "s2v": "68%",
+    "s2s": "curriculum → SKKNI mapped",
+    "s3t": "Certified",
+    "s3v": "23",
+    "s3s": "BNSP graduates this semester"
+  },
+  "lsp": {
+    "eyebrow": "Assessment · LSP/BNSP",
+    "title": "LSP Assessor",
+    "desc": "TUK sessions and online proctoring, APL-02 verification, SKKNI rubric scoring.",
+    "s1t": "Scheduled",
+    "s1v": "6 sessions",
+    "s1s": "this week · 2 TUK",
+    "s2t": "Pending",
+    "s2v": "14 files",
+    "s2s": "APL-02 needs verification",
+    "s3t": "AI confidence",
+    "s3v": "0.74",
+    "s3s": "review-queue average"
+  },
+  "instructor": {
+    "eyebrow": "Studio · instructors",
+    "title": "Course Studio",
+    "desc": "Create courses, map SKKNI, build assessments, track payouts.",
+    "dbOff": "Database not connected (set DATABASE_URL then seed). The UI below activates once the DB is online.",
+    "empty": "No courses yet. Create your first draft above.",
+    "formTitle": "New course",
+    "slugLabel": "Slug",
+    "slugPh": "e.g. basic-accounting",
+    "titleLabel": "Title (ID)",
+    "titlePh": "e.g. Basic Accounting",
+    "saving": "Saving…",
+    "create": "Create draft",
+    "errSave": "Save failed. Try again."
+  },
+  "admin": {
+    "eyebrow": "Ops · admin",
+    "title": "Admin",
+    "desc": "KPIs, catalog, users, LSP partners, and payment reconciliation.",
+    "k1t": "MAU",
+    "k1v": "1,240",
+    "k1s": "+18% MoM",
+    "k2t": "Completion",
+    "k2v": "34%",
+    "k2s": "target 40%",
+    "k3t": "Upgrade CVR",
+    "k3v": "6.1%",
+    "k3s": "to BNSP",
+    "k4t": "MRR",
+    "k4v": "IDR 42M",
+    "k4s": "+9% MoM",
+    "modTitle": "Catalog & reconciliation module",
+    "modBody": "Course approvals, TUK slots, and Midtrans/Xendit reconciliation arrive in Phase 5."
+  },
+  "curriculum": {
+    "catalogMetaLessons": "{n} lessons · Free",
+    "recSame": "Same path as {t} — keep the momentum.",
+    "recTop": "Top follow-up to {t} among other learners.",
+    "community": "Community",
+    "catNames": { "Teknologi": "Technology", "Karier": "Careers", "Bisnis": "Business", "Indonesia": "Indonesia" },
+    "catalogDesc": {
+      "js-dasar-analis": "JavaScript for analysts: arrays, functions, and data aggregation.",
+      "cv-siap-lamar": "One-page CV + public portfolio ready to apply.",
+      "interview-pertama": "2-minute intro, first salary, trick questions.",
+      "digital-marketing-umkm": "Pick channels, honest content, first Rp50K ad.",
+      "keuangan-gaji-bulanan": "Boarding-house 50-30-20 budget + pinjol and scam awareness.",
+      "kerja-kantor-indonesia": "Hierarchy, meetings, and feedback in Indonesian offices."
+    },
+    "catalogLevel": {
+      "js-dasar-analis": "Beginner–Intermediate",
+      "cv-siap-lamar": "All levels",
+      "interview-pertama": "All levels",
+      "digital-marketing-umkm": "Beginner",
+      "keuangan-gaji-bulanan": "All levels",
+      "kerja-kantor-indonesia": "All levels"
+    },
+    "courses": {
+      "js-dasar-analis": {
+        "title": "Basic JavaScript for Analysts",
+        "lessons": [
+          {
+            "title": "Variables, Data Types & Arrays",
+            "body": [
+              "Declare data with const (fixed) and let (changeable). Avoid var in modern code.",
+              "Core types: number, string, boolean, null, undefined, object, array. Check with typeof.",
+              "Arrays are the analyst's weapon: map for transforming, filter for selecting, reduce for aggregating.",
+              "Example: const clean = data.filter((x) => x.value != null).map((x) => x.value);"
+            ],
+            "quiz": [
+              {
+                "q": "Which array method is right for summing all values?",
+                "options": ["map", "filter", "reduce", "forEach"],
+                "explain": "reduce folds an array into a single value — ideal for aggregations like totals and averages."
+              },
+              {
+                "q": "What does typeof null return in JavaScript?",
+                "options": ["\"null\"", "\"object\"", "\"undefined\"", "\"boolean\""],
+                "explain": "typeof null returns 'object' — a historic JS quirk every analyst must memorize."
+              }
+            ]
+          },
+          {
+            "title": "Lab: Total Sales Function",
+            "body": [
+              "Write function solve(input) that takes an array of numbers and returns their total.",
+              "Ignore non-number values (null, undefined, string).",
+              "Example: solve([10, null, 20]) returns 30."
+            ],
+            "lab": {
+              "starter": "function solve(input) {\n  // TODO: sum only numbers\n  return 0;\n}",
+              "tests": [{ "name": "basic" }, { "name": "ignore null" }, { "name": "empty" }]
+            }
+          }
+        ]
+      },
+      "cv-siap-lamar": {
+        "title": "One-Page CV Ready to Apply",
+        "lessons": [
+          {
+            "title": "CV Structure HR Reads in 30 Seconds",
+            "body": [
+              "One page for fresh graduates: name, contact, headline, education, experience, skills.",
+              "Write numbers, not traits: “managed Rp5M/day cash with zero variance” beats “hard worker”.",
+              "Use a recent formal photo and a professional email (your name, not a nickname)."
+            ],
+            "quiz": [
+              {
+                "q": "How many pages should a fresh graduate CV be?",
+                "options": ["One page", "Two pages", "Three pages", "Unlimited — thicker is better"],
+                "explain": "HR scans dozens of CVs — one dense page beats three watery ones."
+              },
+              {
+                "q": "Which experience bullet is strongest?",
+                "options": [
+                  "Hard-working, honest team player",
+                  "Managed Rp5M/day cash for 6 months with zero variance",
+                  "Experienced in related fields",
+                  "Able to work under pressure"
+                ],
+                "explain": "Numbers + duration + verifiable results. Traits without proof get skipped."
+              }
+            ]
+          },
+          {
+            "title": "Portfolio superbright.id/u/you",
+            "body": [
+              "HR almost always clicks the portfolio link — minimum: 1 project, 1 certificate, skill list.",
+              "Tell each project with Problem → Action → Result.",
+              "Update your profile every finished path, not once a year."
+            ],
+            "quiz": [
+              {
+                "q": "Most convincing project-story formula?",
+                "options": [
+                  "Problem → Action → Result",
+                  "Result → Action → Problem",
+                  "Action → Problem → Result",
+                  "Just tell it as-is"
+                ],
+                "explain": "Problem gives context, action shows skill, result proves impact."
+              },
+              {
+                "q": "Minimum viable public profile?",
+                "options": [
+                  "1 project + 1 certificate + skill list",
+                  "A nice profile photo",
+                  "Long bio and life motto",
+                  "Full hobby list"
+                ],
+                "explain": "HR needs proof of work in 1 minute: project, certificate, skills."
+              }
+            ]
+          }
+        ]
+      },
+      "interview-pertama": {
+        "title": "First HR Interview Without Panic",
+        "lessons": [
+          {
+            "title": "Answer “Tell Me About Yourself” in 2 Minutes",
+            "body": [
+              "Use Now → Background → Proof → Target: who you are, background, one proof, why this role.",
+              "Don't read your CV — HR already read it. Add what's not written.",
+              "Drill with a timer until it's exactly 2 minutes, no more no less."
+            ],
+            "quiz": [
+              {
+                "q": "Right order for “tell me about yourself”?",
+                "options": [
+                  "Now → Background → Proof → Target",
+                  "Target → Proof → Background → Now",
+                  "Background → Now → Target → Proof",
+                  "Start from elementary school"
+                ],
+                "explain": "Open with your present, close with why you want this role."
+              },
+              {
+                "q": "Ideal self-intro length?",
+                "options": ["About 2 minutes", "About 10 minutes", "As fast as possible", "Until HR cuts you off"],
+                "explain": "Two minutes fits 4 points without boring HR."
+              }
+            ]
+          },
+          {
+            "title": "First Salary & Trick Questions",
+            "body": [
+              "Research market salaries from similar listings in your city before naming a number.",
+              "Answer with a range (“7–9 million, open to discussion”), not a fixed number.",
+              "For “what's your weakness?”: name one real weakness + how you handle it."
+            ],
+            "quiz": [
+              {
+                "q": "Best way to answer salary expectations?",
+                "options": [
+                  "Give a range based on market research",
+                  "Name the highest number possible",
+                  "“Up to the company”",
+                  "Keep it secret until hired"
+                ],
+                "explain": "A range shows you researched the market but stay flexible."
+              },
+              {
+                "q": "Best answer to “what's your weakness?”",
+                "options": [
+                  "“I'm a perfectionist” with no example",
+                  "Real weakness + how you handle it",
+                  "“I have no weaknesses”",
+                  "List 5 weaknesses at once"
+                ],
+                "explain": "HR judges honesty and growth mindset, not perfection."
+              }
+            ]
+          }
+        ]
+      },
+      "digital-marketing-umkm": {
+        "title": "Digital Marketing for SMEs",
+        "lessons": [
+          {
+            "title": "Where Are Your Customers?",
+            "body": [
+              "Indonesian SME customers live on Shopee, TikTok, and WhatsApp — pick ONE channel first.",
+              "Real photos of your goods beat stock photos: buyers judge honesty.",
+              "Consistency beats viral: 1 post/day for 30 days beats one hit post."
+            ],
+            "quiz": [
+              {
+                "q": "First marketing step for a tiny SME team?",
+                "options": [
+                  "Focus one channel for 30 days",
+                  "Open accounts on every platform at once",
+                  "Run big ads immediately",
+                  "Wait until you have a content team"
+                ],
+                "explain": "One living channel beats five dead ones."
+              },
+              {
+                "q": "Most trusted SME content?",
+                "options": [
+                  "Real photos and videos of the goods",
+                  "Aesthetic stock photos",
+                  "Motivational quotes",
+                  "Funny memes"
+                ],
+                "explain": "Buyers judge honesty: real products, real process, real owner."
+              }
+            ]
+          },
+          {
+            "title": "First Rp50K Ad",
+            "body": [
+              "One ad, one goal: incoming WhatsApp chats — not likes, not follows.",
+              "Target your city radius first, not all of Indonesia.",
+              "Track cost per chat. An ad losing money 3 days straight: kill it, swap the photo."
+            ],
+            "quiz": [
+              {
+                "q": "Success metric for a first SME ad?",
+                "options": [
+                  "Cost per incoming chat",
+                  "Like count",
+                  "New followers",
+                  "Positive comments"
+                ],
+                "explain": "Chats = buyers. Likes don't pay the shop rent."
+              },
+              {
+                "q": "When to kill a losing ad?",
+                "options": [
+                  "After 3 days with no chats",
+                  "After 1 hour",
+                  "Never, the budget's spent",
+                  "After a month"
+                ],
+                "explain": "Three days is enough to judge one creative on a small budget."
+              }
+            ]
+          }
+        ]
+      },
+      "keuangan-gaji-bulanan": {
+        "title": "Manage Your Monthly Salary Without Leaks",
+        "lessons": [
+          {
+            "title": "The 50-30-20 Rule, Boarding-House Edition",
+            "body": [
+              "50% needs (rent, food, transport), 30% wants, 20% savings — adapt, don't memorize.",
+              "Pay yourself first: autodebit savings on payday, not from month-end leftovers.",
+              "Emergency fund target: 3x monthly spending, kept apart from daily account."
+            ],
+            "quiz": [
+              {
+                "q": "Best time to save from salary?",
+                "options": [
+                  "Payday via autodebit",
+                  "Month-end leftovers",
+                  "Only when there's a bonus",
+                  "Whenever you remember"
+                ],
+                "explain": "Month-end leftovers are almost always zero. Autodebit forces you to pay your future first."
+              },
+              {
+                "q": "Healthy emergency fund target?",
+                "options": [
+                  "3x monthly spending",
+                  "Half a salary",
+                  "Rp1 million is enough",
+                  "No need, there's paylater"
+                ],
+                "explain": "Three months gives breathing room during layoffs or illness without debt."
+              }
+            ]
+          },
+          {
+            "title": "Beware of Illegal Lenders & Scams",
+            "body": [
+              "Legal lenders are OJK-registered — check the list before borrowing, not the ads.",
+              "Never give your OTP to anyone, including callers claiming to be bank or police.",
+              "Received a suspicious transfer? Don't forward it — verify the VA and report, don't panic."
+            ],
+            "quiz": [
+              {
+                "q": "Before borrowing from a lender, you must check what?",
+                "options": [
+                  "Whether it's OJK-registered",
+                  "Whether the ads are convincing",
+                  "Social media testimonials",
+                  "Whether interest is 0%"
+                ],
+                "explain": "Illegal lenders collect through terror. The OJK legality list is the first filter."
+              },
+              {
+                "q": "A caller claims to be your bank and asks for your OTP. Right response?",
+                "options": [
+                  "Refuse and hang up, then call the official bank",
+                  "Give it, they know your data",
+                  "Ask them to wait while you transfer first",
+                  "Block without any verification"
+                ],
+                "explain": "Banks never ask for OTPs. Verify through official bank channels."
+              }
+            ]
+          }
+        ]
+      },
+      "kerja-kantor-indonesia": {
+        "title": "Indonesian Office Ethics",
+        "lessons": [
+          {
+            "title": "Hierarchy & Talking to Your Boss",
+            "body": [
+              "Report before being asked: a short update every afternoon beats a panic report every crisis.",
+              "Got an impossible task? Answer “yes, so which deadline is the top priority?” — not silence.",
+              "Deliver criticism privately + bring solutions; praise openly."
+            ],
+            "quiz": [
+              {
+                "q": "Boss gives a task impossible to finish today. Best response?",
+                "options": [
+                  "Accept, then ask priorities and a realistic deadline",
+                  "Stay silent and overtime without word",
+                  "Refuse bluntly on the spot",
+                  "Dump it on a coworker"
+                ],
+                "explain": "Bosses need information to reprioritize — give data, not drama."
+              },
+              {
+                "q": "Where to criticize a coworker?",
+                "options": [
+                  "Privately, with a solution",
+                  "In the office WhatsApp group",
+                  "Over lunch together",
+                  "Via social media status"
+                ],
+                "explain": "Private criticism saves face; solutions show you want to help."
+              }
+            ]
+          },
+          {
+            "title": "Meetings & Feedback",
+            "body": [
+              "Arrive 5 minutes early with notes and one question — that's half your meeting grade.",
+              "Take feedback with: listen → ask for examples → make an improvement plan.",
+              "Generations differ: seniors value process, juniors value speed — adapt your language."
+            ],
+            "quiz": [
+              {
+                "q": "Best meeting prep in a boss's eyes?",
+                "options": [
+                  "Arrive early with notes and a question",
+                  "Arrive on time with no prep",
+                  "Bring snacks for everyone",
+                  "Sit in the front row"
+                ],
+                "explain": "Good questions show you read the material and thought."
+              },
+              {
+                "q": "Receiving harsh-but-fair feedback. Right response?",
+                "options": [
+                  "Listen, ask for concrete examples, make a plan",
+                  "Defend yourself instantly",
+                  "Cry then take leave",
+                  "Criticize the giver back"
+                ],
+                "explain": "Concrete examples turn emotion into fixable data."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "pathData": {
+      "frontend-developer": {
+        "title": "Sample path: Frontend Developer",
+        "goal": "“I want to be a frontend developer.”",
+        "desc": "From zero to hire-ready: HTML to deployment, one real Indonesian business website, then career prep.",
+        "weeks": "4–6 months · 5 hrs/week",
+        "level": "Beginner → Job-ready",
+        "salary": "Market range Rp8–25M",
+        "alt": "Young analyst working on a laptop in a Jakarta office",
+        "caption": "Work like a professional — from day one",
+        "meta": "4–6 mo · IDR 8–25M",
+        "stages": [
+          { "name": "Beginner", "items": "HTML → CSS → JavaScript", "formats": "Videos · Readings · Quizzes" },
+          { "name": "Intermediate", "items": "TypeScript → React → API → Git", "formats": "Code labs · Simulations" },
+          { "name": "Advanced", "items": "Testing → Architecture → Performance → Deployment", "formats": "Projects · AI review" },
+          { "name": "Portfolio", "items": "Real Indonesian business website + case study", "formats": "Mock project · No affiliation" },
+          { "name": "Career", "items": "CV → Interview → Technical tests", "formats": "HR simulator · Technical" }
+        ],
+        "skills": ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Git", "REST API", "Testing"],
+        "project": "Company-profile website + online store for a mock Bandung SME.",
+        "career": ["CV + LinkedIn", "superbright.id/u/yourname portfolio", "HR mock interviews", "Technical tests + AI walkthrough"],
+        "context": "Local example: QRIS checkout, inter-island shipping, Indonesian-language catalog."
+      },
+      "umkm-digital-entrepreneur": {
+        "title": "UMKM Digital Entrepreneur",
+        "goal": "“I want my business to go digital.”",
+        "desc": "Ten modules from customer research to analytics — ending in a complete digital strategy for a mock business.",
+        "weeks": "10 modules · flexible",
+        "level": "All levels",
+        "salary": "Revenue, not salary",
+        "alt": "University student studying business material in Jakarta",
+        "caption": "Learn business on the go — even at night",
+        "meta": "10 modules · Flexible",
+        "stages": [
+          { "name": "Foundation", "items": "Business basics → Customer research → Branding", "formats": "Videos · Templates" },
+          { "name": "Selling", "items": "Marketplace → Social media → Digital ads", "formats": "Case studies · Practice" },
+          { "name": "Finance", "items": "Accounting → Basic tax → Analytics", "formats": "Spreadsheets · Quizzes" },
+          { "name": "Final project", "items": "Digital strategy for a mock Bandung coffee SME", "formats": "Presentation · Mentor review" }
+        ],
+        "skills": ["Branding", "Marketplace", "Digital ads", "Accounting", "Basic tax", "Analytics"],
+        "project": "Complete digital strategy doc: positioning, channels, ad budget, 90-day targets.",
+        "career": ["Strategy portfolio", "Investor pitch simulation", "City SME community"],
+        "context": "Halal regulation, licensing, and Indonesian SME tax — always with effective dates."
+      },
+      "data-analyst": {
+        "title": "Data Analyst Path",
+        "goal": "“I want to work as a Data Analyst.”",
+        "desc": "Rina's journey (§55): Excel to Power BI, an Indonesian e-commerce project, skill certificate, ready to apply.",
+        "weeks": "7 modules · 4–5 months",
+        "level": "Beginner → Job-ready",
+        "salary": "IDR 7–18M",
+        "alt": "Asian business team discussing in a modern office",
+        "caption": "Analysis presented, not shelved",
+        "meta": "7 modules · IDR 7–18M",
+        "stages": [
+          { "name": "Foundation", "items": "Excel → SQL → Statistics", "formats": "Videos · Dataset exercises" },
+          { "name": "Tools", "items": "Python → Visualization → Power BI", "formats": "Code labs · Projects" },
+          { "name": "Project", "items": "Indonesian e-commerce sales analysis", "formats": "Public datasets · Dashboards" },
+          { "name": "Career", "items": "Certificate → Portfolio → Interview sim", "formats": "Public verification" }
+        ],
+        "skills": ["Excel", "SQL", "Statistics", "Python", "Visualization", "Power BI"],
+        "project": "Power BI dashboard + promo recommendations from 3 months of transactions.",
+        "career": ["Data Analytics Certificate", "Auto-filled portfolio", "HR interview simulation"],
+        "context": "Local datasets: e-commerce transactions, SMEs, Indonesian tourism."
+      },
+      "siap-kerja": {
+        "title": "Job-Ready Fresh Graduate",
+        "goal": "“I want interview calls.”",
+        "desc": "Four weeks from messy CV to complete application: CV, portfolio, interviews, then apply.",
+        "weeks": "4 weeks · 3 hrs/week",
+        "level": "Fresh graduates",
+        "salary": "First offer",
+        "alt": "Student smiling in front of a campus building",
+        "caption": "From campus to office — one application at a time",
+        "meta": "4 weeks · First offer",
+        "stages": [
+          { "name": "CV", "items": "One-page CV + professional email", "formats": "Templates · Quizzes" },
+          { "name": "Portfolio", "items": "superbright.id/u/you: projects + certificates", "formats": "Public link" },
+          { "name": "Interview", "items": "2-minute intro + salary + trick questions", "formats": "HR simulator" },
+          { "name": "Workplace", "items": "Hierarchy + meetings + feedback", "formats": "ID scenarios" },
+          { "name": "Apply", "items": "Apply + polite WA follow-ups", "formats": "Checklist" }
+        ],
+        "skills": ["CV", "Portfolio", "Interview", "LinkedIn", "Office etiquette"],
+        "project": "Complete application pack: CV + public profile + sim recordings.",
+        "career": ["Screening-proof CV", "Verified portfolio", "Interview simulations", "First-day etiquette"],
+        "context": "Market salaries per city, WA etiquette for HR, Indonesian office hierarchy."
+      },
+      "junior-accountant": {
+        "title": "Junior Accountant (Tax Focus)",
+        "goal": "“I want to work at an accounting firm.”",
+        "desc": "Financial accounting to tax returns: e-Faktur, income tax, and a mock-client tax capstone with AI assessment.",
+        "weeks": "24 weeks",
+        "level": "KKNI 6",
+        "salary": "IDR 6–9M/mo",
+        "alt": "Young professional working late in a Jakarta office",
+        "caption": "Books closed on time — every month",
+        "meta": "24 weeks · IDR 6–9M",
+        "stages": [
+          { "name": "Phase 1", "items": "Financial Accounting Basics", "formats": "Videos · Quizzes" },
+          { "name": "Phase 2", "items": "Corporate Tax & e-Faktur", "formats": "e-Faktur simulations" },
+          { "name": "Phase 3", "items": "PSAK/IFRS Reporting", "formats": "Case studies" },
+          { "name": "Capstone", "items": "Mock Client Tax Return + AI Assessment", "formats": "Portfolio" }
+        ],
+        "skills": ["Accounting", "PPh", "e-Faktur", "PSAK"],
+        "project": "Complete mock-client annual tax return with working papers.",
+        "career": ["Skill certificate", "Working-paper portfolio", "Interview simulation"],
+        "context": "Tax rules cite effective dates and are reviewed when they change."
+      }
+    }
   }
 }

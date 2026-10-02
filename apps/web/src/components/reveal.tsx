@@ -16,6 +16,7 @@ export function Reveal({
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    document.documentElement.classList.add("js");
     const el = ref.current;
     if (!el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {

@@ -1,7 +1,12 @@
+import { createTranslator } from "next-intl";
+import { getLocaleMessages } from "@/i18n/messages";
 import { PX, PHOTOS } from "@/lib/visual";
+import { SiteFooter, SiteNav } from "@/components/site-chrome";
+import { notFound } from "next/navigation";
 
 /* Learning-path detail per PRD §9 (paths), §5 (goal-first), §16 (career map).
-   Photography: local-ID only, see src/lib/visual.ts. */
+   Photography: local-ID only, see src/lib/visual.ts.
+   Path content + UI copy from the paths dictionary namespace. */
 
 interface PathStage {
   name: string;
@@ -16,7 +21,6 @@ interface PathData {
   weeks: string;
   level: string;
   salary: string;
-  photo: number;
   alt: string;
   caption: string;
   stages: PathStage[];
@@ -26,152 +30,57 @@ interface PathData {
   context: string;
 }
 
-const PATHS: Record<string, PathData> = {
-  "frontend-developer": {
-    title: "Become a Frontend Developer",
-    goal: "“Saya ingin jadi frontend developer.”",
-    desc: "Dari nol sampai siap lamar: HTML ke deployment, satu website bisnis Indonesia asli, lalu persiapan karier.",
-    weeks: "4–6 bulan · 5 jam/minggu",
-    level: "Pemula → Siap kerja",
-    salary: "IDR 8–25 jt",
-    photo: PHOTOS.analystJKT,
-    alt: "Analis muda bekerja dengan laptop di kantor Jakarta",
-    caption: "Kerja ala profesional — dari hari pertama",
-    stages: [
-      { name: "Beginner", items: "HTML → CSS → JavaScript", formats: "Video · Bacaan · Kuis" },
-      { name: "Intermediate", items: "TypeScript → React → API → Git", formats: "Lab kode · Simulasi" },
-      { name: "Advanced", items: "Testing → Arsitektur → Performance → Deployment", formats: "Proyek · Review AI" },
-      { name: "Portofolio", items: "Website bisnis Indonesia asli + studi kasus", formats: "Proyek fiktif · Tanpa afiliasi" },
-      { name: "Karier", items: "CV → Interview → Tes teknis", formats: "Simulator HR · Teknis" },
-    ],
-    skills: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Git", "REST API", "Testing"],
-    project: "Website company profile + toko online untuk UMKM fiktif Bandung.",
-    career: ["CV + LinkedIn", "Portofolio superbright.id/u/kamu", "Simulasi interview HR", "Tes teknis + pembahasan AI"],
-    context: "Contoh lokal: QRIS checkout, ongkir antar-pulau, katalog Bahasa Indonesia.",
-  },
-  "umkm-digital-entrepreneur": {
-    title: "UMKM Digital Entrepreneur",
-    goal: "“Saya ingin usaha saya go digital.”",
-    desc: "Sepuluh modul dari riset pelanggan sampai analitik — berakhir di strategi digital lengkap untuk usaha fiktif.",
-    weeks: "10 modul · fleksibel",
-    level: "Semua level",
-    salary: "Omzet, bukan gaji",
-    photo: PHOTOS.studyJKT,
-    alt: "Mahasiswi mempelajari materi bisnis di Jakarta",
-    caption: "Belajar bisnis sambil jalan — malam hari pun bisa",
-    stages: [
-      { name: "Fondasi", items: "Bisnis dasar → Riset pelanggan → Branding", formats: "Video · Template" },
-      { name: "Jualan", items: "Marketplace → Sosmed → Iklan digital", formats: "Studi kasus · Praktik" },
-      { name: "Keuangan", items: "Akuntansi → Pajak dasar → Analitik", formats: "Spreadsheet · Kuis" },
-      { name: "Proyek akhir", items: "Strategi digital UMKM kopi Bandung fiktif", formats: "Presentasi · Review mentor" },
-    ],
-    skills: ["Branding", "Marketplace", "Iklan digital", "Akuntansi", "Pajak dasar", "Analitik"],
-    project: "Dokumen strategi digital lengkap: positioning, kanal, budget iklan, target 90 hari.",
-    career: ["Portofolio strategi", "Simulasi pitching ke investor", "Komunitas UMKM kota"],
-    context: "Regulasi halal, perizinan, dan pajak UMKM Indonesia — selalu ada tanggal berlakunya.",
-  },
-  "data-analyst": {
-    title: "Data Analyst Path",
-    goal: "“Saya ingin kerja sebagai Data Analyst.”",
-    desc: "Perjalanan Rina (§55): Excel ke Power BI, proyek e-commerce Indonesia, sertifikat skill, siap lamar.",
-    weeks: "7 modul · 4–5 bulan",
-    level: "Pemula → Siap kerja",
-    salary: "IDR 7–18 jt",
-    photo: PHOTOS.teamAsia,
-    alt: "Tim bisnis Asia berdiskusi di kantor modern",
-    caption: "Analisis dipresentasikan, bukan disimpan",
-    stages: [
-      { name: "Fondasi", items: "Excel → SQL → Statistika", formats: "Video · Latihan dataset" },
-      { name: "Tools", items: "Python → Visualisasi → Power BI", formats: "Lab kode · Proyek" },
-      { name: "Proyek", items: "Analisis penjualan e-commerce Indonesia", formats: "Dataset publik · Dashboard" },
-      { name: "Karier", items: "Sertifikat → Portofolio → Interview sim", formats: "Verifikasi publik" },
-    ],
-    skills: ["Excel", "SQL", "Statistika", "Python", "Visualisasi", "Power BI"],
-    project: "Dashboard Power BI + rekomendasi promo dari data transaksi 3 bulan.",
-    career: ["Sertifikat Data Analytics", "Portofolio otomatis terisi", "Simulasi interview HR"],
-    context: "Dataset lokal: transaksi e-commerce, UMKM, pariwisata Indonesia.",
-  },
-  "siap-kerja": {
-    title: "Fresh Graduate Siap Lamar",
-    goal: "“Saya ingin dapat panggilan interview.”",
-    desc: "Empat minggu dari CV berantakan ke lamaran lengkap: CV, portofolio, interview, lalu lamar.",
-    weeks: "4 minggu · 3 jam/minggu",
-    level: "Fresh graduate",
-    salary: "Tawaran pertama",
-    photo: PHOTOS.campusSmile,
-    alt: "Mahasiswa tersenyum di depan gedung kampus",
-    caption: "Dari kampus ke kantor — satu lamaran sekali jalan",
-    stages: [
-      { name: "CV", items: "CV satu halaman + email profesional", formats: "Template · Kuis" },
-      { name: "Portofolio", items: "superbright.id/u/kamu: proyek + sertifikat", formats: "Link publik" },
-      { name: "Interview", items: "Perkenalan 2 menit + gaji + jebakan", formats: "Simulator HR" },
-      { name: "Workplace", items: "Hierarki + meeting + feedback", formats: "Skenario ID" },
-      { name: "Lamar", items: "Apply + follow-up WA yang sopan", formats: "Checklist" },
-    ],
-    skills: ["CV", "Portofolio", "Interview", "LinkedIn", "Etika kantor"],
-    project: "Paket lamaran lengkap: CV + profil publik + rekaman simulasi.",
-    career: ["CV lolos screening", "Portofolio terverifikasi", "Simulasi interview", "Etika hari pertama"],
-    context: "Gaji pasar per kota, etika WA ke HRD, hierarki kantor Indonesia.",
-  },
-  "junior-accountant": {
-    title: "Akuntan Junior (Fokus Pajak)",
-    goal: "“Saya ingin kerja di kantor akuntan.”",
-    desc: "Akuntansi keuangan ke SPT: e-Faktur, PPh, dan capstone SPT klien mock dengan asesmen AI.",
-    weeks: "24 minggu",
-    level: "KKNI 6",
-    salary: "IDR 6–9 jt/bln",
-    photo: PHOTOS.nightJKT,
-    alt: "Profesional muda bekerja malam hari di kantor Jakarta",
-    caption: "Tutup buku tepat waktu — setiap bulan",
-    stages: [
-      { name: "Fase 1", items: "Dasar Akuntansi Keuangan", formats: "Video · Kuis" },
-      { name: "Fase 2", items: "Pajak Badan & e-Faktur", formats: "Simulasi e-Faktur" },
-      { name: "Fase 3", items: "Pelaporan PSAK/IFRS", formats: "Studi kasus" },
-      { name: "Capstone", items: "SPT Klien Mock + Asesmen AI", formats: "Portofolio" },
-    ],
-    skills: ["Akuntansi", "PPh", "e-Faktur", "PSAK"],
-    project: "SPT tahunan klien mock lengkap dengan kertas kerja.",
-    career: ["Sertifikat skill", "Portofolio kertas kerja", "Simulasi interview"],
-    context: "Aturan pajak mencantumkan tanggal berlaku dan direview saat berubah.",
-  },
+const PATH_PHOTO: Record<string, number> = {
+  "frontend-developer": PHOTOS.analystJKT,
+  "umkm-digital-entrepreneur": PHOTOS.studyJKT,
+  "data-analyst": PHOTOS.teamAsia,
+  "siap-kerja": PHOTOS.campusSmile,
+  "junior-accountant": PHOTOS.nightJKT,
 };
 
-export default async function PathPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const p = PATHS[slug] ?? PATHS["frontend-developer"];
+export default async function PathPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+  const { locale, slug } = await params;
+  const t = await createTranslator({
+    locale,
+    namespace: "paths",
+    messages: getLocaleMessages(locale),
+  });
+  const key = t.has(`data.${slug}`) ? slug : "frontend-developer";
+  const p = t.raw(`data.${key}`) as PathData;
 
   return (
     <main className="overflow-x-clip bg-paper text-ink">
-      <a href="#konten" className="skip-link">Lewati ke konten</a>
+      <a href="#konten" className="skip-link">{t("skip")}</a>
+      <SiteNav />
 
       {/* Header split: light role-first + enroll card */}
       <section className="hero-light relative overflow-hidden pt-[140px]">
         <div id="konten" className="relative mx-auto grid max-w-7xl items-start gap-8 px-4 pb-12 pt-2 md:pb-14 lg:grid-cols-5">
           <div className="lg:col-span-3">
-            <a href="/#peran" className="font-mono text-[12px] text-muted underline decoration-line underline-offset-4 hover:text-ink">← Pilih peran</a>
-            <p className="eyebrow-light mt-6">Jalur Peran · {p.level}</p>
+            <a href="/#pekerjaan" className="font-mono text-[12px] text-muted underline decoration-line underline-offset-4 hover:text-ink">{t("back")}</a>
+            <p className="eyebrow-light mt-6">{t("eyebrow", { level: p.level })}</p>
             <h1 className="mt-4 max-w-[18ch] text-4xl font-extrabold leading-[1.05] tracking-tight md:text-6xl">{p.title}</h1>
-            <p className="mt-3 max-w-[30ch] text-[15px] font-bold text-amber-700">{p.goal}</p>
+            <p className="mt-3 max-w-[30ch] text-[15px] font-bold text-signal-strong">{p.goal}</p>
             <p className="mt-2 max-w-[52ch] text-[15px] leading-relaxed text-soft">{p.desc}</p>
             <p className="tnum mt-4 font-mono text-[13px] text-muted">{p.salary} · {p.weeks}</p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <a href="/id/auth/daftar" className="btn-amber group">
-                Mulai Gratis
+                {t("startFree")}
                 <span className="btn-island btn-island-dark" aria-hidden>↗</span>
               </a>
-              <a href="/id/belajar/js-dasar-analis" className="btn-ghost">Coba Lab Demo</a>
+              <a href="/id/belajar/js-dasar-analis" className="btn-ghost">{t("tryLab")}</a>
             </div>
           </div>
           <aside className="lg:col-span-2">
             <div className="glass-light p-6">
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-faint">Yang kamu dapat</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-faint">{t("enrollTitle")}</p>
               <ul className="mt-3 space-y-2.5 text-sm text-soft">
-                <li>✓ {p.stages.length} tahap terstruktur</li>
-                <li>✓ {p.skills.length} skill terukur di Skill Graph</li>
-                <li>✓ 1 proyek portofolio + sertifikat QR</li>
-                <li>✓ Simulasi interview + Bright AI</li>
+                <li>✓ {t("stageCount", { n: p.stages.length })}</li>
+                <li>✓ {t("skillCount", { n: p.skills.length })}</li>
+                <li>✓ {t("certLine")}</li>
+                <li>✓ {t("simLine")}</li>
               </ul>
-              <p className="mt-4 rounded-[12px] bg-amber-400/20 px-3.5 py-2.5 font-mono text-[11px] text-amber-700">Gratis mulai · Plus untuk sertifikat</p>
+              <p className="mt-4 rounded-input bg-signal/20 px-3.5 py-2.5 font-mono text-[11px] text-signal-strong">{t("freeNote")}</p>
             </div>
           </aside>
         </div>
@@ -181,7 +90,7 @@ export default async function PathPage({ params }: { params: Promise<{ slug: str
       <section className="border-b border-line bg-paper">
         <div className="mx-auto max-w-7xl px-4 py-10">
           <figure className="photo-cine aspect-[21/8]">
-              <img src={PX(p.photo, 1600)} alt={p.alt} loading="lazy" decoding="async" sizes="(max-width: 1024px) 100vw, 1200px" className="h-full w-full object-cover" />
+              <img src={PX(PATH_PHOTO[slug] ?? PHOTOS.analystJKT, 1600)} alt={p.alt} loading="lazy" decoding="async" sizes="(max-width: 1024px) 100vw, 1200px" className="h-full w-full object-cover" />
             <figcaption className="photo-cap">
               <span>{p.caption}</span>
               <span className="opacity-70">Pexels</span>
@@ -192,8 +101,8 @@ export default async function PathPage({ params }: { params: Promise<{ slug: str
 
       {/* Stages timeline */}
       <section className="mx-auto max-w-7xl px-4 py-14 md:py-16">
-        <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">Silabus</p>
-        <h2 className="mt-3 max-w-[22ch] text-3xl font-extrabold md:text-4xl">Tahapan yang jelas, bukan daftar video.</h2>
+        <p className="eyebrow-light">{t("syllabus")}</p>
+        <h2 className="mt-3 max-w-[22ch] text-3xl font-extrabold md:text-4xl">{t("stagesTitle")}</h2>
         <ol className="panel mt-8 overflow-hidden">
           {p.stages.map((s, i) => (
             <li key={s.name} className={`grid gap-2 px-6 py-4 sm:grid-cols-[auto_1fr_auto] sm:items-center sm:gap-4 ${i > 0 ? "border-t border-line" : ""}`}>
@@ -211,19 +120,19 @@ export default async function PathPage({ params }: { params: Promise<{ slug: str
       </section>
 
       {/* Skills + career prep */}
-      <section className="border-y border-line bg-white">
+      <section className="border-y border-line bg-card">
         <div className="mx-auto grid max-w-7xl items-start gap-4 px-4 py-14 md:py-16 lg:grid-cols-2">
-          <div className="rounded-[20px] border border-line bg-paper p-5 md:p-6">
-            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-faint">Skill yang diukur</p>
+          <div className="rounded-card border border-line bg-paper p-5 md:p-6">
+            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-faint">{t("skillsTitle")}</p>
             <div className="mt-3 flex flex-wrap gap-2">
               {p.skills.map((s) => (
-                <span key={s} className="rounded-[10px] border border-line bg-white px-3 py-1.5 text-[13px] font-medium">{s}</span>
+                <span key={s} className="chip !text-[13px]">{s}</span>
               ))}
             </div>
-            <p className="mt-4 text-[13px] text-soft"><strong className="text-ink">Proyek:</strong> {p.project}</p>
+            <p className="mt-4 text-[13px] text-soft"><strong className="text-ink">{t("projectLabel")}</strong> {p.project}</p>
           </div>
-          <div className="rounded-[20px] border border-line bg-paper p-5 md:p-6">
-            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-faint">Siap kerja</p>
+          <div className="rounded-card border border-line bg-paper p-5 md:p-6">
+            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-faint">{t("careerTitle")}</p>
             <ul className="mt-3 space-y-2.5 text-sm text-soft">
               {p.career.map((c) => (
                 <li key={c} className="flex gap-3">
@@ -239,23 +148,24 @@ export default async function PathPage({ params }: { params: Promise<{ slug: str
       {/* ID context + certificate */}
       <section className="mx-auto max-w-7xl px-4 py-14 md:py-16">
         <div className="grid items-start gap-4 lg:grid-cols-2">
-          <div className="rounded-[20px] border-2 border-brand-700 bg-brand-50 p-5 md:p-6">
-            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-brand-700">Konteks Indonesia</p>
+          <div className="rounded-card border-2 border-brand-700 bg-brand-50 p-5 md:p-6">
+            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-brand-700">{t("contextTitle")}</p>
             <p className="mt-2 text-sm leading-relaxed text-soft">{p.context}</p>
           </div>
-          <div className="rounded-[20px] border border-line bg-white p-5 md:p-6">
-            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-faint">Sertifikat</p>
-            <p className="mt-2 text-sm font-bold">Professional Program · terverifikasi publik + QR</p>
-            <p className="mt-1 font-mono text-[11px] text-muted">Hierarki: Course → Skill → Professional → Partner</p>
+          <div className="rounded-card border border-line bg-card p-5 md:p-6">
+            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-faint">{t("certTitle")}</p>
+            <p className="mt-2 text-sm font-bold">{t("certLine1")}</p>
+            <p className="mt-1 font-mono text-[11px] text-muted">{t("certLine2")}</p>
             <div className="mt-5 flex flex-wrap gap-3">
               <a href="/id/auth/daftar" className="btn-primary group px-5">
-                Mulai Gratis
+                {t("startFree")}
                 <span className="btn-island" aria-hidden>↗</span>
               </a>
             </div>
           </div>
         </div>
       </section>
+      <SiteFooter />
     </main>
   );
 }

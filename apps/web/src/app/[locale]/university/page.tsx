@@ -1,13 +1,23 @@
 // University — cohort analytics, curriculum→SKKNI gap map, export
+import { createTranslator } from "next-intl";
+import { getLocaleMessages } from "@/i18n/messages";
 import { OpsShell, StatCard } from "@/components/ops-shell";
 
-export default function UniversityDashboard() {
+const STATS = ["s1", "s2", "s3"] as const;
+
+export default async function UniversityDashboard({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await createTranslator({
+    locale,
+    namespace: "university",
+    messages: getLocaleMessages(locale),
+  });
   return (
-    <OpsShell eyebrow="Kampus · cohorts" title="Universitas" desc="Analitik kohort, peta kesenjangan kurikulum → SKKNI, dan ekspor kelulusan.">
+    <OpsShell locale={locale} eyebrow={t("eyebrow")} title={t("title")} desc={t("desc")}>
       <div className="grid gap-4 md:grid-cols-3">
-        <StatCard t="Mahasiswa aktif" v="412" s="3 prodi · semester berjalan" />
-        <StatCard t="Cakupan SKKNI" v="68%" s="kurikulum → SKKNI terpetakan" />
-        <StatCard t="Tersertifikasi" v="23" s="lulusan BNSP semester ini" />
+        {STATS.map((k) => (
+          <StatCard key={k} t={t(`${k}t`)} v={t(`${k}v`)} s={t(`${k}s`)} />
+        ))}
       </div>
     </OpsShell>
   );

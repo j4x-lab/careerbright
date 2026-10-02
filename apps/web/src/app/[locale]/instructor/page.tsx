@@ -1,9 +1,17 @@
 // Instructor Dashboard — backend: course.*, assessment.*, submission.review, payout.*
+import { createTranslator } from "next-intl";
+import { getLocaleMessages } from "@/i18n/messages";
 import { appRouter } from "@/server/routers";
 import { CreateCourseForm } from "./create-course-form";
 import { OpsShell } from "@/components/ops-shell";
 
-export default async function InstructorDashboard() {
+export default async function InstructorDashboard({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await createTranslator({
+    locale,
+    namespace: "instructor",
+    messages: getLocaleMessages(locale),
+  });
   let courses: { id: string; slug: string; titleId: string; status: string }[] = [];
   let dbOnline = true;
   try {
@@ -14,16 +22,16 @@ export default async function InstructorDashboard() {
   }
 
   return (
-    <OpsShell eyebrow="Studio · instruktur" title="Course Studio" desc="Buat kursus, petakan SKKNI, bangun asesmen, pantau payout.">
+    <OpsShell locale={locale} eyebrow={t("eyebrow")} title={t("title")} desc={t("desc")}>
       {!dbOnline && (
         <p className="panel-warm mt-0 p-4 text-sm text-soft">
-          Database belum terhubung (atur DATABASE_URL lalu jalankan seed). UI di bawah aktif setelah DB online.
+          {t("dbOff")}
         </p>
       )}
       <div className="panel mt-4 p-5 md:p-6"><CreateCourseForm /></div>
       <div className="mt-4 grid gap-4 md:grid-cols-3">
         {courses.length === 0 && dbOnline && (
-          <p className="text-sm text-soft">Belum ada kursus. Buat draf pertamamu di atas.</p>
+          <p className="text-sm text-soft">{t("empty")}</p>
         )}
         {courses.map((c) => (
           <div key={c.id} className="spot panel p-5">
