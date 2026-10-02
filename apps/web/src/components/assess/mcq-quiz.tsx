@@ -11,7 +11,8 @@ export interface Mcq {
 }
 
 // Offline MCQ quiz with instant rubric-style feedback. Persists best score locally.
-// Light exercise inset: paper surface inside the white lesson panel, cobalt actions.
+// Premium assessment instrument: white card, ink frame, cobalt header cue,
+// decisive option states, climactic submit, prominent progress anchor.
 export function McqQuiz({ id, questions, passing = 70 }: { id: string; questions: Mcq[]; passing?: number }) {
   const t = useTranslations("quiz");
   const [picked, setPicked] = useState<Record<number, number>>({});
@@ -46,20 +47,47 @@ export function McqQuiz({ id, questions, passing = 70 }: { id: string; questions
   }
 
   return (
-    <div className="rounded-card border border-line bg-paper p-5">
-      <div className="flex items-center justify-between">
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-faint">
+    <div className="rounded-card border-2 border-ink bg-card p-5 shadow-[0_24px_64px_-32px_rgba(10,17,40,0.35)] md:p-7">
+      <div aria-hidden className="mb-5 h-1 w-12 bg-brand-700" />
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand-700">
           {t("header", { count: questions.length, passing })}
         </p>
-        {best !== null && <p className="font-mono text-xs text-brand-700">{t("best", { score: best })}</p>}
+        {best !== null && (
+          <p className="rounded-full border border-brand-700/20 bg-brand-50 px-3 py-1 font-mono text-xs font-bold text-brand-700">
+            {t("best", { score: best })}
+          </p>
+        )}
       </div>
-      <div className="mt-4 space-y-5">
+
+      {/* Progress anchor: the hierarchy anchor of the widget */}
+      <div className="mt-4 rounded-btn border border-line bg-paper px-4 py-3">
+        <div className="flex items-center justify-between gap-3">
+          <p className="font-mono text-xs font-bold text-ink" aria-live="polite">
+            {t("progress", { a: answered, b: questions.length })}
+          </p>
+          <p aria-hidden className="tnum font-mono text-xs font-bold text-brand-700">
+            {Math.round((answered / Math.max(1, questions.length)) * 100)}%
+          </p>
+        </div>
+        <div className="bar-track mt-2" aria-hidden>
+          <div
+            className="bar-fill"
+            style={{ transform: `scaleX(${answered / Math.max(1, questions.length)})` }}
+          />
+        </div>
+      </div>
+
+      <div className="mt-5 space-y-6">
         {questions.map((q, i) => (
           <div key={i}>
-            <p className="text-sm font-medium text-ink">
-              {i + 1}. {q.q}
+            <p className="text-[15px] font-extrabold leading-snug tracking-tight text-ink">
+              <span aria-hidden className="card-num mr-2 align-middle">
+                {i + 1}
+              </span>
+              {q.q}
             </p>
-            <div className="mt-2 grid gap-2" role="radiogroup" aria-label={t("question", { n: i + 1 })}>
+            <div className="mt-3 grid gap-2" role="radiogroup" aria-label={t("question", { n: i + 1 })}>
               {q.options.map((op, j) => {
                 const sel = picked[i] === j;
                 const correct = done && j === q.answer;
@@ -71,46 +99,81 @@ export function McqQuiz({ id, questions, passing = 70 }: { id: string; questions
                     aria-checked={sel}
                     disabled={done}
                     onClick={() => setPicked((p) => ({ ...p, [i]: j }))}
-                    className={`rounded-xl border px-3 py-3 text-left text-sm transition active:translate-y-[1px] ${
+                    className={`flex min-h-[48px] w-full items-center gap-3 rounded-btn border-2 px-4 py-3.5 text-left text-sm transition active:translate-y-[1px] ${
                       correct
-                        ? "border-ok bg-ok-bg text-ink"
+                        ? "border-ok bg-ok-bg font-bold text-ink shadow-[0_10px_24px_-14px_rgba(4,120,87,0.7)]"
                         : wrong
-                          ? "border-danger bg-danger-bg text-ink"
+                          ? "border-danger bg-danger-bg font-bold text-ink"
                           : sel
-                            ? "border-brand-700 bg-brand-50 text-ink"
-                            : "border-line bg-card text-soft hover:border-brand-600 hover:text-ink"
-                    }`}
+                            ? "border-brand-700 bg-brand-50 font-bold text-ink shadow-[0_14px_28px_-14px_rgba(29,78,216,0.65)]"
+                            : "border-line bg-card font-semibold text-soft hover:border-brand-700 hover:bg-brand-50/60 hover:text-ink"
+                    } ${done ? "disabled:cursor-default" : "cursor-pointer"}`}
                   >
-                    {op}
+                    <span
+                      aria-hidden
+                      className={`flex h-7 w-7 flex-none items-center justify-center rounded-[10px] font-mono text-xs font-bold ${
+                        correct
+                          ? "bg-ok text-white"
+                          : wrong
+                            ? "bg-danger text-white"
+                            : sel
+                              ? "bg-brand-700 text-white"
+                              : "border border-line bg-paper text-muted"
+                      }`}
+                    >
+                      {correct ? "✓" : wrong ? "✗" : String.fromCharCode(65 + j)}
+                    </span>
+                    <span className="min-w-0 flex-1 leading-snug">{op}</span>
+                    {done && correct && (
+                      <span aria-hidden className="tnum flex-none font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-ok">
+                        ✓
+                      </span>
+                    )}
+                    {done && wrong && (
+                      <span aria-hidden className="tnum flex-none font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-danger">
+                        ✗
+                      </span>
+                    )}
                   </button>
                 );
               })}
             </div>
-            {done && <p className="mt-2 text-xs leading-relaxed text-muted">{q.explain}</p>}
+            {done && (
+              <p className="mt-2 rounded-input border border-line bg-paper px-3 py-2 text-xs leading-relaxed text-muted">
+                {q.explain}
+              </p>
+            )}
           </div>
         ))}
       </div>
       {!done ? (
-        <div className="mt-5 flex flex-wrap items-center gap-3">
+        <div className="mt-6 flex flex-col gap-3 border-t border-line pt-5 sm:flex-row sm:items-center">
           <button
             onClick={finish}
             disabled={!allAnswered}
-            className="btn-primary disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
+            className="btn-primary min-h-[48px] w-full justify-center px-7 sm:w-auto disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
           >
             {t("submit")}
           </button>
-          <p className="font-mono text-xs text-faint" aria-live="polite">
-            {t("progress", { a: answered, b: questions.length })}
+          <p className="font-mono text-xs font-bold text-muted sm:ml-auto" aria-hidden>
+            {Math.round((answered / Math.max(1, questions.length)) * 100)}%
           </p>
         </div>
       ) : (
-        <div className="mt-5 flex flex-wrap items-center gap-3">
-          <p className={`font-mono text-sm ${score >= passing ? "text-ok" : "text-danger"}`}>
+        <div className="mt-6 flex flex-col gap-3 border-t border-line pt-5 sm:flex-row sm:items-center">
+          <p
+            className={`rounded-btn border-2 px-4 py-3 font-mono text-sm font-extrabold ${
+              score >= passing ? "border-ok bg-ok-bg text-ink" : "border-danger bg-danger-bg text-ink"
+            }`}
+          >
+            <span aria-hidden className={score >= passing ? "text-ok" : "text-danger"}>
+              {score >= passing ? "✓ " : "✗ "}
+            </span>
             {t("score", { s: score })} — {score >= passing ? t("pass") : t("fail")}
           </p>
           <button
             onClick={retry}
-            className="rounded-btn border border-line bg-card px-5 py-2.5 text-sm font-semibold text-soft transition hover:border-brand-700 hover:text-brand-700 active:translate-y-[1px]"
+            className="inline-flex min-h-[48px] items-center justify-center rounded-btn px-4 py-3 text-sm font-semibold text-muted underline decoration-line underline-offset-4 transition hover:text-brand-700 sm:ml-auto"
           >
             {t("retry")}
           </button>
