@@ -1,6 +1,7 @@
 import { createTranslator } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { getLocaleMessages } from "@/i18n/messages";
+import { SiteFooter, SiteNav } from "@/components/site-chrome";
 import { getScenario } from "@/lib/discovery";
 import { notFound } from "next/navigation";
 import { ScenarioPlayer } from "./scenario-player";
@@ -20,6 +21,7 @@ export default async function ScenarioPage({ params }: { params: Promise<{ local
   return (
     <main id="konten" tabIndex={-1} className="overflow-x-clip bg-paper text-ink">
       <a href="#konten" className="skip-link">{t("skip")}</a>
+      <SiteNav />
       <section className="hero-light relative overflow-hidden pt-[140px]">
         <div className="relative mx-auto max-w-3xl px-4 pb-10">
           <Link href={`/role/${scenario.roleId}`} className="font-mono text-[12px] text-muted underline decoration-line underline-offset-4 hover:text-ink">{t("back")}</Link>
@@ -31,6 +33,7 @@ export default async function ScenarioPage({ params }: { params: Promise<{ local
       <div className="mx-auto max-w-3xl px-4 pb-20 md:pb-28">
         <ScenarioPlayer scenario={scenario} backHref={`/role/${scenario.roleId}`} />
       </div>
+      <SiteFooter />
     </main>
   );
 }

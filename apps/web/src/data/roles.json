@@ -337,5 +337,209 @@
       "event": "Laporan harian ke manager: apa yang telat dan rencananya."
     }
   ]
+},
+{
+  "id": "devops-engineer",
+  "category": "Tech & Product",
+  "title": "DevOps Engineer",
+  "shortDescription": "Bukan cuma setting server sekali, tapi menjaga pipeline tetap hijau saat semua orang push bareng.",
+  "tools": [
+    "Docker",
+    "GitHub Actions",
+    "AWS",
+    "Grafana"
+  ],
+  "mythVsReality": {
+    "myth": "DevOps itu tinggal setup CI/CD sekali lalu santai.",
+    "reality": "Pipeline merah jam 5 sore, credential expired tengah malam, dan tagihan cloud yang membengkak tanpa kabar."
+  },
+  "timeline": [
+    {
+      "time": "09:00 WIB",
+      "event": "Cek pipeline semalam: build mana yang merah dan kenapa."
+    },
+    {
+      "time": "11:00 WIB",
+      "event": "Tagihan cloud naik 40%: cari resource nganggur."
+    },
+    {
+      "time": "14:00 WIB",
+      "event": "Bantu tim backend debug deploy yang gagal di staging."
+    },
+    {
+      "time": "16:30 WIB",
+      "event": "Rotasi sertifikat + update runbook insiden."
+    }
+  ]
+},
+{
+  "id": "graphic-designer",
+  "category": "Creative & Marketing",
+  "title": "Graphic Designer",
+  "shortDescription": "Bukan cuma bikin yang bagus dilihat, tapi yang lolos cetak, lolos brand guideline, dan lolos selera klien.",
+  "tools": [
+    "Illustrator",
+    "Photoshop",
+    "Figma",
+    "InDesign"
+  ],
+  "mythVsReality": {
+    "myth": "Desainer grafis itu seniman yang bebas berekspresi.",
+    "reality": "Revisi ke-15 dengan arahan 'dibagusin aja', file deadline kemarin, dan warna brand yang tidak boleh disentuh."
+  },
+  "timeline": [
+    {
+      "time": "09:00 WIB",
+      "event": "Brief masuk: 5 materi sosmed, deadline besok pagi."
+    },
+    {
+      "time": "11:00 WIB",
+      "event": "Revisi ronde 3: klien ganti arah visual total."
+    },
+    {
+      "time": "14:00 WIB",
+      "event": "Siapkan file cetak: bleed, CMYK, resolusi benar."
+    },
+    {
+      "time": "16:00 WIB",
+      "event": "Serah terima file + arsip versi final yang rapi."
+    }
+  ]
+},
+{
+  "id": "seo-specialist",
+  "category": "Creative & Marketing",
+  "title": "SEO Specialist",
+  "shortDescription": "Bukan cuma tabur keyword, tapi membaca maksud pencarian Google dan algoritma yang berubah diam-diam.",
+  "tools": [
+    "Search Console",
+    "Ahrefs",
+    "Screaming Frog",
+    "WordPress"
+  ],
+  "mythVsReality": {
+    "myth": "SEO itu trik: masukkan keyword sebanyak-banyaknya lalu ranking naik.",
+    "reality": "Kerjaannya audit teknis ratusan halaman, menunggu 3 bulan untuk hasil, lalu algoritma berubah."
+  },
+  "timeline": [
+    {
+      "time": "09:00 WIB",
+      "event": "Cek traffic organik: halaman mana yang turun minggu ini."
+    },
+    {
+      "time": "10:30 WIB",
+      "event": "Audit crawl: error 404, redirect chain, sitemap."
+    },
+    {
+      "time": "13:00 WIB",
+      "event": "Brief 5 artikel ke writer berdasarkan gap keyword."
+    },
+    {
+      "time": "15:30 WIB",
+      "event": "Laporan bulanan ke klien: kenapa traffic turun bukan salahmu."
+    }
+  ]
+},
+{
+  "id": "hr-recruiter",
+  "category": "Business & Operations",
+  "title": "HR Recruiter",
+  "shortDescription": "Bukan cuma interview dan terima orang, tapi berburu kandidat yang tidak sedang cari kerja.",
+  "tools": [
+    "LinkedIn",
+    "Glints",
+    "Kalibrr",
+    "Excel"
+  ],
+  "mythVsReality": {
+    "myth": "Recruiter tinggal posting lowongan lalu pilih yang terbaik.",
+    "reality": "Sourcing 100 profil untuk 1 hire, kandidat ghosting setelah offering, dan user yang mengubah syarat di tengah jalan."
+  },
+  "timeline": [
+    {
+      "time": "09:00 WIB",
+      "event": "Sourcing: 30 profil baru untuk 3 posisi terbuka."
+    },
+    {
+      "time": "11:00 WIB",
+      "event": "Screening call: gali motivasi dan ekspektasi gaji."
+    },
+    {
+      "time": "14:00 WIB",
+      "event": "Jadwalkan interview user + siapkan materi tes."
+    },
+    {
+      "time": "16:00 WIB",
+      "event": "Negosiasi offering dengan kandidat terbaik."
+    }
+  ]
+},
+{
+  "id": "credit-analyst",
+  "category": "Finance & Banking",
+  "title": "Credit Analyst (Bank)",
+  "shortDescription": "Bukan cuma setuju atau tolak pinjaman, tapi membaca kapan angka bagus itu bohong.",
+  "tools": [
+    "Excel",
+    "Core Banking",
+    "SLIK OJK",
+    "PowerPoint"
+  ],
+  "mythVsReality": {
+    "myth": "Analis kredit tinggal ikut skor sistem lalu tanda tangan.",
+    "reality": "Kamu yang disalahkan saat kredit macet — jadi harus berani bilang tidak ke sales yang mengejar target."
+  },
+  "timeline": [
+    {
+      "time": "09:00 WIB",
+      "event": "Review pengajuan baru: laporan keuangan 3 tahun."
+    },
+    {
+      "time": "11:00 WIB",
+      "event": "Cek SLIK OJK + verifikasi agunan ke lapangan."
+    },
+    {
+      "time": "14:00 WIB",
+      "event": "Tulis memo analisa: rekomendasikan ya/tidak dengan alasan."
+    },
+    {
+      "time": "16:00 WIB",
+      "event": "Komite kredit: pertahankan analisamu di depan senior."
+    }
+  ]
+},
+{
+  "id": "mobile-developer",
+  "category": "Tech & Product",
+  "title": "Mobile Developer",
+  "shortDescription": "Bukan cuma bikin aplikasi yang jalan di HP sendiri, tapi yang lolos review store dan hemat baterai.",
+  "tools": [
+    "Flutter",
+    "Firebase",
+    "Git",
+    "Postman"
+  ],
+  "mythVsReality": {
+    "myth": "Bikin aplikasi mobile itu seperti bikin web, tinggal responsive.",
+    "reality": "Review App Store 2 hari, fragmentasi Android puluhan varian, dan crash yang hanya terjadi di HP user."
+  },
+  "timeline": [
+    {
+      "time": "09:00 WIB",
+      "event": "Cek crash report semalam: model HP apa yang kena."
+    },
+    {
+      "time": "10:30 WIB",
+      "event": "Perbaiki bug yang hanya muncul di Android 10 RAM 3GB."
+    },
+    {
+      "time": "13:00 WIB",
+      "event": "Siapkan build release + changelog untuk review store."
+    },
+    {
+      "time": "15:30 WIB",
+      "event": "Optimasi ukuran aplikasi dan konsumsi baterai."
+    }
+  ]
 }
 ]

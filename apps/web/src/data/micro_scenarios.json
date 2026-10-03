@@ -442,5 +442,227 @@
     "Fatal": "Memalsukan laporan kas adalah pelanggaran integritas yang bisa mengakhiri karier perbankan seketika.",
     "PractitionerQuote": "Di perbankan Indonesia, atasan bisa memaafkan selisih Rp50 ribu yang dilaporkan. Yang tidak bisa dimaafkan: selisih yang disembunyikan."
   }
+},
+{
+  "id": "devops-pipeline-1",
+  "roleId": "devops-engineer",
+  "title": "Pipeline Merah 2 Jam Sebelum Rilis",
+  "context": {
+    "message": "Pipeline production merah 2 jam sebelum rilis yang sudah diumumkan ke user. Log menunjuk migration database yang lock tabel orders.",
+    "sender": "GitHub Actions (alert)",
+    "time": "15:00 WIB"
+  },
+  "options": [
+    {
+      "id": "A",
+      "text": "Force merge dan deploy manual, urusan belakangan.",
+      "type": "Fatal"
+    },
+    {
+      "id": "B",
+      "text": "Blokir rilis, tulis ulang migration jadi non-locking, jalankan ulang pipeline penuh.",
+      "type": "Optimal"
+    },
+    {
+      "id": "C",
+      "text": "Skip migration-nya saja supaya pipeline hijau.",
+      "type": "Fatal"
+    },
+    {
+      "id": "D",
+      "text": "Deploy dulu, rollback kalau ada komplain user.",
+      "type": "Risky"
+    }
+  ],
+  "feedback": {
+    "Optimal": "Tepat. Migration yang mengunci tabel orders di jam sibuk adalah bom waktu — menundanya 1 jam jauh lebih murah dari downtime checkout.",
+    "Fatal": "Melewatkan migration atau deploy buta mengubah pipeline merah yang terlihat menjadi outage yang tidak terlihat.",
+    "PractitionerQuote": "Di startup lokal, aturannya sederhana: pipeline merah berarti rilis berhenti. Tidak ada 'nanti saja' untuk database migration."
+  }
+},
+{
+  "id": "designer-revisi-1",
+  "roleId": "graphic-designer",
+  "title": "Revisi Logo ke-15, Deadline Besok",
+  "context": {
+    "message": "Klien: 'Hampir oke, tapi bisa dibagusin lagi? Istri saya bilang warnanya kurang mewah.' Ini revisi ke-15, deadline besok pagi, dan file cetak butuh malam ini.",
+    "sender": "Account Executive (WhatsApp)",
+    "time": "17:10 WIB"
+  },
+  "options": [
+    {
+      "id": "A",
+      "text": "Revisi lagi semalaman mengikuti semua selera personal.",
+      "type": "Risky"
+    },
+    {
+      "id": "B",
+      "text": "Sodorkan 2 opsi final berbasis brief awal + batas revisi tertulis, minta pilih satu malam ini.",
+      "type": "Optimal"
+    },
+    {
+      "id": "C",
+      "text": "Kirim file seadanya, toh sudah capek.",
+      "type": "Fatal"
+    },
+    {
+      "id": "D",
+      "text": "Blokir nomor klien sampai deadline lewat.",
+      "type": "Fatal"
+    }
+  ],
+  "feedback": {
+    "Optimal": "Tepat. Revisi tanpa batas adalah lubang tanpa dasar — desainer senior menutupnya dengan pilihan terbatas dan tenggat yang eksplisit.",
+    "Fatal": "Menyerah pada kualitas atau menghilang sama-sama membakar reputasi yang dibangun bertahun-tahun.",
+    "PractitionerQuote": "Di agensi Indonesia, kalimat penyelamat desainer: 'ini 2 opsi terakhir sesuai brief, silakan pilih satu malam ini supaya cetak jalan.'"
+  }
+},
+{
+  "id": "seo-traffic-1",
+  "roleId": "seo-specialist",
+  "title": "Traffic Anjlok 40% Setelah Update Algoritma",
+  "context": {
+    "message": "Traffic organik turun 40% dalam seminggu. Klien panik dan menuduh strategimu gagal. Belum ada pengumuman resmi dari Google.",
+    "sender": "Klien (email, CC direksi)",
+    "time": "09:15 WIB"
+  },
+  "options": [
+    {
+      "id": "A",
+      "text": "Beli backlink massal untuk memulihkan ranking cepat.",
+      "type": "Fatal"
+    },
+    {
+      "id": "B",
+      "text": "Audit segmen per segmen: pisahkan halaman yang turun vs stabil, cocokkan dengan pola update, sajikan rencana 30-60-90 hari.",
+      "type": "Optimal"
+    },
+    {
+      "id": "C",
+      "text": "Bilang ini salah Google dan tidak ada yang bisa dilakukan.",
+      "type": "Fatal"
+    },
+    {
+      "id": "D",
+      "text": "Ganti semua konten lama sekaligus minggu ini juga.",
+      "type": "Risky"
+    }
+  ],
+  "feedback": {
+    "Optimal": "Tepat. Panik massal memperburuk keadaan; segmentasi menunjukkan apakah ini penalti, pergeseran intent, atau sekadar volatilitas — dan rencana bertahap menenangkan klien.",
+    "Fatal": "Backlink massal mengundang penalti manual; menyerah pada keadaan membuat retainer-mu tidak bisa dibenarkan.",
+    "PractitionerQuote": "Di agency SEO lokal, minggu pertama setelah anjlok bukan untuk bertindak — tapi untuk mendiagnosis. Klien membayar ketenangan yang berbasis data."
+  }
+},
+{
+  "id": "recruiter-offer-1",
+  "roleId": "hr-recruiter",
+  "title": "Kandidat Terbaik Minta di Atas Budget",
+  "context": {
+    "message": "Kandidat terbaik untuk posisi backend meminta 25% di atas budget. User bilang 'usahakan dapat, dia yang paling cocok'. HRD bilang budget final tidak bisa naik.",
+    "sender": "User / Hiring Manager (telepon)",
+    "time": "15:45 WIB"
+  },
+  "options": [
+    {
+      "id": "A",
+      "text": "Janji ke kandidat gaji sesuai permintaan tanpa persetujuan, urus belakangan.",
+      "type": "Fatal"
+    },
+    {
+      "id": "B",
+      "text": "Negosiasi paket total: gaji pokok maksimal budget + sign-on bonus / review 6 bulan tertulis + benefit non-tunai.",
+      "type": "Optimal"
+    },
+    {
+      "id": "C",
+      "text": "Lepaskan kandidat dan mulai sourcing dari nol tanpa kabar.",
+      "type": "Risky"
+    },
+    {
+      "id": "D",
+      "text": "Tekan kandidat dengan deadline palsu supaya mau gaji rendah.",
+      "type": "Fatal"
+    }
+  ],
+  "feedback": {
+    "Optimal": "Tepat. Negosiasi bukan soal angka pokok saja — sign-on, jadwal review tertulis, dan benefit memperluas ruang gerak tanpa melanggar budget.",
+    "Fatal": "Janji tanpa wewenang atau tekanan palsu menghancurkan kepercayaan kandidat dan reputasimu di pasar talent.",
+    "PractitionerQuote": "Di pasar tech Jakarta, recruiter yang baik tidak pernah bilang 'tidak bisa' — ia bilang 'ini yang bisa saya perjuangkan secara tertulis'."
+  }
+},
+{
+  "id": "credit-macets-1",
+  "roleId": "credit-analyst",
+  "title": "Kredit Macet vs Target Penyaluran",
+  "context": {
+    "message": "RM mendesak persetujuan kredit Rp2M untuk debitur dengan arus kas pas-pasan — karena target cabang kurang 10% bulan ini. Riwayat SLIK-nya ada 1 keterlambatan.",
+    "sender": "Relationship Manager (memo)",
+    "time": "14:20 WIB"
+  },
+  "options": [
+    {
+      "id": "A",
+      "text": "Setujui demi target cabang, toh ada agunan.",
+      "type": "Fatal"
+    },
+    {
+      "id": "B",
+      "text": "Tolak dengan memo tertulis: tunjukkan DSCR di bawah 1,2x dan riwayat keterlambatan, ajukan struktur lebih kecil dengan agunan tambahan.",
+      "type": "Optimal"
+    },
+    {
+      "id": "C",
+      "text": "Tunda tanpa keputusan sampai target tercapai sendiri.",
+      "type": "Risky"
+    },
+    {
+      "id": "D",
+      "text": "Setujui lisan saja tanpa memo supaya tidak tercatat.",
+      "type": "Fatal"
+    }
+  ],
+  "feedback": {
+    "Optimal": "Tepat. Tugas analis adalah melindungi bank dari dirinya sendiri: penolakan tertulis dengan alternatif struktur mengubah 'tidak' menjadi keputusan profesional, bukan permusuhan.",
+    "Fatal": "Persetujuan tanpa memo adalah bom waktu karier — saat kredit macet, yang ditanya pertama adalah analis yang tanda tangan.",
+    "PractitionerQuote": "Di perbankan Indonesia, analis yang baik tidur nyenyak: setiap keputusannya ada memo, ada angka, dan ada alternatif. Target cabang bukan alasan melanggar prinsip."
+  }
+},
+{
+  "id": "mobile-reject-1",
+  "roleId": "mobile-developer",
+  "title": "App Ditolak Review H-1 Launch",
+  "context": {
+    "message": "App Store menolak build: 'Guideline 4.3 - spam, aplikasi terlalu mirip aplikasi lain.' Launching sudah diumumkan ke 10.000 user menunggu. Tim backend menyalahkan desain yang generik.",
+    "sender": "App Store Connect (email)",
+    "time": "10:00 WIB"
+  },
+  "options": [
+    {
+      "id": "A",
+      "text": "Upload ulang binary yang sama dengan nomor versi lebih tinggi.",
+      "type": "Fatal"
+    },
+    {
+      "id": "B",
+      "text": "Baca alasan penolakan spesifik, diferensiasi fitur yang dituduh generik, ajukan appeal dengan penjelasan + video demo.",
+      "type": "Optimal"
+    },
+    {
+      "id": "C",
+      "text": "Batalkan launch dan salahkan tim desain di depan direksi.",
+      "type": "Fatal"
+    },
+    {
+      "id": "D",
+      "text": "Rilis versi Android saja dan diam-diam soal iOS.",
+      "type": "Risky"
+    }
+  ],
+  "feedback": {
+    "Optimal": "Tepat. Penolakan store hampir selalu bisa di-appeal bila ditanggapi spesifik per poin — reviewer manusia membaca appeal yang konkret.",
+    "Fatal": "Upload ulang tanpa perubahan bisa berujung suspend akun developer; saling salahkan menghancurkan tim sebelum launch.",
+    "PractitionerQuote": "Di startup mobile lokal, penolakan App Store itu ritual, bukan vonis. Yang lolos review adalah yang membalas setiap poin dengan bukti, bukan emosi."
+  }
 }
 ]

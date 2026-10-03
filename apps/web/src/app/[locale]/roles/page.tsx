@@ -1,6 +1,7 @@
 import { createTranslator } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { getLocaleMessages } from "@/i18n/messages";
+import { SiteFooter, SiteNav } from "@/components/site-chrome";
 import { RoleCatalog } from "./role-catalog";
 
 /* Role directory (PRD §4.2 /roles): search plus category filter. Industry,
@@ -19,6 +20,7 @@ export default async function RolesPage({ params }: { params: Promise<{ locale: 
   return (
     <main id="konten" tabIndex={-1} className="overflow-x-clip bg-paper text-ink">
       <a href="#konten" className="skip-link">{t("skip")}</a>
+      <SiteNav />
       <section className="hero-light relative overflow-hidden pt-[140px]">
         <div className="relative mx-auto max-w-7xl px-4 pb-10">
           <Link href="/" className="font-mono text-[12px] text-muted underline decoration-line underline-offset-4 hover:text-ink">{t("back")}</Link>
@@ -36,6 +38,7 @@ export default async function RolesPage({ params }: { params: Promise<{ locale: 
           <RoleCatalog />
         </div>
       </div>
+      <SiteFooter />
     </main>
   );
 }
