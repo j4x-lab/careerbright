@@ -82,7 +82,8 @@ export default async function BelajarPage({ params }: { params: Promise<{ locale
               <img
                 src={PX(COURSE_PHOTO_ID[slug] ?? PHOTOS.analystJKT, 1400)}
                 alt={photoAlt}
-                loading="lazy"
+                loading="eager"
+                fetchPriority="high"
                 decoding="async"
                 sizes="(max-width: 1024px) 100vw, 1200px"
                 className="h-full w-full object-cover"

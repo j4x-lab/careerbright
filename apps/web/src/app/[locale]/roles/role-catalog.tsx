@@ -53,7 +53,7 @@ function RoleCatalogInner() {
             {t("searchLabel")}
           </label>
           <div className="relative mt-2.5">
-            <span aria-hidden className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-faint">⌕</span>
+            <svg aria-hidden viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-faint"><circle cx="7" cy="7" r="5" /><path d="m11 11 3 3" /></svg>
             <input
               id="cari-peran"
               type="search"
@@ -120,7 +120,7 @@ function RoleCatalogInner() {
                   <p className="tnum font-mono text-[11px] text-muted">
                     {t("toolsCount", { n: r.tools.length })}
                   </p>
-                  <span aria-hidden className="font-mono text-[13px] text-brand-700">→</span>
+                  <svg aria-hidden viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="flex-none text-brand-700"><path d="M2.5 8h11M9.5 4l4 4-4 4" /></svg>
                 </div>
               </Link>
             </li>

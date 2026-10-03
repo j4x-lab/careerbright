@@ -1,9 +1,9 @@
 {
-  "common": {
-    "skip": "Lewati ke konten",
-    "langToggle": "ID / EN",
-    "home": "← Beranda",
-    "langSwitchLabel": "Lihat versi {lang}"
+  "common": { 
+    "skip": "Lanjut ke konten utama", 
+    "langToggle": "ID / EN", 
+    "home": "← Beranda", 
+    "langSwitchLabel": "Lihat versi {lang}" 
   },
   "nav": {
     "flag": "Bendera Indonesia",
@@ -13,42 +13,42 @@
     "forCampus": "Untuk Kampus",
     "forEmployers": "Untuk Perusahaan",
     "mainNav": "Utama",
-    "roles": "Pekerjaan",
+    "roles": "Peran",
     "howItWorks": "Cara Kerja",
-    "searchRoles": "Cari pekerjaan…",
-    "searchCta": "Cari pekerjaan",
+    "searchRoles": "Cari peran…",
+    "searchCta": "Cari peran",
     "login": "Masuk",
-    "exploreRoles": "Eksplorasi Pekerjaan",
+    "exploreRoles": "Eksplorasi Peran",
     "closeMenu": "Tutup menu",
     "openMenu": "Buka menu"
   },
   "footer": {
     "ctaEyebrow": "Mulai malam ini · 15 menit",
-    "ctaTitle": "Mulai dari pekerjaan yang kamu mau.",
+    "ctaTitle": "Mulai dari peran yang kamu inginkan.",
     "ctaButton": "Mulai Gratis",
-    "ctaNote": "Gratis selamanya untuk eksplorasi pekerjaan.",
-    "tagline": "Jangan cuma belajar teorinya. Latih cara kerjanya — sampai kamu punya portofolio dan siap wawancara.",
+    "ctaNote": "Gratis selamanya untuk eksplorasi peran.",
+    "tagline": "Jangan cuma belajar teorinya. Praktikkan langsung pekerjaannya — sampai kamu punya portofolio dan siap wawancara.",
     "madeLine": "Buatan Indonesia · ID / EN · v0.2",
     "colProduct": "Produk",
     "colAccount": "Akun",
-    "linkExplore": "Eksplorasi Pekerjaan",
+    "linkExplore": "Eksplorasi Peran",
     "linkHow": "Cara Kerja",
     "linkStart": "Mulai Sekarang",
     "linkLogin": "Masuk",
     "linkSignup": "Daftar",
-    "legalLine": "PT Career SuperBright Indonesia · Jakarta Selatan, DKI Jakarta · Data di region Jakarta · QRIS / GoPay / VA / Kartu · Bantuan WhatsApp ID/EN",
+    "legalLine": "PT Career SuperBright Indonesia · Jakarta Selatan, DKI Jakarta · Data di regional Jakarta · QRIS / GoPay / VA / Kartu Kredit · Bantuan WhatsApp ID/EN",
     "legal": "Legal",
     "linkRoles": "Direktori Peran"
   },
   "notfound": {
     "code": "404 · tidak ditemukan",
     "title": "Halaman ini tidak ada.",
-    "body": "Tautan ini mungkin sudah usang atau salah ketik. Silakan kembali ke beranda atau cari jalur yang ada.",
+    "body": "Tautan mungkin sudah usang atau salah ketik. Kembali ke beranda atau eksplorasi pilihan karier.",
     "home": "Kembali ke Beranda",
-    "roles": "Lihat pekerjaan →"
+    "roles": "Lihat peran →"
   },
   "quiz": {
-    "header": "Kuis · {count} pertanyaan · Lolos {passing}",
+    "header": "Kuis · {count} pertanyaan · Nilai Lulus {passing}",
     "best": "Terbaik: {score}",
     "question": "Pertanyaan {n}",
     "submit": "Kirim",
@@ -56,8 +56,8 @@
     "score": "Skor: {s}",
     "pass": "Kompeten ✓",
     "fail": "Belum kompeten — coba lagi",
-    "retry": "Coba Lagi",
-    "progressBar": "Kemajuan jawaban",
+    "retry": "Coba lagi",
+    "progressBar": "Progres jawaban",
     "correctMark": "Benar",
     "wrongMark": "Salah"
   },
@@ -65,193 +65,193 @@
     "header": "lab — javascript · {count} tes",
     "run": "▶ Jalankan",
     "editor": "Editor kode JavaScript",
-    "needSolve": "Buat fungsi solve(input) { … }",
-    "codeError": "Error kode",
-    "summary": "{p}/{n} lolos",
+    "needSolve": "Tentukan fungsi solve(input) { … }",
+    "codeError": "Eror pada kode",
+    "summary": "{p}/{n} berhasil",
     "donePass": "Kompeten ✓",
     "doneFix": "perbaiki solve()",
-    "resultsLabel": "Hasil pengujian",
-    "testPass": "Lolos",
+    "resultsLabel": "Hasil tes",
+    "testPass": "Lulus",
     "testFail": "Gagal",
-    "allPassSr": "Semua tes lolos",
-    "someFailSr": "Masih ada tes yang gagal"
+    "allPassSr": "Semua tes berhasil",
+    "someFailSr": "Beberapa tes masih gagal"
   },
   "landing": {
-    "skip": "Lewati ke konten",
-    "heroEyebrow": "Pelatihan praktis untuk mahasiswa tingkat akhir",
-    "heroTitleA": "Eksplorasi Karir Impianmu.",
-    "heroTitleB": "Simulasikan Kerjanya.",
-    "heroSearchLabel": "Cari role",
-    "heroSearchPh": "Cari role (cth: Data Analyst, Social Media, HR…)",
+    "skip": "Lanjut ke konten utama",
+    "heroEyebrow": "Pelatihan praktik langsung untuk mahasiswa tingkat akhir",
+    "heroTitleA": "Eksplorasi Karier Impianmu.",
+    "heroTitleB": "Simulasikan Pekerjaannya.",
+    "heroSearchLabel": "Cari peran",
+    "heroSearchPh": "Cari peran (mis. Data Analyst, Social Media, HR…)",
     "heroSearchCta": "Cari",
-    "heroCatTech": "Tech & Product",
-    "heroCatCreative": "Creative & Marketing",
-    "heroCatBiz": "Business & Operations",
-    "heroCatFinance": "Finance & Banking",
-    "valueEyebrow": "Cara kerja",
-    "value1t": "Kenali Pekerjaannya",
-    "value1d": "Baca profil peran: timeline sehari, mitos vs realita, dan tool stack.",
+    "heroCatTech": "Teknologi & Produk",
+    "heroCatCreative": "Kreatif & Pemasaran",
+    "heroCatBiz": "Bisnis & Operasional",
+    "heroCatFinance": "Keuangan & Perbankan",
+    "valueEyebrow": "Cara kerjanya",
+    "value1t": "Pahami Pekerjaannya",
+    "value1d": "Baca profil peran: rutinitas harian, mitos vs realita, dan aplikasi yang digunakan.",
     "value2t": "Simulasikan Tantangannya",
-    "value2d": "Mainkan micro-skenario 3 menit dan baca trade-off tiap pilihan.",
-    "value3t": "Temukan Karir Tepatmu",
-    "value3d": "Bandingkan beberapa peran dalam sejam sebelum berkomitmen serius.",
-    "heroSub": "Praktik kerja nyata untuk mahasiswa tingkat akhir. Tanpa kuis, tanpa sertifikat yang cuma jadi pajangan.",
-    "heroCta1": "Eksplorasi Pekerjaan",
+    "value2d": "Mainkan skenario mikro 3 menit dan pelajari setiap risikonya.",
+    "value3t": "Tentukan Kariermu",
+    "value3d": "Bandingkan beberapa peran dalam satu jam sebelum benar-benar memutuskan.",
+    "heroSub": "Praktik kerja nyata untuk mahasiswa tingkat akhir. Tanpa kuis hafalan, tanpa sertifikat pajangan.",
+    "heroCta1": "Eksplorasi Peran",
     "heroFact1k": "Contoh Event",
     "heroFact1v": "Bisa dimainkan penuh",
     "heroFact2k": "Durasi",
-    "heroFact2v": "30 hari tryout",
+    "heroFact2v": "Uji coba 30 hari",
     "heroFact3k": "Biaya",
     "heroFact3v": "Gratis, tanpa kartu kredit",
-    "methodLabel": "Contoh alur praktik",
-    "m1t": "Baca brief pekerjaan",
-    "m1d": "Pahami misi, keputusan, dan alat kerjanya.",
-    "m2t": "Ambil keputusan nyata",
-    "m2d": "Menentukan pilihan di tengah batasan dan risiko.",
+    "methodLabel": "Contoh alur latihan",
+    "m1t": "Baca ringkasan peran",
+    "m1d": "Pahami misi, keputusan, dan aplikasi yang dipakai.",
+    "m2t": "Buat keputusan nyata",
+    "m2d": "Ambil pilihan di tengah batasan dan risiko.",
     "m3t": "Bawa bukti saat wawancara",
-    "m3d": "Ubah hasil praktik jadi bahan cerita yang menarik.",
+    "m3d": "Ubah hasil latihanmu jadi bahan cerita saat wawancara.",
     "methodLink": "Lihat cara kerjanya →",
-    "probTitle": "Tahu nama jabatannya bukan berarti tahu pekerjaannya.",
-    "probSub": "Mahasiswa tahu mau jadi apa — tapi tidak tahu apa yang harus dikerjakan tiap hari, keputusan apa yang diambil, atau apakah mereka sudah siap.",
+    "probTitle": "Tahu nama posisinya bukan berarti paham isi kerjanya.",
+    "probSub": "Banyak mahasiswa tahu ingin jadi apa — tapi belum tahu apa yang dikerjakan sehari-hari, keputusan apa yang harus diambil, atau apakah mereka sudah benar-benar siap.",
     "probLeftLabel": "Ekspektasiku tentang dunia kerja",
-    "probQuote": "“Pengin jadi Marketing Manager.”",
-    "probLeftCap": "Cuma nama jabatan — tanpa kejelasan tugas harian.",
-    "probRightLabel": "Dunia kerja yang sebenarnya",
-    "task1": "Jalankan kampanye",
-    "task2": "Kelola anggaran",
-    "task3": "Koordinasi tim",
-    "task4": "Hadapi stakeholder",
-    "task5": "Ambil keputusan",
-    "task6": "Ukur hasil",
-    "probPhotoAlt": "Dua perempuan Indonesia bertransaksi di lapak jajanan",
-    "probPhotoCap": "Jual beli di lapangan — seperti dunia kerja",
-    "jobsTitle": "Pilih pekerjaan yang benar-benar dicari.",
-    "jobsSub": "Kami memilih 4 pekerjaan dari data lowongan 2025–2026. 1 contoh Event bisa dimainkan penuh. 3 lainnya berupa intro singkat.",
+    "probQuote": "“Pengen jadi Marketing Manager.”",
+    "probLeftCap": "Sekadar nama posisi — tanpa tahu rutinitas aslinya.",
+    "probRightLabel": "Realita dunia kerja sebenarnya",
+    "task1": "Menjalankan kampanye",
+    "task2": "Mengelola anggaran",
+    "task3": "Berkoordinasi dengan tim",
+    "task4": "Menghadapi pemangku kepentingan",
+    "task5": "Mengambil keputusan",
+    "task6": "Mengukur hasil",
+    "probPhotoAlt": "Dua perempuan Indonesia sedang berjualan di kedai jajanan pinggir jalan",
+    "probPhotoCap": "Berjualan di lapangan — seperti dunia kerja yang sebenarnya",
+    "jobsTitle": "Pilih pekerjaan yang memang banyak dicari.",
+    "jobsSub": "Kami memilih 4 peran dari data lowongan 2025–2026. 1 contoh Event bisa dimainkan penuh. 3 lainnya berupa pengenalan singkat.",
     "stat1v": "72.511",
     "stat1l": "lowongan sales & marketing — kategori #1 (Kemnaker 2025)",
-    "stat2v": "600RB+",
-    "stat2l": "posisi di bidang teknologi yang perlu diisi (Jobstreet 2026)",
+    "stat2v": "600 Ribu+",
+    "stat2l": "posisi teknologi yang dibutuhkan (Jobstreet 2026)",
     "stat3v": "5.582 → 43",
-    "stat3l": "pelamar memperebutkan 43 kursi vokasi favorit (SNBT 2026)",
+    "stat3l": "pelamar bersaing untuk 43 kursi vokasi favorit (SNBT 2026)",
     "eventBadge": "Bisa dimainkan penuh",
-    "eventMission": "Jalankan event dan aktivasi brand, mulai dari brief sampai laporan.",
+    "eventMission": "Jalankan event dan aktivasi merek, dari tahap brief hingga laporan.",
     "eventCapsLabel": "Kemampuan inti dari contoh Event",
-    "eventSignal": "Simulasi langsung secara utuh · JobSim 30 hari",
+    "eventSignal": "Simulasi langsung penuh · JobSim 30 hari",
     "eventCta": "Mulai Gratis →",
-    "waveBand": "Tiga pekerjaan lainnya — hanya intro",
+    "waveBand": "Tiga peran lainnya — hanya pengenalan",
     "capsLabel": "Kemampuan inti dari",
-    "w1dmM": "Tingkatkan demand lewat jalur digital yang terukur.",
+    "w1dmM": "Tingkatkan permintaan melalui saluran digital yang terukur.",
     "w1dmS": "72.511 lowongan sales & marketing — #1 secara nasional",
-    "w1dmPay": "Junior Rp5–15 Jt",
-    "w1daM": "Ubah data mentah jadi keputusan bisnis.",
+    "w1dmPay": "Junior Rp5–15 Juta",
+    "w1daM": "Ubah data mentah menjadi keputusan bisnis.",
     "w1daS": "Dicari oleh bank, e-commerce, logistik, dan pemerintah",
-    "w1daPay": "Junior Rp6–15 Jt",
+    "w1daPay": "Junior Rp6–15 Juta",
     "w1uxM": "Rancang pengalaman produk yang mudah & menyenangkan.",
-    "w1uxS": "Portofolio = mata uang rekrutmen 2026",
-    "w1uxPay": "Junior Rp6–18 Jt",
+    "w1uxS": "Portofolio = nilai jual rekrutmen 2026",
+    "w1uxPay": "Junior Rp6–18 Juta",
     "earlyCta": "Dapatkan akses awal →",
     "soon": "Segera hadir:",
-    "sources": "Sumber: Kemnaker 2025, Jobstreet 2026, SNBT 2026, NACE Winter 2026.",
-    "jobsPhotoAlt": "Gedung perkantoran Jakarta dan bendera Indonesia",
-    "jobsPhotoCap": "Suasana kantor — seperti pekerjaan yang akan kamu latih",
+    "sources": "Sumber: Kemnaker 2025, Jobstreet 2026, SNBT 2026, NACE Musim Dingin 2026.",
+    "jobsPhotoAlt": "Gedung perkantoran Jakarta dengan bendera Indonesia",
+    "jobsPhotoCap": "Suasana kantor — seperti pekerjaan yang akan kamu simulasikan",
     "stepsTitle": "Lima langkah menuju siap kerja.",
-    "stepsSub": "Tidak ada sertifikat instan. Yang kamu dapat adalah urutan latihan yang jelas.",
+    "stepsSub": "Bukan sekadar sertifikat instan. Kamu akan dapat alur latihan yang jelas dan terarah.",
     "step1n": "01",
     "step1t": "Pilih",
-    "step1d": "Pilih pekerjaan yang kamu mau.",
+    "step1d": "Pilih peran yang kamu inginkan.",
     "step2n": "02",
     "step2t": "Pahami",
-    "step2d": "Lihat seperti apa dunia kerjanya.",
+    "step2d": "Lihat seperti apa pekerjaan sebenarnya.",
     "step3n": "03",
-    "step3t": "Latih",
+    "step3t": "Praktik",
     "step3d": "Kerjakan tugas dan skenario nyata.",
     "step4n": "04",
     "step4t": "Simulasi",
-    "step4d": "Rasakan proses ambil keputusan dan hadapi krisis.",
+    "step4d": "Rasakan langsung mengambil keputusan dan menghadapi krisis.",
     "step5n": "05",
-    "step5t": "Siapkan",
-    "step5d": "Bangun bukti hasil kerjamu dan latihan wawancara.",
-    "ctaTitle": "Pekerjaan mana yang mau kamu siapkan?",
-    "ctaSub": "Eksplorasi pekerjaannya. Latih proses keputusannya. Bangun bukti hasil kerjamu.",
-    "cta1": "Eksplorasi Pekerjaan",
-    "cta2": "Coba Simulasi",
-    "ctaNote": "4 pilihan pekerjaan. 1 contoh Event bisa dimainkan penuh. 3 sisanya masih intro.",
-    "roleEvent": "Supervisor Event & Aktivasi Brand",
+    "step5t": "Persiapan",
+    "step5d": "Bangun portofolio dan berlatih wawancara.",
+    "ctaTitle": "Peran apa yang ingin kamu persiapkan?",
+    "ctaSub": "Eksplorasi pekerjaannya. Praktikkan pengambil keputusannya. Bangun bukti kemampuanmu.",
+    "cta1": "Eksplorasi Peran",
+    "cta2": "Coba Simulasinya",
+    "ctaNote": "4 pilihan peran. 1 contoh Event bisa dimainkan penuh. 3 lainnya pengenalan.",
+    "roleEvent": "Supervisor Event & Aktivasi Merek",
     "capsEv1": "Perencanaan Kampanye",
-    "capsEv2": "Kelola Vendor",
-    "capsEv3": "Kelola Krisis",
+    "capsEv2": "Manajemen Vendor",
+    "capsEv3": "Manajemen Krisis",
     "roleDm": "Spesialis Digital Marketing",
-    "roleDa": "Analis Data",
-    "roleUx": "Desainer UI/UX",
-    "roleJa": "Akuntan Junior",
+    "roleDa": "Data Analyst",
+    "roleUx": "UI/UX Designer",
+    "roleJa": "Junior Accountant",
     "roleSe": "Software Engineer",
-    "roleCa": "Analis Cybersecurity",
-    "capsDm1": "Iklan Performa",
-    "capsDm2": "Analitik Marketing",
+    "roleCa": "Cybersecurity Analyst",
+    "capsDm1": "Iklan Performa (Performance Ads)",
+    "capsDm2": "Analitik Pemasaran",
     "capsDm3": "Live Commerce",
     "capsDa1": "SQL & Spreadsheet",
-    "capsDa2": "Dashboard",
-    "capsDa3": "Menyusun Insight",
+    "capsDa2": "Pembuatan Dashboard",
+    "capsDa3": "Penyampaian Insight",
     "capsUx1": "Riset UX",
     "capsUx2": "Figma & Design System",
-    "capsUx3": "Uji Kebergunaan"
+    "capsUx3": "Uji Usability"
   },
   "belajar": {
-    "skip": "Lewati ke konten",
-    "back": "← Pilih pekerjaan",
-    "langName": "Indonesia",
+    "skip": "Lanjut ke konten utama",
+    "back": "← Pilih peran",
+    "langName": "Bahasa Indonesia",
     "cert": "Sertifikat ✓",
     "proj": "Proyek ✓",
-    "sub": "Belajar dengan praktik: setiap materi diakhiri kuis atau lab dengan penilaian otomatis.",
+    "sub": "Belajar lewat praktik: setiap materi diakhiri dengan kuis otomatis atau lab.",
     "byline": "Tim SuperBright · Terverifikasi · Diperbarui {u}",
-    "caption": "Belajar seperti cara kerjanya — fokus, praktik, selesaikan",
+    "caption": "Belajar seperti sedang bekerja — fokus, praktik, selesaikan",
     "outcomeLabel": "Apa yang akan kamu buat",
     "methodLabel": "Cara kamu belajar: ",
-    "stuckPre": "Mentok? Tanya ",
+    "stuckPre": "Buntu? Tanya ",
     "stuckBrand": "Bright AI",
-    "stuckPost": " — fokus bahas materi, bukan sekadar chatbot biasa.",
-    "lessonsTitle": "Materi · {n}",
+    "stuckPost": " — dirancang khusus untuk materi ini, bukan sekadar chatbot biasa.",
+    "lessonsTitle": "Pelajaran · {n}",
     "recTitle": "Selanjutnya: {title}",
-    "next": "Lanjutkan Belajar",
-    "experience": ["Video singkat", "Bahan bacaan", "Kuis", "Praktik langsung", "Proyek nyata", "Penilaian", "Sertifikat"],
+    "next": "Lanjut Belajar",
+    "experience": ["Video singkat", "Bahan bacaan", "Kuis", "Praktik langsung", "Proyek nyata", "Asesmen", "Sertifikat"],
     "metaDefaultLevel": "Semua tingkat",
-    "metaDefaultDuration": "{n} materi",
+    "metaDefaultDuration": "{n} pelajaran",
     "metaDefaultSkills": "Keterampilan praktis",
     "metaDefaultProject": "Proyek portofolio di akhir kursus.",
     "metaDefaultUpdated": "Okt 2026 · v1.0",
-    "photoAltDefault": "Analis muda bekerja di depan laptop di kantor Jakarta",
+    "photoAltDefault": "Analis muda sedang bekerja dengan laptop di kantor Jakarta",
     "meta": {
-      "js-dasar-analis": { "level": "Pemula–Menengah", "duration": "6 jam · 2 materi", "skills": ["JavaScript", "Array", "Fungsi", "Agregasi data"], "project": "Fungsi total penjualan yang lolos 3 tes otomatis.", "updated": "Okt 2026 · v1.0" },
-      "cv-siap-lamar": { "level": "Semua tingkat", "duration": "3 jam · 2 materi", "skills": ["CV", "Portofolio", "Personal branding"], "project": "Satu halaman CV + profil publik yang siap untuk melamar.", "updated": "Okt 2026 · v1.0" },
-      "interview-pertama": { "level": "Semua tingkat", "duration": "3 jam · 2 materi", "skills": ["Wawancara HR", "Negosiasi gaji", "Komunikasi"], "project": "Simulasi wawancara 2 menit yang dinilai AI.", "updated": "Okt 2026 · v1.0" },
-      "digital-marketing-umkm": { "level": "Pemula", "duration": "4 jam · 2 materi", "skills": ["Marketplace", "Konten", "Iklan budget kecil"], "project": "Rencana iklan Rp50.000 yang menargetkan chat masuk.", "updated": "Okt 2026 · v1.0" },
-      "keuangan-gaji-bulanan": { "level": "Semua tingkat", "duration": "3 jam · 2 materi", "skills": ["Budgeting", "Dana darurat", "Anti-penipuan"], "project": "Anggaran 50-30-20 milikmu + autodebet pertama.", "updated": "Okt 2026 · v1.0" },
-      "kerja-kantor-indonesia": { "level": "Semua tingkat", "duration": "3 jam · 2 materi", "skills": ["Hierarki", "Meeting", "Feedback"], "project": "Simulasi merespons tugas mustahil + terima feedback pedas.", "updated": "Okt 2026 · v1.0" }
+      "js-dasar-analis": { "level": "Pemula–Menengah", "duration": "6 jam · 2 pelajaran", "skills": ["JavaScript", "Array", "Fungsi", "Agregasi data"], "project": "Fungsi total penjualan yang lulus 3 tes otomatis.", "updated": "Okt 2026 · v1.0" },
+      "cv-siap-lamar": { "level": "Semua tingkat", "duration": "3 jam · 2 pelajaran", "skills": ["CV/Resume", "Portofolio", "Personal branding"], "project": "CV satu halaman + profil publik yang siap dipakai melamar.", "updated": "Okt 2026 · v1.0" },
+      "interview-pertama": { "level": "Semua tingkat", "duration": "3 jam · 2 pelajaran", "skills": ["Wawancara HR", "Negosiasi gaji", "Komunikasi"], "project": "Simulasi wawancara 2 menit yang dinilai oleh AI.", "updated": "Okt 2026 · v1.0" },
+      "digital-marketing-umkm": { "level": "Pemula", "duration": "4 jam · 2 pelajaran", "skills": ["Marketplace", "Konten", "Iklan bujet kecil"], "project": "Rencana iklan Rp50 Ribu yang ditargetkan untuk mendatangkan chat.", "updated": "Okt 2026 · v1.0" },
+      "keuangan-gaji-bulanan": { "level": "Semua tingkat", "duration": "3 jam · 2 pelajaran", "skills": ["Penganggaran (Budgeting)", "Dana darurat", "Anti-penipuan"], "project": "Anggaran 50-30-20 kamu + autodebet pertama.", "updated": "Okt 2026 · v1.0" },
+      "kerja-kantor-indonesia": { "level": "Semua tingkat", "duration": "3 jam · 2 pelajaran", "skills": ["Hierarki", "Rapat", "Umpan balik (Feedback)"], "project": "Simulasi merespons tugas mustahil + menghadapi kritik pedas.", "updated": "Okt 2026 · v1.0" }
     },
     "photoAlt": {
-      "js-dasar-analis": "Analis muda bekerja di depan laptop di kantor Jakarta",
+      "js-dasar-analis": "Analis muda sedang bekerja dengan laptop di kantor Jakarta",
       "cv-siap-lamar": "Mahasiswa tersenyum di depan gedung kampus",
-      "interview-pertama": "Profesional sedang berdiskusi dalam meeting, termasuk yang berhijab",
-      "digital-marketing-umkm": "Mahasiswa sedang belajar di Jakarta",
-      "keuangan-gaji-bulanan": "Analis muda bekerja di depan laptop di kantor Jakarta",
-      "kerja-kantor-indonesia": "Tiga profesional Asia berdiskusi di ruang meeting"
+      "interview-pertama": "Para profesional sedang berdiskusi dalam rapat, termasuk yang berhijab",
+      "digital-marketing-umkm": "Mahasiswa universitas sedang belajar di Jakarta",
+      "keuangan-gaji-bulanan": "Analis muda sedang bekerja dengan laptop di kantor Jakarta",
+      "kerja-kantor-indonesia": "Tiga profesional Asia berdiskusi di ruang rapat"
     }
   },
   "paths": {
-    "skip": "Lewati ke konten",
-    "back": "← Pilih pekerjaan",
-    "eyebrow": "Jalur Pekerjaan · {level}",
+    "skip": "Lanjut ke konten utama",
+    "back": "← Pilih peran",
+    "eyebrow": "Jalur Peran · {level}",
     "startFree": "Mulai Gratis",
     "tryLab": "Coba lab demo",
     "enrollTitle": "Apa yang kamu dapatkan",
     "stageCount": "{n} tahapan terstruktur",
-    "skillCount": "{n} keahlian diukur dalam Grafik Keahlian",
+    "skillCount": "{n} keterampilan yang diukur dalam Grafik Keahlian",
     "certLine": "1 proyek portofolio + sertifikat QR",
     "simLine": "Simulasi wawancara + Bright AI",
-    "freeNote": "Gratis untuk mulai · Plus untuk sertifikat",
+    "freeNote": "Gratis untuk memulai · Akses Plus untuk sertifikat",
     "syllabus": "Silabus",
-    "stagesTitle": "Tahapan jelas, bukan sekadar daftar video.",
-    "skillsTitle": "Keahlian yang diukur",
+    "stagesTitle": "Tahapan yang jelas, bukan sekadar daftar video.",
+    "skillsTitle": "Keterampilan yang diukur",
     "projectLabel": "Proyek:",
     "careerTitle": "Siap kerja",
     "contextTitle": "Konteks Indonesia",
@@ -261,119 +261,119 @@
     "data": {
       "frontend-developer": {
         "title": "Contoh jalur: Frontend Developer",
-        "goal": "“Aku mau jadi frontend developer.”",
-        "desc": "Dari nol sampai siap rekrut: HTML hingga deployment, satu website bisnis Indonesia sungguhan, lalu persiapan karier.",
+        "goal": "“Saya ingin menjadi frontend developer.”",
+        "desc": "Dari nol sampai siap kerja: HTML hingga peluncuran web (deployment), membuat satu website bisnis Indonesia asli, lalu persiapan karier.",
         "weeks": "4–6 bulan · 5 jam/minggu",
         "level": "Pemula → Siap kerja",
-        "salary": "Gaji pasaran Rp8–25 Jt",
-        "alt": "Analis muda bekerja di depan laptop di kantor Jakarta",
-        "caption": "Kerja layaknya profesional — dari hari pertama",
+        "salary": "Gaji pasaran Rp8–25 Juta",
+        "alt": "Analis muda sedang bekerja dengan laptop di kantor Jakarta",
+        "caption": "Bekerja layaknya profesional — sejak hari pertama",
         "stages": [
           { "name": "Pemula", "items": "HTML → CSS → JavaScript", "formats": "Video · Bacaan · Kuis" },
           { "name": "Menengah", "items": "TypeScript → React → API → Git", "formats": "Lab kode · Simulasi" },
-          { "name": "Lanjutan", "items": "Testing → Arsitektur → Performa → Deployment", "formats": "Proyek · Ulasan AI" },
-          { "name": "Portofolio", "items": "Website bisnis Indonesia sungguhan + studi kasus", "formats": "Proyek tiruan · Tanpa afiliasi" },
-          { "name": "Karier", "items": "CV → Wawancara → Tes teknikal", "formats": "Simulasi HR · Teknikal" }
+          { "name": "Mahir", "items": "Pengujian → Arsitektur → Performa → Peluncuran", "formats": "Proyek · Ulasan AI" },
+          { "name": "Portofolio", "items": "Website bisnis Indonesia nyata + studi kasus", "formats": "Proyek simulasi · Tanpa afiliasi" },
+          { "name": "Karier", "items": "CV → Wawancara → Tes teknis", "formats": "Simulator HR · Teknis" }
         ],
-        "skills": ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Git", "REST API", "Testing"],
-        "project": "Website profil perusahaan + toko online untuk tiruan UMKM Bandung.",
-        "career": ["CV + LinkedIn", "Portofolio superbright.id/u/namakamu", "Simulasi wawancara HR", "Tes teknikal + panduan AI"],
-        "context": "Contoh lokal: checkout QRIS, pengiriman antar pulau, katalog bahasa Indonesia."
+        "skills": ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Git", "REST API", "Pengujian"],
+        "project": "Website profil perusahaan + toko online untuk simulasi UMKM Bandung.",
+        "career": ["CV + LinkedIn", "Portofolio superbright.id/u/namakamu", "Simulasi wawancara HR", "Tes teknis + panduan AI"],
+        "context": "Contoh lokal: pembayaran QRIS, pengiriman antar pulau, katalog berbahasa Indonesia."
       },
       "umkm-digital-entrepreneur": {
-        "title": "UMKM Digital Entrepreneur",
-        "goal": "“Aku mau bisninku go digital.”",
-        "desc": "Sepuluh modul dari riset pelanggan sampai analitik — berujung pada strategi digital lengkap untuk bisnis tiruan.",
+        "title": "Pengusaha Digital UMKM",
+        "goal": "“Saya ingin bisnis saya go digital.”",
+        "desc": "Sepuluh modul dari riset pelanggan hingga analitik — diakhiri dengan strategi digital lengkap untuk simulasi bisnis.",
         "weeks": "10 modul · fleksibel",
         "level": "Semua tingkat",
-        "salary": "Pendapatan, bukan gaji",
-        "alt": "Mahasiswa belajar materi bisnis di Jakarta",
-        "caption": "Belajar bisnis di mana saja — bahkan malam hari",
+        "salary": "Pendapatan bisnis, bukan gaji",
+        "alt": "Mahasiswa universitas sedang mempelajari materi bisnis di Jakarta",
+        "caption": "Belajar bisnis kapan saja — bahkan di malam hari",
         "stages": [
-          { "name": "Fondasi", "items": "Dasar bisnis → Riset pelanggan → Branding", "formats": "Video · Template" },
+          { "name": "Fondasi", "items": "Dasar bisnis → Riset pelanggan → Branding", "formats": "Video · Templat" },
           { "name": "Penjualan", "items": "Marketplace → Media sosial → Iklan digital", "formats": "Studi kasus · Praktik" },
           { "name": "Keuangan", "items": "Akuntansi → Pajak dasar → Analitik", "formats": "Spreadsheet · Kuis" },
-          { "name": "Proyek akhir", "items": "Strategi digital untuk UMKM kopi tiruan di Bandung", "formats": "Presentasi · Ulasan mentor" }
+          { "name": "Proyek akhir", "items": "Strategi digital untuk simulasi UMKM kopi Bandung", "formats": "Presentasi · Ulasan mentor" }
         ],
         "skills": ["Branding", "Marketplace", "Iklan digital", "Akuntansi", "Pajak dasar", "Analitik"],
-        "project": "Dokumen strategi digital lengkap: positioning, saluran, budget iklan, target 90 hari.",
-        "career": ["Portofolio strategi", "Simulasi pitch investor", "Komunitas UMKM kota"],
-        "context": "Regulasi halal, perizinan, dan pajak UMKM Indonesia — selalu dengan tanggal berlaku."
+        "project": "Dokumen strategi digital lengkap: positioning, saluran pemasaran, anggaran iklan, target 90 hari.",
+        "career": ["Portofolio strategi", "Simulasi presentasi ke investor", "Komunitas UMKM kota"],
+        "context": "Aturan halal, perizinan, dan pajak UMKM Indonesia — selalu disesuaikan dengan peraturan terbaru."
       },
       "data-analyst": {
         "title": "Jalur Data Analyst",
-        "goal": "“Aku mau kerja sebagai Data Analyst.”",
-        "desc": "Perjalanan Rina (§55): Excel ke Power BI, proyek e-commerce Indonesia, sertifikat keahlian, siap melamar.",
+        "goal": "“Saya ingin bekerja sebagai Data Analyst.”",
+        "desc": "Perjalanan karier Rina (§55): Dari Excel ke Power BI, proyek e-commerce Indonesia, sertifikat keahlian, dan siap melamar kerja.",
         "weeks": "7 modul · 4–5 bulan",
         "level": "Pemula → Siap kerja",
-        "salary": "Rp7–18 Jt",
-        "alt": "Tim bisnis Asia berdiskusi di kantor modern",
-        "caption": "Analisis dipresentasikan, bukan diabaikan",
+        "salary": "Rp7–18 Juta",
+        "alt": "Tim bisnis Asia sedang berdiskusi di kantor modern",
+        "caption": "Analisis yang dipresentasikan, bukan yang diabaikan",
         "stages": [
           { "name": "Fondasi", "items": "Excel → SQL → Statistik", "formats": "Video · Latihan dataset" },
-          { "name": "Alat kerja", "items": "Python → Visualisasi → Power BI", "formats": "Lab kode · Proyek" },
+          { "name": "Tools", "items": "Python → Visualisasi → Power BI", "formats": "Lab kode · Proyek" },
           { "name": "Proyek", "items": "Analisis penjualan e-commerce Indonesia", "formats": "Dataset publik · Dashboard" },
           { "name": "Karier", "items": "Sertifikat → Portofolio → Simulasi wawancara", "formats": "Verifikasi publik" }
         ],
         "skills": ["Excel", "SQL", "Statistik", "Python", "Visualisasi", "Power BI"],
-        "project": "Dashboard Power BI + rekomendasi promo dari 3 bulan transaksi.",
-        "career": ["Sertifikat Analitik Data", "Portofolio terisi otomatis", "Simulasi wawancara HR"],
+        "project": "Dashboard Power BI + rekomendasi promo dari data transaksi 3 bulan.",
+        "career": ["Sertifikat Data Analytics", "Portofolio otomatis", "Simulasi wawancara HR"],
         "context": "Dataset lokal: transaksi e-commerce, UMKM, pariwisata Indonesia."
       },
       "siap-kerja": {
         "title": "Fresh Graduate Siap Kerja",
-        "goal": "“Aku ingin panggilan wawancara.”",
-        "desc": "Empat minggu dari CV berantakan sampai siap lamar: CV, portofolio, wawancara, lalu melamar.",
+        "goal": "“Saya ingin mendapat panggilan wawancara.”",
+        "desc": "Empat minggu mengubah CV berantakan menjadi lamaran lengkap: CV, portofolio, persiapan wawancara, lalu mulai melamar.",
         "weeks": "4 minggu · 3 jam/minggu",
-        "level": "Fresh graduate",
-        "salary": "Tawaran pertama",
+        "level": "Lulusan baru (Fresh graduate)",
+        "salary": "Gaji pertama",
         "alt": "Mahasiswa tersenyum di depan gedung kampus",
-        "caption": "Dari kampus ke kantor — satu lamaran demi satu lamaran",
+        "caption": "Dari kampus ke dunia kerja — langkah demi langkah",
         "stages": [
-          { "name": "CV", "items": "CV satu halaman + email profesional", "formats": "Template · Kuis" },
+          { "name": "CV", "items": "CV satu halaman + email profesional", "formats": "Templat · Kuis" },
           { "name": "Portofolio", "items": "superbright.id/u/kamu: proyek + sertifikat", "formats": "Tautan publik" },
-          { "name": "Wawancara", "items": "Intro 2 menit + gaji + pertanyaan jebakan", "formats": "Simulasi HR" },
-          { "name": "Dunia Kerja", "items": "Hierarki + meeting + feedback", "formats": "Skenario ID" },
-          { "name": "Lamar", "items": "Lamar + follow-up sopan di WA", "formats": "Checklist" }
+          { "name": "Wawancara", "items": "Perkenalan 2 menit + gaji + pertanyaan jebakan", "formats": "Simulator HR" },
+          { "name": "Dunia Kerja", "items": "Hierarki + rapat + umpan balik", "formats": "Skenario khas Indonesia" },
+          { "name": "Melamar", "items": "Lamar kerja + cara sopan follow-up via WA", "formats": "Daftar periksa (Checklist)" }
         ],
         "skills": ["CV", "Portofolio", "Wawancara", "LinkedIn", "Etika kantor"],
-        "project": "Paket lamaran lengkap: CV + profil publik + rekaman simulasi.",
-        "career": ["CV lolos screening", "Portofolio terverifikasi", "Simulasi wawancara", "Etika hari pertama"],
-        "context": "Gaji pasaran per kota, etika WA untuk HR, hierarki kantor Indonesia."
+        "project": "Paket lamaran lengkap: CV + profil publik + rekaman simulasi wawancara.",
+        "career": ["CV lolos skrining", "Portofolio terverifikasi", "Simulasi wawancara", "Etika hari pertama kerja"],
+        "context": "Standar gaji per kota, etika chat WA ke HR, hierarki kantor di Indonesia."
       },
       "junior-accountant": {
         "title": "Junior Accountant (Fokus Pajak)",
-        "goal": "“Aku mau kerja di kantor akuntan.”",
-        "desc": "Dari akuntansi keuangan sampai SPT: e-Faktur, PPh, dan proyek SPT klien tiruan dengan penilaian AI.",
+        "goal": "“Saya ingin bekerja di kantor akuntan.”",
+        "desc": "Dari akuntansi keuangan hingga pelaporan pajak: e-Faktur, PPh, dan proyek akhir pajak klien simulasi dengan penilaian AI.",
         "weeks": "24 minggu",
         "level": "KKNI 6",
-        "salary": "Rp6–9 Jt/bln",
-        "alt": "Profesional muda bekerja lembur di kantor Jakarta",
-        "caption": "Tutup buku tepat waktu — setiap bulan",
+        "salary": "Rp6–9 Juta/bulan",
+        "alt": "Profesional muda bekerja larut malam di kantor Jakarta",
+        "caption": "Tutup buku tepat waktu — setiap bulannya",
         "stages": [
           { "name": "Fase 1", "items": "Dasar Akuntansi Keuangan", "formats": "Video · Kuis" },
-          { "name": "Fase 2", "items": "Pajak Badan & e-Faktur", "formats": "Simulasi e-Faktur" },
+          { "name": "Fase 2", "items": "Pajak Perusahaan & e-Faktur", "formats": "Simulasi e-Faktur" },
           { "name": "Fase 3", "items": "Pelaporan PSAK/IFRS", "formats": "Studi kasus" },
-          { "name": "Capstone", "items": "SPT Klien Tiruan + Penilaian AI", "formats": "Portofolio" }
+          { "name": "Proyek Akhir", "items": "SPT Tahunan Klien Simulasi + Penilaian AI", "formats": "Portofolio" }
         ],
         "skills": ["Akuntansi", "PPh", "e-Faktur", "PSAK"],
-        "project": "SPT tahunan lengkap untuk klien tiruan beserta kertas kerjanya.",
+        "project": "Penyelesaian SPT Tahunan klien simulasi lengkap dengan kertas kerjanya.",
         "career": ["Sertifikat keahlian", "Portofolio kertas kerja", "Simulasi wawancara"],
-        "context": "Aturan pajak mencantumkan tanggal berlaku dan diperbarui saat ada perubahan."
+        "context": "Aturan pajak selalu menyertakan tanggal berlaku dan diperbarui saat ada perubahan."
       }
     }
   },
   "auth": {
     "panelEyebrow": "Mau jadi apa setelah lulus?",
-    "panelTitle": "Malam ini: 15 menit. Bulan depan siap kerja.",
-    "photoAlt": "Tim muda kafe Indonesia merayakan kemerdekaan",
-    "photoCap": "Semangat 17-an — mulai dari tim kecil",
+    "panelTitle": "Malam ini: 15 menit. Coba simulasi Event.",
+    "photoAlt": "Kru kafe muda Indonesia merayakan hari kemerdekaan",
+    "photoCap": "Semangat kemerdekaan — mulai dari tim kecil",
     "stat1v": "4",
-    "stat1l": "pekerjaan",
+    "stat1l": "peran",
     "stat2v": "1",
     "stat2l": "bisa dimainkan",
     "stat3v": "3",
-    "stat3l": "intro",
+    "stat3l": "pengenalan",
     "panelFoot": "Data di Jakarta · QRIS / GoPay / VA · WA ID/EN",
     "back": "← Beranda",
     "modeUp": "Gratis untuk eksplorasi",
@@ -382,12 +382,12 @@
     "titleIn": "Masuk",
     "phName": "Nama lengkap",
     "phEmail": "Email",
-    "phPass": "Kata sandi (min 8)",
-    "phCode": "Kode 6 digit",
+    "phPass": "Kata sandi (min. 8)",
+    "phCode": "6 digit kode",
     "lblName": "Nama lengkap",
     "lblEmail": "Email",
     "lblPass": "Kata sandi",
-    "passHint": "minimal 8 karakter",
+    "passHint": "Minimal 8 karakter",
     "lblPhone": "Nomor WhatsApp",
     "lblCode": "Kode OTP",
     "ctaUp": "Daftar gratis",
@@ -397,109 +397,110 @@
     "otpTitle": "atau via WhatsApp / SMS OTP",
     "otpSend": "Kirim kode",
     "otpVerify": "Verifikasi & masuk",
-    "okSignup": "Berhasil daftar. Mengalihkan…",
+    "okSignup": "Berhasil mendaftar. Mengalihkan…",
     "okSignin": "Berhasil masuk. Mengalihkan…",
     "failGeneric": "Terjadi kesalahan",
     "failOtp": "OTP salah",
     "otpSent": "Kode OTP terkirim (dev: cek log server)."
   },
   "dashboard": {
-    "skip": "Lewati ke konten",
+    "skip": "Lanjut ke konten utama",
     "eyebrow": "Dasbor belajar",
     "hello": "Halo, {name}.",
-    "sub": "Semua angka di halaman ini berasal dari akunmu sendiri — bukan contoh.",
+    "sub": "Setiap angka di halaman ini berasal dari akunmu sendiri — bukan sekadar data contoh.",
     "meta": "Bergabung sejak {since} · {sessions} sesi aktif",
-    "progressLabel": "Progresmu",
+    "progressLabel": "Progres kamu",
     "sActivePath": "Jalur aktif",
-    "sEnrolled": "Jalur diikuti",
-    "sEnrolledSub": "Total pendaftaran jalur",
-    "sCredentials": "Kredensial terbit",
-    "sCredentialsSub": "OB 3.0 / VC 2.0 yang bisa dicek publik",
+    "sEnrolled": "Jalur yang diikuti",
+    "sEnrolledSub": "Total jalur yang diambil",
+    "sCredentials": "Kredensial diterbitkan",
+    "sCredentialsSub": "OB 3.0 / VC 2.0, dapat dicek publik",
     "pathStatus": "Status: {status}",
-    "noPathYet": "Belum ada jalur yang kamu ikuti.",
+    "noPathYet": "Kamu belum bergabung ke jalur mana pun.",
     "browsePaths": "Lihat katalog",
-    "finishedTitle": "Yang sudah tuntas",
-    "finishedSub": "Tiap baris di sini adalah satu unit kompetensi yang kamu selesaikan.",
+    "finishedTitle": "Apa yang sudah kamu selesaikan",
+    "finishedSub": "Setiap baris di sini adalah satu unit kompetensi yang telah kamu selesaikan.",
     "completedItem": "Unit kompetensi selesai",
     "doneBadge": "Selesai",
-    "emptyTitle": "Belum ada yang tuntas",
-    "emptyHint": "Pilih satu jalur, lalu kerjakan modulnya. Setiap modul yang selesai akan tercatat di sini sebagai bukti.",
-    "browsePaths": "Lihat direktori peran",
-    "moreEyebrow": "Lanjut eksplorasi",
+    "emptyTitle": "Belum ada yang diselesaikan",
+    "emptyHint": "Pilih jalur dan kerjakan modulnya. Setiap modul yang selesai akan tercatat di sini sebagai bukti.",
+    "moreEyebrow": "Terus eksplorasi",
     "moreTitle": "Sudah coba satu peran? Bandingkan dengan yang lain.",
-    "moreSub": "Satu jam eksplorasi mengalahkan satu semester menebak-nebak. Buka direktori, baca profilnya, mainkan micro-scenarionya."
+    "moreSub": "Satu jam eksplorasi lebih baik daripada satu semester menebak-nebak. Buka direktori, baca profilnya, dan mainkan skenario mikronya."
   },
   "admin": {
     "eyebrow": "Operasional · admin",
     "title": "Admin",
-    "desc": "Kondisi platform secara nyata: siapa yang kembali bulan ini, berapa yang menuntaskan jalur, dan apakah uangnya cocok dengan invoice.",
-    "modTitle": "Antrean review konten",
-    "modBody": "Sumber konten saat ini adalah roles.json dan micro_scenarios.json di repo. Generator Gemini dan antrean review manusia belum dibangun — sampai saat itu, tambah peran dan skenario lewat pull request.",
+    "desc": "Kinerja platform yang sebenarnya: siapa yang kembali bulan ini, berapa banyak yang menyelesaikan jalur, dan apakah pemasukannya sesuai tagihan.",
+    "modTitle": "Antrean ulasan konten",
+    "modBody": "Saat ini konten berada di roles.json dan micro_scenarios.json dalam repo. Generator Gemini dan antrean ulasan manusia belum dibuat — untuk sementara, tambahkan peran dan skenario melalui pull request.",
     "signedInAs": "Masuk sebagai {name}",
     "kpiLabel": "Ringkasan platform",
     "kUsers": "Akun terdaftar",
-    "kUsersSub": "Better Auth · tabel user",
+    "kUsersSub": "Tabel pengguna · Better Auth",
     "kStaff": "Akun staf",
-    "kStaffSub": "peran selain STUDENT",
+    "kStaffSub": "peran non-STUDENT",
     "kCourses": "Kursus",
-    "kCoursesSub": "{n} sudah PUBLISHED",
+    "kCoursesSub": "{n} sudah DITERBITKAN",
     "usersTitle": "Akun & peran",
-    "usersSub": "Ubah peran langsung di sini. Sebelumnya ini harus lewat SQL manual.",
+    "usersSub": "Ubah peran langsung di sini. Sebelumnya ini butuh query SQL manual.",
     "roleFor": "Peran untuk {email}",
     "noUsers": "Belum ada akun.",
     "coursesTitle": "Katalog kursus",
-    "coursesSub": "Buat draf, lalu terbitkan saat materinya siap.",
+    "coursesSub": "Buat draf, lalu terbitkan jika materinya sudah siap.",
     "slugLabel": "Slug",
     "titleIdLabel": "Judul (ID)",
     "titleEnLabel": "Judul (EN)",
     "titleEnPh": "opsional",
     "createCourse": "Buat kursus",
-    "courseCreated": "Kursus /{slug} dibuat sebagai DRAFT.",
+    "courseCreated": "Kursus /{slug} dibuat sebagai DRAF.",
     "statusFor": "Status untuk /{slug}",
-    "noCourses": "Belum ada kursus. Buat yang pertama di atas.",
-    "roleSaved": "{email} sekarang berperan {role}.",
-    "statusSaved": "/{slug} diubah ke {status}.",
-    "errRole": "Akses ditolak atau data tidak valid.",
+    "noCourses": "Belum ada kursus. Buat kursus pertama di atas.",
+    "roleSaved": "{email} sekarang menjadi {role}.",
+    "statusSaved": "/{slug} diubah menjadi {status}.",
+    "errRole": "Akses ditolak, atau input tidak valid.",
     "saving": "Menyimpan…",
+    "loading": "Memuat data…",
+    "metricsError": "Metrik tidak dapat dimuat. Coba muat ulang halaman.",
     "kSessions": "Sesi aktif",
-    "kSessionsSub": "Better Auth · tabel session",
+    "kSessionsSub": "Tabel sesi · Better Auth",
     "metricsTitle": "Metrik produk",
-    "metricsSub": "30 hari terakhir, dihitung live dari event. Target PRD: breadth >4, play rate >50%, velocity <3 menit.",
-    "mBreadth": "Exploration breadth",
+    "metricsSub": "30 hari terakhir, dihitung langsung dari aktivitas. Target PRD: cakupan >4, tingkat main >50%, kecepatan <3 menit.",
+    "mBreadth": "Cakupan eksplorasi",
     "mBreadthUnit": "peran/sesi",
-    "mBreadthSub": "Rata-rata peran unik dilihat per sesi, dari {n} sesi.",
-    "mPlayRate": "Scenario play rate",
+    "mBreadthSub": "Rata-rata peran berbeda yang dilihat per sesi, dari {n} sesi.",
+    "mPlayRate": "Tingkat main skenario",
     "mPlayRateSub": "{n} sesi menyelesaikan ≥1 skenario.",
-    "mVelocity": "Completion velocity",
-    "mVelocitySub": "Median mulai-ke-keputusan, dari {n} penyelesaian.",
-    "mLatency": "AI latency",
-    "mLatencySub": "Belum ada evaluasi AI — tidak diukur.",
-    "mExport": "Portfolio export",
-    "mExportSub": "Belum ada fitur ekspor — tidak diukur.",
+    "mVelocity": "Kecepatan penyelesaian",
+    "mVelocitySub": "Median dari mulai hingga keputusan, diukur dari {n} penyelesaian.",
+    "mLatency": "Latensi AI",
+    "mLatencySub": "Belum ada alur evaluasi AI — belum diukur.",
+    "mExport": "Ekspor portofolio",
+    "mExportSub": "Belum ada fitur ekspor — belum diukur.",
     "mUninstrumented": "belum diukur",
     "genTitle": "Generator konten AI",
-    "genSub": "Ketik jabatan, Gemini mengembalikan draf peran + micro-skenario yang sudah lolos validasi skema. Review di sini; penerbitan tetap lewat commit manual.",
-    "genLabel": "Jabatan",
-    "genPh": "contoh: Account Executive",
-    "genCta": "Generate draf",
-    "genReview": "Draf untuk direview — belum diterbitkan",
+    "genSub": "Ketik nama posisi; Gemini akan mengembalikan draf skenario mikro + peran yang tervalidasi skema. Tinjau di sini; penerbitan tetap melalui commit manual.",
+    "genLabel": "Nama posisi",
+    "genPh": "mis. Account Executive",
+    "genCta": "Buat draf",
+    "genReview": "Draf untuk ditinjau — belum diterbitkan",
     "genCopy": "Salin JSON",
-    "genCopied": "JSON tersalin. Tempel ke roles.json / micro_scenarios.json lalu commit.",
-    "draftReady": "Draf jadi dan lolos validasi. Review sebelum diterbitkan."
+    "genCopied": "JSON disalin. Tempel ke roles.json / micro_scenarios.json, lalu commit.",
+    "draftReady": "Draf siap dan valid sesuai skema. Tinjau sebelum menerbitkan."
   },
   "curriculum": {
-    "catalogMetaLessons": "{n} materi · Gratis",
-    "recSame": "Satu jalur dengan {t} — jaga momentummu.",
-    "recTop": "Lanjutan terpopuler untuk {t} di antara pelajar lain.",
+    "catalogMetaLessons": "{n} pelajaran · Gratis",
+    "recSame": "Jalur yang sama dengan {t} — pertahankan momentummu.",
+    "recTop": "Rekomendasi terpopuler setelah {t} di kalangan peserta lain.",
     "community": "Komunitas",
     "catNames": { "Teknologi": "Teknologi", "Karier": "Karier", "Bisnis": "Bisnis", "Indonesia": "Indonesia" },
     "catalogDesc": {
       "js-dasar-analis": "JavaScript untuk analis: array, fungsi, dan agregasi data.",
-      "cv-siap-lamar": "CV satu halaman + portofolio publik siap lamar.",
-      "interview-pertama": "Intro 2 menit, ekspektasi gaji pertama, pertanyaan jebakan.",
-      "digital-marketing-umkm": "Pilih saluran, konten yang jujur, iklan Rp50.000 pertamamu.",
-      "keuangan-gaji-bulanan": "Anggaran anak kos 50-30-20 + waspada pinjol dan penipuan.",
-      "kerja-kantor-indonesia": "Hierarki, etika meeting, dan feedback di kantor Indonesia."
+      "cv-siap-lamar": "CV satu halaman + portofolio publik yang siap dipakai melamar.",
+      "interview-pertama": "Perkenalan 2 menit, gaji pertama, pertanyaan jebakan.",
+      "digital-marketing-umkm": "Pilih saluran pemasaran, buat konten jujur, jalankan iklan perdana Rp50 Ribu.",
+      "keuangan-gaji-bulanan": "Anggaran 50-30-20 ala anak kos + pemahaman bahaya pinjol dan penipuan.",
+      "kerja-kantor-indonesia": "Hierarki, rapat, dan etika umpan balik di kantor Indonesia."
     },
     "catalogLevel": {
       "js-dasar-analis": "Pemula–Menengah",
@@ -511,33 +512,33 @@
     },
     "courses": {
       "js-dasar-analis": {
-        "title": "JavaScript Dasar untuk Analis",
+        "title": "Dasar JavaScript untuk Analis",
         "lessons": [
           {
             "title": "Variabel, Tipe Data & Array",
             "body": [
-              "Deklarasikan data dengan const (tetap) dan let (bisa diubah). Hindari var dalam kode modern.",
-              "Tipe utama: number, string, boolean, null, undefined, object, array. Cek menggunakan typeof.",
-              "Array adalah senjata andalan analis: map untuk mengubah, filter untuk memilih, reduce untuk agregasi.",
+              "Deklarasikan data dengan const (tetap) dan let (bisa diubah). Hindari penggunaan var di kode modern.",
+              "Tipe inti: number, string, boolean, null, undefined, object, array. Cek menggunakan typeof.",
+              "Array adalah senjata utama analis: map untuk mengubah, filter untuk menyortir, reduce untuk agregasi.",
               "Contoh: const clean = data.filter((x) => x.value != null).map((x) => x.value);"
             ],
             "quiz": [
               {
-                "q": "Metode array apa yang tepat untuk menjumlahkan semua nilai?",
+                "q": "Metode array mana yang tepat untuk menjumlahkan semua nilai?",
                 "options": ["map", "filter", "reduce", "forEach"],
                 "explain": "reduce melipatgandakan array menjadi satu nilai — sangat ideal untuk agregasi seperti total dan rata-rata."
               },
               {
                 "q": "Apa hasil dari typeof null di JavaScript?",
                 "options": ["\"null\"", "\"object\"", "\"undefined\"", "\"boolean\""],
-                "explain": "typeof null mengembalikan 'object' — sebuah keanehan historis JS yang wajib diingat setiap analis."
+                "explain": "typeof null menghasilkan 'object' — sebuah keanehan historis di JS yang harus dihafal setiap analis."
               }
             ]
           },
           {
             "title": "Lab: Fungsi Total Penjualan",
             "body": [
-              "Buat fungsi solve(input) yang menerima array angka dan mengembalikan nilai totalnya.",
+              "Buat fungsi solve(input) yang menerima array berisi angka dan mengembalikan nilai totalnya.",
               "Abaikan nilai yang bukan angka (null, undefined, string).",
               "Contoh: solve([10, null, 20]) mengembalikan 30."
             ],
@@ -554,34 +555,34 @@
           {
             "title": "Struktur CV yang Dibaca HR dalam 30 Detik",
             "body": [
-              "Satu halaman untuk fresh graduate: nama, kontak, headline, pendidikan, pengalaman, keahlian.",
-              "Tulis dengan angka, bukan sekadar sifat: “mengelola kas Rp5 Jt/hari tanpa selisih” jauh lebih baik dari “pekerja keras”.",
+              "Satu halaman untuk lulusan baru: nama, kontak, headline, pendidikan, pengalaman, keahlian.",
+              "Tuliskan angka, bukan sekadar sifat: “mengelola kas Rp5 Juta/hari dengan selisih nol” lebih baik daripada “pekerja keras”.",
               "Gunakan foto formal terbaru dan email profesional (nama kamu, bukan nama panggilan)."
             ],
             "quiz": [
               {
-                "q": "Berapa halaman seharusnya CV untuk fresh graduate?",
-                "options": ["Satu halaman", "Dua halaman", "Tiga halaman", "Tidak terbatas — makin tebal makin bagus"],
-                "explain": "HR memindai puluhan CV — satu halaman yang padat lebih baik dari tiga halaman yang bertele-tele."
+                "q": "Berapa halaman idealnya CV lulusan baru?",
+                "options": ["Satu halaman", "Dua halaman", "Tiga halaman", "Tidak terbatas — makin tebal makin baik"],
+                "explain": "HR meninjau puluhan CV — satu halaman padat dan jelas jauh lebih baik daripada tiga halaman berbasa-basi."
               },
               {
                 "q": "Poin pengalaman mana yang paling kuat?",
                 "options": [
                   "Pekerja keras, jujur, dan bisa bekerja dalam tim",
-                  "Mengelola kas Rp5 Jt/hari selama 6 bulan tanpa selisih",
+                  "Mengelola kas Rp5 Juta/hari selama 6 bulan dengan selisih nol",
                   "Berpengalaman di bidang terkait",
                   "Mampu bekerja di bawah tekanan"
                 ],
-                "explain": "Angka + durasi + hasil yang bisa dibuktikan. Sifat tanpa bukti biasanya dilewati."
+                "explain": "Angka + durasi + hasil yang bisa dibuktikan. Klaim sifat tanpa bukti akan dilewati HR."
               }
             ]
           },
           {
             "title": "Portofolio superbright.id/u/kamu",
             "body": [
-              "HR hampir selalu mengklik tautan portofolio — minimal: 1 proyek, 1 sertifikat, daftar keahlian.",
-              "Ceritakan tiap proyek dengan format Masalah → Tindakan → Hasil.",
-              "Perbarui profilmu setiap kali menyelesaikan jalur, bukan hanya setahun sekali."
+              "HR hampir selalu mengeklik tautan portofolio — minimal harus ada: 1 proyek, 1 sertifikat, daftar keahlian.",
+              "Ceritakan setiap proyek dengan alur Masalah → Tindakan → Hasil.",
+              "Perbarui profilmu setiap kali menyelesaikan jalur baru, jangan menunggu setahun sekali."
             ],
             "quiz": [
               {
@@ -592,17 +593,17 @@
                   "Tindakan → Masalah → Hasil",
                   "Ceritakan saja apa adanya"
                 ],
-                "explain": "Masalah memberikan konteks, tindakan menunjukkan skill, hasil membuktikan dampak."
+                "explain": "Masalah memberikan konteks, tindakan menunjukkan keahlian, hasil membuktikan dampaknya."
               },
               {
-                "q": "Batas minimal untuk profil publik yang layak?",
+                "q": "Syarat minimum profil publik agar layak dilihat?",
                 "options": [
                   "1 proyek + 1 sertifikat + daftar keahlian",
                   "Foto profil yang bagus",
-                  "Bio panjang dan moto hidup",
-                  "Daftar lengkap hobi"
+                  "Biografi panjang dan moto hidup",
+                  "Daftar hobi yang lengkap"
                 ],
-                "explain": "HR butuh bukti hasil kerja dalam 1 menit: proyek, sertifikat, keahlian."
+                "explain": "HR butuh bukti nyata dalam 1 menit: proyek, sertifikat, keahlian."
               }
             ]
           }
@@ -612,57 +613,57 @@
         "title": "Wawancara HR Pertama Tanpa Panik",
         "lessons": [
           {
-            "title": "Jawab “Ceritakan Tentang Diri Kamu” dalam 2 Menit",
+            "title": "Jawab “Ceritakan Tentang Diri Anda” dalam 2 Menit",
             "body": [
-              "Gunakan Sekarang → Latar Belakang → Bukti → Target: siapa kamu, latar belakang, satu bukti kuat, kenapa mau pekerjaan ini.",
-              "Jangan sekadar membaca CV — HR sudah membacanya. Tambahkan apa yang tidak tertulis.",
-              "Latihan dengan timer sampai pas 2 menit, jangan lebih dan jangan kurang."
+              "Gunakan formula Sekarang → Latar Belakang → Bukti → Target: siapa kamu, latar belakangmu, satu bukti prestasi, dan kenapa memilih peran ini.",
+              "Jangan membaca ulang CV kamu — HR sudah membacanya. Tambahkan hal-hal yang tidak tertulis di sana.",
+              "Berlatihlah dengan timer sampai pas 2 menit, jangan lebih atau kurang."
             ],
             "quiz": [
               {
-                "q": "Urutan yang tepat untuk menjawab “ceritakan tentang dirimu”?",
+                "q": "Urutan yang benar untuk menjawab “ceritakan tentang diri Anda”?",
                 "options": [
                   "Sekarang → Latar Belakang → Bukti → Target",
                   "Target → Bukti → Latar Belakang → Sekarang",
                   "Latar Belakang → Sekarang → Target → Bukti",
-                  "Mulai ceritakan dari zaman SD"
+                  "Mulai dari zaman SD"
                 ],
-                "explain": "Buka dengan kondisimu saat ini, tutup dengan alasan kenapa kamu menginginkan pekerjaan ini."
+                "explain": "Buka dengan kondisimu saat ini, dan tutup dengan alasan kenapa kamu menginginkan peran ini."
               },
               {
-                "q": "Durasi ideal untuk perkenalan diri?",
+                "q": "Berapa durasi ideal untuk perkenalan diri?",
                 "options": ["Sekitar 2 menit", "Sekitar 10 menit", "Secepat mungkin", "Sampai HR memotong pembicaraan"],
-                "explain": "Dua menit cukup untuk memasukkan 4 poin penting tanpa membuat HR bosan."
+                "explain": "Dua menit sudah cukup memuat 4 poin penting tanpa membuat HR bosan."
               }
             ]
           },
           {
             "title": "Gaji Pertama & Pertanyaan Jebakan",
             "body": [
-              "Riset gaji pasaran dari lowongan serupa di kotamu sebelum menyebutkan angka.",
-              "Jawab dengan rentang (“7–9 juta, masih terbuka untuk diskusi”), bukan angka pasti.",
-              "Untuk “apa kelemahanmu?”: sebutkan satu kelemahan nyata + cara kamu mengatasinya."
+              "Riset standar gaji pasaran dari lowongan serupa di kotamu sebelum menyebutkan angka.",
+              "Jawab dengan rentang gaji (“7–9 juta, bisa didiskusikan”), bukan angka mati.",
+              "Untuk pertanyaan “apa kelemahan Anda?”: sebutkan satu kelemahan nyata + cara kamu mengatasinya."
             ],
             "quiz": [
               {
                 "q": "Cara terbaik menjawab ekspektasi gaji?",
                 "options": [
-                  "Beri rentang berdasarkan riset pasar",
-                  "Sebutkan angka setinggi mungkin",
+                  "Sebutkan rentang gaji berdasarkan riset pasar",
+                  "Sebutkan angka tertinggi yang memungkinkan",
                   "“Terserah kebijakan perusahaan”",
-                  "Rahasiakan sampai diterima"
+                  "Rahasiakan sampai resmi diterima"
                 ],
-                "explain": "Memberi rentang menunjukkan kamu sudah riset pasar tapi tetap fleksibel."
+                "explain": "Menyebutkan rentang gaji menunjukkan kamu sudah riset pasar tapi tetap fleksibel."
               },
               {
-                "q": "Jawaban terbaik untuk “apa kelemahanmu?”",
+                "q": "Jawaban terbaik untuk “apa kelemahan Anda?”",
                 "options": [
-                  "“Saya orangnya terlalu perfeksionis” tanpa contoh",
+                  "“Saya perfeksionis” tanpa disertai contoh",
                   "Kelemahan nyata + cara mengatasinya",
                   "“Saya tidak punya kelemahan”",
                   "Sebutkan 5 kelemahan sekaligus"
                 ],
-                "explain": "HR menilai kejujuran dan pola pikir untuk berkembang, bukan menuntut kesempurnaan."
+                "explain": "HR menilai kejujuran dan pola pikir untuk berkembang (growth mindset), bukan mencari kesempurnaan."
               }
             ]
           }
@@ -674,125 +675,125 @@
           {
             "title": "Di Mana Pelangganmu Berada?",
             "body": [
-              "Pelanggan UMKM Indonesia hidup di Shopee, TikTok, dan WhatsApp — fokus pada SATU saluran dulu.",
-              "Foto asli produkmu jauh lebih baik daripada foto stok: pembeli menilai kejujuran.",
-              "Konsistensi mengalahkan viralitas: 1 post/hari selama 30 hari lebih baik dari satu post meledak sesaat."
+              "Pelanggan UMKM Indonesia ada di Shopee, TikTok, dan WhatsApp — pilih SATU saluran (channel) dulu.",
+              "Foto asli produk lebih baik daripada foto stok (stock photo): pembeli menilai kejujuran.",
+              "Konsistensi mengalahkan viral: 1 postingan/hari selama 30 hari lebih baik daripada satu postingan ramai sesaat."
             ],
             "quiz": [
               {
-                "q": "Langkah marketing pertama untuk tim UMKM kecil?",
+                "q": "Langkah pemasaran pertama untuk tim UMKM skala kecil?",
                 "options": [
-                  "Fokus di satu saluran selama 30 hari",
+                  "Fokus pada satu saluran selama 30 hari",
                   "Buka akun di semua platform sekaligus",
-                  "Langsung jalankan iklan besar",
-                  "Tunggu sampai punya tim konten"
+                  "Langsung pasang iklan dengan bujet besar",
+                  "Tunggu sampai punya tim konten sendiri"
                 ],
-                "explain": "Satu saluran yang hidup lebih baik dari lima saluran yang mati."
+                "explain": "Satu saluran yang hidup dan aktif jauh lebih baik daripada lima saluran terbengkalai."
               },
               {
-                "q": "Konten UMKM yang paling dipercaya?",
+                "q": "Konten UMKM apa yang paling dipercaya pelanggan?",
                 "options": [
                   "Foto dan video asli dari produknya",
                   "Foto stok yang estetik",
                   "Kutipan motivasi",
                   "Meme lucu"
                 ],
-                "explain": "Pembeli menilai kejujuran: produk asli, proses nyata, pemilik yang asli."
+                "explain": "Pembeli menilai kejujuran: produk asli, proses pengerjaan asli, dan pemilik yang nyata."
               }
             ]
           },
           {
-            "title": "Iklan Rp50.000 Pertama",
+            "title": "Iklan Perdana Rp50 Ribu",
             "body": [
-              "Satu iklan, satu tujuan: chat WhatsApp yang masuk — bukan like, bukan follow.",
-              "Targetkan radius di kotamu dulu, jangan langsung seluruh Indonesia.",
-              "Pantau biaya per chat. Jika iklan merugi 3 hari berturut-turut: matikan, ganti fotonya."
+              "Satu iklan, satu tujuan: mendatangkan chat WhatsApp — bukan likes, bukan followers.",
+              "Targetkan radius kotamu dulu, jangan seluruh Indonesia.",
+              "Lacak biaya per chat. Jika iklan rugi selama 3 hari berturut-turut: matikan, ganti fotonya."
             ],
             "quiz": [
               {
-                "q": "Metrik kesuksesan untuk iklan pertama UMKM?",
+                "q": "Metrik kesuksesan untuk iklan UMKM pertama?",
                 "options": [
                   "Biaya per chat yang masuk",
                   "Jumlah like",
-                  "Follower baru",
+                  "Followers baru",
                   "Komentar positif"
                 ],
-                "explain": "Chat = pembeli. Like tidak bisa dipakai bayar sewa toko."
+                "explain": "Chat = pembeli. Jumlah Like tidak bisa dipakai membayar sewa toko."
               },
               {
-                "q": "Kapan harus mematikan iklan yang tidak bagus?",
+                "q": "Kapan saatnya mematikan iklan yang merugi?",
                 "options": [
-                  "Setelah 3 hari tanpa chat masuk",
+                  "Setelah 3 hari tanpa chat yang masuk",
                   "Setelah 1 jam",
-                  "Tidak pernah, biarkan sampai budget habis",
-                  "Setelah satu bulan"
+                  "Tidak perlu, biarkan sampai bujet habis",
+                  "Setelah sebulan"
                 ],
-                "explain": "Tiga hari sudah cukup untuk menilai satu materi iklan dengan budget kecil."
+                "explain": "Tiga hari sudah cukup untuk menilai performa satu materi iklan dengan bujet kecil."
               }
             ]
           }
         ]
       },
       "keuangan-gaji-bulanan": {
-        "title": "Atur Gaji Bulanan Tanpa Bocor",
+        "title": "Mengelola Gaji Bulanan Tanpa Bocor",
         "lessons": [
           {
-            "title": "Aturan 50-30-20, Edisi Anak Kos",
+            "title": "Aturan 50-30-20, Ala Anak Kos",
             "body": [
-              "50% kebutuhan (kos, makan, transport), 30% keinginan, 20% tabungan — sesuaikan, jangan sekadar dihafal.",
-              "Bayar dirimu sendiri dulu: autodebet tabungan saat gajian, jangan dari sisa uang di akhir bulan.",
-              "Target dana darurat: 3x pengeluaran bulanan, dipisah dari rekening harian."
+              "50% kebutuhan (kos, makan, transport), 30% keinginan, 20% tabungan — sesuaikan, jangan cuma dihafal.",
+              "Bayar dirimu lebih dulu: autodebet tabungan saat hari gajian, bukan menunggu sisa akhir bulan.",
+              "Target dana darurat: 3x pengeluaran bulanan, simpan terpisah dari rekening harian."
             ],
             "quiz": [
               {
-                "q": "Waktu terbaik untuk menyisihkan tabungan dari gaji?",
+                "q": "Kapan waktu terbaik menyisihkan gaji untuk ditabung?",
                 "options": [
-                  "Saat hari gajian via autodebet",
+                  "Saat hari gajian lewat autodebet",
                   "Dari sisa uang di akhir bulan",
                   "Hanya kalau ada bonus",
                   "Kapan saja saat ingat"
                 ],
-                "explain": "Sisa di akhir bulan biasanya nol. Autodebet memaksamu untuk mengutamakan masa depanmu."
+                "explain": "Uang sisa di akhir bulan hampir selalu habis. Autodebet memaksamu memprioritaskan masa depanmu dulu."
               },
               {
-                "q": "Target dana darurat yang sehat?",
+                "q": "Berapa target dana darurat yang sehat?",
                 "options": [
                   "3x pengeluaran bulanan",
-                  "Setengah gaji",
+                  "Setengah dari gaji",
                   "Rp1 juta sudah cukup",
                   "Tidak perlu, kan ada paylater"
                 ],
-                "explain": "Dana tiga bulan memberi ruang napas saat terjadi PHK atau sakit tanpa harus berutang."
+                "explain": "Tabungan tiga bulan memberi ruang bernapas jika terkena PHK atau sakit tanpa harus berutang."
               }
             ]
           },
           {
             "title": "Waspada Pinjol Ilegal & Penipuan",
             "body": [
-              "Pinjol legal terdaftar di OJK — cek daftarnya sebelum meminjam, jangan termakan iklan.",
-              "Jangan pernah memberikan OTP kepada siapa pun, termasuk yang mengaku dari bank atau polisi.",
-              "Terima transfer mencurigakan? Jangan diteruskan — verifikasi VA-nya dan laporkan, jangan panik."
+              "Pemberi pinjaman legal terdaftar di OJK — cek daftarnya sebelum meminjam, jangan cuma percaya iklannya.",
+              "Jangan pernah memberikan kode OTP kepada siapa pun, termasuk penelepon yang mengaku dari bank atau kepolisian.",
+              "Menerima transfer mencurigakan? Jangan diteruskan — verifikasi VA-nya dan laporkan, jangan panik."
             ],
             "quiz": [
               {
-                "q": "Sebelum meminjam dari pinjol, apa yang wajib kamu cek?",
+                "q": "Sebelum meminjam dari platform pinjaman, apa yang wajib dicek?",
                 "options": [
-                  "Apakah terdaftar di OJK",
+                  "Apakah terdaftar resmi di OJK",
                   "Apakah iklannya meyakinkan",
                   "Testimoni di media sosial",
                   "Apakah bunganya 0%"
                 ],
-                "explain": "Pinjol ilegal menagih dengan teror. Daftar legalitas OJK adalah filter paling awal."
+                "explain": "Pinjol ilegal menagih dengan teror. Status legalitas OJK adalah filter pertama."
               },
               {
-                "q": "Ada yang menelepon mengaku dari bank dan meminta OTP kamu. Apa respons yang tepat?",
+                "q": "Ada penelepon mengaku dari bank dan meminta OTP kamu. Apa respons yang tepat?",
                 "options": [
-                  "Tolak dan matikan telepon, lalu hubungi bank resminya",
-                  "Berikan saja, toh mereka tahu data kamu",
-                  "Suruh mereka tunggu sambil kamu transfer duluan",
-                  "Blokir tanpa perlu verifikasi apa-apa"
+                  "Tolak dan tutup teleponnya, lalu hubungi bank resmi",
+                  "Berikan saja, mereka sudah tahu data kamu",
+                  "Minta mereka menunggu sambil kamu transfer dulu",
+                  "Blokir tanpa verifikasi apa pun"
                 ],
-                "explain": "Bank tidak pernah meminta OTP. Lakukan verifikasi melalui saluran resmi bank."
+                "explain": "Pihak bank tidak pernah meminta OTP. Verifikasi melalui saluran resmi bank."
               }
             ]
           }
@@ -804,60 +805,60 @@
           {
             "title": "Hierarki & Cara Berbicara dengan Atasan",
             "body": [
-              "Lapor sebelum ditanya: update singkat tiap sore lebih baik daripada laporan panik saat krisis.",
-              "Dapat tugas mustahil? Jawab “baik, jadi deadline mana yang jadi prioritas utama?” — jangan malah diam.",
-              "Beri kritik secara empat mata + bawa solusi; beri pujian secara terbuka."
+              "Laporkan sebelum ditanya: update singkat setiap sore lebih baik daripada laporan panik saat terjadi krisis.",
+              "Mendapat tugas yang mustahil? Jawab “baik, jadi tenggat waktu mana yang paling prioritas?” — jangan diam saja.",
+              "Sampaikan kritik secara tertutup + bawa solusi; berikan pujian secara terbuka."
             ],
             "quiz": [
               {
-                "q": "Atasan memberi tugas yang mustahil selesai hari ini. Respons terbaik?",
+                "q": "Bos memberikan tugas yang mustahil selesai hari ini. Respons terbaik?",
                 "options": [
                   "Terima, lalu tanyakan prioritas dan tenggat waktu yang realistis",
-                  "Diam saja dan langsung lembur tanpa bilang",
-                  "Tolak mentah-mentah saat itu juga",
-                  "Lempar tugasnya ke rekan kerja"
+                  "Diam saja lalu lembur tanpa bilang-bilang",
+                  "Tolak mentah-mentah di tempat",
+                  "Lemparkan tugasnya ke rekan kerja"
                 ],
                 "explain": "Atasan butuh informasi untuk mengatur ulang prioritas — berikan data, bukan drama."
               },
               {
-                "q": "Di mana tempat yang tepat untuk mengkritik rekan kerja?",
+                "q": "Di mana tempat yang pas untuk mengkritik rekan kerja?",
                 "options": [
-                  "Secara empat mata, dengan membawa solusi",
+                  "Secara tertutup (privat), disertai solusi",
                   "Di grup WhatsApp kantor",
-                  "Sambil makan siang bersama",
+                  "Saat makan siang bersama",
                   "Lewat status media sosial"
                 ],
-                "explain": "Kritik tertutup menjaga nama baik; membawa solusi menunjukkan kamu ingin membantu."
+                "explain": "Kritik tertutup menjaga nama baiknya; memberikan solusi menunjukkan kamu ingin membantu."
               }
             ]
           },
           {
-            "title": "Meeting & Menerima Feedback",
+            "title": "Rapat & Umpan Balik (Feedback)",
             "body": [
-              "Datang 5 menit lebih awal bawa catatan dan satu pertanyaan — itu sudah separuh dari nilai meeting-mu.",
-              "Terima feedback dengan cara: dengarkan → minta contoh spesifik → buat rencana perbaikan.",
-              "Beda generasi beda pandangan: senior menghargai proses, junior menghargai kecepatan — sesuaikan gaya bahasamu."
+              "Datang 5 menit lebih awal dengan catatan dan satu pertanyaan — itu sudah setengah dari penilaian performamu saat rapat.",
+              "Terima umpan balik dengan cara: dengarkan → minta contoh spesifik → buat rencana perbaikan.",
+              "Gaya beda generasi: senior menghargai proses, junior menghargai kecepatan — sesuaikan gaya bahasamu."
             ],
             "quiz": [
               {
-                "q": "Persiapan meeting terbaik di mata atasan?",
+                "q": "Persiapan rapat seperti apa yang dinilai baik oleh atasan?",
                 "options": [
-                  "Datang lebih awal bawa catatan dan satu pertanyaan",
+                  "Datang lebih awal dengan catatan dan satu pertanyaan",
                   "Datang tepat waktu tanpa persiapan",
-                  "Bawa camilan untuk semua orang",
-                  "Duduk di kursi paling depan"
+                  "Membawa camilan untuk semua orang",
+                  "Duduk di barisan paling depan"
                 ],
-                "explain": "Pertanyaan berbobot menunjukkan kamu sudah membaca materi dan berpikir."
+                "explain": "Pertanyaan yang berbobot menunjukkan kamu sudah membaca materi dan berpikir."
               },
               {
-                "q": "Mendapat feedback keras namun membangun. Respons yang tepat?",
+                "q": "Mendapat kritik yang pedas tapi masuk akal. Respons yang tepat?",
                 "options": [
-                  "Dengarkan, minta contoh spesifik, buat rencana perbaikan",
+                  "Dengarkan, minta contoh konkret, lalu buat rencana perbaikan",
                   "Langsung membela diri seketika",
                   "Menangis lalu ambil cuti",
-                  "Balik mengkritik yang memberi feedback"
+                  "Balik mengkritik orang tersebut"
                 ],
-                "explain": "Contoh konkret mengubah luapan emosi menjadi data yang bisa diperbaiki."
+                "explain": "Contoh konkret mengubah emosi menjadi data yang bisa diperbaiki."
               }
             ]
           }
@@ -867,156 +868,157 @@
     "pathData": {
       "frontend-developer": {
         "title": "Contoh jalur: Frontend Developer",
-        "goal": "“Aku mau jadi frontend developer.”",
-        "desc": "Dari nol sampai siap rekrut: HTML hingga deployment, satu website bisnis Indonesia sungguhan, lalu persiapan karier.",
+        "goal": "“Saya ingin menjadi frontend developer.”",
+        "desc": "Dari nol sampai siap kerja: HTML hingga peluncuran web (deployment), membuat satu website bisnis Indonesia asli, lalu persiapan karier.",
         "weeks": "4–6 bulan · 5 jam/minggu",
         "level": "Pemula → Siap kerja",
-        "salary": "Gaji pasaran Rp8–25 Jt",
-        "alt": "Analis muda bekerja di depan laptop di kantor Jakarta",
-        "caption": "Kerja layaknya profesional — dari hari pertama",
-        "meta": "4–6 bln · Rp8–25 Jt",
+        "salary": "Gaji pasaran Rp8–25 Juta",
+        "alt": "Analis muda sedang bekerja dengan laptop di kantor Jakarta",
+        "caption": "Bekerja layaknya profesional — sejak hari pertama",
+        "meta": "4–6 bln · Rp8–25 Juta",
         "stages": [
           { "name": "Pemula", "items": "HTML → CSS → JavaScript", "formats": "Video · Bacaan · Kuis" },
           { "name": "Menengah", "items": "TypeScript → React → API → Git", "formats": "Lab kode · Simulasi" },
-          { "name": "Lanjutan", "items": "Testing → Arsitektur → Performa → Deployment", "formats": "Proyek · Ulasan AI" },
-          { "name": "Portofolio", "items": "Website bisnis Indonesia sungguhan + studi kasus", "formats": "Proyek tiruan · Tanpa afiliasi" },
-          { "name": "Karier", "items": "CV → Wawancara → Tes teknikal", "formats": "Simulasi HR · Teknikal" }
+          { "name": "Mahir", "items": "Pengujian → Arsitektur → Performa → Peluncuran", "formats": "Proyek · Ulasan AI" },
+          { "name": "Portofolio", "items": "Website bisnis Indonesia nyata + studi kasus", "formats": "Proyek simulasi · Tanpa afiliasi" },
+          { "name": "Karier", "items": "CV → Wawancara → Tes teknis", "formats": "Simulator HR · Teknis" }
         ],
-        "skills": ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Git", "REST API", "Testing"],
-        "project": "Website profil perusahaan + toko online untuk tiruan UMKM Bandung.",
-        "career": ["CV + LinkedIn", "Portofolio superbright.id/u/namakamu", "Simulasi wawancara HR", "Tes teknikal + panduan AI"],
-        "context": "Contoh lokal: checkout QRIS, pengiriman antar pulau, katalog bahasa Indonesia."
+        "skills": ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Git", "REST API", "Pengujian"],
+        "project": "Website profil perusahaan + toko online untuk simulasi UMKM Bandung.",
+        "career": ["CV + LinkedIn", "Portofolio superbright.id/u/namakamu", "Simulasi wawancara HR", "Tes teknis + panduan AI"],
+        "context": "Contoh lokal: pembayaran QRIS, pengiriman antar pulau, katalog berbahasa Indonesia."
       },
       "umkm-digital-entrepreneur": {
-        "title": "UMKM Digital Entrepreneur",
-        "goal": "“Aku mau bisninku go digital.”",
-        "desc": "Sepuluh modul dari riset pelanggan sampai analitik — berujung pada strategi digital lengkap untuk bisnis tiruan.",
+        "title": "Pengusaha Digital UMKM",
+        "goal": "“Saya ingin bisnis saya go digital.”",
+        "desc": "Sepuluh modul dari riset pelanggan hingga analitik — diakhiri dengan strategi digital lengkap untuk simulasi bisnis.",
         "weeks": "10 modul · fleksibel",
         "level": "Semua tingkat",
-        "salary": "Pendapatan, bukan gaji",
-        "alt": "Mahasiswa belajar materi bisnis di Jakarta",
-        "caption": "Belajar bisnis di mana saja — bahkan malam hari",
+        "salary": "Pendapatan bisnis, bukan gaji",
+        "alt": "Mahasiswa universitas sedang mempelajari materi bisnis di Jakarta",
+        "caption": "Belajar bisnis kapan saja — bahkan di malam hari",
         "meta": "10 modul · Fleksibel",
         "stages": [
-          { "name": "Fondasi", "items": "Dasar bisnis → Riset pelanggan → Branding", "formats": "Video · Template" },
+          { "name": "Fondasi", "items": "Dasar bisnis → Riset pelanggan → Branding", "formats": "Video · Templat" },
           { "name": "Penjualan", "items": "Marketplace → Media sosial → Iklan digital", "formats": "Studi kasus · Praktik" },
           { "name": "Keuangan", "items": "Akuntansi → Pajak dasar → Analitik", "formats": "Spreadsheet · Kuis" },
-          { "name": "Proyek akhir", "items": "Strategi digital untuk UMKM kopi tiruan di Bandung", "formats": "Presentasi · Ulasan mentor" }
+          { "name": "Proyek akhir", "items": "Strategi digital untuk simulasi UMKM kopi Bandung", "formats": "Presentasi · Ulasan mentor" }
         ],
         "skills": ["Branding", "Marketplace", "Iklan digital", "Akuntansi", "Pajak dasar", "Analitik"],
-        "project": "Dokumen strategi digital lengkap: positioning, saluran, budget iklan, target 90 hari.",
-        "career": ["Portofolio strategi", "Simulasi pitch investor", "Komunitas UMKM kota"],
-        "context": "Regulasi halal, perizinan, dan pajak UMKM Indonesia — selalu dengan tanggal berlaku."
+        "project": "Dokumen strategi digital lengkap: positioning, saluran pemasaran, anggaran iklan, target 90 hari.",
+        "career": ["Portofolio strategi", "Simulasi presentasi ke investor", "Komunitas UMKM kota"],
+        "context": "Aturan halal, perizinan, dan pajak UMKM Indonesia — selalu disesuaikan dengan peraturan terbaru."
       },
       "data-analyst": {
         "title": "Jalur Data Analyst",
-        "goal": "“Aku mau kerja sebagai Data Analyst.”",
-        "desc": "Perjalanan Rina (§55): Excel ke Power BI, proyek e-commerce Indonesia, sertifikat keahlian, siap melamar.",
+        "goal": "“Saya ingin bekerja sebagai Data Analyst.”",
+        "desc": "Perjalanan karier Rina (§55): Dari Excel ke Power BI, proyek e-commerce Indonesia, sertifikat keahlian, dan siap melamar kerja.",
         "weeks": "7 modul · 4–5 bulan",
         "level": "Pemula → Siap kerja",
-        "salary": "Rp7–18 Jt",
-        "alt": "Tim bisnis Asia berdiskusi di kantor modern",
-        "caption": "Analisis dipresentasikan, bukan diabaikan",
-        "meta": "7 modul · Rp7–18 Jt",
+        "salary": "Rp7–18 Juta",
+        "alt": "Tim bisnis Asia sedang berdiskusi di kantor modern",
+        "caption": "Analisis yang dipresentasikan, bukan yang diabaikan",
+        "meta": "7 modul · Rp7–18 Juta",
         "stages": [
           { "name": "Fondasi", "items": "Excel → SQL → Statistik", "formats": "Video · Latihan dataset" },
-          { "name": "Alat kerja", "items": "Python → Visualisasi → Power BI", "formats": "Lab kode · Proyek" },
+          { "name": "Tools", "items": "Python → Visualisasi → Power BI", "formats": "Lab kode · Proyek" },
           { "name": "Proyek", "items": "Analisis penjualan e-commerce Indonesia", "formats": "Dataset publik · Dashboard" },
           { "name": "Karier", "items": "Sertifikat → Portofolio → Simulasi wawancara", "formats": "Verifikasi publik" }
         ],
         "skills": ["Excel", "SQL", "Statistik", "Python", "Visualisasi", "Power BI"],
-        "project": "Dashboard Power BI + rekomendasi promo dari 3 bulan transaksi.",
-        "career": ["Sertifikat Analitik Data", "Portofolio terisi otomatis", "Simulasi wawancara HR"],
+        "project": "Dashboard Power BI + rekomendasi promo dari data transaksi 3 bulan.",
+        "career": ["Sertifikat Data Analytics", "Portofolio otomatis", "Simulasi wawancara HR"],
         "context": "Dataset lokal: transaksi e-commerce, UMKM, pariwisata Indonesia."
       },
       "siap-kerja": {
         "title": "Fresh Graduate Siap Kerja",
-        "goal": "“Aku ingin panggilan wawancara.”",
-        "desc": "Empat minggu dari CV berantakan sampai siap lamar: CV, portofolio, wawancara, lalu melamar.",
+        "goal": "“Saya ingin mendapat panggilan wawancara.”",
+        "desc": "Empat minggu mengubah CV berantakan menjadi lamaran lengkap: CV, portofolio, persiapan wawancara, lalu mulai melamar.",
         "weeks": "4 minggu · 3 jam/minggu",
-        "level": "Fresh graduate",
-        "salary": "Tawaran pertama",
+        "level": "Lulusan baru (Fresh graduate)",
+        "salary": "Gaji pertama",
         "alt": "Mahasiswa tersenyum di depan gedung kampus",
-        "caption": "Dari kampus ke kantor — satu lamaran demi satu lamaran",
-        "meta": "4 minggu · Tawaran pertama",
+        "caption": "Dari kampus ke dunia kerja — langkah demi langkah",
+        "meta": "4 minggu · Gaji pertama",
         "stages": [
-          { "name": "CV", "items": "CV satu halaman + email profesional", "formats": "Template · Kuis" },
+          { "name": "CV", "items": "CV satu halaman + email profesional", "formats": "Templat · Kuis" },
           { "name": "Portofolio", "items": "superbright.id/u/kamu: proyek + sertifikat", "formats": "Tautan publik" },
-          { "name": "Wawancara", "items": "Intro 2 menit + gaji + pertanyaan jebakan", "formats": "Simulasi HR" },
-          { "name": "Dunia Kerja", "items": "Hierarki + meeting + feedback", "formats": "Skenario ID" },
-          { "name": "Lamar", "items": "Lamar + follow-up sopan di WA", "formats": "Checklist" }
+          { "name": "Wawancara", "items": "Perkenalan 2 menit + gaji + pertanyaan jebakan", "formats": "Simulator HR" },
+          { "name": "Dunia Kerja", "items": "Hierarki + rapat + umpan balik", "formats": "Skenario khas Indonesia" },
+          { "name": "Melamar", "items": "Lamar kerja + cara sopan follow-up via WA", "formats": "Daftar periksa (Checklist)" }
         ],
         "skills": ["CV", "Portofolio", "Wawancara", "LinkedIn", "Etika kantor"],
-        "project": "Paket lamaran lengkap: CV + profil publik + rekaman simulasi.",
-        "career": ["CV lolos screening", "Portofolio terverifikasi", "Simulasi wawancara", "Etika hari pertama"],
-        "context": "Gaji pasaran per kota, etika WA untuk HR, hierarki kantor Indonesia."
+        "project": "Paket lamaran lengkap: CV + profil publik + rekaman simulasi wawancara.",
+        "career": ["CV lolos skrining", "Portofolio terverifikasi", "Simulasi wawancara", "Etika hari pertama kerja"],
+        "context": "Standar gaji per kota, etika chat WA ke HR, hierarki kantor di Indonesia."
       },
       "junior-accountant": {
         "title": "Junior Accountant (Fokus Pajak)",
-        "goal": "“Aku mau kerja di kantor akuntan.”",
-        "desc": "Dari akuntansi keuangan sampai SPT: e-Faktur, PPh, dan proyek SPT klien tiruan dengan penilaian AI.",
+        "goal": "“Saya ingin bekerja di kantor akuntan.”",
+        "desc": "Dari akuntansi keuangan hingga pelaporan pajak: e-Faktur, PPh, dan proyek akhir pajak klien simulasi dengan penilaian AI.",
         "weeks": "24 minggu",
         "level": "KKNI 6",
-        "salary": "Rp6–9 Jt/bln",
-        "alt": "Profesional muda bekerja lembur di kantor Jakarta",
-        "caption": "Tutup buku tepat waktu — setiap bulan",
-        "meta": "24 minggu · Rp6–9 Jt",
+        "salary": "Rp6–9 Juta/bulan",
+        "alt": "Profesional muda bekerja larut malam di kantor Jakarta",
+        "caption": "Tutup buku tepat waktu — setiap bulannya",
+        "meta": "24 minggu · Rp6–9 Juta",
         "stages": [
           { "name": "Fase 1", "items": "Dasar Akuntansi Keuangan", "formats": "Video · Kuis" },
-          { "name": "Fase 2", "items": "Pajak Badan & e-Faktur", "formats": "Simulasi e-Faktur" },
+          { "name": "Fase 2", "items": "Pajak Perusahaan & e-Faktur", "formats": "Simulasi e-Faktur" },
           { "name": "Fase 3", "items": "Pelaporan PSAK/IFRS", "formats": "Studi kasus" },
-          { "name": "Capstone", "items": "SPT Klien Tiruan + Penilaian AI", "formats": "Portofolio" }
+          { "name": "Proyek Akhir", "items": "SPT Tahunan Klien Simulasi + Penilaian AI", "formats": "Portofolio" }
         ],
         "skills": ["Akuntansi", "PPh", "e-Faktur", "PSAK"],
-        "project": "SPT tahunan lengkap untuk klien tiruan beserta kertas kerjanya.",
+        "project": "Penyelesaian SPT Tahunan klien simulasi lengkap dengan kertas kerjanya.",
         "career": ["Sertifikat keahlian", "Portofolio kertas kerja", "Simulasi wawancara"],
-        "context": "Aturan pajak mencantumkan tanggal berlaku dan diperbarui saat ada perubahan."
+        "context": "Aturan pajak selalu menyertakan tanggal berlaku dan diperbarui saat ada perubahan."
       }
     }
   },
   "roles": {
-    "skip": "Lewati ke konten",
+    "skip": "Lanjut ke konten utama",
     "back": "← Beranda",
     "eyebrow": "Direktori peran · Tier 1",
-    "title": "Pilih peran, jangan cuma judulnya.",
-    "sub": "Jelajahi profil peran: timeline sehari, mitos vs realita, tool stack, lalu mainkan micro-scenarionya.",
+    "title": "Pilih perannya, bukan sekadar namanya.",
+    "sub": "Telusuri profil peran: rutinitas kerja harian, mitos vs realita, aplikasi yang digunakan, lalu mainkan skenario mikronya.",
     "searchLabel": "Cari peran",
-    "searchPh": "Contoh: Social Media, HR, Data…",
+    "searchPh": "Coba: Social Media, HR, Data…",
     "catAll": "Semua",
     "catTech": "Teknologi & Produk",
-    "catCreative": "Kreatif & Marketing",
+    "catCreative": "Kreatif & Pemasaran",
     "catBiz": "Bisnis & Operasional",
     "catFinance": "Keuangan & Perbankan",
     "emptyTitle": "Tidak ada peran yang cocok",
-    "emptyHint": "Coba kata kunci yang lebih singkat atau reset filter di atas.",
+    "emptyHint": "Coba kata kunci yang lebih pendek atau reset filter di atas.",
     "resetBtn": "Reset pencarian",
     "results": "{n} peran",
-    "scenariosCount": "{n} micro-skenario",
-    "toolsCount": "{n} tools"
+    "scenariosCount": "{n} skenario mikro",
+    "toolsCount": "{n} aplikasi/tools"
   },
   "role": {
-    "skip": "Lewati ke konten",
+    "skip": "Lanjut ke konten utama",
     "back": "← Semua peran",
     "mythTitle": "Mitos",
     "realityTitle": "Realita",
-    "timelineTitle": "Sehari dalam hidupnya",
-    "toolsTitle": "Tool stack",
-    "scenariosTitle": "Micro-skenario peran ini",
-    "scenariosSub": "Simulasi keputusan 3 menit. Pilih satu opsi, baca trade-off-nya.",
+    "timelineTitle": "Keseharian dalam bekerja",
+    "toolsTitle": "Aplikasi yang digunakan",
+    "scenariosTitle": "Skenario mikro untuk peran ini",
+    "scenariosSub": "Simulator pengambilan keputusan 3 menit. Pilih satu opsi, pelajari risikonya.",
     "playCta": "Mainkan skenario",
-    "noScenarios": "Belum ada micro-skenario untuk peran ini."
+    "noScenarios": "Belum ada skenario mikro untuk peran ini."
   },
   "scenario": {
-    "skip": "Lewati ke konten",
-    "back": "← Kembali ke peran",
+    "skip": "Lanjut ke konten utama",
+    "back": "← Kembali ke profil peran",
     "contextLabel": "Konteks",
-    "decideLabel": "Buat keputusanmu",
+    "decideLabel": "Tentukan Pilihanmu",
     "resultOptimal": "Optimal",
-    "resultRisky": "Berisiko",
+    "resultRisky": "Beresiko",
     "resultFatal": "Fatal",
-    "practitionerLabel": "Kata praktisi",
+    "practitionerLabel": "Pandangan praktisi",
     "retry": "Coba lagi",
     "viewRole": "Lihat profil peran",
     "optionLabel": "Opsi {id}"
   }
 }
+

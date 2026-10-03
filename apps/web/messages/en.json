@@ -456,6 +456,8 @@
     "statusSaved": "/{slug} set to {status}.",
     "errRole": "Denied, or the input was invalid.",
     "saving": "Saving…",
+    "loading": "Loading data…",
+    "metricsError": "Metrics couldn't load. Try reloading the page.",
     "kSessions": "Active sessions",
     "kSessionsSub": "Better Auth · session table",
     "metricsTitle": "Product metrics",

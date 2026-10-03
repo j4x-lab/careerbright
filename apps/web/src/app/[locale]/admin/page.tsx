@@ -21,8 +21,8 @@ export default async function AdminDashboard({ params }: { params: Promise<{ loc
   return (
     <OpsShell locale={locale} eyebrow={t("eyebrow")} title={t("title")} desc={t("desc")}>
       {/* Identifies who is acting — an admin surface without an actor is a
-          shared anonymous terminal. */}
-      <p className="mt-5 border-l-2 border-brand-700 pl-4 font-mono text-[12px] text-muted">
+          shared anonymous terminal. Hairline panel, not a colored rail. */}
+      <p className="mt-5 rounded-btn border border-line bg-card px-4 py-3 font-mono text-[12px] text-muted">
         {t("signedInAs", { name: me.name ?? me.email ?? "—" })}
       </p>
 

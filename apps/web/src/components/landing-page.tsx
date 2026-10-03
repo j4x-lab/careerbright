@@ -76,7 +76,6 @@ export default async function LandingPage({ locale }: { locale: string }) {
 
       {/* ── HERO · THE JOB ─────────────────────────────────── */}
       <section className="hero-light relative overflow-hidden pt-[120px] md:pt-[144px]">
-        <div className="grid-light absolute inset-0" aria-hidden />
         <div
           className="relative mx-auto grid w-full max-w-7xl items-start gap-10 px-4 pb-16 pt-8 md:pb-20 lg:grid-cols-12 lg:gap-8"
         >
@@ -93,7 +92,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
                 by the two text segments, and a sentence of alt text inside an
                 h1 would poison screen-reader heading navigation. */}
             <h1 className="hero-enter hero-enter-2 font-nova mt-6 text-[clamp(2.25rem,5vw,4rem)] font-bold leading-[1.04] tracking-[-0.02em] md:max-w-[26ch]">
-              {t("heroTitleA")}
+              {t("heroTitleA")}{" "}
               <span className="mx-auto my-5 block aspect-[16/9] w-full overflow-hidden rounded-media align-middle sm:mx-[0.16em] sm:my-0 sm:inline-flex sm:h-[0.92em] sm:w-[1.42em] sm:aspect-auto">
                 <img
                   src={LOCAL.timKopi}
@@ -104,7 +103,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
                   decoding="async"
                   className="h-full w-full object-cover"
                 />
-              </span>
+              </span>{" "}
               {t("heroTitleB")}
             </h1>
 
@@ -118,7 +117,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
               <a href="#pekerjaan" className="btn-amber group min-h-[52px] px-7 text-[15px]">
                 {t("heroCta1")}
                 <span className="btn-island btn-island-dark" aria-hidden>
-                  ↗
+                  <svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9 9 3M4 3h5v5" /></svg>
                 </span>
               </a>
             </div>
@@ -136,7 +135,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
               </label>
               <div className="relative mt-2.5 flex gap-2">
                 <div className="relative min-w-0 flex-1">
-                  <span aria-hidden className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-faint">⌕</span>
+                  <svg aria-hidden viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-faint"><circle cx="7" cy="7" r="5" /><path d="m11 11 3 3" /></svg>
                   <input
                     id="hero-cari"
                     name="q"
@@ -159,9 +158,9 @@ export default async function LandingPage({ locale }: { locale: string }) {
                 [t("heroCatCreative"), "Creative & Marketing"],
                 [t("heroCatBiz"), "Business & Operations"],
                 [t("heroCatFinance"), "Finance & Banking"],
-              ].map(([label]) => (
+              ].map(([label, cat]) => (
                 <li key={label}>
-                  <Link href="/roles" className="chip min-h-[44px] transition hover:border-ink">
+                  <Link href={`/roles?q=${encodeURIComponent(cat)}`} className="chip min-h-[44px] transition hover:border-ink">
                     {label}
                   </Link>
                 </li>
@@ -241,7 +240,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
               {TICKER.map((r) => (
                 <span key={r} className="flex flex-none items-center gap-8">
                   {r}
-                  <span aria-hidden className="text-[10px] text-brand-700">◆</span>
+                  <svg aria-hidden width="8" height="8" viewBox="0 0 8 8" className="flex-none text-brand-700"><rect x="1.6" y="1.6" width="4.8" height="4.8" transform="rotate(45 4 4)" fill="currentColor" /></svg>
                 </span>
               ))}
             </div>
@@ -524,7 +523,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
             <div className="grid gap-5 md:grid-cols-12 md:items-baseline md:gap-8">
               <h2 className="font-nova max-w-[20ch] text-[32px] font-bold leading-[1.06] tracking-[-0.02em] md:col-span-7 md:text-[40px]">
                 <span aria-hidden className="tnum mr-4 align-super font-mono text-[13px] font-bold tracking-[0.2em] text-brand-700">
-                  03
+                  02
                 </span>
                 {t("valueEyebrow")}
               </h2>
@@ -575,7 +574,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
                 <a href="#pekerjaan" className="inline-flex min-h-[52px] items-center gap-2.5 rounded-btn bg-white px-7 text-[15px] font-extrabold text-brand-700 transition hover:bg-paper active:translate-y-[1px]">
                   {t("cta1")}
                   <span className="btn-island btn-island-dark" aria-hidden>
-                    ↗
+                    <svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9 9 3M4 3h5v5" /></svg>
                   </span>
                 </a>
                 <Link href="/auth/daftar" className="inline-flex min-h-[52px] items-center rounded-btn border-[1.5px] border-white/50 px-7 text-[15px] font-bold text-white transition hover:bg-white/10 active:translate-y-[1px]">

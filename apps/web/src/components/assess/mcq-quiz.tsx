@@ -22,8 +22,15 @@ export function McqQuiz({ id, questions, passing = 70 }: { id: string; questions
   const summaryRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const v = localStorage.getItem(key);
-    if (v) setBest(Number(v));
+    try {
+      const v = localStorage.getItem(key);
+      if (v !== null) {
+        const n = Number(v);
+        if (Number.isFinite(n)) setBest(n);
+      }
+    } catch {
+      /* private-mode storage: best score stays unpersisted */
+    }
   }, [key]);
 
   const score = Math.round(
@@ -37,7 +44,11 @@ export function McqQuiz({ id, questions, passing = 70 }: { id: string; questions
     setDone(true);
     setBest((b) => {
       const nb = b === null ? score : Math.max(b, score);
-      localStorage.setItem(key, String(nb));
+      try {
+        localStorage.setItem(key, String(nb));
+      } catch {
+        /* private-mode storage: best score stays unpersisted */
+      }
       return nb;
     });
   }
@@ -45,6 +56,24 @@ export function McqQuiz({ id, questions, passing = 70 }: { id: string; questions
   function retry() {
     setPicked({});
     setDone(false);
+  }
+
+  // Native radio arrow-key behavior for the button-based options:
+  // Arrow keys move selection within the question, Home/End jump.
+  function onOptionKeys(e: React.KeyboardEvent<HTMLDivElement>, qi: number) {
+    const order = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Home", "End"];
+    if (!order.includes(e.key)) return;
+    e.preventDefault();
+    const n = questions[qi]?.options.length ?? 0;
+    if (n === 0) return;
+    const cur = picked[qi] ?? 0;
+    let next = cur;
+    if (e.key === "ArrowDown" || e.key === "ArrowRight") next = (cur + 1) % n;
+    else if (e.key === "ArrowUp" || e.key === "ArrowLeft") next = (cur + n - 1) % n;
+    else if (e.key === "Home") next = 0;
+    else if (e.key === "End") next = n - 1;
+    setPicked((p) => ({ ...p, [qi]: next }));
+    e.currentTarget.querySelectorAll<HTMLButtonElement>('[role="radio"]')[next]?.focus();
   }
 
   // Move focus to the verdict so the result is the next thing a keyboard or
@@ -96,15 +125,21 @@ export function McqQuiz({ id, questions, passing = 70 }: { id: string; questions
       <div className="mt-5 space-y-6">
         {questions.map((q, i) => {
           const explainId = `cb-explain-${id}-${i}`;
+          const qId = `cb-q-${id}-${i}`;
           return (
           <div key={i}>
-            <p className="text-[15px] font-extrabold leading-snug tracking-tight text-ink">
+            <p id={qId} className="text-[15px] font-extrabold leading-snug tracking-tight text-ink">
               <span aria-hidden className="card-num mr-2 align-middle">
                 {i + 1}
               </span>
               {q.q}
             </p>
-            <div className="mt-3 grid gap-2" role="radiogroup" aria-label={t("question", { n: i + 1 })}>
+            <div
+              className="mt-3 grid gap-2"
+              role="radiogroup"
+              aria-labelledby={qId}
+              onKeyDown={(e) => !done && onOptionKeys(e, i)}
+            >
               {q.options.map((op, j) => {
                 const sel = picked[i] === j;
                 const correct = done && j === q.answer;
@@ -146,12 +181,12 @@ export function McqQuiz({ id, questions, passing = 70 }: { id: string; questions
                     {/* The mark is now announced, not decoration. */}
                     {correct && (
                       <span className="tnum flex-none font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-ok">
-                        ✓ {t("correctMark")}
+                        <span aria-hidden>✓ </span>{t("correctMark")}
                       </span>
                     )}
                     {wrong && (
                       <span className="tnum flex-none font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-danger">
-                        ✗ {t("wrongMark")}
+                        <span aria-hidden>✗ </span>{t("wrongMark")}
                       </span>
                     )}
                   </button>

@@ -183,14 +183,14 @@ export function SiteNav() {
                   href="/roles"
                   className="hidden min-h-[44px] items-center gap-2 rounded-btn px-3 py-3 text-[13px] font-semibold text-muted transition hover:text-ink md:flex"
                 >
-                  <span aria-hidden>⌕</span> {t("searchRoles")}
+                  <svg aria-hidden viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"><circle cx="7" cy="7" r="5" /><path d="m11 11 3 3" /></svg> {t("searchRoles")}
                 </Link>
                 <Link href="/auth/masuk" className="hidden min-h-[44px] items-center px-3 py-3 text-[14px] font-semibold text-muted transition hover:text-ink sm:flex">
                   {t("login")}
                 </Link>
                 <Link href={HOME_HASH("#pekerjaan")} className="btn-amber group min-h-[44px] whitespace-nowrap px-3.5 py-3 text-[13px] font-extrabold sm:px-5 sm:text-[14px]">
                   {t("exploreRoles")}
-                  <span className="btn-island btn-island-dark hidden !h-6 !w-6 text-xs min-[420px]:inline-flex">↗</span>
+                  <span className="btn-island btn-island-dark hidden !h-6 !w-6 text-xs min-[420px]:inline-flex" aria-hidden><svg viewBox="0 0 12 12" width="11" height="11" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9 9 3M4 3h5v5" /></svg></span>
                 </Link>
                 <button
                   ref={toggleRef}
@@ -258,7 +258,7 @@ export function SiteNav() {
                 {t("searchCta")}
               </Link>
               <Link href={HOME_HASH("#pekerjaan")} onClick={() => setOpen(false)} className="btn-amber group min-h-[52px] flex-1 justify-center text-[15px]">
-                {t("exploreRoles")} <span className="btn-island btn-island-dark">↗</span>
+                {t("exploreRoles")} <span className="btn-island btn-island-dark" aria-hidden><svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9 9 3M4 3h5v5" /></svg></span>
               </Link>
             </div>
           </nav>
@@ -279,24 +279,7 @@ export function SiteFooter() {
   return (
     <footer className="relative overflow-hidden border-t border-line bg-card">
       <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-16">
-        <div className="panel-warm flex flex-col gap-8 p-8 md:flex-row md:items-center md:justify-between md:p-12">
-          <div className="max-w-xl">
-            <p className="eyebrow-light">{t("ctaEyebrow")}</p>
-            <p className="mt-3 text-[32px] font-extrabold leading-[1.02] tracking-[-0.03em] text-ink md:text-5xl">
-              {t("ctaTitle")}
-            </p>
-          </div>
-          <div className="flex w-full max-w-md flex-col gap-3 sm:flex-row sm:items-center md:w-auto md:flex-none md:flex-col md:items-stretch lg:flex-row lg:items-center">
-            <Link href="/auth/daftar" className="btn-amber min-h-[52px] flex-none justify-center px-7 py-4 text-[15px] font-extrabold">
-              {t("ctaButton")}
-            </Link>
-            <p className="max-w-[32ch] font-mono text-[12px] leading-relaxed text-muted">
-              {t("ctaNote")}
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-14 grid gap-10 md:grid-cols-6">
+        <div className="mt-2 grid gap-10 md:grid-cols-6">
           <div className="md:col-span-2">
             <p className="flex items-center gap-2.5">
               <span className="flex h-11 w-11 items-center justify-center rounded-btn bg-brand-700 font-mono text-[14px] font-extrabold text-white shadow-[0_10px_24px_-10px_rgba(29,78,216,0.7)]">

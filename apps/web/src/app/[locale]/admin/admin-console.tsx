@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTRPC } from "@/trpc/client";
+import { EmptyState } from "@/components/empty-state";
 
 /*
  * Admin console — the operations that used to require raw SQL.
@@ -139,17 +140,25 @@ export function AdminConsole() {
 
   return (
     <div className="space-y-10">
+      {/* Mutation feedback lives at the top, next to the acting controls —
+          not below the fold where neither sighted nor SR users find it. */}
+      {flash.node}
       {/* ── Numbers: a 7/5 bento, not four equal tiles ─────────────── */}
       <section aria-label={t("kpiLabel")}>
         <div className="grid gap-x-8 gap-y-8 md:grid-cols-12">
           {kpis.length === 0
-            ? Array.from({ length: 4 }).map((_, i) => (
+            ? (
+              <>
+                <p className="sr-only" role="status">{t("loading")}</p>
+                {Array.from({ length: 4 }).map((_, i) => (
                 <div
                   key={i}
                   aria-hidden
                   className={`h-[92px] animate-pulse rounded-card bg-cream ${i === 0 ? "md:col-span-7" : "md:col-span-5"}`}
                 />
-              ))
+                ))}
+              </>
+            )
             : kpis.map(([label, value, sub], i) => (
                 <div
                   key={label}
@@ -186,11 +195,14 @@ export function AdminConsole() {
           <p className="max-w-[46ch] text-[13px] leading-relaxed text-muted">{t("metricsSub")}</p>
         </div>
         {metrics.isLoading ? (
-          <ul className="mt-5 grid gap-4 sm:grid-cols-2" aria-hidden>
-            {Array.from({ length: 4 }).map((_, i) => (
-              <li key={i} className="h-[76px] animate-pulse rounded-card bg-cream" />
-            ))}
-          </ul>
+          <>
+            <p className="sr-only" role="status">{t("loading")}</p>
+            <ul className="mt-5 grid gap-4 sm:grid-cols-2" aria-hidden>
+              {Array.from({ length: 4 }).map((_, i) => (
+                <li key={i} className="h-[76px] animate-pulse rounded-card bg-cream" />
+              ))}
+            </ul>
+          </>
         ) : metrics.data ? (
           <dl className="mt-5 grid gap-x-8 gap-y-6 sm:grid-cols-2">
             <div className="border-t border-line pt-4">
@@ -227,7 +239,7 @@ export function AdminConsole() {
             </div>
           </dl>
         ) : (
-          <p className="mt-5 text-sm text-soft">{t("errRole")}</p>
+          <p role="alert" className="mt-5 text-sm text-soft">{t("metricsError")}</p>
         )}
       </section>
 
@@ -250,7 +262,7 @@ export function AdminConsole() {
         >
           <div className="grid gap-4 md:grid-cols-12">
             <label className="grid gap-2 text-sm md:col-span-9">
-              {t("genLabel")}
+              <span className="font-semibold">{t("genLabel")}</span>
               <input
                 name="jobTitle" required minLength={3} maxLength={80}
                 value={jobTitle} onChange={(e) => setJobTitle(e.target.value)}
@@ -315,7 +327,7 @@ export function AdminConsole() {
             {users.data.map((u) => (
               <li
                 key={u.id}
-                className="grid gap-x-8 gap-y-3 border-t border-line py-4 transition-colors duration-300 hover:bg-brand-50/60 md:grid-cols-12 md:items-center md:px-2"
+                className="grid gap-x-8 gap-y-3 border-t border-line py-4 transition-colors duration-200 hover:bg-brand-50/60 md:grid-cols-12 md:items-center md:px-2"
               >
                 <div className="md:col-span-5">
                   <p className="truncate font-bold">{u.name ?? "—"}</p>
@@ -351,7 +363,9 @@ export function AdminConsole() {
             ))}
           </ul>
         ) : (
-          <p className="mt-5 text-sm text-soft">{t("noUsers")}</p>
+          <div className="mt-5">
+            <EmptyState art="ledger" title={t("noUsers")} hint={t("usersSub")} />
+          </div>
         )}
       </section>
 
@@ -377,21 +391,21 @@ export function AdminConsole() {
         >
           <div className="grid gap-4 md:grid-cols-12">
             <label className="grid gap-2 text-sm md:col-span-3">
-              {t("slugLabel")}
+              <span className="font-semibold">{t("slugLabel")}</span>
               <input
                 name="slug" required value={slug} onChange={(e) => setSlug(e.target.value)}
                 placeholder="contoh: akuntansi-dasar" className="field"
               />
             </label>
             <label className="grid gap-2 text-sm md:col-span-4">
-              {t("titleIdLabel")}
+              <span className="font-semibold">{t("titleIdLabel")}</span>
               <input
                 name="titleId" required value={titleId} onChange={(e) => setTitleId(e.target.value)}
                 placeholder="contoh: Akuntansi Dasar" className="field"
               />
             </label>
             <label className="grid gap-2 text-sm md:col-span-3">
-              {t("titleEnLabel")}
+              <span className="font-semibold">{t("titleEnLabel")}</span>
               <input
                 name="titleEn" value={titleEn} onChange={(e) => setTitleEn(e.target.value)}
                 placeholder={t("titleEnPh")} className="field"
@@ -413,7 +427,7 @@ export function AdminConsole() {
             {courses.data.map((c) => (
               <li
                 key={c.id}
-                className="grid gap-x-8 gap-y-3 border-t border-line py-4 transition-colors duration-300 hover:bg-brand-50/60 md:grid-cols-12 md:items-center md:px-2"
+                className="grid gap-x-8 gap-y-3 border-t border-line py-4 transition-colors duration-200 hover:bg-brand-50/60 md:grid-cols-12 md:items-center md:px-2"
               >
                 <p className="font-mono text-[12px] text-muted md:col-span-3">/{c.slug}</p>
                 <p className="font-bold md:col-span-5">{c.titleId}</p>
@@ -444,11 +458,11 @@ export function AdminConsole() {
             ))}
           </ul>
         ) : (
-          <p className="mt-5 text-sm text-soft">{t("noCourses")}</p>
+          <div className="mt-5">
+            <EmptyState art="ledger" title={t("noCourses")} hint={t("coursesSub")} />
+          </div>
         )}
       </section>
-
-      {flash.node}
     </div>
   );
 }

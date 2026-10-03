@@ -66,8 +66,16 @@ export default async function StudentDashboard({ params }: { params: Promise<{ l
                   >
                     {progress}%
                   </p>
-                  <div className="bar-track mt-4">
-                    <div className="bar-fill" style={{ width: `${progress}%` }} />
+                  <div
+                    className="bar-track mt-4"
+                    role="progressbar"
+                    aria-valuemin={0}
+                    aria-valuemax={100}
+                    aria-valuenow={progress}
+                    aria-valuetext={`${progress}%`}
+                    aria-label={t("progressLabel")}
+                  >
+                    <div className="bar-fill" style={{ transform: `scaleX(${progress / 100})` }} />
                   </div>
                   <p className="mt-3 font-mono text-[11px] text-muted">
                     {t("pathStatus", { status: snap.activePath.status })}
