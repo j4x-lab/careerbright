@@ -541,5 +541,209 @@
       "event": "Optimasi ukuran aplikasi dan konsumsi baterai."
     }
   ]
+},
+{
+  "id": "network-engineer",
+  "category": "Tech & Product",
+  "title": "Network Engineer",
+  "shortDescription": "Bukan cuma colok kabel LAN, tapi orang yang dicari saat seluruh kantor tidak bisa internet.",
+  "tools": [
+    "Cisco",
+    "MikroTik",
+    "Wireshark",
+    "Zabbix"
+  ],
+  "mythVsReality": {
+    "myth": "Network engineer itu tukang WiFi yang kerjanya santai kalau internet lancar.",
+    "reality": "Saat internet mati, 200 orang berhenti kerja dan semuanya menatapmu. Pagi yang tenang berarti semalam ada yang begadang."
+  },
+  "timeline": [
+    {
+      "time": "08:00 WIB",
+      "event": "Cek monitoring: ada perangkat yang down semalam."
+    },
+    {
+      "time": "10:00 WIB",
+      "event": "Komplain WiFi lemot lantai 3: survey interferensi."
+    },
+    {
+      "time": "13:00 WIB",
+      "event": "Konfigurasi VLAN untuk divisi baru."
+    },
+    {
+      "time": "15:30 WIB",
+      "event": "Dokumentasi topologi yang berubah minggu ini."
+    }
+  ]
+},
+{
+  "id": "cybersecurity-analyst",
+  "category": "Tech & Product",
+  "title": "Cybersecurity Analyst (SOC)",
+  "shortDescription": "Bukan hacker bertopi hitam, tapi penjaga yang menatap alert 8 jam sehari dan tidak boleh lengah.",
+  "tools": [
+    "Splunk",
+    "Wireshark",
+    "Nmap",
+    "PhishER"
+  ],
+  "mythVsReality": {
+    "myth": "Kerja cybersecurity itu seperti di film: meretas balik penjahat.",
+    "reality": "99% alert adalah false positive. Keahliannya justru tahu mana 1% yang benar-benar serangan."
+  },
+  "timeline": [
+    {
+      "time": "09:00 WIB",
+      "event": "Triage alert semalam: 300 event, 3 perlu investigasi."
+    },
+    {
+      "time": "11:00 WIB",
+      "event": "Analisa email phishing yang dilaporkan karyawan finance."
+    },
+    {
+      "time": "14:00 WIB",
+      "event": "Threat hunting: cari pola aneh di log 30 hari."
+    },
+    {
+      "time": "16:00 WIB",
+      "event": "Tulis laporan insiden + rekomendasi patch."
+    }
+  ]
+},
+{
+  "id": "motion-designer",
+  "category": "Creative & Marketing",
+  "title": "Motion Designer",
+  "shortDescription": "Bukan cuma bikin yang bergerak, tapi yang membuat orang berhenti scrolling.",
+  "tools": [
+    "After Effects",
+    "Premiere",
+    "Figma",
+    "Blender"
+  ],
+  "mythVsReality": {
+    "myth": "Motion designer tinggal animasikan, software yang kerja.",
+    "reality": "Render 6 jam bisa gagal di menit terakhir, dan revisi 'dibikin lebih hidup ya' tidak ada artinya teknis."
+  },
+  "timeline": [
+    {
+      "time": "09:00 WIB",
+      "event": "Cek render semalam: ada yang corrupt di detik 12."
+    },
+    {
+      "time": "11:00 WIB",
+      "event": "Storyboard bumper 6 detik untuk kampanye baru."
+    },
+    {
+      "time": "14:00 WIB",
+      "event": "Revisi easing + timing setelah feedback creative lead."
+    },
+    {
+      "time": "16:30 WIB",
+      "event": "Export 3 versi aspek rasio: 16:9, 1:1, 9:16."
+    }
+  ]
+},
+{
+  "id": "procurement-staff",
+  "category": "Business & Operations",
+  "title": "Procurement Staff",
+  "shortDescription": "Bukan cuma belanja barang kantor, tapi penjaga gerbang antara uang perusahaan dan vendor.",
+  "tools": [
+    "SAP",
+    "Excel",
+    "E-procurement",
+    "WhatsApp Business"
+  ],
+  "mythVsReality": {
+    "myth": "Pengadaan itu tinggal pilih yang termurah lalu pesan.",
+    "reality": "Termurah sering berarti telat, cacat, atau — paling berbahaya — titipan orang dalam."
+  },
+  "timeline": [
+    {
+      "time": "09:00 WIB",
+      "event": "Buka RFQ baru: 3 vendor untuk pengadaan laptop."
+    },
+    {
+      "time": "11:00 WIB",
+      "event": "Evaluasi penawaran: harga vs garansi vs rekam jejak."
+    },
+    {
+      "time": "14:00 WIB",
+      "event": "Negosiasi termin pembayaran dengan vendor terpilih."
+    },
+    {
+      "time": "16:00 WIB",
+      "event": "Arsip PO + lacak pengiriman yang telat."
+    }
+  ]
+},
+{
+  "id": "financial-planner",
+  "category": "Finance & Banking",
+  "title": "Financial Planner",
+  "shortDescription": "Bukan cuma jualan produk investasi, tapi bilang ke klien bahwa gaya hidupnya tidak sustainable.",
+  "tools": [
+    "Excel",
+    "Aplikasi perencana",
+    "SLIK OJK",
+    "Presentasi"
+  ],
+  "mythVsReality": {
+    "myth": "Perencana keuangan itu sales asuransi berkedok konsultan.",
+    "reality": "Yang bagus justru menolak menjual: pekerjaannya diagnosis dulu, produk belakangan — kalau perlu."
+  },
+  "timeline": [
+    {
+      "time": "09:00 WIB",
+      "event": "Review portofolio klien: alokasi vs profil risiko."
+    },
+    {
+      "time": "11:00 WIB",
+      "event": "Meeting klien baru: gali tujuan, utang, dan gaya hidup."
+    },
+    {
+      "time": "14:00 WIB",
+      "event": "Simulasi dana pensiun 20 tahun dengan 3 skenario."
+    },
+    {
+      "time": "16:00 WIB",
+      "event": "Follow-up klien yang belum eksekusi rekomendasi."
+    }
+  ]
+},
+{
+  "id": "retail-store-supervisor",
+  "category": "Business & Operations",
+  "title": "Retail Store Supervisor (SPV Toko)",
+  "shortDescription": "Bukan cuma jaga toko, tapi bertanggung jawab atas omzet, stok, dan 10 pramuniaga.",
+  "tools": [
+    "POS",
+    "Excel",
+    "WhatsApp",
+    "CCTV"
+  ],
+  "mythVsReality": {
+    "myth": "SPV toko itu kerja santai, tinggal perintah anak buah.",
+    "reality": "Selisih stok opname dipotong dari gajimu, dan komplain pelanggan selalu naik ke kamu duluan."
+  },
+  "timeline": [
+    {
+      "time": "08:00 WIB",
+      "event": "Briefing pagi: target hari ini + promo yang jalan."
+    },
+    {
+      "time": "10:00 WIB",
+      "event": "Cek display + pastikan tidak ada rak kosong."
+    },
+    {
+      "time": "13:00 WIB",
+      "event": "Tangani komplain pelanggan yang tidak selesai di kasir."
+    },
+    {
+      "time": "20:00 WIB",
+      "event": "Closing: hitung omzet, cek selisih, kunci toko."
+    }
+  ]
 }
 ]
