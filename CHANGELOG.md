@@ -1,5 +1,42 @@
 # Changelog — Career SuperBright
 
+## v0.4.0 — Locale-Correct Routing + A11y/Motion Hardening (2026-10-03)
+
+### Nova/ember landing direction, then back to cobalt
+- Concept pass: ember theme tokens (cream/espresso/ember/forest), Space Grotesk
+  variable display face, role-ticker marquee, editorial hero, ruled stats,
+  bento event band, ember CTA climax
+- Recomposed onto the cobalt light-OS so the current UI language is preserved:
+  legal 44px targets, unified `scroll-mt: 32` for anchor clearance under the
+  fixed nav
+- `LANDING.MD` (scratch concept doc) removed once its decisions landed
+
+### Locale-correct navigation (`src/i18n/navigation.ts`)
+- All internal hrefs are locale-less and resolved by next-intl's `Link`, so
+  `/en/**` no longer links back into Indonesian
+- Notice-bar language toggle is functional: same route + hash, `hrefLang`,
+  sr-only label — replaces inert "ID / EN" text
+- Root layout reads `getLocale()` so `<html lang>` is correct on `/en/*`;
+  locale layout calls `setRequestLocale()` to keep routes prerendered
+- Unknown path slugs 404 instead of silently serving another path
+
+### Accessibility
+- Labelled auth fields with `required`/min-length surfaced; success and error
+  moved into separate live regions; post-auth redirect honours the locale
+- Quiz and lab verdicts announce via `role=status`/`role=alert` with sr-only
+  pass/fail text (no colour-only ticks); the lab focuses its results list
+- Mobile nav overlay closes on Escape and restores focus; decorative glyphs
+  marked `aria-hidden`; interactive targets ≥44px
+- Skip links target `<main id="konten" tabIndex={-1}>`, not an inner hero wrapper
+- `Reveal` accepts `as` so revealed list items are not wrapped in a `<div>`
+
+### Motion
+- `prefers-reduced-motion` now collapses each animation onto its authored rest
+  frame instead of a blanket `0.01ms`: progress bars no longer rest at
+  `scaleX(0)` and the marquee no longer parks on the aria-hidden duplicate
+- `will-change` only while a reveal is pending, never at rest
+- WCAG 2.2.2: the logo marquee pauses on hover and keyboard focus
+
 ## v0.3.0 — Premium-Bold + Section Rhythm (2026-10-03)
 
 - Premium-bold redesign: fluid display type, cobalt rule kickers, escalated
