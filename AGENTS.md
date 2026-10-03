@@ -15,7 +15,7 @@ Termux/Android quirks (do not "fix" these):
 
 - `apps/web` invokes Next/TS via node directly (`node ../../node_modules/next/dist/bin/next ...`), not `next` binary — keep it.
 - `packages/db` invokes Prisma via `node ../../node_modules/prisma/build/index.js ...` — Prisma engines can't load here.
-- `next.config.ts`: `webpack.cache = false` in dev, `outputFileTracingRoot` set to monorepo root, `transpilePackages: ["@careerbright/db"]`.
+- `next.config.ts`: `webpack.cache = false` in dev and build (Termux FS can't snapshot persistent cache deps), `outputFileTracingRoot` set to monorepo root, `transpilePackages: ["@careerbright/db"]`.
 - Lingering dev servers: `bash scripts/kill-dev.sh` (proc/cmdline sweep, no `pkill`/`lsof`).
 
 ## Database — SQL is source of truth

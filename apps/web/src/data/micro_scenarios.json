@@ -1922,5 +1922,3668 @@
       "Fatal": "Riset yang diubah agar menyenangkan stakeholder bukan riset — itu dekorasi. Sekali ketahuan, tidak ada tim yang percaya temuanmu lagi.",
       "PractitionerQuote": "Di startup lokal, researcher terbaik tidak pernah 'melaporkan temuan' — ia membuat PM ikut duduk di sesi testing. Tidak ada yang bisa menyangkal user yang mereka saksikan sendiri."
     }
+  },
+  {
+    "id": "sosmed-budget-2",
+    "roleId": "social-media-specialist",
+    "title": "Budget Dipotong 50% Tengah Kuartal",
+    "context": {
+      "message": "Finance memotong budget iklan 50% mulai bulan ini. Target leads tetap sama dan atasan menunggu rencana barumu besok.",
+      "sender": "Marketing Manager (email)",
+      "time": "17:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Bagi rata sisa budget ke semua channel yang berjalan.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Matikan 2 channel dengan CPA terburuk, fokus ke 1 channel + dorong organik.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Habiskan semua sisa budget di awal bulan mumpung ada.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Tolak menjalankan campaign sampai budget dikembalikan.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Budget separuh butuh fokus ganda: potong yang tidak menghasilkan berdasarkan data CPA, bukan perasaan. Satu channel hidup mengalahkan empat yang sekarat.",
+      "Fatal": "Menghabiskan di awal atau mogok kerja sama-sama menyerahkan kendali — padahal keterbatasan budget adalah ujian inti spesialis ads.",
+      "PractitionerQuote": "Di agency Jakarta, budget dipotong itu musim, bukan bencana. Yang bertahan selalu sama: bunuh channel terlemah dengan data, bukan dengan panik."
+    }
+  },
+  {
+    "id": "sosmed-legal-3",
+    "roleId": "social-media-specialist",
+    "title": "Konten Viral Ternyata Melanggar Aturan",
+    "context": {
+      "message": "Kontenmu tembus 2 juta views tapi klaimnya menyesatkan. Tim legal minta takedown hari ini juga.",
+      "sender": "Tim Legal (WhatsApp)",
+      "time": "13:15 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Hapus diam-diam tanpa penjelasan.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Takedown, revisi klaimnya, posting koreksi yang jujur.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Biarkan, views-nya terlalu bagus untuk dikorbankan.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Salahkan agensi yang membuat materinya.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Koreksi terbuka justru menaikkan kepercayaan — audiens memaafkan kesalahan yang diakui, tapi tidak memaafkan yang ditutupi lalu terbongkar.",
+      "Fatal": "Views dari klaim menyesatkan adalah bom: sanksi platform, somasi, dan hilangnya kepercayaan yang dibangun bertahun-tahun.",
+      "PractitionerQuote": "Di brand lokal, aturan mainnya: legal bukan musuh konten — ia remnya. Libatkan legal sebelum posting, bukan sesudah viral."
+    }
+  },
+  {
+    "id": "hrbp-phk-2",
+    "roleId": "hr-business-partner",
+    "title": "Restrukturisasi: Pilih 5 dari 20",
+    "context": {
+      "message": "Direksi memangkas 5 dari 20 posisi divisi operasional. Daftar nama diminta minggu depan dan serikat pekerja mengawasi.",
+      "sender": "Direktur HR (rapat tertutup)",
+      "time": "09:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Pilih 5 dengan gaji tertinggi agar penghematan maksimal.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Susun matriks skor (kinerja, masa kerja, skill kritis) + dokumentasi tiap keputusan.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Undi agar adil bagi semua.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Serahkan sepenuhnya ke manager tanpa review HR.",
+        "type": "Risky"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. PHK tanpa kriteria tertulis adalah undangan gugatan hubungan industrial. Matriks skor melindungimu, perusahaan, dan martabat yang terkena.",
+      "Fatal": "Memilih berdasar gaji atau undian sama-sama tidak bisa dipertahankan di pengadilan — dan menghancurkan moral yang tersisa.",
+      "PractitionerQuote": "Di korporat Indonesia, HRBP yang baik memastikan tidak ada nama yang keluar tanpa kertas. Kriteria tertulis hari ini adalah kesaksianmu tahun depan."
+    }
+  },
+  {
+    "id": "hrbp-bully-3",
+    "roleId": "hr-business-partner",
+    "title": "Laporan Perundungan oleh Top Performer",
+    "context": {
+      "message": "Seorang staf melapor dilecehkan atasannya — yang kebetulan top performer divisi dengan target selalu tercapai.",
+      "sender": "Pelapor (konsultasi rahasia)",
+      "time": "15:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Abaikan, performa divisionya terlalu berharga untuk diganggu.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Investigasi netral, amankan pelapor, beri sanksi berdasar bukti bukan performa.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Pindahkan pelapor diam-diam ke divisi lain.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Umumkan kasusnya ke seluruh kantor agar jera.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Melindungi top performer yang bersalah mengirim pesan: hasil membenarkan segalanya — dan setelah itu tidak ada yang berani melapor lagi.",
+      "Fatal": "Menutupi atau mengumbar kasus sama-sama melanggar prinsip dasar penanganan: rahasia, netral, berbasis bukti.",
+      "PractitionerQuote": "Di HR korporat lokal, kasus pertama yang kamu tangani dengan benar menentukan budaya 5 tahun ke depan. Karyawan selalu menonton apa yang terjadi pada pelapor."
+    }
+  },
+  {
+    "id": "frontend-figma-2",
+    "roleId": "frontend-developer",
+    "title": "Handoff Figma Tanpa State Kosong",
+    "context": {
+      "message": "Designer menyerahkan 1 layar tanpa state kosong, error, dan loading. Deadline 2 hari dan designer cuti seminggu.",
+      "sender": "Designer (link Figma)",
+      "time": "10:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Hardcode happy path saja, edge case belakangan.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Definisikan state kosong, error, dan skeleton sendiri + konfirmasi 30 menit sebelum cuti.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tiru pixel tanpa interaksi apa pun.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Tolak kerjakan sampai designer kembali.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Developer senior tidak menunggu spek sempurna — ia melengkapi yang bolong dengan keputusan eksplisit yang dikonfirmasi, bukan asumsi diam-diam.",
+      "Fatal": "Happy-path-only adalah bug yang dijadwalkan: ia meledak tepat saat demo ke klien, bukan saat development.",
+      "PractitionerQuote": "Di software house Jakarta, handoff incomplete adalah normal, bukan alasan. 30 menit tanya sebelum designer cuti menghemat 3 hari menebak-nebak."
+    }
+  },
+  {
+    "id": "frontend-a11y-3",
+    "roleId": "frontend-developer",
+    "title": "Audit: Gagal Kontras dan Keyboard",
+    "context": {
+      "message": "Audit aksesibilitas: 12 layar gagal kontras dan tidak bisa dinavigasi keyboard. Klien enterprise mensyaratkan WCAG sebelum go-live.",
+      "sender": "QA Lead (laporan audit)",
+      "time": "11:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Abaikan, pengguna disabilitas minoritas.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Perbaiki urutan fokus + kontras + uji screen reader satu putaran.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tambah teks kecil permohonan maaf di footer.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Tulis ulang total aksesibilitas 2 minggu, tunda rilis.",
+        "type": "Risky"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. 80% masalah aksesibilitas selesai dengan fokus order, kontras, dan label — tanpa rewrite. Sempurna belakangan, bisa dipakai sekarang.",
+      "Fatal": "Mengabaikan syarat kontrak enterprise demi kecepatan adalah cara tercepat kehilangan klien terbesar.",
+      "PractitionerQuote": "Di proyek enterprise lokal, aksesibilitas bukan fitur sosial — itu klausul kontrak. Coba navigasi dengan keyboard 10 menit dan kamu akan menemukan separuh bug-nya."
+    }
+  },
+  {
+    "id": "apm-bug-2",
+    "roleId": "associate-product-manager",
+    "title": "40 Bug vs 3 Fitur, Sales Mendesak",
+    "context": {
+      "message": "Backlog: 40 bug menumpuk. Tim sales mendesak 3 fitur baru untuk tutup kuartal. Engineering menunggu prioritasmu hari ini.",
+      "sender": "Head of Sales + Tech Lead",
+      "time": "09:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Kerjakan 3 fitur dulu, bug bisa menunggu kuartal depan.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Klasifikasi bug P0/P1, alokasi kapasitas 70/30, komunikasikan ke sales.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Kerjakan semuanya sekaligus dengan lembur tim.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Sembunyikan jumlah bug dari laporan.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Prioritisasi bukan memilih satu pihak — tapi memberi tiap pihak porsi eksplisit plus alasan. Sales bisa menjual roadmap jujur; tidak bisa menjual kebohongan.",
+      "Fatal": "Menimbun bug demi fitur baru adalah bunga berbunga: tiap rilis berikutnya makin lambat sampai tim berhenti total.",
+      "PractitionerQuote": "Di startup lokal, APM yang baik punya satu slide andalan: tumpukan bug yang diterjemahkan jadi churn rupiah. Tiba-tiba semua orang setuju bug itu penting."
+    }
+  },
+  {
+    "id": "apm-metrik-3",
+    "roleId": "associate-product-manager",
+    "title": "Retention Anjlok 15% Setelah Rilis",
+    "context": {
+      "message": "Seminggu setelah rilis besar, retention turun 15%. Direksi bertanya di grup: 'Ada apa dengan produk kita?'",
+      "sender": "Direksi (grup WhatsApp)",
+      "time": "08:15 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Rollback panik ke versi lama tanpa data.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Segmentasi kohort, temukan penyebab pasti, uji perbaikan ke sebagian user.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Salahkan campaign marketing yang bersamaan.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Ubah definisi metrik agar angkanya terlihat naik.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Angka agregat berbohong — potong per kohort dan kamu tahu apakah ini bug, segmentasi salah, atau sekadar noise. Lalu jawab direksi dengan temuan, bukan tebakan.",
+      "Fatal": "Mengubah definisi metrik adalah memalsukan speedometer: mobil tetap menuju jurang, hanya sopirnya yang tenang.",
+      "PractitionerQuote": "Di produk lokal, aturan main saat metrik jatuh: 24 jam pertama untuk diagnosis, bukan untuk aksi. Rollback buta sama berbahayanya dengan diam."
+    }
+  },
+  {
+    "id": "analyst-promo-3",
+    "roleId": "data-analyst",
+    "title": "Promo 3 Divisi Butuh Angka Hari Ini",
+    "context": {
+      "message": "Tiga divisi menunggu angka final untuk promo yang jalan besok pagi. Datamu belum sepenuhnya bersih.",
+      "sender": "Head of Marketing (telepon)",
+      "time": "16:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Rilis angka mentah apa adanya agar promo jalan.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Rilis angka sementara berlabel jelas + disclaimer + janji final besok pagi.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tolak memberi angka apa pun sampai 100% bersih.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Pakai angka promo tahun lalu saja.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Bisnis butuh bergerak — tugasmu membuatnya bergerak dengan mata terbuka: angka sementara yang jujur statusnya, bukan angka palsu yang rapi.",
+      "Fatal": "Angka tahun lalu untuk keputusan besok bukan analisa — itu ramalan dengan logo perusahaan.",
+      "PractitionerQuote": "Di e-commerce lokal, analis yang bilang 'tidak bisa' saat deadline akan dilewati — dan tidak pernah ditanya lagi. Beri yang terbaik hari ini, sempurnakan besok."
+    }
+  },
+  {
+    "id": "designer-handoff-2",
+    "roleId": "ui-ux-designer",
+    "title": "Developer Bilang Desainmu Tak Bisa Dibangun",
+    "context": {
+      "message": "Lead frontend: 'Animasi dan layout ini tidak realistis untuk deadline 2 minggu.' Kamu yakin desainnya tepat untuk user.",
+      "sender": "Lead Frontend (sync)",
+      "time": "14:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Paksa pixel-perfect, developer harus cari cara.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Prioritaskan komponen kritis, sediakan versi fallback, negosiasi scope visual.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Serahkan semua keputusan visual ke developer.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Desain ulang total yang lebih sederhana.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Desain yang tidak bisa dibangun adalah angan-angan — negosiasi scope visual sambil menjaga pengalaman inti itulah pekerjaan desainer profesional.",
+      "Fatal": "Memaksa pixel-perfect melewati deadline merusak rilis dan hubungan dengan tim yang membangun karyamu.",
+      "PractitionerQuote": "Di startup Jakarta, desainer dihormati developer bukan karena Figma-nya indah — tapi karena ia datang dengan prioritas dan fallback, bukan ultimatum."
+    }
+  },
+  {
+    "id": "designer-stakeholder-3",
+    "roleId": "ui-ux-designer",
+    "title": "Dua Stakeholder Minta Berlawanan",
+    "context": {
+      "message": "PM mau alur 1 langkah, Legal mau 5 langkah persetujuan. Keduanya menunggu desain final darimu besok.",
+      "sender": "PM + Legal (thread email)",
+      "time": "16:20 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Gabungkan keduanya jadi kompromi 3 langkah.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Uji cepat 5 user per arah, menangkan dengan data.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Ikuti yang jabatannya paling tinggi.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Diam sampai mereka sepakat sendiri.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Kompromi tanpa data menghasilkan desain yang dibenci kedua pihak. Lima user, satu sore, dan debat selesai dengan bukti.",
+      "Fatal": "Diam berarti keputusan dibuat tanpa desainer — dan kamu tetap disalahkan hasilnya.",
+      "PractitionerQuote": "Di korporat lokal, desainer bukan wasit antara stakeholder — ia pembawa bukti. Yang membawa data tidak pernah kalah dari yang membawa jabatan."
+    }
+  },
+  {
+    "id": "ae-ghosting-2",
+    "roleId": "account-executive",
+    "title": "Prospek Terbesar Ghosting Setelah 3 Demo",
+    "context": {
+      "message": "Prospek Rp1,2 miliar tidak membalas 3 minggu setelah 3 demo sukses. Kuartal tutup 2 minggu lagi.",
+      "sender": "CRM (deal stagnan 21 hari)",
+      "time": "09:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Telepon dan WA tiap hari sampai dibalas.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Kirim break-up email + insight baru yang relevan + batas waktu sopan.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tawarkan diskon 20% tanpa diminta.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Lupakan dan fokus ke prospek kecil saja.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Ghosting biasanya berarti prioritas berubah, bukan minat hilang — break-up email yang bermartabat justru paling sering dibalas, plus insight memberi alasan baru.",
+      "Fatal": "Diskon panik atau teror telepon mengubahmu dari partner jadi pengemis — dan harga yang jatuh tidak pernah naik lagi.",
+      "PractitionerQuote": "Di sales B2B lokal, follow-up terbaik bukan 'follow up ya Pak' — tapi satu kalimat insight yang membuat prospek merasa rugi tidak membalas."
+    }
+  },
+  {
+    "id": "ae-churn-3",
+    "roleId": "account-executive",
+    "title": "Klien Mau Pindah ke Kompetitor Murah",
+    "context": {
+      "message": "Klien 3 tahun: 'Maaf, kompetitor 30% lebih murah. Kontrak habis bulan depan.' Nilai kontraknya 40% targetmu.",
+      "sender": "Klien (telepon)",
+      "time": "14:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Samakan harga rugi demi mempertahankan.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "QBR darurat: hitung switching cost + tunjukkan ROI 3 tahun + tawarkan pilot fitur baru.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Ancam denda pemutusan kontrak.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Biarkan pergi, fokus cari pengganti.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Klien pindah karena lupa nilaimu, bukan karena harga semata — ingatkan dengan angka switching cost dan bukti, bukan ancaman.",
+      "Fatal": "Perang harga yang kamu menangkan hari ini adalah margin yang hilang selamanya — untukmu dan pasar.",
+      "PractitionerQuote": "Di B2B Indonesia, retensi dimenangkan 6 bulan sebelum kontrak habis, bukan 6 hari. QBR rutin adalah asuransi termurah seorang AE."
+    }
+  },
+  {
+    "id": "mt-target-2",
+    "roleId": "management-trainee",
+    "title": "Target 90 Hari yang Mustahil",
+    "context": {
+      "message": "Target rotasimu: naikkan efisiensi 30% dalam 90 hari dengan data seadanya dan tim yang tidak melapor ke kamu.",
+      "sender": "Brief rotasi (dokumen)",
+      "time": "08:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Kerjakan diam-diam, gagal pun diam-diam.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Pecah jadi milestone mingguan, validasi asumsi, minta sponsor dari atasan rotasi.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Protes ke pusat bahwa target tidak realistis.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Percantik angka laporan akhir.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Target mustahil adalah uji inisiatif, bukan uji kepatuhan buta — yang dinilai adalah cara kamu memecah, memvalidasi, dan menggalang dukungan.",
+      "Fatal": "Angka laporan yang dipercantik akan dibaca reviewer MT berpengalaman dalam 5 menit — dan kariermu selesai di situ.",
+      "PractitionerQuote": "Di program MT BUMN, tidak ada yang lulus karena targetnya tercapai semua — yang lulus adalah yang target gagalnya pun terdokumentasi rapi dengan pembelajaran."
+    }
+  },
+  {
+    "id": "mt-anaktua-3",
+    "roleId": "management-trainee",
+    "title": "Tim Senior Menolak Dipimpin Anak MT",
+    "context": {
+      "message": "Anggota tim yang 15 tahun lebih tua: 'Saya kerja di sini sebelum kamu lahir. Jangan ajari saya.' Project butuh mereka.",
+      "sender": "Staf senior (ruang istirahat)",
+      "time": "12:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Perintah dengan otoritas program MT.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Dengarkan pengalamannya, minta mentoring, beri kredit publik atas kontribusinya.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Laporkan sebagai penghambat ke pusat.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Kerjakan semua sendiri tanpa mereka.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Otoritas tidak datang dari badge MT — datang dari rasa hormat yang kamu beri duluan. Senior yang merasa dihargai menjadi benteng terkuatmu.",
+      "Fatal": "Perintah otoriter ke senior adalah cara tercepat membuat seluruh cabang memusuhimu dalam seminggu.",
+      "PractitionerQuote": "Di rotasi daerah, MT yang sukses selalu punya 'orang dalam' senior. Caranya cuma satu: minta diajari dengan tulus — dan jangan pernah mencuri kreditnya."
+    }
+  },
+  {
+    "id": "teller-palsu-2",
+    "roleId": "teller-bank",
+    "title": "Setoran Tunai Terindikasi Palsu",
+    "context": {
+      "message": "Nasabah menyetor 100 lembar, 3 terindikasi palsu di mesin. Antrean 15 orang dan nasabah mulai meninggikan suara.",
+      "sender": "Mesin hitung (bunyi peringatan)",
+      "time": "10:45 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Terima semua agar antrean cepat dan tidak ribut.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Tahan 3 lembar + berita acara + jelaskan sopan + lapor supervisor.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tolak mentah dan usir nasabah dari antrean.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Kembalikan diam-diam tanpa pencatatan.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Uang palsu adalah perkara pidana — prosedurnya kaku justru untuk melindungimu: tahan, catat, lapor. Kesopananmu yang menentukan apakah nasabah kooperatif.",
+      "Fatal": "Menerima atau mengembalikan uang palsu tanpa catat menjadikanmu bagian dari peredarannya di mata hukum.",
+      "PractitionerQuote": "Di perbankan, teller yang tenang saat mesin berbunyi adalah teller yang terlatih. Nasabah boleh panik — kamu tidak boleh."
+    }
+  },
+  {
+    "id": "teller-target-3",
+    "roleId": "teller-bank",
+    "title": "Target Cross-Selling vs Nasabah Buru-buru",
+    "context": {
+      "message": "Target referral produk bulan ini kurang 40%. Nasabah di depanmu jelas terburu-buru melihat jam.",
+      "sender": "Dashboard target (pengingat)",
+      "time": "13:20 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Paksa tawarkan ke semua nasabah hari ini.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Tawarkan hanya yang profilnya cocok + catat follow-up yang tidak mengganggu.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Abaikan target bulan ini.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Daftarkan produk tanpa persetujuan eksplisit.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Cross-selling yang tepat sasaran 10% closing-nya mengalahkan 100% penawaran asal yang merusak pengalaman — dan follow-up tercatat menunjukkan ikhtiar ke atasan.",
+      "Fatal": "Mendaftarkan produk tanpa persetujuan adalah pelanggaran yang bisa mengakhiri karier perbankan seketika.",
+      "PractitionerQuote": "Di cabang, teller yang baik membaca nasabah dalam 10 detik: yang buru-buru dilayani cepat + dicatat, yang santai ditawari. Target tercapai tanpa satu pun komplain."
+    }
+  },
+  {
+    "id": "backend-n1-2",
+    "roleId": "backend-developer",
+    "title": "Query N+1 Bikin API 8 Detik",
+    "context": {
+      "message": "Endpoint katalog butuh 8 detik: 1 query berubah jadi 2.000 query per request. Flash sale dimulai 3 hari lagi.",
+      "sender": "APM report (alert)",
+      "time": "11:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Tambah cache tanpa perbaiki query-nya.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Profiling, eager load + index yang tepat, uji beban sebelum sale.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Upgrade server 4x lipat.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Biarkan, user cukup sabar menunggu.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Cache menutupi bau, bukan membersihkan sumbernya — data berubah dan cache basi justru menambah bug baru. Perbaiki query, ukur, baru bicara scale.",
+      "Fatal": "Upgrade server untuk query buruk seperti membeli truk untuk mengangkut satu kardus — mahal dan masalahnya tetap.",
+      "PractitionerQuote": "Di backend startup lokal, N+1 adalah pembunuh senyap yang baru teriak saat Harbolnas. EXPLAIN query-mu sebelum traffic yang melakukannya."
+    }
+  },
+  {
+    "id": "backend-kontrak-3",
+    "roleId": "backend-developer",
+    "title": "Frontend Butuh Field Baru, Kontrak Breaking",
+    "context": {
+      "message": "Tim frontend butuh 3 field baru minggu ini. Menambahkannya merusak kontrak API yang dipakai 2 aplikasi lain.",
+      "sender": "Frontend Lead (Slack)",
+      "time": "15:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Ubah langsung, frontend lain menyesuaikan saja.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Versioning API + deprecation notice + migrasi bertahap.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tolak semua perubahan kontrak selamanya.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Duplikat endpoint tanpa dokumentasi.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Kontrak API adalah janji publik — mengubahnya diam-diam merusak aplikasi yang bahkan tidak kamu ketahui. Versi baru + tenggat migrasi + dokumentasi.",
+      "Fatal": "Endpoint duplikat tanpa dokumen adalah utang yang bunganya dibayar tiap onboarding engineer baru.",
+      "PractitionerQuote": "Di tim produk Jakarta, aturan kontrak API: tambah boleh, ubah harus versi baru, hapus harus umumkan 3 bulan. Yang melanggar aturan ini selalu lembur saat aplikasi partner mati."
+    }
+  },
+  {
+    "id": "qa-flaky-2",
+    "roleId": "qa-engineer",
+    "title": "50 Test Flaky, Tim Menyalahkan QA",
+    "context": {
+      "message": "50 automated test gagal-tidak-menentu. Developer: 'Test QA yang bermasalah, bukan kode kami.' Rilis tertahan.",
+      "sender": "CI dashboard (merah)",
+      "time": "10:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Hapus semua test yang flaky agar hijau.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Karantina yang flaky, tandai jelas, perbaiki 5 teratas tiap sprint.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Paksa hijau dengan retry 10x tiap test.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Berhenti menulis automated test.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Test flaky yang dibiarkan merah mengajari tim mengabaikan semua merah — termasuk yang asli. Karantina menjaga sinyal tetap dipercaya sambil diperbaiki bertahap.",
+      "Fatal": "Menghapus test bermasalah sama dengan mencopot alarm kebakaran karena berisik.",
+      "PractitionerQuote": "Di software house lokal, QA yang menghapus test agar hijau akan ditagih saat bug produksi. Yang mengkarantina dengan rencana justru dipercaya memegang gerbang rilis."
+    }
+  },
+  {
+    "id": "qa-prod-3",
+    "roleId": "qa-engineer",
+    "title": "Bug Hanya Muncul di Produksi",
+    "context": {
+      "message": "Bug pembayaran hanya terjadi di produksi, tidak pernah di staging. User sudah komplain dan tim menuntut fix hari ini.",
+      "sender": "Support (tiket prioritas 1)",
+      "time": "13:45 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Tebak penyebabnya, deploy fix langsung ke produksi.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Reproduksi di staging mirror + tambah observability + fix terverifikasi.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Rollback permanen ke versi 3 bulan lalu.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Sembunyikan dari laporan rilis.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. 'Hanya di produksi' selalu berarti environment berbeda — temukan bedanya (data, config, traffic), bukan menebak obatnya.",
+      "Fatal": "Deploy tebakan ke produksi saat panik adalah cara tercepat mengubah 1 bug jadi 3.",
+      "PractitionerQuote": "Di tim tech Jakarta, kalimat keramat QA: 'tunjukkan padaku bedanya staging dan prod.' Sembilan dari sepuluh misteri produksi mati di kalimat itu."
+    }
+  },
+  {
+    "id": "copy-ctr-2",
+    "roleId": "copywriter",
+    "title": "CTR 0,3% dari Benchmark 2%",
+    "context": {
+      "message": "Iklan berjalan 2 minggu: CTR 0,3% dari benchmark 2%. Klien bertanya apakah copywriter-nya bisa diganti.",
+      "sender": "Account Executive (forward email klien)",
+      "time": "11:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Ganti semua headline sekaligus malam ini.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "A/B test 3 varian + baca heatmap + iterasi dari pemenang.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Salahkan penempatan media yang dipilih planner.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Naikkan budget 10x lipat agar CTR naik.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. CTR rendah adalah data, bukan vonis — uji terkontrol menemukan apakah masalahnya hook, offer, atau audiens. Satu variabel sekali jalan.",
+      "Fatal": "Menambah budget ke materi yang tidak bekerja hanya mempercepat pemborosan dengan bukti yang rapi.",
+      "PractitionerQuote": "Di agency lokal, copywriter yang menjawab CTR jeblok dengan rencana testing dipertahankan; yang menjawab dengan alasan diganti. Data adalah satu-satunya pembelaan."
+    }
+  },
+  {
+    "id": "copy-brand-3",
+    "roleId": "copywriter",
+    "title": "Tone Klien vs Guideline Brand",
+    "context": {
+      "message": "Klien mau tone slengekan, guideline brand mewajibkan formal. Keduanya tertulis dan saling bertentangan.",
+      "sender": "Brief vs brand book",
+      "time": "09:20 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Ikuti klien diam-diam, guideline urusan belakangan.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Tunjukkan guideline + sodorkan 2 versi (aman vs nekat) + minta pilih tertulis.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tolak mengerjakan brief-nya.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Campur keduanya setengah-setengah.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Konflik tertulis diselesaikan tertulis: tunjukkan risikonya, beri pilihan konkret, kunci keputusan. Copywriter bukan korban brief — ia penasihatnya.",
+      "Fatal": "Versi campur aduk tidak memuaskan siapa pun dan merusak kedua standar sekaligus.",
+      "PractitionerQuote": "Di agency Jakarta, brief yang bertentangan dengan guideline adalah jebakan klasik. Yang selamat selalu sama: minta dipilih tertulis sebelum menulis satu kata."
+    }
+  },
+  {
+    "id": "ops-stok-2",
+    "roleId": "operations-executive",
+    "title": "Stok Gudang vs Sistem Selisih 15%",
+    "context": {
+      "message": "Audit mendadak: fisik vs sistem selisih 15%. Finance menuntut penjelasan besok dan kasbon gudang ikut diperiksa.",
+      "sender": "Finance (memo audit)",
+      "time": "15:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Sesuaikan catatan agar cocok dengan fisik.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Cycle count bertahap + cari akar (retur tak tercatat?) + SOP pencatatan baru.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tuduh staf gudang mencuri.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Biarkan, nanti juga ketemu sendiri.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Selisih stok 90% berasal dari proses (retur, rusak, salah input), bukan maling — temukan lewat hitung bertahap, kunci dengan SOP.",
+      "Fatal": "Menyesuaikan catatan adalah pemalsuan dokumen — masalah operasional berubah jadi masalah hukum.",
+      "PractitionerQuote": "Di operasional Indonesia, gudang yang selisihnya ditutup-tutupi akan selisih lagi bulan depan, lebih besar. Yang dihitung terbuka justru yang sembuh."
+    }
+  },
+  {
+    "id": "ops-armada-3",
+    "roleId": "operations-executive",
+    "title": "3 Armada Mogok, 20 Titik Hari Ini",
+    "context": {
+      "message": "Pagi ini 3 armada mogok bersamaan. 20 titik pengiriman menunggu dan 2 di antaranya supermarket yang denda keterlambatan.",
+      "sender": "Pool kendaraan (telepon)",
+      "time": "07:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Janji semua titik tetap sampai hari ini.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Prioritaskan titik denda + sewa armada + komunikasikan delay jujur ke sisanya.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Batalkan semua pengiriman hari ini.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Paksa supir lembur 2 shift dengan armada tersisa.",
+        "type": "Risky"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Saat kapasitas jebol, tugasmu bukan keajaiban — tapi triase: selamatkan yang dendanya nyata, komunikasikan sisanya sebelum mereka komplain.",
+      "Fatal": "Janji yang pasti ingkar lebih merusak dari kabar telat yang jujur — pelanggan memaafkan keterlambatan, bukan kebohongan.",
+      "PractitionerQuote": "Di logistik lokal, eksekutor dinilai bukan saat semua lancar — tapi pagi seperti ini. Punya nomor rental armada cadangan adalah separuh pekerjaannya."
+    }
+  },
+  {
+    "id": "devops-aman-2",
+    "roleId": "devops-engineer",
+    "title": "Secret Bocor di Repo Publik",
+    "context": {
+      "message": "API key produksi ter-commit ke repo GitHub publik 6 jam lalu. Key itu dipakai 12 service dan repo sudah di-fork 3 kali.",
+      "sender": "Security alert (email)",
+      "time": "09:10 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Hapus commit-nya, masalah selesai.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Revoke + rotasi semua kredensial + audit akses + pasang pre-commit hook.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Private-kan repo, anggap selesai.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Abaikan, repo kecil tidak ada yang lihat.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Secret yang bocor dianggap sudah dikompromikan — titik. Bersihkan riwayat boleh belakangan; yang pertama adalah memutus aksesnya.",
+      "Fatal": "Bot pemindai GitHub membaca secret dalam hitungan menit — 'repo kecil' bukan perlindungan, itu undangan.",
+      "PractitionerQuote": "Di startup lokal, kebocoran secret adalah ritual pendewasaan tim infra. Yang dewasa keluar dengan rotasi + hook; yang kekanak-kanakan keluar dengan private repo dan doa."
+    }
+  },
+  {
+    "id": "devops-biaya-3",
+    "roleId": "devops-engineer",
+    "title": "Tagihan Naik 40% Misterius",
+    "context": {
+      "message": "Tagihan cloud naik 40% tiga bulan berturut-turut tanpa lonjakan traffic. CFO minta dikembalikan ke baseline kuartal ini.",
+      "sender": "CFO (memo)",
+      "time": "10:40 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Bayar saja, anggap biaya pertumbuhan.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Cost explorer per tim + tagihan balik + hapus resource idle.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Matikan semua environment dev.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Pindah provider cloud bulan depan.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Tagihan misterius hampir selalu ulah resource yatim + tim yang tidak tahu biayanya. Transparansi per tim mengubah perilaku permanen — migrasi tidak.",
+      "Fatal": "Pindah cloud karena tagihan boros seperti pindah rumah karena bocor — bocornya ikut pindah.",
+      "PractitionerQuote": "Di startup Indonesia, FinOps paling ampuh bukan tools mahal — tapi email tagihan per tim tiap Senin pagi. Rasa malu adalah optimizer terbaik."
+    }
+  },
+  {
+    "id": "graphic-cetak-2",
+    "roleId": "graphic-designer",
+    "title": "File ke Percetakan Salah Mode Warna",
+    "context": {
+      "message": "File 5.000 brosur dikirim RGB tanpa bleed. Percetakan sudah mulai setting mesin dan deadline pameran 2 hari lagi.",
+      "sender": "Percetakan (telepon)",
+      "time": "15:50 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Kirim apa adanya, percetakan yang menyesuaikan.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Hentikan setting, kirim preflight benar + proof digital + approval tertulis.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Salahkan percetakan nanti kalau hasilnya jelek.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Tunda pameran sepihak.",
+        "type": "Risky"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Biaya proof digital tidak ada apa-apanya dibanding 5.000 brosur cacat — dan approval tertulis memindahkan risiko ke tempatnya.",
+      "Fatal": "Warna RGB yang dicetak offset tidak 'hampir sama' — ia bencana ungu-hijau yang tidak bisa di-unprint.",
+      "PractitionerQuote": "Di dunia cetak Indonesia, desainer dinilai dari preflight-nya: bleed, CMYK, resolusi, outline font. Satu checklist 2 menit menyelamatkan 2 hari."
+    }
+  },
+  {
+    "id": "graphic-brand-3",
+    "roleId": "graphic-designer",
+    "title": "Materi Melanggar Brand Guideline",
+    "context": {
+      "message": "Brief marketing meminta warna dan font di luar guideline. Brand manager sedang cuti dan deadline besok pagi.",
+      "sender": "Marketing (brief)",
+      "time": "17:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Langgar sedikit, tidak akan ketahuan.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Tunjukkan guideline + ajukan pengecualian tertulis atau alternatif compliant.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tolak semua brief marketing.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Buat guideline sendiri yang membolehkan.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Guideline ada agar brand konsisten — pengecualian boleh, tapi tertulis dan sadar, bukan selundupan.",
+      "Fatal": "Satu materi liar yang viral menjadi preseden: setelah itu semua orang melanggar dengan alasan 'kemarin boleh'.",
+      "PractitionerQuote": "Di agency lokal, desainer adalah polisi brand — dan polisi yang baik tidak asal tilang, ia menunjukkan pasalnya plus jalan memutarnya."
+    }
+  },
+  {
+    "id": "seo-konten-2",
+    "roleId": "seo-specialist",
+    "title": "100 Artikel AI Tipis Tak Ranking",
+    "context": {
+      "message": "100 artikel AI setahun lalu: 90% tidak masuk 100 besar. Klien bertanya ke mana perginya budget konten.",
+      "sender": "Klien (laporan kuartal)",
+      "time": "10:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Generate 500 artikel lagi menutupi yang gagal.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Audit + gabungkan atau prune yang tipis + tulis ulang 10 pilar manual.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Beli PBN untuk mendongkrak semuanya.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Hapus semua 100 artikel sekaligus.",
+        "type": "Risky"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Konten tipis massal adalah beban, bukan aset — prune dan konsolidasikan, lalu menangkan dengan 10 artikel yang benar-benar terbaik di niche-nya.",
+      "Fatal": "PBN dan artikel massal adalah dua jalan berbeda menuju penalti manual yang sama.",
+      "PractitionerQuote": "Di SEO Indonesia pasca helpful-content update, rumusnya brutal: 10 artikel yang dibaca manusia mengalahkan 1.000 yang tidak dibaca siapa pun — termasuk Google."
+    }
+  },
+  {
+    "id": "seo-migrasi-3",
+    "roleId": "seo-specialist",
+    "title": "Migrasi Domain Tanpa Redirect Map",
+    "context": {
+      "message": "Perusahaan ganti domain minggu depan. 8.000 URL, belum ada redirect map, dan tim IT bilang 'nanti saja'.",
+      "sender": "IT Manager (rapat)",
+      "time": "14:10 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Migrasi langsung sesuai jadwal.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Petakan 301 prioritas + jaga sitemap + monitoring 30 hari.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Blokir index domain lama.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Biarkan dua domain hidup berdampingan.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Migrasi tanpa redirect adalah bunuh diri organik — ekuitas link bertahun-tahun menguap semalam. Prioritaskan halaman traffic, pantau 30 hari.",
+      "Fatal": "Dua domain hidup berarti duplikat konten massal — Google memilih satu, dan biasanya bukan yang baru.",
+      "PractitionerQuote": "Di agency SEO lokal, migrasi domain adalah operasi jantung: boleh cepat, tidak boleh tanpa peta. Tidak ada 'nanti saja' untuk 301."
+    }
+  },
+  {
+    "id": "recruit-ghost-2",
+    "roleId": "hr-recruiter",
+    "title": "5 Kandidat Ghosting Setelah Offering",
+    "context": {
+      "message": "5 kandidat backend ghosting setelah offering dalam sebulan. User marah: 'Recruitment kerja apa saja?'",
+      "sender": "Hiring Manager (email)",
+      "time": "09:45 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Ancam blacklist mereka di komunitas HR.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Analisis titik drop-off + percepat proses + jaga komunikasi + pipeline cadangan.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Naikkan gaji semua offering 30%.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Salahkan user yang requirement-nya ketinggian.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Ghosting massal adalah gejala prosesmu, bukan moral kandidat — biasanya offering kelamaan keluar atau komunikasi mati 2 minggu. Perbaiki funnel-nya.",
+      "Fatal": "Ancaman blacklist menyebar lebih cepat dari lowonganmu — pasar talent Jakarta kecil dan pendendam.",
+      "PractitionerQuote": "Di rekrutmen tech lokal, kecepatan adalah kompensasi: proses 2 minggu mengalahkan gaji 10% lebih tinggi dengan proses 2 bulan. Kandidat terbaik tidak menunggu."
+    }
+  },
+  {
+    "id": "recruit-palsu-3",
+    "roleId": "hr-recruiter",
+    "title": "CV Bagus, Referensi Janggal",
+    "context": {
+      "message": "Kandidat idaman: CV mulus, tapi 2 referensi tidak bisa dihubungi dan 1 gelagapan saat ditanya detail kerja kandidat.",
+      "sender": "Hasil reference check (catatan)",
+      "time": "16:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Terima saja, butuh cepat dan CV-nya meyakinkan.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Verifikasi berlapis: referensi tambahan + tes kerja + background check.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tolak langsung tanpa konfirmasi ke kandidat.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Abaikan referensi, yang penting skill.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Satu hiring yang salah biayanya 6-9 bulan gaji — verifikasi berlapis itu murah dibanding memecat orang bermasalah 3 bulan kemudian.",
+      "Fatal": "Referensi janggal yang diabaikan hampir selalu menjadi masalah probation yang lebih mahal.",
+      "PractitionerQuote": "Di pasar rekrutmen Jakarta, CV adalah klaim sepihak sampai terbukti. Recruiter yang baik memverifikasi seperti auditor — sopan, tapi tidak percaya begitu saja."
+    }
+  },
+  {
+    "id": "credit-dok-2",
+    "roleId": "credit-analyst",
+    "title": "Dokumen Agunan Tak Lengkap, RM Mendesak",
+    "context": {
+      "message": "RM mendesak pencairan Rp5 miliar: dokumen agunan kurang 3 berkas. 'Nasabah besar, jangan dipersulit.'",
+      "sender": "Relationship Manager (memo)",
+      "time": "11:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Cairkan dulu, lengkapi belakangan.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Tahan + daftar kekurangan tertulis + timeline + eskalasi ke komite.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tolak tanpa penjelasan ke RM.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Terima fotokopi tanpa verifikasi asli.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. 'Lengkapi belakangan' dalam kredit berarti tidak pernah — dan saat macet, analis yang mencairkan tanpa dokumen lengkap yang diperiksa pertama.",
+      "Fatal": "Agunan tanpa dokumen sah bukan agunan — itu asumsi Rp5 miliar.",
+      "PractitionerQuote": "Di perbankan Indonesia, RM dibayar untuk mencairkan, analis dibayar untuk menahan. Kalau analis ikut mencairkan, siapa yang menjaga bank?"
+    }
+  },
+  {
+    "id": "credit-restruktur-3",
+    "roleId": "credit-analyst",
+    "title": "Restrukturisasi Ketiga Kali",
+    "context": {
+      "message": "Debitur meminta restrukturisasi ketiga dalam 2 tahun. Cashflow menipis tapi agunan masih menutup 120% outstanding.",
+      "sender": "Memo restrukturisasi (pengajuan)",
+      "time": "14:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Setujui lagi, agunan masih cukup.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Analisa cashflow jujur + syarat ketat + monitoring bulanan + opsi exit.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tolak dan sita langsung hari ini.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Hapus bukukan diam-diam agar NPL cantik.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Restrukturisasi ketiga adalah pola, bukan musibah — tangani sebagaiWorkout dengan syarat dan pintu keluar, bukan sedekah berulang.",
+      "Fatal": "Menunda pengakuan masalah dengan restrukturisasi abadi hanya menumpuk bom yang lebih besar untuk analis berikutnya — yaitu kamu lagi.",
+      "PractitionerQuote": "Di bank lokal, pepatah analis senior: restrukturisasi pertama adalah solusi, kedua adalah peringatan, ketiga adalah vonis yang belum dibacakan."
+    }
+  },
+  {
+    "id": "mobile-crash-2",
+    "roleId": "mobile-developer",
+    "title": "Crash Hanya di HP RAM 2GB",
+    "context": {
+      "message": "30% user memakai Android RAM 2GB dan aplikasi crash di sana. Tim produk: 'Fokus ke flagship saja.'",
+      "sender": "Crashlytics (laporan)",
+      "time": "09:20 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Abaikan, HP jadul bukan target pasar.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Profil memory + kurangi footprint + uji device farm + rilis bertahap.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Naikkan min SDK, potong 30% user.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Sembunyikan crash report-nya.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Di Indonesia, HP kentang adalah pasar — bukan edge case. Aplikasi yang hidup di RAM 2GB memenangkan segmen yang tidak bisa dibeli iklan.",
+      "Fatal": "Menyembunyikan laporan crash tidak mengurangi crash — hanya mengurangi pengetahuanmu tentangnya.",
+      "PractitionerQuote": "Di startup mobile lokal, device lab termurah adalah HP bekas Rp800 ribu. Uji di situ sebelum rilis, atau user yang mengujinya untukmu — dengan bintang 1."
+    }
+  },
+  {
+    "id": "mobile-baterai-3",
+    "roleId": "mobile-developer",
+    "title": "Aplikasi Boros Baterai, Rating Turun",
+    "context": {
+      "message": "Ulasan terbaru: 'HP panas, baterai habis 2 jam.' Rating turun 4,5 ke 4,1 dalam sebulan.",
+      "sender": "Play Store (ulasan)",
+      "time": "10:10 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Tambah fitur baru agar user lupa soal baterai.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Audit background service + batch network + mode hemat.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Salahkan OS yang tidak efisien.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Tulis ulang native 6 bulan.",
+        "type": "Risky"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Boros baterai 90% berasal dari kerja background yang tidak perlu — dipangkas dalam seminggu, bukan ditulis ulang dalam setahun.",
+      "Fatal": "Menjawab keluhan baterai dengan fitur baru seperti menjawab kebakaran dengan bensin.",
+      "PractitionerQuote": "Di pasar Indonesia yang sensitif baterai dan kuota, aplikasi hemat adalah fitur — yang boros di-uninstall tetangga sebelum sempat viral."
+    }
+  },
+  {
+    "id": "net-loop-2",
+    "roleId": "network-engineer",
+    "title": "Broadcast Storm, Seluruh LAN Lambat",
+    "context": {
+      "message": "Seluruh kantor lambat total. Lampu switch berkedip liar — indikasi broadcast storm, kemungkinan loop kabel.",
+      "sender": "Monitoring Zabbix (alert)",
+      "time": "09:50 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Cabut kabel acak sampai berhenti.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Isolasi per segmen + temukan loop via STP log + perbaiki topologi.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Restart semua switch sekaligus.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Beli switch baru yang lebih mahal.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Storm dilawan dengan segmentasi, bukan kepanikan — isolasi mempersempit, log menunjukkan, topologi diperbaiki agar tidak terulang.",
+      "Fatal": "Mencabut acak saat storm seperti memadamkan api dengan bensin: topologimu makin tidak terdokumentasi.",
+      "PractitionerQuote": "Di IT enterprise Indonesia, 90% broadcast storm berasal dari satu kabel loop yang dipasang 'sementara' 2 tahun lalu. Dokumentasi topologi adalah asuransimu."
+    }
+  },
+  {
+    "id": "net-tamu-3",
+    "roleId": "network-engineer",
+    "title": "Tamu Minta WiFi, Keamanan Melarang",
+    "context": {
+      "message": "50 tamu seminar butuh WiFi hari ini. Kebijakan: perangkat luar dilarang menyentuh LAN internal.",
+      "sender": "Panitia acara (telepon)",
+      "time": "08:20 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Beri password WiFi internal, acara cuma sehari.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "SSID tamu terisolasi + voucher + rate limit.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tolak semua permintaan tamu.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Suruh tethering dari HP masing-masing.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Kebutuhan tamu legitimate — jawab dengan jaringan yang memang dirancang untuk orang luar: isolasi, voucher kedaluwarsa, limit wajar.",
+      "Fatal": "Satu laptop tamu terinfeksi di LAN internal bisa melumpuhkan 200 workstation — demi 'acara cuma sehari'.",
+      "PractitionerQuote": "Di enterprise lokal, engineer yang baik tidak pernah bilang 'tidak boleh' ke user — ia bilang 'bisa, lewat jalur tamu yang sudah saya siapkan.'"
+    }
+  },
+  {
+    "id": "soc-ransom-2",
+    "roleId": "cybersecurity-analyst",
+    "title": "3 Server Terenkripsi, Tebusan Diminta",
+    "context": {
+      "message": "3 server file terenkripsi ransomware. Pelaku minta 2 BTC dalam 48 jam atau data dibocorkan. Backup terakhir 5 hari lalu.",
+      "sender": "SIEM alert + catatan tebusan",
+      "time": "07:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Bayar tebusan agar cepat selesai.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Isolasi terdampak + restore backup + laporkan + patch vektor masuk.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Matikan seluruh data center seminggu.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Negosiasi sendiri diam-diam dengan pelaku.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Membayar tidak menjamin data kembali — justru menandai perusahaanmu sebagai target empuk berikutnya. Isolasi, pulihkan, perkuat.",
+      "Fatal": "Negosiasi atau pembayaran diam-diam tanpa melibatkan manajemen dan aparat adalah pelanggaran prosedur insiden.",
+      "PractitionerQuote": "Di SOC bank dan enterprise lokal, 5 hari gap backup adalah temuan audit yang lebih mahal dari tebusannya. Backup yang tidak pernah diuji restore bukanlah backup."
+    }
+  },
+  {
+    "id": "soc-lelah-3",
+    "roleId": "cybersecurity-analyst",
+    "title": "Analis Junior Burnout, Alert Terlewat",
+    "context": {
+      "message": "Analis junior melewatkan alert intrusion karena 400 alert per shift. Ia mengajukan resign dan tim tinggal 2 orang.",
+      "sender": "SOC Lead (1-on-1)",
+      "time": "16:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Tambah shift tanpa mengubah proses.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Tuning rule + playbook triase + rotasi + automasi alert berisik.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Pecat yang melewatkan alert.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Matikan semua alert yang berisik.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Alert fatigue adalah masalah sistem, bukan moral — kurangi noise di sumbernya dan manusia bisa kembali fokus ke yang penting.",
+      "Fatal": "Mematikan alert agar tim tenang sama dengan mencopot semua CCTV agar satpam tidak lelah.",
+      "PractitionerQuote": "Di SOC lokal, metrik kedewasaan bukan jumlah alert — tapi berapa persen yang actionable. Di bawah 10% actionable, yang rusak bukan analisnya."
+    }
+  },
+  {
+    "id": "motion-render-2",
+    "roleId": "motion-designer",
+    "title": "Render Farm Penuh, Deadline 6 Jam",
+    "context": {
+      "message": "Materi 90 detik harus tayang 6 jam lagi. Render farm penuh project lain dan file-mu butuh 5 jam render penuh.",
+      "sender": "Producer (telepon)",
+      "time": "12:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Render di laptop sendiri dan berharap selesai.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Prioritas shot + proxy + render parsial + negosiasi slot farm.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Kirim versi draft sebagai final.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Tolak deadline-nya.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Deadline mustahil dimenangkan dengan triase teknis: apa yang harus full-res, apa yang cukup proxy, dan slot farm untuk siapa.",
+      "Fatal": "Mengirim draft sebagai final menghancurkan kepercayaan yang dibangun 10 project — demi 1 deadline.",
+      "PractitionerQuote": "Di studio Jakarta, motion designer senior selalu render semalam untuk deadline siang. 'Tabungan render' bukan kemewahan — itu asuransi."
+    }
+  },
+  {
+    "id": "motion-brief-3",
+    "roleId": "motion-designer",
+    "title": "Brief 'Dibikin Keren' Tanpa Referensi",
+    "context": {
+      "message": "Klien: 'Dibikin keren ya, seperti brand besar itu.' Tidak ada referensi, tidak ada brand guideline, deadline 3 hari.",
+      "sender": "Klien (brief 1 kalimat)",
+      "time": "10:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Kerjakan sesuai firasat, semoga selera cocok.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Gali 3 referensi + moodboard + kunci arah tertulis sebelum produksi.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Copy karya studio lain yang mirip.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Kerjakan minimal seadanya.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. 'Keren' tanpa definisi adalah revisi tak berujung yang menunggu — kunci visualnya tertulis sebelum frame pertama dirender.",
+      "Fatal": "Menyalin karya orang untuk klien komersial adalah pelanggaran hak cipta dengan namamu di credit title.",
+      "PractitionerQuote": "Di studio lokal, moodboard yang disetujui klien adalah kontrak tak tertulis: semua revisi 'kurang keren' setelahnya bisa ditunjuk balik ke sana."
+    }
+  },
+  {
+    "id": "proc-mahal-2",
+    "roleId": "procurement-staff",
+    "title": "Vendor Langganan 25% Lebih Mahal",
+    "context": {
+      "message": "Benchmark: vendor langganan 25% di atas harga pasar 3 tahun berturut-turut. Atasan dekat dengan pemilik vendor itu.",
+      "sender": "Hasil benchmark (spreadsheet)",
+      "time": "11:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Lanjutkan demi hubungan yang nyaman.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Benchmark terbuka + negosiasi ulang + tender terbatas.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Putus sepihak tanpa masa transisi.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Minta bagian dari selisihnya.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Data benchmark memindahkan keputusan dari relasi ke prosedur — vendor lama boleh menang, tapi harus menang secara terbuka.",
+      "Fatal": "Meminta bagian selisih adalah korupsi dengan jejak digital atas namamu sendiri.",
+      "PractitionerQuote": "Di pengadaan Indonesia, vendor yang tidak pernah ditender ulang pasti kemahalan — itu hukum alam. Tugasmu memastikan hukum alam itu bekerja."
+    }
+  },
+  {
+    "id": "proc-mepet-3",
+    "roleId": "procurement-staff",
+    "title": "Kebutuhan Mendesak, Tender Butuh 30 Hari",
+    "context": {
+      "message": "Operasional butuh sparepart kritis minggu ini. Tender normal 30 hari dan line produksi berhenti tiap hari menunggu.",
+      "sender": "User (urgent memo)",
+      "time": "08:45 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Tunjuk langsung tanpa dokumen apa pun.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Prosedur darurat: justifikasi + 3 penawaran cepat + berita acara.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tunda kebutuhan kritis sampai tender selesai.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Pecah nilai pengadaan agar di bawah ambang tender.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Mendesak bukan berarti prosedural-free — jalur darurat yang terdokumentasi melindungi kecepatan dan integritas sekaligus.",
+      "Fatal": "Split order untuk menghindari tender adalah pelanggaran klasik yang selalu ketahuan saat audit — polanya terlalu mudah dibaca.",
+      "PractitionerQuote": "Di BUMN dan korporat, pengadaan darurat yang benar justru paling aman diaudit: justifikasinya jelas, kompetisinya ada, beritanya lengkap."
+    }
+  },
+  {
+    "id": "plan-utang-2",
+    "roleId": "financial-planner",
+    "title": "Klien Gali Lubang Tutup Lubang 3 Pinjol",
+    "context": {
+      "message": "Klien: cicilan 3 pinjol 60% gaji, masih minta rekomendasi saham. Ia menolak membahas utang: 'fokus ke investasi saja.'",
+      "sender": "Klien (review portofolio)",
+      "time": "13:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Jual produk investasi sesuai permintaan.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Hentikan pendarahan dulu: daftar utang + negosiasi + snowball, baru bicara investasi.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Suruh default semua utangnya.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Abaikan utangnya, layani yang mau dengar saja.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Return investasi 15% tidak ada artinya melawan bunga pinjol 100%+ — perencana yang baik berani bilang tidak pada komisi hari ini demi klien 10 tahun.",
+      "Fatal": "Menjual investasi ke orang yang tenggelam utang adalah malpraktik: kamu dibayar saat ia tenggelam lebih dalam.",
+      "PractitionerQuote": "Di industri perencana Indonesia, klien yang marah karena disuruh bereskan utang dulu akan kembali 2 tahun kemudian — membawa seluruh keluarganya."
+    }
+  },
+  {
+    "id": "plan-warisan-3",
+    "roleId": "financial-planner",
+    "title": "Klien Menolak Bahas Asuransi dan Warisan",
+    "context": {
+      "message": "Setiap bahas proteksi, klien: 'Jangan bahas mati-matian, pamali.' Padahal ia tulang punggung 4 orang.",
+      "sender": "Klien (meeting ketiga)",
+      "time": "15:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Paksa bahas dengan data angka kematian.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Mulai dari dana pendidikan anak + cerita kasus nyata yang relevan.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Lewati topik ini selamanya.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Jual produk tanpa menjelaskan manfaatnya.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Tabu budaya tidak dilawan dengan data kematian — tapi dilewati lewat pintu yang diterima: masa depan anak. Tujuannya sama, jalannya menghormati.",
+      "Fatal": "Melewatkan proteksi tulang punggung 4 orang berarti rencanamu runtuh tepat saat paling dibutuhkan.",
+      "PractitionerQuote": "Di praktik perencana lokal, yang menguasai bukan yang paling paham produk — tapi yang paling paham kapan diam, kapan cerita, dan kapan angka."
+    }
+  },
+  {
+    "id": "retail-komplain-2",
+    "roleId": "retail-store-supervisor",
+    "title": "Komplain Pelayanan Viral di Medsos",
+    "context": {
+      "message": "Video 'pelayan toko judes' 300 ribu views semalam. Netizen sudah menemukan akun tokomu dan membanjiri ulasan bintang 1.",
+      "sender": "TikTok + Google review",
+      "time": "08:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Balas defensif di kolom komentar.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Tanggapi empati publik + selesaikan privat + follow-up hasilnya.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Hapus semua komentar negatif.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Abaikan sampai reda sendiri.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Komplain viral adalah audisi pelayanan publik: empati di depan, solusi di belakang, bukti follow-up menutupnya.",
+      "Fatal": "Balasan defensif di-screenshot selamanya — satu komentar emosional bisa lebih mahal dari sebulan omzet.",
+      "PractitionerQuote": "Di retail Indonesia, SPV yang baik melatih tim satu kalimat: 'mohon maaf atas pengalamannya, boleh kami hubungi langsung?' Kalimat itu memadamkan 90% api."
+    }
+  },
+  {
+    "id": "retail-target-3",
+    "roleId": "retail-store-supervisor",
+    "title": "Target Naik 30%, Traffic Turun",
+    "context": {
+      "message": "Head office menaikkan target 30% sementara traffic mal turun 20%. Tim 10 orang menatapmu menunggu arahan.",
+      "sender": "Memo target kuartal",
+      "time": "09:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Potong harga dalam-dalam agar laku.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Bedah konversi: upsell + display + insentif shift + jam ramai.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Paksa tim lembur tanpa insentif.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Manipulasi laporan penjualan.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Traffic turun tidak bisa dilawan dengan teriakan — tapi konversi bisa dinaikkan: dari 100 pengunjung yang beli 20 jadi 25, target tercapai tanpa bakar margin.",
+      "Fatal": "Obral harga dan laporan palsu adalah dua cara berbeda menggali lubang yang sama: satu membunuh margin, satu membunuh kariermu.",
+      "PractitionerQuote": "Di retail lokal, SPV hebat tidak mengejar traffic — ia mengejar konversi. Lima persen kenaikan konversi mengalahkan lima puluh persen kenaikan pengunjung."
+    }
+  },
+  {
+    "id": "sosmed-endorse-4",
+    "roleId": "social-media-specialist",
+    "title": "Influencer Tak Disclose Iklan",
+    "context": {
+      "message": "Influencer bayaranmu tidak mencantumkan #ad. Kompetitor melaporkan ke platform dan akun brand ikut diperiksa.",
+      "sender": "Platform integrity notice",
+      "time": "10:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Biarkan, yang penting kontennya tayang.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Minta revisi disclosure + perketat klausul kontrak semua KOL.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Hapus kontennya diam-diam.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Salahkan influencer di depan publik.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Disclosure adalah kewajiban hukum pengiklan juga, bukan cuma influencer — perbaiki kasusnya, kunci sistemnya.",
+      "Fatal": "Iklan terselubung yang terbukti merusak kepercayaan jauh lebih mahal dari satu konten.",
+      "PractitionerQuote": "Di industri lokal, kontrak KOL tanpa klausul disclosure adalah bom waktu. Brand besar selalu mewajibkan #ad — yang tidak, tinggal tunggu giliran ditegur."
+    }
+  },
+  {
+    "id": "sosmed-report-5",
+    "roleId": "social-media-specialist",
+    "title": "Atasan Minta Laporan Vanity Metrics",
+    "context": {
+      "message": "Direktur minta laporan 'yang bagus-bagus saja': fokus ke likes dan followers, sembunyikan CPA yang naik 3x lipat.",
+      "sender": "Direktur (pesan pribadi)",
+      "time": "16:45 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Buat laporan sesuai permintaan, yang penting aman.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Sajikan metrik bisnis jujur + satu halaman vanity sebagai lampiran.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tolak membuat laporan sama sekali.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Manipulasi angka CPA agar terlihat turun.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Kamu memenuhi permintaan (halaman vanity ada) tanpa mengorbankan kebenaran (angka bisnis tetap jujur). Keputusan berbasis laporan palsu selalu kembali menagih.",
+      "Fatal": "Angka yang dimanipulasi untuk menyenangkan atasan adalah fraud — sekecil apa pun.",
+      "PractitionerQuote": "Di agency Jakarta, spesialis yang berani menunjukkan CPA buruk dengan rencana perbaikan justru dipercaya budget lebih besar. Yang menyembunyikan, budgetnya dipotong diam-diam."
+    }
+  },
+  {
+    "id": "hrbp-resign-4",
+    "roleId": "hr-business-partner",
+    "title": "Resign Massal Satu Tim Inti",
+    "context": {
+      "message": "4 dari 8 anggota tim inti resign dalam sebulan. Exit interview menyebut manager yang sama dan rumor menyebar ke tim lain.",
+      "sender": "HRIS (tren turnover)",
+      "time": "09:15 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Naikkan gaji yang tersisa agar tidak ikut pergi.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Investigasi pola + coaching atau rotasi manager + stay interview sisa tim.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Anggap normal, rekrut pengganti saja.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Pecat manager-nya langsung tanpa proses.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Resign massal adalah gejala, bukan cuaca — obati manajernya (coaching/rotasi) dan jaga yang tersisa (stay interview) sebelum menular.",
+      "Fatal": "Merekrut pengganti tanpa memperbaiki penyebab sama dengan mengisi ember bocor — dengan biaya rekrutmen 3 bulan gaji per orang.",
+      "PractitionerQuote": "Di korporat lokal, orang tidak resign dari perusahaan — mereka resign dari atasannya. Data exit interview adalah cermin paling jujur yang dimiliki HRBP."
+    }
+  },
+  {
+    "id": "hrbp-gap-5",
+    "roleId": "hr-business-partner",
+    "title": "Kesenjangan Gaji Bocor ke Karyawan",
+    "context": {
+      "message": "Screenshot struktur gaji bocor: karyawan selevel beda 40%. Grup WA panas dan 3 orang meminta penjelasan hari ini.",
+      "sender": "Grup WA karyawan (viral internal)",
+      "time": "10:20 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Bantah keaslian screenshot-nya.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Akui, jelaskan framework grading + audit kesenjangan + timeline koreksi.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Naikkan yang protes saja diam-diam.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Cari dan hukum penyebar screenshot.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Transparansi yang dipaksa keadaan tetap lebih baik dari kebohongan yang terbongkar — framework jelas + rencana koreksi memulihkan kepercayaan.",
+      "Fatal": "Menyangkal data yang benar di depan karyawan yang memegang buktinya menghancurkan kredibilitas HR selamanya.",
+      "PractitionerQuote": "Di HR Indonesia, rahasia gaji sudah mati sejak era screenshot. Perusahaan yang bertahan adalah yang berani punya pay structure yang bisa dijelaskan."
+    }
+  },
+  {
+    "id": "frontend-perf-4",
+    "roleId": "frontend-developer",
+    "title": "Bundle 4MB, Skor PageSpeed Merah",
+    "context": {
+      "message": "Bundle JS 4MB, PageSpeed 32. 60% user mobile dengan koneksi pas-pasan dan bounce rate naik 2x lipat.",
+      "sender": "Lighthouse report (CI)",
+      "time": "09:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Biarkan, yang penting fiturnya lengkap.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Analisis bundle + code splitting + lazy load + hapus dependensi tak terpakai.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tulis ulang semuanya dengan framework lain.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Sembunyikan skor dari laporan.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Bundle gemuk hampir selalu ulah 2-3 dependensi raksasa + import *_ — ukur dulu, potong yang terbukti, bukan rewrite buta.",
+      "Fatal": "Menyembunyikan skor tidak menyembunyikan bounce rate — user pergi diam-diam tanpa pamit.",
+      "PractitionerQuote": "Di frontend lokal, setiap 100KB bundle adalah pajak yang dibayar user termiskin. Import lodash full untuk 1 fungsi adalah dosa yang terukur di PageSpeed."
+    }
+  },
+  {
+    "id": "frontend-error-5",
+    "roleId": "frontend-developer",
+    "title": "Error Misterius Tanpa Source Map",
+    "context": {
+      "message": "Error tracker penuh 'undefined is not a function' tanpa stack trace jelas. 500 user terdampak dan tidak ada yang bisa reproduksi.",
+      "sender": "Sentry (200 event/jam)",
+      "time": "14:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Abaikan, tidak bisa direproduksi berarti tidak penting.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Aktifkan source map + tambah breadcrumb + kejar 3 pola terbanyak.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": " Bungkus semua kode dengan try-catch kosong.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Matikan error tracker agar dashboard hijau.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Error tanpa konteks tidak bisa diperbaiki — pasang instrumentasi dulu (source map, breadcrumb, user data), baru berburu polanya.",
+      "Fatal": "Try-catch kosong dan tracker yang dimatikan tidak menghilangkan error — hanya menghilangkan kemampuanmu melihatnya.",
+      "PractitionerQuote": "Di tim frontend Jakarta, error tracker yang merah tapi informatif jauh lebih berharga dari dashboard hijau yang buta. Observability dulu, baru optimasi."
+    }
+  },
+  {
+    "id": "apm-launch-4",
+    "roleId": "associate-product-manager",
+    "title": "Go atau No-Go: Rilis 80% Siap",
+    "context": {
+      "message": "Fitur 80% siap, 2 bug P1 tersisa. Marketing sudah janji ke media besok. Engineering terbelah: rilis vs tunda.",
+      "sender": "Tech Lead + Marketing (rapat)",
+      "time": "17:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Rilis penuh besok, janji media harga mati.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Rilis bertahap: 10% user + feature flag + rollback plan + umumkan beta.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tunda tanpa tanggal baru.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Rilis diam-diam tanpa announce.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Go/no-go bukan biner — rilis bertahap memberi marketing tanggalnya dan engineering keamanannya. Feature flag adalah jawaban atas hampir semua dilema rilis.",
+      "Fatal": "Menunda tanpa tanggal membunuh momentum tim dan kepercayaan stakeholder sekaligus.",
+      "PractitionerQuote": "Di startup lokal, PM yang baik tidak pernah ditanya 'jadi rilis kapan' dua kali — karena jawabannya selalu: bertahap mulai besok, dengan pagarnya."
+    }
+  },
+  {
+    "id": "apm-sunset-5",
+    "roleId": "associate-product-manager",
+    "title": "Sunset Fitur Dipakai 5% User Setia",
+    "context": {
+      "message": "Fitur lawas dipakai 5% user tapi mereka paling vokal. Maintenance-nya menghambat velocity 20%. Direksi minta dipotong.",
+      "sender": "Direksi + forum komunitas",
+      "time": "11:15 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Matikan mendadak minggu depan.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Umumkan 90 hari + tawarkan migrasi + dengarkan 5% itu.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Pertahankan selamanya demi 5% itu.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Rusakkan perlahan agar mereka pergi sendiri.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Sunset yang baik menghormati user setia: pemberitahuan panjang, jalur migrasi jelas, dan telinga terbuka. 5% yang didengar jadi advokat; yang dikhianati jadi kampanye.",
+      "Fatal": "Mematikan mendadak atau merusak diam-diam mengajarkan semua user satu hal: jangan percaya roadmap-mu.",
+      "PractitionerQuote": "Di produk Indonesia, fitur yang disunset dengan elegan justru menaikkan trust. User memaafkan perpisahan yang sopan — tidak pernah yang ghosting."
+    }
+  },
+  {
+    "id": "analyst-kpi-4",
+    "roleId": "data-analyst",
+    "title": "Tiap Divisi Punya Definisi KPI Beda",
+    "context": {
+      "message": "Marketing klaim konversi 12%, Sales klaim 4% — definisi 'konversi' beda. Direksi meminta satu angka kebenaran besok.",
+      "sender": "Direksi (grup)",
+      "time": "15:45 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Pilih angka marketing yang lebih bagus.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Petakan tiap definisi + usulkan definisi tunggal + kamus metrik.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Rata-ratakan saja jadi 8%.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Serahkan ke direksi memilih mana yang benar.",
+        "type": "Risky"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Perang definisi tidak dimenangkan dengan memilih pihak — tapi dengan kamus metrik tunggal yang disepakati. Itulah pekerjaan analis paling berdampak.",
+      "Fatal": "Merata-rata dua definisi berbeda menghasilkan angka yang salah secara presisi — presisi palsu.",
+      "PractitionerQuote": "Di korporat lokal, analis senior dikenal bukan dari dashboard-nya — tapi dari kamus metriknya. Satu definisi kebenaran menghemat 100 debat per tahun."
+    }
+  },
+  {
+    "id": "analyst-otomatis-5",
+    "roleId": "data-analyst",
+    "title": "Diminta Otomatisasi Laporan Manual Bos",
+    "context": {
+      "message": "Atasan: 'Otomatisasi laporan mingguanku ya.' Laporan itu 20 tab Excel manual penuh copy-paste dan rumus rapuh.",
+      "sender": "Atasan langsung (1-on-1)",
+      "time": "10:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+          "text": "Otomatisasi persis apa adanya, 20 tab sekaligus.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Pahami dulu keputusan di balik tiap tab, rampingkan jadi 3, baru otomatisasi.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tolak, bukan pekerjaan analis.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Minta junior mengerjakan manual selamanya.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Mengotomatisasi proses sampah menghasilkan sampah otomatis — pahami dulu keputusan apa yang diambil dari tiap tab, baru bangun yang ramping.",
+      "Fatal": "Menolak otomatisasi berarti menolak pekerjaan analis modern — dan junior yang dikorbankan akan resign membawa ilmumu.",
+      "PractitionerQuote": "Di tim data Jakarta, analis yang baik selalu bertanya sebelum coding: 'keputusan apa yang Bapak ambil dari tab ini?' Separuh tab biasanya tidak ada yang membaca."
+    }
+  },
+  {
+    "id": "designer-onboard-4",
+    "roleId": "ui-ux-designer",
+    "title": "Onboarding Drop 60% di Langkah 3",
+    "context": {
+      "message": "Data: 60% user baru gugur di langkah 3 dari 7 onboarding. Tim growth menuntut perbaikan minggu ini.",
+      "sender": "Growth Manager (dashboard)",
+      "time": "09:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Hapus semua langkah onboarding sekaligus.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Analisa drop per langkah + sederhanakan langkah 3 + uji A/B.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tambah insentif agar user bertahan.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Salahkan kualitas traffic marketing.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Drop 60% di satu langkah adalah peta harta karun — perbaiki titik itu dulu dan ukur, bukan rombak buta seluruh alur.",
+      "Fatal": "Insentif menutupi friksi sementara lalu pergi bersama budgetnya — masalahnya tetap.",
+      "PractitionerQuote": "Di produk lokal, onboarding terbaik adalah yang tidak terasa: tiap langkah harus menjawab 'buat apa saya repot-repot?' Kalau tidak bisa, langkah itu mati."
+    }
+  },
+  {
+    "id": "designer-dark-5",
+    "roleId": "ui-ux-designer",
+    "title": "Diminta Dark Pattern Naikkan Konversi",
+    "context": {
+      "message": "Bisnis: 'Buat tombol batal berlangganan sulit ditemukan, konversi naik 8%.' Bonus tim terikat angka itu.",
+      "sender": "Business Manager (rapat)",
+      "time": "14:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Ikuti, bonus tim dipertaruhkan.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Tolak dengan data: tunjukkan churn + komplain + risiko regulasi, tawarkan alternatif etis.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Bocorkan ke media.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Kerjakan asal-asalan agar tidak efektif.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Dark pattern adalah utang kepercayaan berbunga tinggi — konversi naik 8% hari ini, kepercayaan runtuh permanen saat terbongkar.",
+      "Fatal": "Desainer yang membangun jebakan ikut bertanggung jawab saat jebakan itu memakan korban.",
+      "PractitionerQuote": "Di komunitas desain Jakarta, portofolio berisi dark pattern adalah noda — perekrut senior mengenalinya dalam 10 detik dan langsung menolak."
+    }
+  },
+  {
+    "id": "ae-forecast-4",
+    "roleId": "account-executive",
+    "title": "Forecast Dipaksa Naik 2x Lipat",
+    "context": {
+      "message": "Manager: 'Naikkan commit forecast 2x lipat, direksi butuh angka optimis.' Pipeline riil hanya mendukung 1,1x.",
+      "sender": "Sales Manager (1-on-1)",
+      "time": "09:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Naikkan sesuai perintah, urusan nanti.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Pertahankan angka riil + tunjukkan rencana aksi menutup gap + minta dukungan spesifik.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Naikkan setengah, kompromi.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Palsukan stage deal di CRM.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Forecast adalah janji operasional — pabrik, kas, dan hiring bergerak berdasarnya. Jujur + rencana selalu menang dari angka cantik tanpa dasar.",
+      "Fatal": "Forecast palsu merusak lebih dari kuartalmu: seluruh perencanaan perusahaan ikut sesat.",
+      "PractitionerQuote": "Di sales B2B lokal, AE yang forecast-nya selalu akurat — bahkan saat di bawah target — justru yang paling dipercaya dan dipromosikan."
+    }
+  },
+  {
+    "id": "ae-kompetitor-5",
+    "roleId": "account-executive",
+    "title": "Kompetitor Menfitnah Produkmu",
+    "context": {
+      "message": "Prospek: 'Kompetitor bilang produkmu bocor data tahun lalu. Benarkah?' Isunya separuh benar: insiden kecil 2 tahun lalu, sudah diperbaiki.",
+      "sender": "Prospek (meeting)",
+      "time": "11:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Sangkal total, tidak pernah ada insiden.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Akui proporsional + tunjukkan perbaikan + sertifikasi + bandingkan fair.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Serang balik dengan fitnah kompetitor.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Alihkan topik, jangan pernah bahas.",
+        "type": "Risky"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Kejujuran proporsional melucuti FUD: akui yang benar, tunjukkan yang sudah diperbaiki, bandingkan yang fair. Prospek membeli kepercayaan, bukan kesempurnaan.",
+      "Fatal": "Kebohongan yang terbongkar Google dalam 10 detik menghancurkan deal dan reputasimu sekaligus.",
+      "PractitionerQuote": "Di enterprise sales Indonesia, semua orang tahu semua produk pernah bermasalah. Yang menang bukan yang sempurna — tapi yang jujur duluan."
+    }
+  },
+  {
+    "id": "mt-presentasi-4",
+    "roleId": "management-trainee",
+    "title": "Presentasi ke Direksi 10 Menit",
+    "context": {
+      "message": "Panel MT: presentasi 10 menit ke direksi tentang project rotasimu. 40 slide siap, waktu tidak bisa lebih.",
+      "sender": "Koordinator MT (jadwal)",
+      "time": "08:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Presentasikan semua 40 slide super cepat.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Pangkas jadi 1 masalah + 1 aksi + 1 hasil + lampiran siaga.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Baca teks lengkap agar tidak lupa.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Minta tambah waktu di depan direksi.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Direksi tidak menilai ketebalan deck — tapi kejernihan berpikir. Satu cerita utuh 10 menit mengalahkan 40 slide yang terengah-engah.",
+      "Fatal": "Meminta tambah waktu di depan direksi mengumumkan bahwa kamu tidak bisa memprioritaskan — vonis mati untuk calon pemimpin.",
+      "PractitionerQuote": "Di panel MT BUMN, yang lolos bukan yang paling pintar — tapi yang paling jelas. Latihan 10 menit sampai bisa tanpa catatan, itu bedanya."
+    }
+  },
+  {
+    "id": "mt-etika-5",
+    "roleId": "management-trainee",
+    "title": "Diajak Mempercantik Laporan",
+    "context": {
+      "message": "Supervisor cabang: 'Angkanya disesuaikan sedikit ya, biar lolos audit pusat. Semua cabang begitu.' Evaluasimu ia yang tanda tangan.",
+      "sender": "Supervisor cabang (bisikan)",
+      "time": "16:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Ikuti, semua orang melakukannya.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Tolak halus + tawarkan bantu perbaiki angka riil + dokumentasikan penolakan.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Laporkan langsung ke pusat tanpa bicara dulu.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Bocorkan ke media.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Integritas adalah satu-satunya aset MT yang tidak bisa dibeli — tolak dengan cara yang menjaga hubungan, tapi catat agar terlindungi.",
+      "Fatal": "'Semua orang begitu' adalah kalimat pembuka setiap skandal korporat yang kamu baca di berita.",
+      "PractitionerQuote": "Di program MT, ujian integritas hampir selalu datang dibungkus keramahan atasan. Yang lulus bukan yang paling berani melawan — tapi yang paling cerdik menolak."
+    }
+  },
+  {
+    "id": "teller-antre-4",
+    "roleId": "teller-bank",
+    "title": "Antrean Membludak, Sistem Down",
+    "context": {
+      "message": "Sistem core banking down 30 menit. 40 nasabah antre, 5 mulai marah-marah dan merekam video.",
+      "sender": "Antrean cabang (suasana)",
+      "time": "11:15 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Sembunyi di belakang sampai sistem pulih.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Umumkan jujur + layani manual yang bisa + prioritaskan lansia dan mendesak.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Suruh semua pulang dan kembali besok.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Catat transaksi di kertas lalu input belakangan tanpa verifikasi.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Saat sistem mati, yang dijual teller adalah ketenangan: informasi jujur + layanan manual parsial + prioritas yang manusiawi.",
+      "Fatal": "Transaksi kertas tanpa verifikasi adalah selisih kas massal yang menunggu terjadi.",
+      "PractitionerQuote": "Di cabang bank Indonesia, nasabah memaafkan sistem down — tidak pernah memaafkan teller yang menghilang. Hadir dan bicara, itu separuh solusi."
+    }
+  },
+  {
+    "id": "teller-nasabah-5",
+    "roleId": "teller-bank",
+    "title": "Nasabah VIP Mengamuk di Counter",
+    "context": {
+      "message": "Nasabah prioritas marah besar karena antre seperti biasa. Ia meminta keistimewaan dan menyebut nama pejabat bank.",
+      "sender": "Nasabah prioritas (counter)",
+      "time": "10:05 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Tunduk total, langgar antrean untuknya.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Tenang + akui + layani cepat sesuai prosedur + tawarkan lounge prioritas.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Lawan balik dengan nada tinggi.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Panggil satpam mengusirnya.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Nasabah marah butuh didengar dulu, dilayani cepat kedua — tanpa mengorbankan antrean lain. Fasilitas prioritas yang resmi adalah jawabannya.",
+      "Fatal": "Beradu urat dengan nasabah adalah kekalahan pasti: ia merekam, kamu tidak.",
+      "PractitionerQuote": "Di layanan bank lokal, rumus menghadapi amukan: dengar 2 menit tanpa memotong, minta maaf atas rasanya, selesaikan urusannya. Urutan itu tidak bisa dibalik."
+    }
+  },
+  {
+    "id": "backend-migrasi-4",
+    "roleId": "backend-developer",
+    "title": "Migrasi Database Tanpa Downtime",
+    "context": {
+      "message": "Skema harus berubah total akhir pekan ini. Aplikasi 24 jam, downtime maksimal 5 menit, rollback harus mungkin.",
+      "sender": "CTO (rencana migrasi)",
+      "time": "09:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Matikan aplikasi 4 jam dini hari, migrasi sekaligus.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Expand-migrate-contract: dual-write + backfill + verifikasi + switch.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Migrasi langsung di produksi siang hari.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Tunda migrasi selamanya, tambah kolom saja.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Migrasi tanpa downtime adalah koreografi: tulis ke dua tempat, isi yang lama, verifikasi sama, baru alihkan. Setiap langkah bisa mundur.",
+      "Fatal": "Menunda migrasi dengan tambah-kolom-selamanya menghasilkan tabel 200 kolom yang tidak dimengerti siapa pun.",
+      "PractitionerQuote": "Di backend startup lokal, migrasi yang baik itu membosankan: tidak ada drama, tidak ada lembur heroik. Drama berarti rencananya yang salah."
+    }
+  },
+  {
+    "id": "backend-rate-5",
+    "roleId": "backend-developer",
+    "title": "API Diserbu, Diduga Abuse",
+    "context": {
+      "message": "Satu API key menghantam 100 ribu request per jam. Bisa jadi scraping kompetitor atau partner yang bug.",
+      "sender": "Rate monitor (alert)",
+      "time": "20:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Blokir permanen key-nya sekarang.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Throttle sementara + hubungi pemilik key + pasang rate limit berlapis.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Biarkan, traffic adalah berkah.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Matikan endpoint untuk semua.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Blokir buta bisa membunuh partner terbesar; throttle membeli waktu diagnosis sambil melindungi sistem. Rate limit berlapis mencegah terulang.",
+      "Fatal": "Traffic abuse yang dibiarkan menaikkan tagihan infra dan menenggelamkan user asli.",
+      "PractitionerQuote": "Di API publik lokal, tidak ada rate limit berarti undangan terbuka untuk scraper. Pasang sebelum dibutuhkan — karena saat dibutuhkan sudah terlambat."
+    }
+  },
+  {
+    "id": "qa-rilis-4",
+    "roleId": "qa-engineer",
+    "title": "Siapa Menandatangani Rilis Ini",
+    "context": {
+      "message": "Rilis besar besok. 3 bug P1 tersisa, PM menekan 'QA tinggal approve'. Tanda tanganmu berarti kamu ikut bertanggung jawab.",
+      "sender": "PM (Jira + telepon)",
+      "time": "18:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Approve, toh PM yang meminta.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Approve bersyarat tertulis: daftar risiko + mitigasi + pemilik tiap bug.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tolak mentah tanpa alternatif.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Suruh orang lain yang approve.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. QA bukan penghambat rilis — ia pencatat risiko resmi. Approve bersyarat memindahkan keputusan ke pemilik bisnis dengan mata terbuka.",
+      "Fatal": "Melempar approval ke orang lain tidak memindahkan tanggung jawabmu sebagai penjaga gerbang terakhir.",
+      "PractitionerQuote": "Di software house Jakarta, tanda tangan QA adalah mata uang: mahal karena jarang, berharga karena berarti. Jangan diobral."
+    }
+  },
+  {
+    "id": "qa-otomatis-5",
+    "roleId": "qa-engineer",
+    "title": "Coverage 5%, Mulai Automasi dari Mana",
+    "context": {
+      "message": "Manajemen: 'Automasi testing dong.' Coverage 5%, tim QA 2 orang, 500 test case manual menumpuk tiap rilis.",
+      "sender": "QA Manager (target kuartal)",
+      "time": "10:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Automasi semua 500 case sekaligus.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Mulai dari 20 smoke test kritis + framework rapi + tambah bertahap.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Beli tools mahal, masalah selesai.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Tolak, manual sudah cukup.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Automasi yang dimulai dari 500 case mati di minggu ketiga — yang dimulai dari 20 smoke test hidup bertahun-tahun dan tumbuh sendiri.",
+      "Fatal": "Menolak automasi di 2026 sama dengan menolak Excel di 2000-an: kariermu yang tertinggal.",
+      "PractitionerQuote": "Di QA lokal, framework kecil yang jalan tiap hari mengalahkan framework megah yang tidak pernah selesai. Mulai kecil, menangkan kepercayaan, baru skala."
+    }
+  },
+  {
+    "id": "copy-deadline-4",
+    "roleId": "copywriter",
+    "title": "10 Headline, Deadline 2 Jam",
+    "context": {
+      "message": "AE masuk dengan brief: 10 headline untuk pitch klien 2 jam lagi. Belum ada riset, belum ada arah.",
+      "sender": "Account Executive (meja sebelah)",
+      "time": "13:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Tolak, waktu tidak manusiawi.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Minta 15 menit gali insight + tulis 10 varian cepat + tandai 3 jagoan.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Copy headline kompetitor, ganti nama brand.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Tulis 1 headline bagus, sisanya asal.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Deadline mepet bukan alasan menulis sampah — 15 menit insight + varian cepat + kurasi jujur menghasilkan materi pitch yang layak.",
+      "Fatal": "Satu headline bagus + 9 asal-asalan mengajarkan klien bahwa 90% karyamu sampah.",
+      "PractitionerQuote": "Di agency Jakarta, copywriter dinilai saat kepepet, bukan saat longgar. Bank angle dan swipe file pribadi adalah tabungan untuk jam-jam seperti ini."
+    }
+  },
+  {
+    "id": "copy-viral-5",
+    "roleId": "copywriter",
+    "title": "Ikut Tren vs Jaga Brand Voice",
+    "context": {
+      "message": "Tren TikTok sedang viral. Atasan: 'Bikin yang kayak gitu dong.' Trennya norak dan jauh dari brand voice premium brand-mu.",
+      "sender": "Atasan (link TikTok)",
+      "time": "11:20 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Ikuti tren persis, views dulu urusan belakangan.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Adopsi formatnya, isi dengan brand voice + jelaskan trade-off-nya.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tolak mentah tren apa pun.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Buat akun parodi anonim untuk ikut tren.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Format tren adalah kendaraan netral — yang menentukan adalah muatannya. Adaptasi cerdas menaikkan reach tanpa menggadaikan identitas.",
+      "Fatal": "Brand premium yang ikut tren norak kehilangan positioning bertahun-tahun dalam satu video.",
+      "PractitionerQuote": "Di social media lokal, bedakan format dan selera: format boleh dipinjam, selera tidak boleh digadaikan. Itu kerja copywriter senior."
+    }
+  },
+  {
+    "id": "ops-sop-4",
+    "roleId": "operations-executive",
+    "title": "SOP Dilanggar Terus oleh Tim Lapangan",
+    "context": {
+      "message": "SOP check-in barang dilanggar 3 bulan berturut-turut. Selisih kecil mulai muncul dan tim menganggap SOP formalitas.",
+      "sender": "Laporan audit internal",
+      "time": "09:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Hukum yang melanggar dengan SP.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Sederhanakan SOP + libatkan tim menyusun + audit mendadak berkala.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Hapus SOP yang dilanggar.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Biarkan, yang penting barang jalan.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. SOP yang dilanggar massal biasanya SOP yang buruk — sederhanakan sampai bisa dijalankan, libatkan pelaksana agar memiliki, awasi berkala.",
+      "Fatal": "Membiarkan pelanggaran menjadi budaya berarti SOP-mu hanya pajangan dinding.",
+      "PractitionerQuote": "Di operasional Indonesia, SOP 1 halaman yang dijalankan mengalahkan SOP 50 halaman yang diabaikan. Tulis untuk lapangan, bukan untuk auditor."
+    }
+  },
+  {
+    "id": "ops-lebaran-5",
+    "roleId": "operations-executive",
+    "title": "Lonjakan Order 5x Jelang Lebaran",
+    "context": {
+      "message": "Order naik 5x lipat 2 minggu sebelum Lebaran. Kapasitas gudang dan armada pas-pasan, lembur sudah maksimal.",
+      "sender": "Dashboard order (lonjakan)",
+      "time": "08:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Terima semua order, urusan belakangan.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Batasi slot harian + prioritaskan pelanggan setia + sewa kapasitas + komunikasikan ETA.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tutup order total selama peak season.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Kirim seadanya tanpa konfirmasi.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Peak season dimenangkan sebelum dimulai (rencana kapasitas) dan saat berjalan (triase + komunikasi). Menolak sebagian order dengan elegan lebih baik dari gagal semua.",
+      "Fatal": "Menerima semua lalu gagal kirim mengubah lonjakan berkah jadi gelombang komplain dan chargeback.",
+      "PractitionerQuote": "Di logistik lokal, Lebaran dan 12.12 adalah ujian tahunan. Pemenangnya selalu sama: yang membatasi dengan jujur, bukan yang berjanji dengan nekat."
+    }
+  },
+  {
+    "id": "devops-aman-4",
+    "roleId": "devops-engineer",
+    "title": "Backup Tak Pernah Diuji Restore",
+    "context": {
+      "message": "Audit: backup jalan tiap hari 2 tahun, restore tidak pernah dicoba sekali pun. SLA menuntut RTO 4 jam.",
+      "sender": "Auditor eksternal (temuan)",
+      "time": "10:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Percaya saja backup-nya pasti bisa.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Jadwalkan restore drill kuartalan + ukur RTO riil + perbaiki yang gagal.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Gandakan frekuensi backup jadi tiap jam.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Palsukan laporan drill.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Backup tanpa drill adalah harapan, bukan rencana — drill pertama hampir selalu gagal, dan itulah gunanya: gagal saat latihan, bukan saat bencana.",
+      "Fatal": "Memalsukan laporan drill adalah fraud yang terbongkar tepat di hari terburuk perusahaan.",
+      "PractitionerQuote": "Di infra Indonesia, pepatahnya: kamu tidak punya backup, kamu punya doa — sampai restore drill pertama berhasil. Jadwalkan drill-nya kuartal ini."
+    }
+  },
+  {
+    "id": "devops-sertifikat-5",
+    "roleId": "devops-engineer",
+    "title": "Sertifikat Expired Tengah Malam",
+    "context": {
+      "message": "Jam 00:30: sertifikat TLS produksi expired. Aplikasi tidak bisa diakses dan notifikasi error membanjiri.",
+      "sender": "Uptime monitor (alert)",
+      "time": "00:35 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Tunggu pagi, tim sudah tidur.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Renew darurat + rollback ke sertifikat cadangan + pasang auto-renew + alert H-30.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Matikan HTTPS sementara.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Suruh user klik 'lanjutkan walau tidak aman'.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Insiden sertifikat selalu dua pekerjaan: padamkan apinya malam ini, pasang alarmnya agar tidak terulang. Auto-renew + alert H-30 menutup kasus ini selamanya.",
+      "Fatal": "Mematikan HTTPS atau menyuruh user mengabaikan peringatan merusak keamanan dan kepercayaan sekaligus.",
+      "PractitionerQuote": "Di startup lokal, sertifikat expired adalah insiden paling memalukan — karena 100% bisa dicegah dengan cron 5 menit. Setelah ini, tidak ada alasan."
+    }
+  },
+  {
+    "id": "graphic-portofolio-4",
+    "roleId": "graphic-designer",
+    "title": "Diminta Spec Work Gratis",
+    "context": {
+      "message": "Calon klien besar: 'Buatkan 3 konsep dulu gratis, kalau cocok kita kontrak setahun.' Kamu butuh kontrak ini.",
+      "sender": "Prospek (email)",
+      "time": "13:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Kerjakan 3 konsep penuh gratis.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Tawarkan paid discovery kecil / tunjukkan portofolio relevan + 1 sketsa arah.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tolak kasar.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Kirim karya lama diakui sebagai konsep baru.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Spec work gratis menghancurkan harga pasarmu dan 90% tidak berujung kontrak — tawarkan jalan profesional: portofolio + discovery berbayar kecil.",
+      "Fatal": "Karya lama yang diakui baru adalah kebohongan portofolio — ketahuan sekali, reputasimu selesai di industri sekecil ini.",
+      "PractitionerQuote": "Di industri kreatif Indonesia, klien yang menghargaimu tidak pernah minta gratis. Yang minta gratis biasanya juga telat bayar nanti."
+    }
+  },
+  {
+    "id": "graphic-ai-5",
+    "roleId": "graphic-designer",
+    "title": "Klien Minta Full AI Generate",
+    "context": {
+      "message": "Klien: 'Pakai AI saja, lebih cepat dan murah. Ngapain bayar mahal desain manual?' Budget-mu dipertaruhkan.",
+      "sender": "Klien (meeting)",
+      "time": "15:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Tolak mentah, desainer anti-AI.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Pakai AI sebagai akselerator (ideation, varian) + finishing dan judgment manusia + tunjukkan bedanya.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Serahkan mentah output AI tanpa sentuhan.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Berhenti jadi desainer.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. AI adalah power tool, bukan pengganti taste — desainer yang menguasainya 10x lebih cepat; yang menolaknya 10x lebih lambat dari pasar.",
+      "Fatal": "Output mentah AI untuk brand komersial penuh risiko: anatomi aneh, teks ngawur, dan gaya generik yang dikenali semua orang.",
+      "PractitionerQuote": "Di industri 2026, pembedanya bukan bisa-tidaknya pakai AI — tapi taste mengarahkan dan keberanian menolak hasil yang jelek. Itu yang dibayar klien."
+    }
+  },
+  {
+    "id": "seo-lokal-4",
+    "roleId": "seo-specialist",
+    "title": "SEO Lokal 20 Cabang Berbeda-beda",
+    "context": {
+      "message": "Franchise 20 cabang: ranking Jakarta bagus, 15 kota lain tidak muncul di map pack. Budget terbatas untuk semuanya.",
+      "sender": "Franchise Manager (laporan)",
+      "time": "09:40 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Fokus Jakarta saja, yang lain menyusul entah kapan.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Template GBP teroptimasi + prioritaskan 5 kota potensial + playbook untuk cabang.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Duplikat konten Jakarta ke 19 kota lain.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Beli review palsu untuk semua cabang.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. SEO lokal berskala dimenangkan dengan sistem (template + prioritas + playbook cabang), bukan dengan mengerjakan 20 kota satu per satu.",
+      "Fatal": "Review palsu massal terdeteksi Google dan menghapus semua listing sekaligus — 20 cabang hilang dari map.",
+      "PractitionerQuote": "Di SEO lokal Indonesia, Google Business Profile yang lengkap dan direview asli mengalahkan website bagus tanpa map. Mulai dari map, bukan dari blog."
+    }
+  },
+  {
+    "id": "seo-core-5",
+    "roleId": "seo-specialist",
+    "title": "Core Web Vitals Merah Semua",
+    "context": {
+      "message": "LCP 8 detik, CLS berantakan. Google menurunkan ranking dan developer bilang 'itu urusan SEO, bukan kami'.",
+      "sender": "PageSpeed + Search Console",
+      "time": "10:50 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Terima sebagai keterbatasan teknis.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Terjemahkan ke rupiah (bounce x traffic) + daftar fix prioritas + ajukan sprint bersama.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Sembunyikan laporan dari klien.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Minta developer lembur tanpa data pendukung.",
+        "type": "Risky"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Developer tidak bergerak karena 'skor jelek' — mereka bergerak karena 'RpX juta hilang per bulan'. Terjemahkan teknis jadi bisnis, bawa daftar fix siap eksekusi.",
+      "Fatal": "Menyembunyikan laporan teknis yang memburuk adalah bom waktu retainer.",
+      "PractitionerQuote": "Di agency lokal, SEO yang bisa bicara bahasa developer (waterfall, blocking time) dan bahasa direksi (rupiah) tidak pernah kekurangan budget."
+    }
+  },
+  {
+    "id": "recruit-cepat-4",
+    "roleId": "hr-recruiter",
+    "title": "User Minta 10 Hire Sebulan",
+    "context": {
+      "message": "User ekspansi: 10 backend hire bulan ini, syarat 3 tahun pengalaman, budget fresh graduate. 'Pokoknya bisa.'",
+      "sender": "VP Engineering (rapat)",
+      "time": "09:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Iyakan semua, kejar kuantitas.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Tunjukkan data pasar + tawarkan mix level + pipeline mingguan transparan.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Turunkan standar diam-diam agar tercapai.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Tolak mentah di depan forum.",
+        "type": "Risky"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Permintaan mustahil dinegosiasi dengan data pasar + alternatif konkret (mix level, bertahap) — bukan dengan ya-buta atau tidak-mentah.",
+      "Fatal": "Menurunkan standar diam-diam mengisi perusahaan dengan mis-hire yang biayanya 10x lipat gajimu.",
+      "PractitionerQuote": "Di rekrutmen tech Jakarta, recruiter yang bilang 'bisa, dengan syarat X, Y, Z berbasis data' selalu menang dari yang bilang 'siap' atau 'tidak bisa'."
+    }
+  },
+  {
+    "id": "recruit-tolak-5",
+    "roleId": "hr-recruiter",
+    "title": "Kandidat Titipan Direksi Tak Lolos",
+    "context": {
+      "message": "Keponakan direksi melamar, gagal di semua tahap tes. Direksi menanyakan 'kapan keponakan saya mulai kerja?'",
+      "sender": "Direksi (pesan singkat)",
+      "time": "17:20 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Loloskan demi hubungan baik.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Sampaikan hasil objektif + tawarkan posisi magang/pembinaan yang sesuai levelnya.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Abaikan pesan direksi.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Bocorkan ke karyawan lain.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Menolak titipan dengan data objektif + jalan keluar yang bermartabat melindungi standar rekrutmen tanpa mempermalukan direksi.",
+      "Fatal": "Satu titipan yang diloloskan merusak meritokrasi yang dibangun ratusan hiring — dan semua orang akan tahu.",
+      "PractitionerQuote": "Di HR Indonesia, momen titipan adalah ujian integritas tertinggi recruiter. Yang lulus dengan elegan justru naik pamor di mata direksi yang dewasa."
+    }
+  },
+  {
+    "id": "credit-agunan-4",
+    "roleId": "credit-analyst",
+    "title": "Nilai Agunan Jatuh 40%",
+    "context": {
+      "message": "Revaluasi: ruko agunan turun 40% karena kawasan sepi. Outstanding masih 90% dari nilai baru. Debitur lancar membayar.",
+      "sender": "Appraisal report (kuartal)",
+      "time": "10:15 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Tarik kreditnya sekarang juga.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Naikkan monitoring + minta agunan tambahan bertahap + catat mitigasi.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Abaikan, toh masih lancar.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Naikkan suku bunga sepihak sebagai penalti.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Debitur lancar adalah sekutu, bukan musuh — perkuat posisi bank bertahap (top-up agunan, monitoring) tanpa membunuh usaha yang membayar.",
+      "Fatal": "Mengabaikan coverage yang menipis berarti sadar saat sudah telat — dan komite akan bertanya ke mana saja analis selama ini.",
+      "PractitionerQuote": "Di analis kredit lokal, agunan adalah bantal, bukan kasur: menenangkan tapi bukan tempat tidur. Cashflow debitur tetap raja."
+    }
+  },
+  {
+    "id": "credit-sektor-5",
+    "roleId": "credit-analyst",
+    "title": "Sektor Usaha Masuk Daftar Merah",
+    "context": {
+      "message": "Komite risk memasukkan sektor batubara ke watchlist. 5 debitur existing-mu di sektor itu, semua masih lancar.",
+      "sender": "Risk Committee (memo)",
+      "time": "13:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Hentikan semua fasilitas sektor itu besok.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Review satu per satu + ketatkan covenant + susun exit plan bertahap.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Sembunyikan eksposur dari laporan.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Tambah exposure mumpung kompetitor mundur.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Watchlist sektoral bukan vonis mati per debitur — bedakan yang sehat dan yang sakit, kelola keluar yang sakit dengan tertib.",
+      "Fatal": "Menambah eksposur ke sektor bermasalah demi margin adalah cara tercepat masuk headline koran bisnis.",
+      "PractitionerQuote": "Di bank Indonesia, analis yang baik tidak panik saat sektor masuk watchlist — ia sudah punya daftar siapa yang keluar duluan, dengan cara apa."
+    }
+  },
+  {
+    "id": "mobile-ota-4",
+    "roleId": "mobile-developer",
+    "title": "Update Wajib vs User Menunda",
+    "context": {
+      "message": "Update keamanan wajib, tapi 40% user menunda update berbulan-bulan. Versi lama punya lubang yang dieksploitasi.",
+      "sender": "Security team (advisory)",
+      "time": "09:40 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Biarkan user di versi lama.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Force update bertahap + komunikasi + OTA patch untuk yang kritis.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Blokir total user versi lama mendadak.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Sembunyikan status keamanan dari laporan.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Keamanan vs kenyamanan dimenangkan bertahap: dorong kuat, blokir terakhir, komunikasikan kenapanya. User memaafkan keterpaksaan yang dijelaskan.",
+      "Fatal": "Membiarkan 40% user di versi rentan adalah insiden keamanan yang menunggu tanggal.",
+      "PractitionerQuote": "Di aplikasi lokal, force update yang elegan selalu punya 3 hal: alasan yang jelas, tenggat yang adil, dan cara update yang mudah. Kurang satu, review bintang 1."
+    }
+  },
+  {
+    "id": "mobile-offline-5",
+    "roleId": "mobile-developer",
+    "title": "Mode Offline untuk Daerah Sinyal Buruk",
+    "context": {
+      "message": "40% user di luar Jawa: sinyal hilang-timbul. Mereka butuh catat transaksi offline yang sinkron nanti.",
+      "sender": "User research (lapangan)",
+      "time": "11:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Abaikan, fokus kota besar saja.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Local-first: simpan lokal + antre sinkron + resolusi konflik yang jelas.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tampilkan error 'no internet' saja.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Klaim support offline padahal tidak.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Offline-first bukan fitur tambahan untuk Indonesia — itu syarat pasar. Antre sinkron + resolusi konflik yang jujur memenangkan daerah.",
+      "Fatal": "Mengklaim offline tanpa implementasi ketahuan saat demo pertama di lapangan.",
+      "PractitionerQuote": "Di mobile lokal, designer Jakarta dengan WiFi kencang tidak pernah merasakan aplikasinya sendiri. Uji dengan mode pesawat — itulah Indonesia."
+    }
+  },
+  {
+    "id": "net-loop-4",
+    "roleId": "network-engineer",
+    "title": "Audit Kabel Berantakan 10 Tahun",
+    "context": {
+      "message": "Audit: 300 kabel tak berlabel, 40% port tidak terdokumentasi. Manajemen minta rapi tanpa downtime.",
+      "sender": "Hasil audit (temuan)",
+      "time": "09:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Cabut dan rapikan semuanya weekend ini.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Petakan bertahap per rak + label + dokumentasi hidup + jadwal maintenance.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Biarkan, yang penting jalan.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Salahkan vendor lama di laporan.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Kabel 10 tahun dirapikan dengan kesabaran rak per rak — dokumentasi yang hidup mencegah kekacauan berikutnya.",
+      "Fatal": "Merapikan brutal tanpa peta adalah cara tercepat memutus layanan yang bahkan tidak kamu ketahui ada.",
+      "PractitionerQuote": "Di data center lokal, engineer dinilai dari label kabelnya. Label yang rapi berarti troubleshooting menit, bukan jam."
+    }
+  },
+  {
+    "id": "net-vpn-5",
+    "roleId": "network-engineer",
+    "title": "VPN Lambat untuk 300 WFH",
+    "context": {
+      "message": "300 karyawan WFH mengeluh VPN lambat. Konsentrator CPU 95% dan lisensi habis bulan depan.",
+      "sender": "Helpdesk (tiket menumpuk)",
+      "time": "10:20 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Suruh masuk kantor semua.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Split tunneling + tambah kapasitas + evaluasi ZTNA bertahap.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Matikan enkripsi agar cepat.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Abaikan, WFH bukan prioritas.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. 80% traffic VPN biasanya YouTube dan update OS — split tunneling membebaskan kapasitas untuk kerja nyata tanpa belanja besar.",
+      "Fatal": "Mematikan enkripsi demi kecepatan menukar keluhan performa dengan insiden keamanan.",
+      "PractitionerQuote": "Di enterprise pasca-pandemi, VPN lambat adalah pajak WFH yang dibayar produktivitas. Ukur dulu apa yang lewat tunnel — jawabannya selalu mengejutkan."
+    }
+  },
+  {
+    "id": "soc-password-4",
+    "roleId": "cybersecurity-analyst",
+    "title": "Password Direksi di Sticky Note",
+    "context": {
+      "message": "Walkthrough menemukan password email direksi tertempel di monitor. Beliau menolak MFA: 'ribet, saya sibuk.'",
+      "sender": "Hasil walkthrough (foto)",
+      "time": "11:40 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Biarkan, jangan cari masalah dengan direksi.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Edukasi privat + daftarkan MFA diam-diam + tunjukkan simulasi bobol.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Laporkan ke seluruh board agar malu.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Ganti passwordnya tanpa sepengetahuan.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Keamanan direksi dimenangkan dengan diplomasi, bukan sanksi — tunjukkan betapa mudahnya dibobol, pasangkan MFA sebelum pergi.",
+      "Fatal": "Akun direksi tanpa MFA adalah kunci kerajaan yang tergantung di pintu — dan penyerang tahu persis di mana pintunya.",
+      "PractitionerQuote": "Di enterprise lokal, user paling berisiko selalu yang paling tinggi jabatannya. Amankan mereka duluan, dengan cara yang menyelamatkan muka."
+    }
+  },
+  {
+    "id": "soc-iot-5",
+    "roleId": "cybersecurity-analyst",
+    "title": "CCTV IoT Jadi Pintu Masuk",
+    "context": {
+      "message": "Scan menemukan 30 CCTV dengan password default pabrik, terhubung ke LAN yang sama dengan server keuangan.",
+      "sender": "Vulnerability scan (laporan)",
+      "time": "09:10 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Abaikan, CCTV bukan aset kritis.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Isolasi ke VLAN khusus + ganti kredensial massal + monitoring anomali.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Cabut semua CCTV dari jaringan.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Sembunyikan temuan dari laporan audit.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Perangkat IoT adalah tamu tak diundang di LAN — karantina ke VLAN-nya sendiri, kunci pintunya, awasi gerak-geriknya.",
+      "Fatal": "Botnet terbesar sejarah dibangun dari CCTV dan DVR yang 'bukan aset kritis'.",
+      "PractitionerQuote": "Di assessment lokal, IoT dengan password default adalah temuan yang paling memalukan sekaligus paling umum. Cek sekarang, sebelum penyerang yang cek."
+    }
+  },
+  {
+    "id": "motion-audio-4",
+    "roleId": "motion-designer",
+    "title": "Musik Terkena Copyright Claim",
+    "context": {
+      "message": "Video klien 2 juta views kena copyright claim musik. Revenue dialihkan ke pemilik lagu dan klien menuntut penjelasan.",
+      "sender": "YouTube CMS (email)",
+      "time": "10:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Ganti audio diam-diam, harap tidak ketahuan.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Akui + ganti licensed track + SOP lisensi audio ke depan.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Salahkan klien yang memilih lagunya.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Abaikan claim-nya.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Pelanggaran hak cipta diselesaikan dengan pengakuan + perbaikan + sistem — klien memaafkan kesalahan yang diperbaiki prosedurnya.",
+      "Fatal": "Mengabaikan claim berujung takedown channel — dan agensi yang namanya tercantum sebagai pengunggah.",
+      "PractitionerQuote": "Di produksi lokal, library musik berlisensi adalah langganan termurah dibanding satu claim. Cek lisensi sebelum render, bukan sesudah viral."
+    }
+  },
+  {
+    "id": "motion-trim-5",
+    "roleId": "motion-designer",
+    "title": "Durasi Dipotong Setengah H-1",
+    "context": {
+      "message": "Media partner: slot tinggal 30 detik, bukan 60. Animasi 60 detik sudah final-render dan revisi struktur mustahil semalam.",
+      "sender": "Media partner (telepon)",
+      "time": "18:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Percepat 2x agar muat 30 detik.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Potong jadi cutdown 30 detik fokus 1 pesan + CTA + render prioritas.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Kirim versi 60 detik, harap lolos.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Batalkan slot-nya.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Cutdown bukan versi cepat — tapi versi yang ditulis ulang untuk 1 pesan. Derita semalam, selamat slotnya.",
+      "Fatal": "Video dipercepat 2x terlihat rusak dan murahan — brand membayar mahal untuk terlihat murah.",
+      "PractitionerQuote": "Di studio Jakarta, selalu simpan master project berlapis: cutdown 30/15 detik seharusnya bisa dirakit 2 jam, bukan 2 hari."
+    }
+  },
+  {
+    "id": "proc-kualitas-4",
+    "roleId": "procurement-staff",
+    "title": "Barang Murah Menang, Cepat Rusak",
+    "context": {
+      "message": "Pemenang termurah: 30% barang cacat dalam sebulan. User marah, vendor berdalih 'sesuai harga'. Tender ulang butuh 2 bulan.",
+      "sender": "User + QC (komplain)",
+      "time": "10:50 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Teruskan, kontrak sudah ditandatangani.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Klaim garansi + penalti + evaluasi ulang + perbaiki bobot kualitas tender berikut.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Beli pengganti dari vendor lain diam-diam.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Salahkan user yang menerima barang.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Harga termurah tanpa bobot kualitas adalah jebakan klasik — tegakkan garansi dan penalti sekarang, perbaiki kriterianya untuk tender berikut.",
+      "Fatal": "Meneruskan barang cacat demi kontrak merusak operasional yang jadi tanggung jawabmu juga.",
+      "PractitionerQuote": "Di pengadaan Indonesia, total cost selalu mengalahkan harga satuan. Vendor termurah yang barangnya rusak 30% adalah vendor termahal."
+    }
+  },
+  {
+    "id": "proc-audit-5",
+    "roleId": "procurement-staff",
+    "title": "Audit Pengadaan Dadakan",
+    "context": {
+      "message": "Internal audit meminta seluruh dokumen 10 tender terbesar tahun ini — besok pagi. 2 berkas evaluasi tidak lengkap.",
+      "sender": "Internal Audit (surat)",
+      "time": "16:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Lengkapi berkasnya malam ini (backdate).",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Serahkan apa adanya + jelaskan gap + rencana perbaikan arsip.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Sembunyikan 2 tender bermasalah.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Minta penundaan 2 minggu tanpa alasan.",
+        "type": "Risky"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Auditor menghargai kejujuran gap + rencana perbaikan jauh lebih dari arsip sempurna yang dicurigai. Kepercayaan dibangun di sini.",
+      "Fatal": "Backdate dan menyembunyikan dokumen mengubah temuan administratif jadi temuan fraud.",
+      "PractitionerQuote": "Di BUMN dan korporat, arsip pengadaan yang jujur walau bolong selalu menang dari arsip sempurna yang dibuat semalam. Auditor bisa mencium bedanya."
+    }
+  },
+  {
+    "id": "plan-dana-4",
+    "roleId": "financial-planner",
+    "title": "Dana Pendidikan vs Pensiun Berebut",
+    "context": {
+      "message": "Klien: gaji cukup untuk satu tujuan — kuliah anak 10 tahun lagi ATAU pensiun 20 tahun lagi. Ia meminta dipilihkan.",
+      "sender": "Klien (review tahunan)",
+      "time": "14:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Pilihkan satu, yang lain lupakan.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Hitung keduanya + tunjukkan trade-off + bagi proporsional + review tahunan.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Jual dua produk sekaligus agar tercapai semua.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Serahkan keputusan sepenuhnya ke klien tanpa analisa.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Tugas perencana bukan memilihkan — tapi membuat trade-off terlihat angkanya, lalu mendampingi pilihan yang realistis dijalani 10 tahun.",
+      "Fatal": "Menjual dua produk untuk gaji yang cukup satu adalah resep gagal bayar ganda.",
+      "PractitionerQuote": "Di praktik lokal, klien yang dipaksa memilih satu biasanya gagal keduanya. Yang dibagi proporsional dengan review tahunan justru tercapai."
+    }
+  },
+  {
+    "id": "plan-asuransi-5",
+    "roleId": "financial-planner",
+    "title": "Klaim Asuransi Klien Ditolak",
+    "context": {
+      "message": "Klaim kesehatan klien ditolak karena pengecualian polis. Klien marah ke kamu yang menjualnya 2 tahun lalu.",
+      "sender": "Klien (telepon marah)",
+      "time": "09:20 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Salahkan perusahaan asuransi.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Bantu banding dengan dokumen lengkap + jelaskan jujur + evaluasi polisnya.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Hilang, ganti nomor.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Ganti rugi dari kantong sendiri diam-diam.",
+        "type": "Risky"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Momen klaim adalah momen kebenaran perencana — dampingi bandingnya, akui jika dulu kurang menjelaskan, perbaiki polisnya. Klien ini tidak akan pergi.",
+      "Fatal": "Menghilang saat klaim ditolak mengkonfirmasi semua prasangka buruk tentang agen asuransi — terhadapmu dan profesimu.",
+      "PractitionerQuote": "Di industri Indonesia, perencana yang mendampingi klaim ditolak sampai tuntas mendapatkan 5 referral. Yang hilang mendapatkan 50 peringatan grup WA."
+    }
+  },
+  {
+    "id": "retail-lembur-4",
+    "roleId": "retail-store-supervisor",
+    "title": "Tim Protes Lembur Terus",
+    "context": {
+      "message": "3 staf mengancam resign karena lembur tiap akhir pekan 2 bulan. Omzet memang naik, tapi turnover mengintai.",
+      "sender": "Staf (curhat + ancaman)",
+      "time": "19:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Ingatkan kontrak: lembur adalah kewajiban.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Atur ulang shift + insentif lembur transparan + rekrut 1 part-time.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Biarkan resign, rekrut yang baru.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Hapus lembur, biarkan toko kewalahan.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Lembur kronis adalah masalah desain shift, bukan mentalitas — perbaiki polanya, hargai lebihnya, tambah daya tampungnya.",
+      "Fatal": "Membiarkan tim inti resign demi omzet sesaat menukar mesin dengan bensin — toko berjalan 2 bulan lalu mogok total.",
+      "PractitionerQuote": "Di retail lokal, SPV yang timnya betah selalu punya 3 hal: shift adil, insentif jelas, dan telinga. Urutannya begitu."
+    }
+  },
+  {
+    "id": "retail-mudik-5",
+    "roleId": "retail-store-supervisor",
+    "title": "Stok Mudik Menumpuk Pasca Lebaran",
+    "context": {
+      "message": "Stok parsel Lebaran tersisa 40% seminggu setelah hari-H. Modal tertahan Rp120 juta dan barang mulai kedaluwarsa.",
+      "sender": "Laporan stok (gudang)",
+      "time": "10:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Simpan untuk Lebaran tahun depan.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Obral bertahap + bundling + donasi sebagian (pajak + citra) + evaluasi forecast.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Jual ke karyawan setengah paksa.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Buang diam-diam.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Stok mati harus dicairkan cepat dengan kombinasi obral + bundling + donasi — tiap minggu menunda nilainya menyusut dan pelajarannya hilang.",
+      "Fatal": "Menyimpan barang kedaluwarsa setahun adalah membayar sewa gudang untuk sampah.",
+      "PractitionerQuote": "Di retail musiman Indonesia, forecast Lebaran adalah skill SPV paling mahal. Tahun ini rugi Rp120 juta — tahun depan dengan data ini, untung 2x lipat."
+    }
   }
 ]

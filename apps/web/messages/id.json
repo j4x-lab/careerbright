@@ -993,6 +993,8 @@
     "scenariosSub": "Simulator keputusan 3 menit. Pilih satu opsi, dan pelajari risikonya di dunia nyata.",
     "playCta": "Coba Skenario",
     "noScenarios": "Skenario mikro untuk profesi ini belum tersedia.",
+    "seriesCta": "Mainkan seri lengkap →",
+    "seriesSub": "{n} soal berurutan dengan skor akhir. Lulus jika skor ≥ 70 — bisa diulang sampai lulus.",
     "lockedTitle": "Skenario terkunci",
     "lockedBody": "Skenario profesi ini sudah ditulis tapi belum dibuka. Kami merilis gelombang bertahap agar tiap gelombang tertinjau dengan baik.",
     "lockedCta": "Lihat profesi yang bisa dimainkan →"
@@ -1011,6 +1013,27 @@
     "optionLabel": "Opsi {id}",
     "lockedTitle": "Skenario terkunci",
     "lockedBody": "Skenario ini termasuk gelombang yang belum dibuka. Jelajahi profesi yang sudah bisa dimainkan."
+  },
+  "series": {
+    "skip": "Lanjut ke konten utama",
+    "back": "← Kembali ke profesi",
+    "seriesLabel": "Seri simulasi · {n} soal",
+    "question": "Soal {a} dari {b}",
+    "decide": "Tentukan keputusanmu",
+    "next": "Lanjut →",
+    "finish": "Lihat skor →",
+    "resultOptimal": "Optimal",
+    "resultRisky": "Berisiko",
+    "resultFatal": "Fatal",
+    "practitionerLabel": "Pandangan praktisi",
+    "scoreLabel": "Skor akhir seri",
+    "pass": "Kompeten ✓ — lulus seri ini",
+    "fail": "Belum lulus — coba lagi",
+    "best": "Terbaik: {s}",
+    "retry": "Ulangi seri",
+    "viewRole": "Kembali ke profesi",
+    "lockedTitle": "Seri terkunci",
+    "lockedBody": "Seri ini termasuk gelombang yang belum dibuka. Jelajahi profesi yang sudah bisa dimainkan."
   }
 }
 

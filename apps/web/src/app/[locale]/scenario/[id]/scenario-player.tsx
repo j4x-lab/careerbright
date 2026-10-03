@@ -13,7 +13,7 @@ import type { MicroScenario } from "@/lib/discovery";
    (Optimal / Risky / Fatal) plus the practitioner debrief. The verdict is
    announced through a live region, not colour alone. */
 
-const VERDICT_STYLE: Record<string, string> = {
+export const VERDICT_STYLE: Record<string, string> = {
   Optimal: "border-ok/25 bg-ok-bg text-ok",
   Risky: "border-signal/40 bg-signal/10 text-signal-strong",
   Fatal: "border-danger/30 bg-danger-bg text-danger",

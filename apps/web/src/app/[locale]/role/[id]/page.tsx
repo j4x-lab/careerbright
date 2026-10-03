@@ -123,7 +123,19 @@ export default async function RolePage({ params }: { params: Promise<{ locale: s
               </Link>
             </div>
           ) : (
-            <ul className="mt-6 border-b border-line">
+            <>
+              <div className="panel mt-6 flex flex-col gap-2 p-6 sm:flex-row sm:items-center sm:justify-between md:p-7">
+                <p className="max-w-[52ch] text-[15px] leading-relaxed text-soft">
+                  {t("seriesSub", { n: scenarios.length })}
+                </p>
+                <Link
+                  href={`/series/${role.id}`}
+                  className="btn-primary min-h-[52px] flex-none px-7 text-[15px]"
+                >
+                  {t("seriesCta")}
+                </Link>
+              </div>
+              <ul className="mt-6 border-b border-line">
               {scenarios.map((s) => (
                 <li key={s.id} className="grid gap-x-8 gap-y-2 border-t border-line py-5 transition-colors duration-300 hover:bg-brand-50/60 md:grid-cols-12 md:items-center md:px-2">
                   <p className="tnum font-mono text-[12px] text-muted md:col-span-7">
@@ -140,6 +152,7 @@ export default async function RolePage({ params }: { params: Promise<{ locale: s
                 </li>
               ))}
             </ul>
+            </>
           )}
         </section>
       </div>

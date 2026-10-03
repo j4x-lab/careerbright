@@ -1,7 +1,6 @@
 import { createTranslator } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { getLocaleMessages } from "@/i18n/messages";
-import { Reveal } from "@/components/reveal";
 import { LOCAL } from "@/lib/visual";
 import { ROLES, getScenariosForRole } from "@/lib/discovery";
 import { getReleasedRoleIds } from "@/lib/releases";
@@ -11,6 +10,10 @@ import { getReleasedRoleIds } from "@/lib/releases";
  * lives behind a Suspense boundary in landing-page.tsx: hero, demand proof
  * and the ticker stream immediately while this fills in. Never import this
  * from a client component (pg-backed gate).
+ *
+ * Deliberately animation-free: the rows must be visible the moment they
+ * stream in, not gated on an IntersectionObserver. Scroll-reveal lives on
+ * the hero/problem sections, not on content the user is hunting.
  */
 
 export async function RoleIndex({ locale }: { locale: string }) {
@@ -30,7 +33,7 @@ export async function RoleIndex({ locale }: { locale: string }) {
       className="mx-auto max-w-7xl scroll-mt-32 px-4 pb-20 pt-14 md:pb-32 md:pt-20"
     >
       {/* Wave-1 rows — list, not twin cards */}
-      <Reveal>
+      <div>
         <div className="overflow-hidden rounded-card border border-line bg-card">
           <p className="border-b border-line bg-paper px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] text-muted md:px-10">
             {t("waveBand", { n: PLAYABLE_ROLES.length })}
@@ -113,9 +116,9 @@ export async function RoleIndex({ locale }: { locale: string }) {
             ))}
           </ul>
         </div>
-      </Reveal>
+      </div>
 
-      <Reveal delay={80}>
+      <div>
         <div className="mt-5 flex flex-col gap-2 rounded-card border border-dashed border-line bg-paper px-6 py-5 sm:flex-row sm:items-center sm:justify-between md:px-10">
           <p className="text-sm text-soft">
             <strong className="text-ink">{t("soon")}</strong>{" "}
@@ -128,8 +131,8 @@ export async function RoleIndex({ locale }: { locale: string }) {
         <p className="mt-4 font-mono text-[11px] leading-relaxed text-muted">
           {t("sources")}
         </p>
-      </Reveal>
-      <Reveal delay={120}>
+      </div>
+      <div>
         <figure className="photo-cine mt-6 aspect-[21/9]">
           <img
             src={LOCAL.kantorJakarta}
@@ -144,7 +147,7 @@ export async function RoleIndex({ locale }: { locale: string }) {
             <span className="opacity-70">Pexels</span>
           </figcaption>
         </figure>
-      </Reveal>
+      </div>
     </section>
   );
 }

@@ -8,10 +8,12 @@ const nextConfig: NextConfig = {
   transpilePackages: ["@careerbright/db"],
   // Monorepo root silences the "multiple lockfiles" workspace warning.
   outputFileTracingRoot: fileURLToPath(new URL("../..", import.meta.url)),
-  webpack: (config, { dev }) => {
-    // Termux FS cannot snapshot webpack's persistent cache deps —
-    // disable it in dev (cold compile each boot, no fatal warning).
-    if (dev) config.cache = false;
+  webpack: (config) => {
+    // Termux FS cannot snapshot webpack's persistent cache deps
+    // ("Unable to snapshot resolve dependencies") — disable it for dev
+    // AND build. Production builds are single-pass so no useful cache is
+    // lost; dev cold-compiles each boot with no fatal warning.
+    config.cache = false;
     return config;
   },
 };

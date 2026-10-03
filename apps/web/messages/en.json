@@ -993,6 +993,8 @@
     "scenariosSub": "3-minute decision simulators. Choose an option and see the real-world trade-offs.",
     "playCta": "Start Scenario",
     "noScenarios": "Micro-scenarios for this role are not yet available.",
+    "seriesCta": "Play the full series →",
+    "seriesSub": "{n} questions in a row with a final score. Pass at 70 or above — retry until you pass.",
     "lockedTitle": "Scenarios locked",
     "lockedBody": "This role's scenarios are written but not yet open. We release waves gradually so each one gets proper review.",
     "lockedCta": "Browse playable roles →"
@@ -1011,6 +1013,27 @@
     "optionLabel": "Option {id}",
     "lockedTitle": "Scenario locked",
     "lockedBody": "This scenario belongs to a wave that is not open yet. Explore the roles that are already playable."
+  },
+  "series": {
+    "skip": "Skip to main content",
+    "back": "← Back to role",
+    "seriesLabel": "Simulation series · {n} questions",
+    "question": "Question {a} of {b}",
+    "decide": "Make your call",
+    "next": "Next →",
+    "finish": "See score →",
+    "resultOptimal": "Optimal",
+    "resultRisky": "Risky",
+    "resultFatal": "Fatal",
+    "practitionerLabel": "Practitioner insight",
+    "scoreLabel": "Series final score",
+    "pass": "Competent ✓ — series passed",
+    "fail": "Not yet passed — try again",
+    "best": "Best: {s}",
+    "retry": "Retry series",
+    "viewRole": "Back to role",
+    "lockedTitle": "Series locked",
+    "lockedBody": "This series belongs to a wave that is not open yet. Explore the roles that are already playable."
   }
 }
 
