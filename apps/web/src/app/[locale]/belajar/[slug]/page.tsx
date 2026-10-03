@@ -1,4 +1,5 @@
 import { createTranslator } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { getLocaleMessages } from "@/i18n/messages";
 import { getCourse } from "@/lib/curriculum";
 import { recommendNext } from "@/lib/catalog";
@@ -49,15 +50,15 @@ export default async function BelajarPage({ params }: { params: Promise<{ locale
     : t("photoAltDefault");
 
   return (
-    <main className="overflow-x-clip bg-paper text-ink">
+    <main id="konten" tabIndex={-1} className="overflow-x-clip bg-paper text-ink">
       <a href="#konten" className="skip-link">{t("skip")}</a>
       <SiteNav />
 
       {/* Course header — premium-bold: display H1, meta strip, outcome card as hero */}
       <section className="hero-light relative overflow-hidden pt-[120px] md:pt-[144px]">
         <div aria-hidden className="grid-light absolute inset-0" />
-        <div id="konten" className="relative mx-auto max-w-7xl scroll-mt-32 px-4 pb-14 pt-8 md:pb-20">
-          <a href="/#pekerjaan" className="inline-flex min-h-[44px] items-center font-mono text-[12px] text-muted underline decoration-line underline-offset-4 hover:text-ink">{t("back")}</a>
+        <div className="relative mx-auto max-w-7xl px-4 pb-14 pt-8 md:pb-20">
+          <Link href={{ pathname: "/", hash: "#pekerjaan" }} className="inline-flex min-h-[44px] items-center font-mono text-[12px] text-muted underline decoration-line underline-offset-4 hover:text-ink">{t("back")}</Link>
           <p className="hero-enter hero-enter-1 eyebrow-light mt-8 flex items-center gap-3">
             <span aria-hidden className="inline-block h-[2px] w-8 flex-none bg-brand-700" />
             {meta.level}
@@ -160,10 +161,10 @@ export default async function BelajarPage({ params }: { params: Promise<{ locale
             <div aria-hidden className="pointer-events-none absolute -right-10 -top-10 h-44 w-44 rounded-full bg-signal/15" />
             <p className="relative max-w-[24ch] text-2xl font-extrabold leading-tight tracking-tight md:text-4xl">{t("recTitle", { title: rec.item.title })}</p>
             <p className="relative mt-3 max-w-[52ch] text-[15px] leading-relaxed text-soft md:text-base">{rec.reason}</p>
-            <a href={rec.item.href} className="btn-amber group relative mt-8 min-h-[52px] px-7 text-[15px]">
+            <Link href={rec.item.href} className="btn-amber group relative mt-8 min-h-[52px] px-7 text-[15px]">
               {t("next")}
               <span className="btn-island btn-island-dark !h-6 !w-6 text-xs" aria-hidden>↗</span>
-            </a>
+            </Link>
           </div>
         )}
       </section>

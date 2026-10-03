@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 
 export interface CodeTest {
@@ -27,6 +27,12 @@ export function CodeLab({
   const [code, setCode] = useState(starter);
   const [results, setResults] = useState<{ name: string; pass: boolean; got: string }[] | null>(null);
   const [err, setErr] = useState<string | null>(null);
+  const outRef = useRef<HTMLUListElement>(null);
+
+  // Send focus to the verdict list; run results used to be colour-only.
+  useEffect(() => {
+    if (results) outRef.current?.focus();
+  }, [results]);
 
   function run() {
     setErr(null);
@@ -84,12 +90,19 @@ export function CodeLab({
         />
       </div>
       {err && (
-        <p className="border-b border-danger/30 bg-danger-bg px-4 py-3 font-mono text-xs font-bold text-danger md:px-5">
-          ✗ {err}
+        <p role="alert" className="border-b border-danger/30 bg-danger-bg px-4 py-3 font-mono text-xs font-bold text-danger md:px-5">
+          <span aria-hidden>✗ </span>{err}
         </p>
       )}
       {results && (
-        <ul className="space-y-2 bg-card px-4 py-4 md:px-5">
+        <ul
+          ref={outRef}
+          tabIndex={-1}
+          role="status"
+          aria-live="polite"
+          aria-label={t("resultsLabel")}
+          className="space-y-2 bg-card px-4 py-4 outline-none md:px-5"
+        >
           {results.map((r) => (
             <li
               key={r.name}
@@ -106,6 +119,7 @@ export function CodeLab({
                 {r.pass ? "✓" : "✗"}
               </span>
               <span className="min-w-0 flex-1 truncate font-bold">
+                <span className="sr-only">{r.pass ? t("testPass") : t("testFail")}: </span>
                 {r.name} <span className="font-normal text-muted">→ {r.got}</span>
               </span>
             </li>
@@ -118,6 +132,7 @@ export function CodeLab({
             <span aria-hidden className={passed === tests.length ? "text-ok" : "text-brand-700"}>
               {passed === tests.length ? "✓ " : "● "}
             </span>
+            <span className="sr-only">{passed === tests.length ? t("allPassSr") : t("someFailSr")}: </span>
             {t("summary", { p: passed, n: tests.length })} — {passed === tests.length ? t("donePass") : t("doneFix")}
           </li>
         </ul>

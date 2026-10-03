@@ -1,4 +1,5 @@
 import { createTranslator } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { getLocaleMessages } from "@/i18n/messages";
 import { PX, PHOTOS } from "@/lib/visual";
 import { SiteFooter, SiteNav } from "@/components/site-chrome";
@@ -45,40 +46,41 @@ export default async function PathPage({ params }: { params: Promise<{ locale: s
     namespace: "paths",
     messages: getLocaleMessages(locale),
   });
-  const key = t.has(`data.${slug}`) ? slug : "frontend-developer";
-  const p = t.raw(`data.${key}`) as PathData;
+  // A URL must not describe content it isn't serving.
+  if (!t.has(`data.${slug}`)) notFound();
+  const p = t.raw(`data.${slug}`) as PathData;
 
   return (
-    <main className="overflow-x-clip bg-paper text-ink">
+    <main id="konten" tabIndex={-1} className="overflow-x-clip bg-paper text-ink">
       <a href="#konten" className="skip-link">{t("skip")}</a>
       <SiteNav />
 
       {/* Header split: light role-first + enroll card */}
       <section className="hero-light relative overflow-hidden pt-[140px]">
-        <div id="konten" className="relative mx-auto grid max-w-7xl items-start gap-8 px-4 pb-12 pt-2 md:pb-14 lg:grid-cols-5">
+        <div className="relative mx-auto grid max-w-7xl items-start gap-8 px-4 pb-12 pt-2 md:pb-14 lg:grid-cols-5">
           <div className="lg:col-span-3">
-            <a href="/#pekerjaan" className="font-mono text-[12px] text-muted underline decoration-line underline-offset-4 hover:text-ink">{t("back")}</a>
+            <Link href={{ pathname: "/", hash: "#pekerjaan" }} className="font-mono text-[12px] text-muted underline decoration-line underline-offset-4 hover:text-ink">{t("back")}</Link>
             <p className="eyebrow-light mt-6">{t("eyebrow", { level: p.level })}</p>
             <h1 className="mt-4 max-w-[18ch] text-4xl font-extrabold leading-[1.05] tracking-tight md:text-6xl">{p.title}</h1>
             <p className="mt-3 max-w-[30ch] text-[15px] font-bold text-signal-strong">{p.goal}</p>
             <p className="mt-2 max-w-[52ch] text-[15px] leading-relaxed text-soft">{p.desc}</p>
             <p className="tnum mt-4 font-mono text-[13px] text-muted">{p.salary} · {p.weeks}</p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <a href="/id/auth/daftar" className="btn-amber group">
+              <Link href="/auth/daftar" className="btn-amber group">
                 {t("startFree")}
                 <span className="btn-island btn-island-dark" aria-hidden>↗</span>
-              </a>
-              <a href="/id/belajar/js-dasar-analis" className="btn-ghost">{t("tryLab")}</a>
+              </Link>
+              <Link href="/belajar/js-dasar-analis" className="btn-ghost">{t("tryLab")}</Link>
             </div>
           </div>
           <aside className="lg:col-span-2">
             <div className="glass-light p-6">
               <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-faint">{t("enrollTitle")}</p>
               <ul className="mt-3 space-y-2.5 text-sm text-soft">
-                <li>✓ {t("stageCount", { n: p.stages.length })}</li>
-                <li>✓ {t("skillCount", { n: p.skills.length })}</li>
-                <li>✓ {t("certLine")}</li>
-                <li>✓ {t("simLine")}</li>
+                <li><span aria-hidden>✓ </span>{t("stageCount", { n: p.stages.length })}</li>
+                <li><span aria-hidden>✓ </span>{t("skillCount", { n: p.skills.length })}</li>
+                <li><span aria-hidden>✓ </span>{t("certLine")}</li>
+                <li><span aria-hidden>✓ </span>{t("simLine")}</li>
               </ul>
               <p className="mt-4 rounded-input bg-signal/20 px-3.5 py-2.5 font-mono text-[11px] text-signal-strong">{t("freeNote")}</p>
             </div>
@@ -157,10 +159,10 @@ export default async function PathPage({ params }: { params: Promise<{ locale: s
             <p className="mt-2 text-sm font-bold">{t("certLine1")}</p>
             <p className="mt-1 font-mono text-[11px] text-muted">{t("certLine2")}</p>
             <div className="mt-5 flex flex-wrap gap-3">
-              <a href="/id/auth/daftar" className="btn-primary group px-5">
+              <Link href="/auth/daftar" className="btn-primary group px-5">
                 {t("startFree")}
                 <span className="btn-island" aria-hidden>↗</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

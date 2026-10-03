@@ -167,8 +167,9 @@ html.js .reveal {
   transition:
     opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity;
 }
+/* will-change only while the reveal is still pending — never at rest. */
+html.js .reveal:not(.revealed) { will-change: transform, opacity; }
 html.js .reveal.revealed { opacity: 1; transform: none; }
 
 .hero-enter { opacity: 1; }
@@ -228,7 +229,6 @@ html.js .hero-enter { opacity: 0; transform: translateY(18px); animation: fade-u
   display: inline-flex; align-items: center; gap: 10px;
   border-radius: var(--radius-btn); font-weight: 700; font-size: 14px;
   transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1), background 0.3s, border-color 0.3s, box-shadow 0.3s;
-  will-change: transform;
 }
 .btn-primary { background: var(--color-brand-700); color: #fff; padding: 14px 24px; box-shadow: 0 14px 30px -12px rgba(29,78,216,0.6); }
 .btn-primary:hover { background: var(--color-brand-800); box-shadow: 0 18px 36px -12px rgba(29,78,216,0.7); }
@@ -285,7 +285,7 @@ html.js .hero-enter { opacity: 0; transform: translateY(18px); animation: fade-u
 
 /* app shell */
 .shell-active { background: var(--color-brand-700); color: #fff; border-radius: var(--radius-input); }
-.chip { border-radius: 999px; border: 1px solid rgba(10,17,40,0.12); padding: 6px 14px; font-size: 13px; background: var(--color-card); }
+.chip { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; border: 1px solid rgba(10,17,40,0.12); padding: 6px 14px; font-size: 13px; background: var(--color-card); }
 .chip-on { background: var(--color-brand-700); color: #fff; border-color: var(--color-brand-700); }
 
 /* ---- Nova landing theme (landing page only) ---- */
@@ -305,7 +305,6 @@ html.js .hero-enter { opacity: 0; transform: translateY(18px); animation: fade-u
   background: var(--color-ember); color: #fff; padding: 16px 28px;
   box-shadow: 0 16px 34px -14px rgba(184, 58, 18, 0.65);
   transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1), background 0.3s, box-shadow 0.3s;
-  will-change: transform;
 }
 .btn-ember:hover { background: var(--color-ember-deep); box-shadow: 0 20px 40px -14px rgba(147, 48, 15, 0.7); }
 .btn-ember:active { transform: scale(0.98) translateY(1px); }
@@ -326,10 +325,38 @@ html.js .hero-enter { opacity: 0; transform: translateY(18px); animation: fade-u
   display: flex; width: max-content;
   animation: marquee-x 36s linear infinite;
 }
+/* WCAG 2.2.2 — auto-playing motion runs >5s, so it must be pausable.
+   Pointer hover and keyboard focus both stop it. */
+.marquee-band:hover .marquee-track,
+.marquee-band:focus-within .marquee-track { animation-play-state: paused; }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-  .reveal { opacity: 1; transform: none; transition: none; }
-  .hero-enter { opacity: 1; transform: none; animation: none; }
   html { scroll-behavior: auto; }
+
+  /* Collapse duration, never the end state. A blanket 0.01ms kill left
+     .bar-fill at scaleX(0) (invisible) and parked the marquee at -50%, so
+     the only copy on screen was the aria-hidden duplicate. */
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Kinetic surfaces stop on their authored rest frame, not mid-travel. */
+  .marquee-track { animation: none !important; transform: none !important; }
+
+  /* Bars report their value instantly instead of growing into it.
+     mcq-quiz drives an inline transform, which still wins over this. */
+  .bar-fill { transform: scaleX(1); }
+  .revealed .bar-fill { animation: none; }
+
+  /* Reveal + hero entrance land visible: no travel, no pending hint. */
+  .reveal, html.js .reveal, .hero-enter, html.js .hero-enter {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    will-change: auto !important;
+  }
 }

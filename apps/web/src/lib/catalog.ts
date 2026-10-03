@@ -73,7 +73,7 @@ const PATH_INDEX: CatalogItem[] = [
     meta: "4–6 bln · IDR 8–25 jt",
     badge: "SuperBright Verified",
     konteksID: true,
-    href: "/id/paths/frontend-developer",
+    href: "/paths/frontend-developer",
   },
   {
     kind: "jalur",
@@ -85,7 +85,7 @@ const PATH_INDEX: CatalogItem[] = [
     meta: "4 minggu · Tawaran pertama",
     badge: "SuperBright Verified",
     konteksID: true,
-    href: "/id/paths/siap-kerja",
+    href: "/paths/siap-kerja",
   },
   {
     kind: "jalur",
@@ -97,7 +97,7 @@ const PATH_INDEX: CatalogItem[] = [
     meta: "10 modul · Fleksibel",
     badge: "SuperBright Verified",
     konteksID: true,
-    href: "/id/paths/umkm-digital-entrepreneur",
+    href: "/paths/umkm-digital-entrepreneur",
   },
   {
     kind: "jalur",
@@ -109,7 +109,7 @@ const PATH_INDEX: CatalogItem[] = [
     meta: "7 modul · IDR 7–18 jt",
     badge: "SuperBright Verified",
     konteksID: true,
-    href: "/id/paths/data-analyst",
+    href: "/paths/data-analyst",
   },
   {
     kind: "jalur",
@@ -121,7 +121,7 @@ const PATH_INDEX: CatalogItem[] = [
     meta: "24 minggu · IDR 6–9 jt",
     badge: "SuperBright Verified",
     konteksID: true,
-    href: "/id/paths/junior-accountant",
+    href: "/paths/junior-accountant",
   },
 ];
 
@@ -147,7 +147,7 @@ function buildCatalog(locale: string): CatalogItem[] {
         : `${lc.lessons.length} pelajaran · Gratis`,
       badge: "SuperBright Verified" as const,
       konteksID: extra.konteksID,
-      href: `/id/belajar/${c.slug}`,
+      href: `/belajar/${c.slug}`,
     };
   });
   const paths = PATH_INDEX.map((p) => {

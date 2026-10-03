@@ -13,13 +13,15 @@ export default async function NotFound() {
           {t("body")}
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-5">
-          <a href="/" className="btn-primary group px-6 py-3 text-sm">
+          {/* Plain anchors on purpose: this route is prerendered by Next's
+              not-found entry, which cannot resolve the locale-aware Link. */}
+          <a href="/" className="btn-primary group min-h-[44px] px-6 py-3 text-sm">
             {t("home")}
             <span className="btn-island" aria-hidden>
               ↗
             </span>
           </a>
-          <a href="/#pekerjaan" className="link-more">
+          <a href="/#pekerjaan" className="link-more inline-flex min-h-[44px] items-center">
             {t("roles")}
           </a>
         </div>

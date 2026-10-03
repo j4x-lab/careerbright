@@ -1,4 +1,5 @@
 import { createTranslator } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { getLocaleMessages } from "@/i18n/messages";
 
 export default async function VerifyPage({ params }: { params: Promise<{ locale: string; id: string }> }) {
@@ -9,9 +10,9 @@ export default async function VerifyPage({ params }: { params: Promise<{ locale:
   return (
     <main className="hero-light relative min-h-[100dvh] overflow-hidden px-4 py-16 text-center">
       <div className="relative mx-auto max-w-3xl">
-        <a href="/" className="font-mono text-[12px] text-muted underline decoration-line underline-offset-4 hover:text-ink">
+        <Link href="/" className="font-mono text-[12px] text-muted underline decoration-line underline-offset-4 hover:text-ink">
           {c("home")}
-        </a>
+        </Link>
         <div className="glass-light mx-auto mt-10 max-w-md p-6 text-left md:p-8">
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-signal-strong">
             {t("title")}
@@ -29,7 +30,7 @@ export default async function VerifyPage({ params }: { params: Promise<{ locale:
             <span className="rounded-full border border-line bg-paper px-3 py-2 font-mono text-[11px] text-soft">VC 2.0 ✓</span>
             <span className="rounded-full border border-line px-3 py-2 font-mono text-[11px] text-faint">{t("bnspSoon")}</span>
           </div>
-          <a href="/id/auth/daftar" className="btn-amber mt-6 w-full justify-center">{t("cta")}</a>
+          <Link href="/auth/daftar" className="btn-amber mt-6 w-full justify-center">{t("cta")}</Link>
         </div>
       </div>
     </main>

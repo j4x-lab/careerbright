@@ -76,7 +76,7 @@ export function ScenarioDemo() {
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 <a
-                  href="/id/auth/daftar"
+                  href="/auth/daftar"
                   className="btn-amber mt-0 px-5 py-2.5 text-[13px]"
                 >
                   {data.simSoon ? "Daftar akses awal" : "Coba Simulasi Penuh"}

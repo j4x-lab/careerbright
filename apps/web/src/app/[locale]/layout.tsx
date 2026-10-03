@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { NextIntlClientProvider } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { getLocaleMessages } from "@/i18n/messages";
 import { Providers } from "@/trpc/client";
 
 export const metadata: Metadata = {
@@ -26,9 +25,8 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  return (
-    <NextIntlClientProvider locale={locale} messages={getLocaleMessages(locale)}>
-      <Providers>{children}</Providers>
-    </NextIntlClientProvider>
-  );
+  // Caches the resolved locale so the root layout's getLocale() reads it
+  // without touching headers — keeps these routes statically prerendered.
+  setRequestLocale(locale);
+  return <Providers>{children}</Providers>;
 }

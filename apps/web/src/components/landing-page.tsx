@@ -1,4 +1,5 @@
 import { createTranslator } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { getLocaleMessages } from "@/i18n/messages";
 import { Reveal } from "@/components/reveal";
 import { SiteFooter, SiteNav } from "@/components/site-chrome";
@@ -53,7 +54,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
     [t("step5t"), t("step5d")],
   ];
   return (
-    <main className="overflow-x-clip bg-paper text-ink">
+    <main id="konten" tabIndex={-1} className="overflow-x-clip bg-paper text-ink">
       <a href="#konten" className="skip-link">
         {t("skip")}
       </a>
@@ -63,8 +64,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
       <section className="hero-light relative overflow-hidden pt-[120px] md:pt-[144px]">
         <div className="grid-light absolute inset-0" aria-hidden />
         <div
-          id="konten"
-          className="relative mx-auto grid w-full max-w-7xl scroll-mt-32 items-start gap-10 px-4 pb-16 pt-8 md:pb-20 lg:grid-cols-12 lg:gap-8"
+          className="relative mx-auto grid w-full max-w-7xl items-start gap-10 px-4 pb-16 pt-8 md:pb-20 lg:grid-cols-12 lg:gap-8"
         >
           <div className="lg:col-span-5">
             <p className="hero-enter hero-enter-1 eyebrow-light flex items-center gap-3">
@@ -143,7 +143,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
       </section>
 
       {/* ── ROLE TICKER (kinetic band, constructive motion) ─── */}
-      <div className="overflow-hidden border-y border-line bg-card py-4" role="presentation">
+      <div className="marquee-band overflow-hidden border-y border-line bg-card py-4" role="presentation">
         <div className="marquee-track items-center font-mono text-[12px] font-bold uppercase tracking-[0.18em] text-soft">
           {[0, 1].map((dup) => (
             <div key={dup} aria-hidden={dup === 1} className="flex flex-none items-center gap-8 pr-8">
@@ -283,9 +283,9 @@ export default async function LandingPage({ locale }: { locale: string }) {
                 <p className="max-w-[36ch] font-mono text-[11px] leading-relaxed text-muted md:ml-auto">
                   {t("eventSignal")}
                 </p>
-                <a href="/id/auth/daftar" className="btn-primary mt-4 min-h-[52px] md:mt-5">
+                <Link href="/auth/daftar" className="btn-primary mt-4 min-h-[52px] md:mt-5">
                   {t("eventCta")}
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -338,12 +338,12 @@ export default async function LandingPage({ locale }: { locale: string }) {
                     <p className="tnum mt-1 font-mono text-[12px] font-bold text-brand-700">
                       {row.salary}
                     </p>
-                    <a
-                      href="/id/auth/daftar"
+                    <Link
+                      href="/auth/daftar"
                       className="link-more mt-2 inline-flex min-h-[44px] items-center"
                     >
                       {t("earlyCta")}
-                    </a>
+                    </Link>
                   </div>
                 </li>
               ))}
@@ -357,9 +357,9 @@ export default async function LandingPage({ locale }: { locale: string }) {
               <strong className="text-ink">{t("soon")}</strong>{" "}
               {WAVE2.join(" · ")}
             </p>
-            <a href="/id/auth/daftar" className="link-more inline-flex min-h-[44px] flex-none items-center">
+            <Link href="/auth/daftar" className="link-more inline-flex min-h-[44px] flex-none items-center">
               {t("earlyCta")}
-            </a>
+            </Link>
           </div>
           <p className="mt-4 font-mono text-[11px] leading-relaxed text-muted">
             {t("sources")}
@@ -396,16 +396,14 @@ export default async function LandingPage({ locale }: { locale: string }) {
         </Reveal>
         <ol className="mt-12 grid gap-x-6 gap-y-9 border-t border-line pt-8 sm:grid-cols-2 lg:grid-cols-5">
           {STEPS.map(([st, d], i) => (
-            <Reveal key={st} delay={i * 60}>
-              <li>
-                <p aria-hidden className="tnum text-4xl font-extrabold tracking-tight text-brand-700/15 md:text-5xl">
-                  {String(i + 1).padStart(2, "0")}
-                </p>
-                <p className="mt-3 text-[15px] font-extrabold leading-snug tracking-tight text-ink">
-                  {st}
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-soft">{d}</p>
-              </li>
+            <Reveal as="li" key={st} delay={i * 60}>
+              <p aria-hidden className="tnum text-4xl font-extrabold tracking-tight text-brand-700/15 md:text-5xl">
+                {String(i + 1).padStart(2, "0")}
+              </p>
+              <p className="mt-3 text-[15px] font-extrabold leading-snug tracking-tight text-ink">
+                {st}
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-soft">{d}</p>
             </Reveal>
           ))}
         </ol>
@@ -434,9 +432,9 @@ export default async function LandingPage({ locale }: { locale: string }) {
                     ↗
                   </span>
                 </a>
-                <a href="/id/auth/daftar" className="inline-flex min-h-[52px] items-center rounded-btn border-[1.5px] border-white/50 px-7 text-[15px] font-bold text-white transition hover:bg-white/10 active:translate-y-[1px]">
+                <Link href="/auth/daftar" className="inline-flex min-h-[52px] items-center rounded-btn border-[1.5px] border-white/50 px-7 text-[15px] font-bold text-white transition hover:bg-white/10 active:translate-y-[1px]">
                   {t("cta2")}
-                </a>
+                </Link>
               </div>
               <p className="relative mt-5 font-mono text-[11px] leading-relaxed text-white/85">
                 {t("ctaNote")}

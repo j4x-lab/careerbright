@@ -1,19 +1,23 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, type ElementType, type ReactNode } from "react";
 
 // Scroll reveal — IntersectionObserver + blur/translate.
 // Collapses to static under prefers-reduced-motion (CSS handles it).
+// `as` exists because a wrapper <div> between <ol> and <li> breaks list
+// semantics: pass as="li" whenever the revealed child is a list item.
 export function Reveal({
   children,
   delay = 0,
   className = "",
+  as: Tag = "div",
 }: {
   children: ReactNode;
   delay?: number;
   className?: string;
+  as?: ElementType;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
     document.documentElement.classList.add("js");
@@ -38,8 +42,8 @@ export function Reveal({
   }, []);
 
   return (
-    <div ref={ref} className={`reveal ${className}`} style={{ transitionDelay: `${delay}ms` }}>
+    <Tag ref={ref} className={`reveal ${className}`} style={{ transitionDelay: `${delay}ms` }}>
       {children}
-    </div>
+    </Tag>
   );
 }

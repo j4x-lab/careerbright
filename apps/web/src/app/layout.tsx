@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import localFont from "next/font/local";
+import { getLocale } from "next-intl/server";
 import { NextIntlClientProvider, type AbstractIntlMessages } from "next-intl";
-import idMessages from "../../messages/id.json";
+import { getLocaleMessages } from "@/i18n/messages";
 import "./globals.css";
 
 // Jakarta Light concept: Plus Jakarta Sans (400–800) + Roboto Mono variable —
@@ -56,15 +57,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  // getLocale() reads the locale the next-intl middleware put on the request,
+  // so <html lang> is right on /en/* instead of always claiming Indonesian.
+  const locale = await getLocale();
   return (
     <html
-      lang="id"
+      lang={locale}
       suppressHydrationWarning
       className={`${jakarta.variable} ${robotoMono.variable} ${grotesk.variable}`}
     >
       <body className="min-h-[100dvh] bg-paper text-ink antialiased">
-        <NextIntlClientProvider locale="id" messages={idMessages as unknown as AbstractIntlMessages}>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider locale={locale} messages={getLocaleMessages(locale) as AbstractIntlMessages}>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

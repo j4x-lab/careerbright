@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { createTranslator } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { getLocaleMessages } from "@/i18n/messages";
 import { KatalogSearch } from "./katalog-search";
 
@@ -13,11 +14,11 @@ export default async function KatalogPage({ params }: { params: Promise<{ locale
     messages: getLocaleMessages(locale),
   });
   return (
-    <main className="overflow-x-clip bg-paper text-ink">
+    <main tabIndex={-1} className="overflow-x-clip bg-paper text-ink">
       <a href="#konten" className="skip-link">{t("skip")}</a>
       <section className="hero-light relative overflow-hidden pt-[140px]">
         <div className="relative mx-auto max-w-7xl px-4 pb-10">
-          <a href="/" className="font-mono text-[12px] text-muted underline decoration-line underline-offset-4 hover:text-ink">{t("back")}</a>
+          <Link href="/" className="font-mono text-[12px] text-muted underline decoration-line underline-offset-4 hover:text-ink">{t("back")}</Link>
           <p className="eyebrow-light mt-6">{t("eyebrow")}</p>
           <h1 id="konten" className="mt-3 max-w-[18ch] text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">
             {t.rich("title", { b: (chunks: ReactNode) => <span className="text-brand-700">{chunks}</span> })}

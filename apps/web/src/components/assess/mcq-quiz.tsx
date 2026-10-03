@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 
 export interface Mcq {
@@ -19,6 +19,7 @@ export function McqQuiz({ id, questions, passing = 70 }: { id: string; questions
   const [done, setDone] = useState(false);
   const [best, setBest] = useState<number | null>(null);
   const key = `cb-mcq-${id}`;
+  const summaryRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const v = localStorage.getItem(key);
@@ -46,6 +47,12 @@ export function McqQuiz({ id, questions, passing = 70 }: { id: string; questions
     setDone(false);
   }
 
+  // Move focus to the verdict so the result is the next thing a keyboard or
+  // screen-reader user lands on — the grade used to exist only in colour.
+  useEffect(() => {
+    if (done) summaryRef.current?.focus();
+  }, [done]);
+
   return (
     <div className="rounded-card border-2 border-ink bg-card p-5 shadow-[0_24px_64px_-32px_rgba(10,17,40,0.35)] md:p-7">
       <div aria-hidden className="mb-5 h-1 w-12 bg-brand-700" />
@@ -70,7 +77,15 @@ export function McqQuiz({ id, questions, passing = 70 }: { id: string; questions
             {Math.round((answered / Math.max(1, questions.length)) * 100)}%
           </p>
         </div>
-        <div className="bar-track mt-2" aria-hidden>
+        <div
+          className="bar-track mt-2"
+          role="progressbar"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={Math.round((answered / Math.max(1, questions.length)) * 100)}
+          aria-valuetext={t("progress", { a: answered, b: questions.length })}
+          aria-label={t("progressBar")}
+        >
           <div
             className="bar-fill"
             style={{ transform: `scaleX(${answered / Math.max(1, questions.length)})` }}
@@ -79,7 +94,9 @@ export function McqQuiz({ id, questions, passing = 70 }: { id: string; questions
       </div>
 
       <div className="mt-5 space-y-6">
-        {questions.map((q, i) => (
+        {questions.map((q, i) => {
+          const explainId = `cb-explain-${id}-${i}`;
+          return (
           <div key={i}>
             <p className="text-[15px] font-extrabold leading-snug tracking-tight text-ink">
               <span aria-hidden className="card-num mr-2 align-middle">
@@ -95,9 +112,11 @@ export function McqQuiz({ id, questions, passing = 70 }: { id: string; questions
                 return (
                   <button
                     key={j}
+                    type="button"
                     role="radio"
                     aria-checked={sel}
                     disabled={done}
+                    aria-describedby={done ? explainId : undefined}
                     onClick={() => setPicked((p) => ({ ...p, [i]: j }))}
                     className={`flex min-h-[48px] w-full items-center gap-3 rounded-btn border-2 px-4 py-3.5 text-left text-sm transition active:translate-y-[1px] ${
                       correct
@@ -124,14 +143,15 @@ export function McqQuiz({ id, questions, passing = 70 }: { id: string; questions
                       {correct ? "✓" : wrong ? "✗" : String.fromCharCode(65 + j)}
                     </span>
                     <span className="min-w-0 flex-1 leading-snug">{op}</span>
-                    {done && correct && (
-                      <span aria-hidden className="tnum flex-none font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-ok">
-                        ✓
+                    {/* The mark is now announced, not decoration. */}
+                    {correct && (
+                      <span className="tnum flex-none font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-ok">
+                        ✓ {t("correctMark")}
                       </span>
                     )}
-                    {done && wrong && (
-                      <span aria-hidden className="tnum flex-none font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-danger">
-                        ✗
+                    {wrong && (
+                      <span className="tnum flex-none font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-danger">
+                        ✗ {t("wrongMark")}
                       </span>
                     )}
                   </button>
@@ -139,12 +159,13 @@ export function McqQuiz({ id, questions, passing = 70 }: { id: string; questions
               })}
             </div>
             {done && (
-              <p className="mt-2 rounded-input border border-line bg-paper px-3 py-2 text-xs leading-relaxed text-muted">
+              <p id={explainId} className="mt-2 rounded-input border border-line bg-paper px-3 py-2 text-xs leading-relaxed text-muted">
                 {q.explain}
               </p>
             )}
           </div>
-        ))}
+        );
+        })}
       </div>
       {!done ? (
         <div className="mt-6 flex flex-col gap-3 border-t border-line pt-5 sm:flex-row sm:items-center">
@@ -161,7 +182,11 @@ export function McqQuiz({ id, questions, passing = 70 }: { id: string; questions
         </div>
       ) : (
         <div className="mt-6 flex flex-col gap-3 border-t border-line pt-5 sm:flex-row sm:items-center">
-          <p
+          <div
+            ref={summaryRef}
+            tabIndex={-1}
+            role="status"
+            aria-live="polite"
             className={`rounded-btn border-2 px-4 py-3 font-mono text-sm font-extrabold ${
               score >= passing ? "border-ok bg-ok-bg text-ink" : "border-danger bg-danger-bg text-ink"
             }`}
@@ -170,7 +195,7 @@ export function McqQuiz({ id, questions, passing = 70 }: { id: string; questions
               {score >= passing ? "✓ " : "✗ "}
             </span>
             {t("score", { s: score })} — {score >= passing ? t("pass") : t("fail")}
-          </p>
+          </div>
           <button
             onClick={retry}
             className="inline-flex min-h-[48px] items-center justify-center rounded-btn px-4 py-3 text-sm font-semibold text-muted underline decoration-line underline-offset-4 transition hover:text-brand-700 sm:ml-auto"

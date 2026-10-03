@@ -1,5 +1,6 @@
 // Employer — search skill profiles by SKKNI/KKNI, verify via /verify/[id]
 import { createTranslator } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { getLocaleMessages } from "@/i18n/messages";
 import { OpsShell } from "@/components/ops-shell";
 
@@ -23,9 +24,9 @@ export default async function EmployerDashboard({ params }: { params: Promise<{ 
         ))}
       </div>
       <div className="mt-6">
-        <a href="/id/verify/contoh" className="btn-primary group px-6 py-3 text-sm">
+        <Link href="/verify/contoh" className="btn-primary group px-6 py-3 text-sm">
           {t("cta")} <span className="btn-island">↗</span>
-        </a>
+        </Link>
       </div>
     </OpsShell>
   );

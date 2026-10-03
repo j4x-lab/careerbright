@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { searchCatalog, type CatalogCategory, type CatalogItem, type CatalogKind } from "@/lib/catalog";
 
 /* Cerah v2 — command-bar search + card grid v2. */
@@ -73,7 +74,7 @@ export function KatalogSearch() {
                 key={c}
                 onClick={() => setCategory(c)}
                 aria-pressed={category === c}
-                className={`chip transition ${category === c ? "chip-on" : "hover:border-ink"}`}
+                className={`chip min-h-[44px] transition ${category === c ? "chip-on" : "hover:border-ink"}`}
               >
                 {t(CAT_KEYS[i])}
               </button>
@@ -85,7 +86,7 @@ export function KatalogSearch() {
                 key={k.v}
                 onClick={() => setKind(k.v)}
                 aria-pressed={kind === k.v}
-                className={`rounded-full border px-3 py-1.5 font-mono text-[11px] transition ${
+                className={`inline-flex min-h-[44px] items-center rounded-full border px-4 font-mono text-[12px] transition ${
                   kind === k.v ? "border-brand-700 bg-brand-50 font-bold text-brand-700" : "border-line bg-paper text-soft hover:border-ink"
                 }`}
               >
@@ -95,7 +96,7 @@ export function KatalogSearch() {
             <button
               onClick={() => setKonteksOnly(!konteksOnly)}
               aria-pressed={konteksOnly}
-                className={`rounded-full border px-3 py-1.5 font-mono text-[11px] transition ${
+                className={`inline-flex min-h-[44px] items-center rounded-full border px-4 font-mono text-[12px] transition ${
                 konteksOnly ? "border-brand-700 bg-brand-50 font-bold text-brand-700" : "border-line bg-paper text-soft hover:border-ink"
               }`}
             >
@@ -117,7 +118,7 @@ export function KatalogSearch() {
           </p>
           <button
             onClick={() => { setQ(""); setCategory("Semua"); setKind("Semua"); setKonteksOnly(false); }}
-            className="btn-ghost mt-5 px-5 py-2.5 text-[13px]"
+            className="btn-ghost mt-5 min-h-[44px] px-5 py-2.5 text-[13px]"
           >
             {t("resetBtn")}
           </button>
@@ -126,7 +127,7 @@ export function KatalogSearch() {
         <ul className="mt-4 grid gap-4 md:grid-cols-2">
           {results.map((r) => (
             <li key={`${r.kind}-${r.slug}`}>
-              <a href={r.href} className="spot flex h-full flex-col rounded-card border border-line bg-card p-6 md:p-7">
+              <Link href={r.href} className="spot flex h-full flex-col rounded-card border border-line bg-card p-6 md:p-7">
                 <div className="flex items-center justify-between gap-2">
                   <span className="rounded-full border border-line bg-paper px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-soft">
                     {r.kind === "kursus" ? t("kindCourse") : t("kindPath")}
@@ -140,7 +141,7 @@ export function KatalogSearch() {
                   <span aria-hidden className="font-mono text-[13px] text-brand-700">→</span>
                 </div>
                 <p className="tnum mt-1 font-mono text-[11px] text-faint">{r.meta}</p>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

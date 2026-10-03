@@ -1,5 +1,5 @@
 {
-  "common": { "skip": "Skip to content", "langToggle": "ID / EN", "home": "← Home" },
+  "common": { "skip": "Skip to content", "langToggle": "ID / EN", "home": "← Home", "langSwitchLabel": "View the {lang} version" },
   "nav": {
     "flag": "Indonesian flag",
     "region": "Regional links",
@@ -55,7 +55,10 @@
     "score": "Score: {s}",
     "pass": "Competent ✓",
     "fail": "Not yet competent — retry",
-    "retry": "Retry"
+    "retry": "Retry",
+    "progressBar": "Answer progress",
+    "correctMark": "Correct",
+    "wrongMark": "Wrong"
   },
   "lab": {
     "header": "lab — javascript · {count} tests",
@@ -65,7 +68,12 @@
     "codeError": "Code error",
     "summary": "{p}/{n} passed",
     "donePass": "Competent ✓",
-    "doneFix": "fix solve()"
+    "doneFix": "fix solve()",
+    "resultsLabel": "Test results",
+    "testPass": "Passed",
+    "testFail": "Failed",
+    "allPassSr": "All tests passed",
+    "someFailSr": "Some tests still fail"
   },
   "landing": {
     "skip": "Skip to content",
@@ -356,6 +364,12 @@
     "phEmail": "Email",
     "phPass": "Password (min 8)",
     "phCode": "6-digit code",
+    "lblName": "Full name",
+    "lblEmail": "Email",
+    "lblPass": "Password",
+    "passHint": "8 characters minimum",
+    "lblPhone": "WhatsApp number",
+    "lblCode": "OTP code",
     "ctaUp": "Sign up free",
     "ctaIn": "Log in",
     "hasAccount": "Have an account?",

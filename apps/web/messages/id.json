@@ -2,7 +2,8 @@
   "common": {
     "skip": "Lewati ke konten",
     "langToggle": "ID / EN",
-    "home": "← Beranda"
+    "home": "← Beranda",
+    "langSwitchLabel": "Lihat versi {lang}"
   },
   "nav": {
     "flag": "Bendera Indonesia",
@@ -59,7 +60,10 @@
     "score": "Skor: {s}",
     "pass": "Kompeten ✓",
     "fail": "Belum kompeten — coba lagi",
-    "retry": "Coba Lagi"
+    "retry": "Coba Lagi",
+    "progressBar": "Kemajuan jawaban",
+    "correctMark": "Benar",
+    "wrongMark": "Salah"
   },
   "lab": {
     "header": "lab — javascript · {count} tes",
@@ -69,7 +73,12 @@
     "codeError": "Error kode",
     "summary": "{p}/{n} lolos",
     "donePass": "Kompeten ✓",
-    "doneFix": "perbaiki solve()"
+    "doneFix": "perbaiki solve()",
+    "resultsLabel": "Hasil pengujian",
+    "testPass": "Lolos",
+    "testFail": "Gagal",
+    "allPassSr": "Semua tes lolos",
+    "someFailSr": "Masih ada tes yang gagal"
   },
   "landing": {
     "skip": "Lewati ke konten",
@@ -360,6 +369,12 @@
     "phEmail": "Email",
     "phPass": "Kata sandi (min 8)",
     "phCode": "Kode 6 digit",
+    "lblName": "Nama lengkap",
+    "lblEmail": "Email",
+    "lblPass": "Kata sandi",
+    "passHint": "minimal 8 karakter",
+    "lblPhone": "Nomor WhatsApp",
+    "lblCode": "Kode OTP",
     "ctaUp": "Daftar gratis",
     "ctaIn": "Masuk",
     "hasAccount": "Sudah punya akun?",
