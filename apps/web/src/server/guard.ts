@@ -3,17 +3,14 @@ import { redirect } from "next/navigation";
 import { auth } from "./auth";
 
 /*
- * Role gating for the ops surfaces.
- *
- * Until this existed, /admin, /lsp, /instructor, /employer and /university were
- * world-readable — the `role` column was data, not a permission. Each page
- * calls `requireRole([...])`, which redirects anonymous visitors to sign-in and
- * signed-in users with the wrong role to their own dashboard.
- *
- * This is a page-level guard, which is the right layer for a first pass: the
- * routes are dynamic (they read headers), so nothing sensitive is prerendered.
- * The tRPC procedures in packages/db still do their own authorization — do not
- * treat this as a substitute for that.
+ * Role gating. Kept intentionally small: STUDENT (learner) and ADMIN
+ * (operator). The old LSP_ASSESSOR / EMPLOYER / UNIVERSITY / INSTRUCTOR
+ * surfaces were deleted with the BNSP domain (PRD has no assessor, employer,
+ * campus or instructor-studio routes); those role values may still exist as
+ * data on old rows, so they land on the public directory instead of a dead
+ * page. Each page calls `requireRole([...])`, which redirects anonymous
+ * visitors to sign-in and signed-in users with the wrong role somewhere
+ * useful.
  */
 
 export const ROLES = [
@@ -36,14 +33,17 @@ export async function getSession() {
   }
 }
 
-/** Where each role belongs, so a wrong-role visit lands somewhere useful. */
+/** Where each role belongs, so a wrong-role visit lands somewhere useful.
+ *  Roles without a dedicated surface fall back to the public directory —
+ *  never to a deleted page, and never to another guarded page (which would
+ *  loop back here). */
 const HOME_FOR: Record<Role, string> = {
   STUDENT: "/dashboard",
-  INSTRUCTOR: "/instructor",
+  INSTRUCTOR: "/roles",
   ADMIN: "/admin",
-  LSP_ASSESSOR: "/lsp",
-  EMPLOYER: "/employer",
-  UNIVERSITY: "/university",
+  LSP_ASSESSOR: "/roles",
+  EMPLOYER: "/roles",
+  UNIVERSITY: "/roles",
 };
 
 export async function requireRole(allowed: Role[]) {

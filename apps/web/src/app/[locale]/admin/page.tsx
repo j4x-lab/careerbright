@@ -1,4 +1,4 @@
-// Admin Console — accounts & roles, course catalog, SKKNI skill units.
+// Admin Console — accounts & roles, course catalog.
 // Server component: it gates on the session, then hands rendering to the client
 // console which owns the mutations.
 import { createTranslator } from "next-intl";

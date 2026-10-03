@@ -19,8 +19,6 @@ type Stats = {
   sessions: number;
   courses: number;
   published: number;
-  skillUnits: number;
-  frameworks: number;
 };
 
 const ROLES = [
@@ -64,8 +62,6 @@ export function AdminConsole() {
   const users = useQuery(trpc.admin.users.queryOptions());
   const stats = useQuery(trpc.admin.stats.queryOptions());
   const courses = useQuery(trpc.admin.courses.queryOptions());
-  const frameworks = useQuery(trpc.admin.frameworks.queryOptions());
-  const units = useQuery(trpc.admin.skillUnits.queryOptions({}));
 
   const invalidate = (...keys: unknown[]) =>
     keys.forEach((k) => qc.invalidateQueries({ queryKey: k as string[] }));
@@ -104,27 +100,17 @@ export function AdminConsole() {
     })
   );
 
-  const [unitCode, setUnitCode] = useState("");
-  const [unitTitle, setUnitTitle] = useState("");
-  const [frameworkId, setFrameworkId] = useState("");
-  const createUnit = useMutation(
-    trpc.admin.createSkillUnit.mutationOptions({
-      onSuccess: (u) => {
-        setUnitCode(""); setUnitTitle("");
-        invalidate(trpc.admin.skillUnits.queryKey(), trpc.admin.stats.queryKey());
-        flash.ok(t("skillCreated", { code: u.code }));
-      },
-      onError: (e) => flash.err(`${t("errRole")} ${e.message}`),
-    })
-  );
-
   const s = stats.data as Stats | undefined;
+  /* Inventory KPIs only — every number is a live COUNT(*) from the database.
+     The PRD §9 product metrics (activation rate, scenario completion, AI
+     latency, portfolio export) are not instrumented yet, so this surface
+     refuses to display them rather than inventing percentages. */
   const kpis: [string, string | number, string][] = s
     ? [
         [t("kUsers"), s.users, t("kUsersSub")],
         [t("kStaff"), s.staff, t("kStaffSub")],
         [t("kCourses"), s.courses, t("kCoursesSub", { n: s.published })],
-        [t("kSkills"), s.skillUnits, t("kSkillsSub", { n: s.frameworks })],
+        [t("kSessions"), s.sessions, t("kSessionsSub")],
       ]
     : [];
 
@@ -314,86 +300,6 @@ export function AdminConsole() {
           </ul>
         ) : (
           <p className="mt-5 text-sm text-soft">{t("noCourses")}</p>
-        )}
-      </section>
-
-      {/* ── Skills (SKKNI competency units) ───────────────────────── */}
-      <section aria-labelledby="admin-skills" className="pb-4">
-        <div className="flex flex-wrap items-baseline justify-between gap-3 border-t border-line pt-6">
-          <h2 id="admin-skills" className="font-nova text-2xl font-bold tracking-[-0.02em] md:text-3xl">
-            {t("skillsTitle")}
-          </h2>
-          <p className="max-w-[46ch] text-[13px] leading-relaxed text-muted">{t("skillsSub")}</p>
-        </div>
-
-        <form
-          className="panel mt-5 p-5 md:p-6"
-          onSubmit={(e) => {
-            e.preventDefault();
-            createUnit.mutate({
-              frameworkId: frameworkId || (frameworks.data?.[0]?.id ?? ""),
-              code: unitCode,
-              title: unitTitle,
-            });
-          }}
-        >
-          <div className="grid gap-4 md:grid-cols-12">
-            <label className="grid gap-2 text-sm md:col-span-3">
-              {t("frameworkLabel")}
-              <select
-                name="frameworkId" className="field"
-                value={frameworkId || frameworks.data?.[0]?.id || ""}
-                onChange={(e) => setFrameworkId(e.target.value)}
-              >
-                {(frameworks.data ?? []).map((f) => (
-                  <option key={f.id} value={f.id}>
-                    {f.code} — {f.name}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label className="grid gap-2 text-sm md:col-span-3">
-              {t("unitCodeLabel")}
-              <input
-                name="code" required value={unitCode} onChange={(e) => setUnitCode(e.target.value)}
-                placeholder="contoh: M.691090.006" className="field"
-              />
-            </label>
-            <label className="grid gap-2 text-sm md:col-span-4">
-              {t("unitTitleLabel")}
-              <input
-                name="title" required value={unitTitle} onChange={(e) => setUnitTitle(e.target.value)}
-                placeholder="contoh: Menyusun laporan keuangan" className="field"
-              />
-            </label>
-            <div className="flex items-end md:col-span-2">
-              <button
-                type="submit" disabled={createUnit.isPending || (frameworks.data?.length ?? 0) === 0}
-                className="btn-primary min-h-[44px] w-full justify-center text-sm disabled:opacity-50"
-              >
-                {createUnit.isPending ? t("saving") : t("createSkill")}
-              </button>
-            </div>
-          </div>
-        </form>
-
-        {units.data && units.data.length > 0 ? (
-          <ul className="mt-5 max-h-[420px] overflow-y-auto border-b border-line">
-            {units.data.map((u) => (
-              <li
-                key={u.id}
-                className="grid gap-x-8 gap-y-1 border-t border-line py-3 md:grid-cols-12 md:items-baseline md:px-2"
-              >
-                <p className="tnum font-mono text-[12px] font-bold text-brand-700 md:col-span-3">{u.code}</p>
-                <p className="font-bold md:col-span-5">{u.title}</p>
-                <p className="font-mono text-[11px] text-muted md:col-span-4 md:text-right">
-                  {u.framework_code}
-                </p>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="mt-5 text-sm text-soft">{t("noSkills")}</p>
         )}
       </section>
 

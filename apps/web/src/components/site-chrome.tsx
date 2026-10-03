@@ -63,7 +63,7 @@ export function IdNoticeBar() {
         <nav aria-label={t("region")} className="hidden flex-none items-center gap-5 text-faint md:flex">
           <Link href={HOME_HASH("#siap")} className="py-2 transition hover:text-ink">{t("forCampus")}</Link>
           <Link href={HOME_HASH("#siap")} className="py-2 transition hover:text-ink">{t("forEmployers")}</Link>
-          <Link href="/verify/contoh" className="py-2 transition hover:text-ink">{t("verify")}</Link>
+          <Link href="/roles" className="py-2 transition hover:text-ink">{t("roles")}</Link>
           <LocaleSwitch className="rounded-btn px-2 py-1 text-faint transition hover:bg-cream hover:text-ink" />
         </nav>
         <LocaleSwitch className="flex-none rounded-btn px-2 py-1 text-faint transition hover:bg-cream hover:text-ink md:hidden" />
@@ -180,7 +180,7 @@ export function SiteNav() {
               </div>
               <div className="flex flex-none items-center gap-2">
                 <Link
-                  href="/katalog"
+                  href="/roles"
                   className="hidden min-h-[44px] items-center gap-2 rounded-btn px-3 py-3 text-[13px] font-semibold text-muted transition hover:text-ink md:flex"
                 >
                   <span aria-hidden>⌕</span> {t("searchRoles")}
@@ -254,7 +254,7 @@ export function SiteNav() {
               );
             })}
             <div className="mt-6 flex gap-3">
-              <Link href="/katalog" onClick={() => setOpen(false)} className="btn-ghost min-h-[52px] flex-1 justify-center text-[15px]">
+              <Link href="/roles" onClick={() => setOpen(false)} className="btn-ghost min-h-[52px] flex-1 justify-center text-[15px]">
                 {t("searchCta")}
               </Link>
               <Link href={HOME_HASH("#pekerjaan")} onClick={() => setOpen(false)} className="btn-amber group min-h-[52px] flex-1 justify-center text-[15px]">
@@ -270,7 +270,7 @@ export function SiteNav() {
 
 const FOOTER_COLS = [
   { headKey: "colProduct", links: [{ key: "linkExplore", href: HOME_HASH("#pekerjaan") }, { key: "linkHow", href: HOME_HASH("#cara-kerja") }, { key: "linkStart", href: HOME_HASH("#siap") }] },
-  { headKey: "colAccount", links: [{ key: "linkLogin", href: "/auth/masuk" as const }, { key: "linkSignup", href: "/auth/daftar" as const }, { key: "linkVerify", href: "/verify/contoh" as const }] },
+  { headKey: "colAccount", links: [{ key: "linkLogin", href: "/auth/masuk" as const }, { key: "linkSignup", href: "/auth/daftar" as const }, { key: "linkRoles", href: "/roles" as const }] },
 ] as const;
 
 export function SiteFooter() {
@@ -331,9 +331,7 @@ export function SiteFooter() {
             {t("legalLine")}
           </p>
           <nav aria-label={t("legal")} className="flex flex-none flex-wrap items-center gap-x-5 gap-y-2 text-[12px] text-faint">
-            <Link href="/verify/contoh" className="inline-flex min-h-[44px] items-center transition hover:text-muted">{t("privacy")}</Link>
-            <Link href="/verify/contoh" className="inline-flex min-h-[44px] items-center transition hover:text-muted">{t("terms")}</Link>
-            <Link href="/verify/contoh" className="inline-flex min-h-[44px] items-center transition hover:text-muted">{t("verify")}</Link>
+            <Link href="/roles" className="inline-flex min-h-[44px] items-center transition hover:text-muted">{t("linkRoles")}</Link>
             <span className="font-mono text-[11px] text-faint">© 2026</span>
           </nav>
         </div>

@@ -79,7 +79,7 @@ export default async function StudentDashboard({ params }: { params: Promise<{ l
                     {t("noPathYet")}
                   </p>
                   <Link
-                    href="/katalog"
+                    href="/roles"
                     className="btn-primary mt-6 min-h-[52px] px-7 text-[15px]"
                   >
                     {t("browsePaths")}
@@ -147,45 +147,30 @@ export default async function StudentDashboard({ params }: { params: Promise<{ l
           )}
         </section>
 
-        {/* ── Credential wallet ───────────────────────────────────── */}
-        <section aria-labelledby="dash-wallet" className="mt-14">
-          <div className="flex flex-wrap items-baseline justify-between gap-3 border-t border-line pt-6">
-            <h2 id="dash-wallet" className="font-nova text-2xl font-bold tracking-[-0.02em] md:text-3xl">
-              {t("walletTitle")}
-            </h2>
-            <Link
-              href="/verify/contoh"
-              className="link-more inline-flex min-h-[44px] items-center"
-            >
-              {t("walletLink")}
-            </Link>
-          </div>
-          <p className="mt-4 max-w-[58ch] text-[15px] leading-relaxed text-soft">
-            {t("walletSub", { n: snap.credentials })}
-          </p>
-          {snap.credentials === 0 && (
-            <p className="mt-3 font-mono text-[11px] text-muted">{t("walletEmpty")}</p>
-          )}
-        </section>
-
-        {/* ── BNSP upgrade ────────────────────────────────────────── */}
-        <section aria-labelledby="dash-upgrade" className="mt-14 pb-6">
-          <h2 id="dash-upgrade" className="sr-only">{t("upEyebrow")}</h2>
+        {/* ── Keep exploring ────────────────────────────────────────
+            The old credential-wallet and BNSP-upgrade panels belonged to the
+            retired certification product. The PRD product ends the loop at
+            discovery: more roles, more scenarios. */}
+        <section aria-labelledby="dash-more" className="mt-14 pb-6">
           <div className="relative overflow-hidden rounded-card bg-brand-700 px-6 py-10 md:px-12 md:py-14">
             <div aria-hidden className="grid-ink pointer-events-none absolute inset-0" />
             <p className="relative font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">
-              {t("upEyebrow")}
+              {t("moreEyebrow")}
             </p>
             <p className="font-nova relative mt-4 max-w-[24ch] text-[clamp(1.5rem,3vw,2.25rem)] font-bold leading-[1.08] tracking-[-0.02em] text-white">
-              {t("upTitle")}
+              {t("moreTitle")}
             </p>
             <p className="relative mt-4 max-w-[52ch] text-[15px] leading-relaxed text-white/90">
-              {t("upBody")}
+              {t("moreSub")}
             </p>
-            <p className="tnum relative mt-6 font-nova text-3xl font-bold tracking-[-0.02em] text-white">
-              {t("price")}
-            </p>
-            <p className="relative mt-1 font-mono text-[11px] text-white/75">{t("perOnce")}</p>
+            <div className="relative mt-8">
+              <Link href="/roles" className="inline-flex min-h-[52px] items-center gap-2.5 rounded-btn bg-white px-7 text-[15px] font-extrabold text-brand-700 transition hover:bg-paper active:translate-y-[1px]">
+                {t("browsePaths")}
+                <span className="btn-island btn-island-dark" aria-hidden>
+                  ↗
+                </span>
+              </Link>
+            </div>
           </div>
         </section>
       </div>

@@ -12,12 +12,11 @@ import { getSession } from "../guard";
  * procedure is dead here. pg needs no native engine.
  *
  * Domain mapping used below:
- *   "roles"  -> the `role` column on the Better Auth `user` table
- *              (UserRole in schema.prisma: STUDENT, INSTRUCTOR, ADMIN,
- *               LSP_ASSESSOR, EMPLOYER, UNIVERSITY)
- *   "skills" -> CompetencyUnit rows under a CompetencyFramework — i.e. the
- *              SKKNI/KKNI competencies the product actually issues
- *              credentials against. There is no separate Skill model.
+ *   "roles"   -> the `role` column on the Better Auth `user` table.
+ *   "courses" -> the Course catalog (Tier 3 depth content, kept as drafts).
+ * The old SKKNI skill-unit procedures were deleted with the BNSP domain:
+ * the PRD product issues no SKKNI credentials, so CompetencyUnit rows are
+ * seed data, not something an operator authors here.
  *
  * Every procedure is gated on an ADMIN session. `courses.create` in the
  * sibling router was a publicProcedure, i.e. anonymous callers could create
@@ -75,9 +74,7 @@ export const adminRouter = router({
         (select count(*)::int from "user" where role <> 'STUDENT') as staff,
         (select count(*)::int from session)                   as sessions,
         (select count(*)::int from "Course")                  as courses,
-        (select count(*)::int from "Course" where status = 'PUBLISHED') as published,
-        (select count(*)::int from "CompetencyUnit")          as "skillUnits",
-        (select count(*)::int from "CompetencyFramework")     as frameworks
+        (select count(*)::int from "Course" where status = 'PUBLISHED') as published
     `);
     return rows[0];
   }),
@@ -169,50 +166,6 @@ export const adminRouter = router({
       return rows[0];
     }),
 
-  /** SKKNI/KKNI competency units — what the product calls a "skill". */
-  skillUnits: adminProcedure
-    .input(z.object({ frameworkId: z.string().optional() }).default({}))
-    .query(async ({ input }) => {
-      const { rows } = await pool.query(
-        `select u.id, u.code, u.title, u."titleEn", u.level, u."frameworkId",
-                f.code as framework_code, f.name as framework_name
-           from "CompetencyUnit" u
-           join "CompetencyFramework" f on f.id = u."frameworkId"
-          where $1::text is null or u."frameworkId" = $1
-          order by f.code, u.code`,
-        [input.frameworkId ?? null]
-      );
-      return rows;
-    }),
-
-  createSkillUnit: adminProcedure
-    .input(
-      z.object({
-        frameworkId: z.string().min(1),
-        code: z.string().min(3).max(32),
-        title: z.string().min(3).max(200),
-        titleEn: z.string().min(3).max(200).optional(),
-        level: z.number().int().min(1).max(6).default(1),
-      })
-    )
-    .mutation(async ({ input }) => {
-      const { rows } = await pool.query(
-        `insert into "CompetencyUnit" (id, code, title, "titleEn", "frameworkId", level)
-         values (gen_random_uuid()::text, $1, $2, $3, $4, $5)
-         returning id, code, title, level`,
-        [input.code, input.title, input.titleEn ?? null, input.frameworkId, input.level]
-      );
-      return rows[0];
-    }),
-
-  frameworks: adminProcedure.query(async () => {
-    const { rows } = await pool.query(
-      `select id, code, name, "nameEn", sector, "kkniLevel", status
-         from "CompetencyFramework"
-        order by code`
-    );
-    return rows;
-  }),
 });
 
 export type AdminRouter = typeof adminRouter;

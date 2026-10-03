@@ -201,5 +201,141 @@
       { "time": "13:00 WIB", "event": "Eskalasi bug kritis ke tim produk dengan kronologi." },
       { "time": "15:30 WIB", "event": "QBR mini: tunjukkan ROI ke klien yang mau churn." }
     ]
-  }
+  },
+{
+  "id": "backend-developer",
+  "category": "Tech & Product",
+  "title": "Backend Developer",
+  "shortDescription": "Bukan cuma bikin API yang jalan, tapi yang tetap hidup saat traffic naik 10x lipat.",
+  "tools": [
+    "Node.js",
+    "PostgreSQL",
+    "Redis",
+    "Docker"
+  ],
+  "mythVsReality": {
+    "myth": "Backend itu kerja sunyi: tulis logika, deploy, selesai.",
+    "reality": "On-call malam saat database lambat, debat skema dengan frontend, dan baca log sampai mata perih."
+  },
+  "timeline": [
+    {
+      "time": "09:00 WIB",
+      "event": "Cek alert malam: slow query dan error rate."
+    },
+    {
+      "time": "10:30 WIB",
+      "event": "Review PR: n+1 query yang lolos kemarin."
+    },
+    {
+      "time": "14:00 WIB",
+      "event": "Diskusi kontrak API baru dengan tim frontend."
+    },
+    {
+      "time": "16:00 WIB",
+      "event": "Optimasi index database sebelum traffic sore."
+    }
+  ]
+},
+{
+  "id": "qa-engineer",
+  "category": "Tech & Product",
+  "title": "QA Engineer",
+  "shortDescription": "Bukan cuma klik-klik aplikasi, tapi orang terakhir yang berdiri antara bug dan user.",
+  "tools": [
+    "TestRail",
+    "Postman",
+    "Selenium",
+    "Jira"
+  ],
+  "mythVsReality": {
+    "myth": "QA itu kerjaan gampang buat yang tidak bisa coding.",
+    "reality": "QA menulis skenario edge case yang tidak terpikirkan developer, dan bilang 'belum boleh rilis' ke orang yang lebih senior."
+  },
+  "timeline": [
+    {
+      "time": "09:00 WIB",
+      "event": "Regression test build semalam: 200 test case."
+    },
+    {
+      "time": "11:00 WIB",
+      "event": "Bug kritis H-1 rilis: tulis reproduksi yang tidak bisa dibantah."
+    },
+    {
+      "time": "14:00 WIB",
+      "event": "Advokasi tunda rilis ke PM dengan data, bukan opini."
+    },
+    {
+      "time": "16:00 WIB",
+      "event": "Otomatisasi skenario yang paling sering regresi."
+    }
+  ]
+},
+{
+  "id": "copywriter",
+  "category": "Creative & Marketing",
+  "title": "Copywriter",
+  "shortDescription": "Bukan cuma nulis kalimat lucu, tapi menjual lewat kata dalam batas karakter.",
+  "tools": [
+    "Google Docs",
+    "Notion",
+    "Grammarly",
+    "TikTok"
+  ],
+  "mythVsReality": {
+    "myth": "Copywriter itu penulis bebas yang dibayar untuk berpuisi.",
+    "reality": "Brief berubah tiga kali sehari, revisi sampai versi 12, dan tulisanmu dinilai dari CTR — bukan keindahan."
+  },
+  "timeline": [
+    {
+      "time": "09:00 WIB",
+      "event": "Brief baru masuk: 10 headline iklan, deadline sore."
+    },
+    {
+      "time": "11:00 WIB",
+      "event": "Klien tolak semua draft: 'kurang nendang, coba lagi'."
+    },
+    {
+      "time": "14:00 WIB",
+      "event": "Riset kompetitor + tulis ulang dengan angle baru."
+    },
+    {
+      "time": "16:00 WIB",
+      "event": "Presentasi 3 opsi terkuat dengan alasan tiap pilihan kata."
+    }
+  ]
+},
+{
+  "id": "operations-executive",
+  "category": "Business & Operations",
+  "title": "Operations Executive",
+  "shortDescription": "Bukan cuma duduk di belakang meja, tapi memastikan barang, vendor, dan jadwal tidak berantakan.",
+  "tools": [
+    "Excel",
+    "SAP",
+    "WhatsApp Business",
+    "Google Sheets"
+  ],
+  "mythVsReality": {
+    "myth": "Operasional itu kerja administratif yang monoton.",
+    "reality": "Satu vendor telat sehari bisa menghentikan seluruh lini — dan teleponnya ke kamu, jam berapa pun."
+  },
+  "timeline": [
+    {
+      "time": "08:30 WIB",
+      "event": "Cek status pengiriman hari ini ke semua titik."
+    },
+    {
+      "time": "10:00 WIB",
+      "event": "Vendor telat: negosiasi jadwal ulang + siapkan cadangan."
+    },
+    {
+      "time": "13:00 WIB",
+      "event": "Rekonsiliasi stok gudang vs catatan sistem."
+    },
+    {
+      "time": "15:30 WIB",
+      "event": "Laporan harian ke manager: apa yang telat dan rencananya."
+    }
+  ]
+}
 ]

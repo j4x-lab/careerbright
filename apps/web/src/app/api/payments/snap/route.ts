@@ -31,7 +31,7 @@ export async function POST(req: Request) {
   const snap = await createSnapTransaction({
     orderId: order.orderNumber,
     grossAmount: order.totalAmount,
-    itemName: `BNSP Upgrade — ${path.titleId}`,
+    itemName: `Course Upgrade — ${path.titleId}`,
     customerEmail: body.customerEmail,
     customerName: body.customerName,
   });

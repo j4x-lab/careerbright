@@ -220,5 +220,227 @@
       "Fatal": "Rilis dengan 40% kegagalan berarti sengaja mengirim user ke tembok. Menyalahkan responden menutup satu-satunya sumber kebenaran yang kamu punya.",
       "PractitionerQuote": "Di agensi dan startup Jakarta, testing itu bukan vonis — itu peta. Perbaiki satu pola terbesar, uji 5 orang lagi, baru bicara rilis."
     }
+  },
+{
+  "id": "backend-deploy-1",
+  "roleId": "backend-developer",
+  "title": "Deploy Jumat Sore, Error Naik",
+  "context": {
+    "message": "Tim frontend lapor error rate naik 5x setelah deploy jam 16:00. Traffic akhir pekan dimulai 2 jam lagi dan tim sudah bersiap pulang.",
+    "sender": "CTO (Slack)",
+    "time": "16:40 WIB"
+  },
+  "options": [
+    {
+      "id": "A",
+      "text": "Rollback sekarang, investigasi Senin pagi.",
+      "type": "Risky"
+    },
+    {
+      "id": "B",
+      "text": "Cek metrik 10 menit: identifikasi endpoint penyebab, rollback parsial via feature flag bila terisolasi.",
+      "type": "Optimal"
+    },
+    {
+      "id": "C",
+      "text": "Biarkan dulu, mungkin hanya spike sementara.",
+      "type": "Fatal"
+    },
+    {
+      "id": "D",
+      "text": "Scale up semua service 3x lipat tanpa diagnosis.",
+      "type": "Fatal"
+    }
+  ],
+  "feedback": {
+    "Optimal": "Tepat. Diagnosis 10 menit sebelum bertindak: kalau penyebabnya satu endpoint, feature flag mematikan hanya itu tanpa membuang seluruh rilis.",
+    "Fatal": "Mendiamkan error 5x atau bakar uang dengan scale-up buta sama-sama menghindari keputusan yang sebenarnya: rollback atau perbaiki.",
+    "PractitionerQuote": "Aturan deploy di startup Jakarta: tidak ada deploy Jumat tanpa feature flag. Flag itulah yang mengubah rollback 2 jam jadi matikan tombol 2 menit."
   }
+},
+{
+  "id": "qa-blocker-1",
+  "roleId": "qa-engineer",
+  "title": "Bug Kritis H-1 Rilis",
+  "context": {
+    "message": "Kamu menemukan bug pembayaran ganda H-1 rilis. PM bilang 'minor, rilis saja dulu, hotfix menyusul' karena marketing sudah janji ke media.",
+    "sender": "PM (Jira comment)",
+    "time": "17:20 WIB"
+  },
+  "options": [
+    {
+      "id": "A",
+      "text": "Setuju rilis, catat bug untuk hotfix minggu depan.",
+      "type": "Fatal"
+    },
+    {
+      "id": "B",
+      "text": "Tolak rilis dengan bukti: video reproduksi + estimasi dampak finansial, ajukan opsi tunda 1 hari.",
+      "type": "Optimal"
+    },
+    {
+      "id": "C",
+      "text": "Diam saja, bukan keputusanmu.",
+      "type": "Fatal"
+    },
+    {
+      "id": "D",
+      "text": "Ancam lapor ke direksi kalau tetap rilis.",
+      "type": "Risky"
+    }
+  ],
+  "feedback": {
+    "Optimal": "Tepat. QA tidak memveto dengan opini — QA memveto dengan bukti yang tidak bisa dibantah plus alternatif jadwal yang konkret.",
+    "Fatal": "Bug pembayaran ganda bukan minor: sekali rilis, kerugiannya nyata dan kepercayaan user yang membayar harganya.",
+    "PractitionerQuote": "Di software house lokal, QA yang baik ditakuti sekaligus dihormati: ditakuti karena bisa menahan rilis, dihormati karena datanya selalu benar."
+  }
+},
+{
+  "id": "copywriter-brief-1",
+  "roleId": "copywriter",
+  "title": "Brief Berubah Total H-1 Deadline",
+  "context": {
+    "message": "Klien: 'Setelah dipikir-pikir, angle-nya ganti total ya. Targetnya bukan anak muda lagi, tapi ibu-ibu. Ditunggu besok pagi.' 10 headline yang sudah approved kemarin hangus.",
+    "sender": "Account Executive (WhatsApp)",
+    "time": "18:05 WIB"
+  },
+  "options": [
+    {
+      "id": "A",
+      "text": "Kerjakan ulang semalam suntuk tanpa protes.",
+      "type": "Risky"
+    },
+    {
+      "id": "B",
+      "text": "Konfirmasi ulang brief baru tertulis (audiens, tone, deadline realistis), lalu tulis 5 headline prioritas malam ini dan sisanya menyusul.",
+      "type": "Optimal"
+    },
+    {
+      "id": "C",
+      "text": "Kirim ulang headline lama dengan sedikit edit, harap klien tidak sadar.",
+      "type": "Fatal"
+    },
+    {
+      "id": "D",
+      "text": "Tolak mentah-mentah dan minta deadline mundur seminggu.",
+      "type": "Fatal"
+    }
+  ],
+  "feedback": {
+    "Optimal": "Tepat. Perubahan arah harus dikunci tertulis dulu — kalau tidak, revisi keempat belas menunggumu besok. Prioritas parsial menunjukkan progres tanpa janji palsu.",
+    "Fatal": "Menipu klien dengan karya lama menghancurkan kepercayaan; menolak mentah-mentah menghancurkan hubungan.",
+    "PractitionerQuote": "Di agensi Jakarta, brief lisan itu angin lalu. Yang menyelamatkan copywriter selalu sama: konfirmasi tertulis sebelum begadang."
+  }
+},
+{
+  "id": "ops-vendor-1",
+  "roleId": "operations-executive",
+  "title": "Vendor Telat, Event Besok Pagi",
+  "context": {
+    "message": "Vendor panggung mengabari jam 20:00: truk mereka mogok, kedatangan mundur minimal 6 jam. Event dimulai jam 08:00 besok dan 500 undangan sudah disebar.",
+    "sender": "Vendor (telepon)",
+    "time": "20:15 WIB"
+  },
+  "options": [
+    {
+      "id": "A",
+      "text": "Tunggu truk diperbaiki sambil berharap keajaiban.",
+      "type": "Fatal"
+    },
+    {
+      "id": "B",
+      "text": "Aktifkan vendor cadangan yang sudah di-survey, sesuaikan rundown untuk setup parsial, dan kabari klien dengan rencana konkret.",
+      "type": "Optimal"
+    },
+    {
+      "id": "C",
+      "text": "Batalkan event sepihak malam ini juga.",
+      "type": "Fatal"
+    },
+    {
+      "id": "D",
+      "text": "Sewa vendor termahal yang bisa datang tanpa cek portofolio.",
+      "type": "Risky"
+    }
+  ],
+  "feedback": {
+    "Optimal": "Tepat. Operasional yang baik selalu punya plan B sebelum plan A gagal: vendor cadangan yang sudah disurvey plus rundown yang bisa dipadatkan.",
+    "Fatal": "Berharap atau membatalkan sepihak sama-sama menyerahkan kendali. Klien membayar untuk masalah yang selesai, bukan untuk kabar buruk.",
+    "PractitionerQuote": "Di dunia event Indonesia, pepatahnya: vendor yang tidak punya cadangan bukan vendor. Dan eksekutor yang tidak punya plan B bukan eksekutor."
+  }
+},
+{
+  "id": "analyst-access-1",
+  "roleId": "data-analyst",
+  "title": "Diminta Insight Tanpa Akses Data",
+  "context": {
+    "message": "VP Sales: 'Saya butuh analisa kenapa penjualan turun 20% — presentasi besok pagi ke direksi. Oh ya, akses warehouse kamu belum disetujui IT, pakai data yang ada saja.'",
+    "sender": "VP Sales (email)",
+    "time": "16:45 WIB"
+  },
+  "options": [
+    {
+      "id": "A",
+      "text": "Buat analisa dari data seadanya dan presentasikan seolah lengkap.",
+      "type": "Fatal"
+    },
+    {
+      "id": "B",
+      "text": "Sampaikan batasan data secara eksplisit, analisa yang bisa dijawab datanya, dan daftarkan asumsi + data yang masih dibutuhkan.",
+      "type": "Optimal"
+    },
+    {
+      "id": "C",
+      "text": "Tolak mentah-mentah karena tidak ada akses.",
+      "type": "Risky"
+    },
+    {
+      "id": "D",
+      "text": "Minta password akun analis lain untuk akses warehouse.",
+      "type": "Fatal"
+    }
+  ],
+  "feedback": {
+    "Optimal": "Tepat. Analis yang baik tidak mengarang dari data seadanya — ia memagari temuannya dengan batasan yang jelas sehingga keputusan direksi tidak dibangun di atas pasir.",
+    "Fatal": "Berbagi kredensial melanggar kebijakan keamanan; analisa pura-pura lengkap menyesatkan direksi.",
+    "PractitionerQuote": "Di korporat lokal, kalimat paling berharga seorang analis: 'dengan data yang saya punya, yang bisa saya simpulkan adalah X — dan inilah yang belum bisa saya jawab.'"
+  }
+},
+{
+  "id": "teller-selisih-1",
+  "roleId": "teller-bank",
+  "title": "Kas Selisih Rp50 Ribu Saat Closing",
+  "context": {
+    "message": "Closing kas jam 16:30: kurang Rp50.000. Antrean sudah sepi, supervisor menunggu laporan. Kamu ingat satu nasabah sore tadi terburu-buru dan tidak menghitung kembaliannya.",
+    "sender": "Diri sendiri (depan laci kas)",
+    "time": "16:35 WIB"
+  },
+  "options": [
+    {
+      "id": "A",
+      "text": "Tambah Rp50.000 dari dompet pribadi supaya nol selisih.",
+      "type": "Risky"
+    },
+    {
+      "id": "B",
+      "text": "Lapor selisih apa adanya, cek ulang slip transaksi dan CCTV dengan supervisor sebelum closing.",
+      "type": "Optimal"
+    },
+    {
+      "id": "C",
+      "text": "Ubah angka laporan supaya balance.",
+      "type": "Fatal"
+    },
+    {
+      "id": "D",
+      "text": "Pulang saja, bahas besok kalau ditanya.",
+      "type": "Fatal"
+    }
+  ],
+  "feedback": {
+    "Optimal": "Tepat. Nol selisih yang jujur — termasuk melaporkan kekurangan — selalu lebih aman dari nol selisih yang direkayasa. Jejak audit bank tidak bisa dibohongi.",
+    "Fatal": "Memalsukan laporan kas adalah pelanggaran integritas yang bisa mengakhiri karier perbankan seketika.",
+    "PractitionerQuote": "Di perbankan Indonesia, atasan bisa memaafkan selisih Rp50 ribu yang dilaporkan. Yang tidak bisa dimaafkan: selisih yang disembunyikan."
+  }
+}
 ]
