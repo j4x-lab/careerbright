@@ -226,3 +226,70 @@ CREATE TABLE IF NOT EXISTS "Verification" (
   "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+-- ─────────────────────────────────────────────────────────────────────────────
+-- Better Auth tables (Kysery adapter — NOT Prisma).
+--
+-- Better Auth resolves its models to lowercase, unquoted identifiers, which
+-- Postgres folds to "user" / "session" / "account" / "verification". The PascalCase
+-- User / Session / Account / Verification tables above are the Prisma-shaped
+-- equivalents and are retained only because schema.prisma still declares those
+-- models; nothing reads them for auth any more.
+--
+-- Keep this block in sync with `"user".additionalFields` and the phoneNumber
+-- plugin in apps/web/src/server/auth.ts. Better Auth validates the shape at
+-- runtime and reports SCHEMA_MISMATCH with the exact missing column, so a
+-- mismatch here fails loudly rather than silently.
+-- ─────────────────────────────────────────────────────────────────────────────
+
+CREATE TABLE IF NOT EXISTS "user" (
+  id TEXT PRIMARY KEY,
+  name TEXT,
+  email TEXT NOT NULL UNIQUE,
+  "emailVerified" BOOLEAN NOT NULL DEFAULT FALSE,
+  image TEXT,
+  role TEXT NOT NULL DEFAULT 'STUDENT',
+  "phoneNumber" TEXT UNIQUE,
+  "phoneNumberVerified" BOOLEAN NOT NULL DEFAULT FALSE,
+  "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS "session" (
+  id TEXT PRIMARY KEY,
+  "expiresAt" TIMESTAMP(3) NOT NULL,
+  token TEXT NOT NULL UNIQUE,
+  "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "ipAddress" TEXT,
+  "userAgent" TEXT,
+  "userId" TEXT NOT NULL REFERENCES "user"(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS "account" (
+  id TEXT PRIMARY KEY,
+  "accountId" TEXT NOT NULL,
+  "providerId" TEXT NOT NULL,
+  "userId" TEXT NOT NULL REFERENCES "user"(id) ON DELETE CASCADE,
+  "accessToken" TEXT,
+  "refreshToken" TEXT,
+  "idToken" TEXT,
+  "accessTokenExpiresAt" TIMESTAMP(3),
+  "refreshTokenExpiresAt" TIMESTAMP(3),
+  scope TEXT,
+  password TEXT,
+  "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS "verification" (
+  id TEXT PRIMARY KEY,
+  identifier TEXT NOT NULL,
+  value TEXT NOT NULL,
+  "expiresAt" TIMESTAMP(3) NOT NULL,
+  "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS session_userId_idx ON "session" ("userId");
+CREATE INDEX IF NOT EXISTS account_userId_idx ON "account" ("userId");

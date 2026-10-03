@@ -11,26 +11,43 @@ const connectionString = process.env.DATABASE_URL;
 
 function createClient(): PrismaClient {
   if (!connectionString) {
-    // Deep stub: property access is safe (so adapters/routers can import
-    // at build time); only actual method calls reject.
-    const err = () =>
-      Promise.reject(
-        new Error("DATABASE_URL is not set — database offline (set it and run seed).")
-      );
-    const deep: ProxyHandler<object> = {
-      get(_t, prop) {
-        if (prop === "$disconnect" || prop === "$connect") return async () => {};
-        if (prop === "then" || typeof prop === "symbol") return undefined;
-        // Return a callable stub that is also chainable (prisma.user.findMany())
-        const fn = (..._a: unknown[]) => err();
-        return new Proxy(fn, deep);
-      },
-      apply: () => err(),
-    };
-    return new Proxy({}, deep) as unknown as PrismaClient;
+    return offlineClient(
+      "DATABASE_URL is not set — database offline (set it and run seed)."
+    );
   }
-  const adapter = new PrismaPg({ connectionString });
-  return new PrismaClient({ adapter });
+  try {
+    const adapter = new PrismaPg({ connectionString });
+    return new PrismaClient({ adapter });
+  } catch (err) {
+    // `new PrismaClient` throws when the client was never generated — which is
+    // the normal state wherever `prisma generate` cannot run (no engine binary,
+    // no network to binaries.prisma.sh). Left unhandled it propagates out of the
+    // import and 500s any page that transitively touches the DB, before that
+    // page's own try/catch can degrade. Degrade the same way as a missing URL so
+    // callers keep their designed offline/empty state.
+    const msg = err instanceof Error ? err.message : String(err);
+    console.warn(
+      `[db] Prisma client unavailable, falling back to offline stub: ${msg}`
+    );
+    return offlineClient(
+      "Prisma client is not generated — run `npm run db:generate`."
+    );
+  }
+}
+
+/** Deep stub: property access is safe at import time; only calls reject. */
+function offlineClient(reason: string): PrismaClient {
+  const err = () => Promise.reject(new Error(reason));
+  const deep: ProxyHandler<object> = {
+    get(_t, prop) {
+      if (prop === "$disconnect" || prop === "$connect") return async () => {};
+      if (prop === "then" || typeof prop === "symbol") return undefined;
+      const fn = (..._a: unknown[]) => err();
+      return new Proxy(fn, deep);
+    },
+    apply: () => err(),
+  };
+  return new Proxy({}, deep) as unknown as PrismaClient;
 }
 
 const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
