@@ -6,29 +6,36 @@ import { SiteFooter, SiteNav } from "@/components/site-chrome";
 import { LOCAL } from "@/lib/visual";
 
 /*
- * Career SuperBright landing — concise build per MASTERPLAN V2.1 + LANDING V2.
+ * Career SuperBright landing — the anti-slop pass.
  *
  * Design read: concise consumer landing for Indonesian students /
- * fresh grads, calm trust-first language, Tailwind v4 +
- * Jakarta Sans + Plex Mono, restrained purposeful motion.
- * Visual language: PREMIUM-BOLD — big confident display type, strong
- * contrast, dramatic whitespace, one hero element per viewport.
- * Dials: VARIANCE 8 / MOTION 5 / DENSITY 4.
+ * fresh grads. Light-OS cobalt on paper, one idea per viewport, hairline
+ * structure instead of stacked cards. Dials: VARIANCE 8 / MOTION 6 /
+ * DENSITY 4.
+ *
+ * Rules this layout holds itself to (and why):
+ * - One primary CTA in the hero. The "how it works" route lives on the
+ *   method panel instead of a second button competing beside it.
+ * - No 3-equal-column feature rows and no 5-up step grid. The demand proof
+ *   is a 7/5 bento with one dominant figure; the five steps are a ledger
+ *   with a number rail — both read as editorial, not as a template.
+ * - Section headers change shape (rule-rail · right-aligned · numbered)
+ *   so four consecutive bands don't repeat one header template.
+ * - Nothing overlaps. The hero photo is a block in its own inline box —
+ *   type-height punctuation above 640px, its own band below it.
+ * - Every role name and capability chip is localized. Hardcoded English
+ *   job titles were leaking onto the Indonesian page.
+ * - Numbers stay real and attributed: Kemnaker 2025, Jobstreet 2026,
+ *   SNBT 2026, NACE Winter 2026. No round-number inflation.
  *
  * No usecase / real-case content on this page: generic method preview,
  * role rows, and honesty badges only. Per-role depth lives in
  * lib/tracks.ts + track-picker/track-panels/scenario-demo (dormant,
  * reserved for future /roles/* pages). No fake testimonials anywhere.
- * Anchors: #konten #masalah #pekerjaan #cara-kerja #siap.
+ * Anchors: #konten #masalah #pekerjaan #semua-peran #cara-kerja #siap.
  * Shape lock v2: buttons 14px · cards 24px · media 20px · inputs 12px.
  * Copy comes from the landing dictionary namespace.
  */
-
-const WAVE2 = [
-  "Junior Accountant",
-  "Software Engineer",
-  "Cybersecurity Analyst",
-];
 
 export default async function LandingPage({ locale }: { locale: string }) {
   const t = await createTranslator({
@@ -41,17 +48,24 @@ export default async function LandingPage({ locale }: { locale: string }) {
     [t("stat2v"), t("stat2l")],
     [t("stat3v"), t("stat3l")],
   ];
-  const WAVE1 = [
-    { name: "Digital Marketing Specialist", mission: t("w1dmM"), caps: ["Performance Ads", "Marketing Analytics", "Live Commerce"], signal: t("w1dmS"), salary: t("w1dmPay") },
-    { name: "Data Analyst", mission: t("w1daM"), caps: ["SQL & Spreadsheets", "Dashboarding", "Insight Storytelling"], signal: t("w1daS"), salary: t("w1daPay") },
-    { name: "UI/UX Designer", mission: t("w1uxM"), caps: ["UX Research", "Figma & Design System", "Usability Testing"], signal: t("w1uxS"), salary: t("w1uxPay") },
+  const HERO_FACTS: [string, string][] = [
+    [t("heroFact1k"), t("heroFact1v")],
+    [t("heroFact2k"), t("heroFact2v")],
+    [t("heroFact3k"), t("heroFact3v")],
   ];
-  const STEPS: [string, string][] = [
-    [t("step1t"), t("step1d")],
-    [t("step2t"), t("step2d")],
-    [t("step3t"), t("step3d")],
-    [t("step4t"), t("step4d")],
-    [t("step5t"), t("step5d")],
+  const WAVE1 = [
+    { name: t("roleDm"), mission: t("w1dmM"), caps: [t("capsDm1"), t("capsDm2"), t("capsDm3")], signal: t("w1dmS"), salary: t("w1dmPay") },
+    { name: t("roleDa"), mission: t("w1daM"), caps: [t("capsDa1"), t("capsDa2"), t("capsDa3")], signal: t("w1daS"), salary: t("w1daPay") },
+    { name: t("roleUx"), mission: t("w1uxM"), caps: [t("capsUx1"), t("capsUx2"), t("capsUx3")], signal: t("w1uxS"), salary: t("w1uxPay") },
+  ];
+  const WAVE2 = [t("roleJa"), t("roleSe"), t("roleCa")];
+  const TICKER = [t("roleDm"), t("roleDa"), t("roleUx"), ...WAVE2];
+  const STEPS: [string, string, string][] = [
+    [t("step1n"), t("step1t"), t("step1d")],
+    [t("step2n"), t("step2t"), t("step2d")],
+    [t("step3n"), t("step3t"), t("step3d")],
+    [t("step4n"), t("step4t"), t("step4d")],
+    [t("step5n"), t("step5t"), t("step5d")],
   ];
   return (
     <main id="konten" tabIndex={-1} className="overflow-x-clip bg-paper text-ink">
@@ -71,34 +85,60 @@ export default async function LandingPage({ locale }: { locale: string }) {
               <span aria-hidden className="inline-block h-[2px] w-8 flex-none bg-brand-700" />
               {t("heroEyebrow")}
             </p>
-            <h1 className="hero-enter hero-enter-2 font-nova mt-6 max-w-[22ch] text-[clamp(2.25rem,5vw,4rem)] font-bold leading-[1.04] tracking-[-0.02em]">
-              {t("heroTitle")}
+
+            {/* Inline image typography: the photo is a block box in its own
+                inline-level slot — type-height punctuation above `sm`, its
+                own full-width band below it. It never overlaps the type.
+                alt="" on purpose: the heading's meaning is carried entirely
+                by the two text segments, and a sentence of alt text inside an
+                h1 would poison screen-reader heading navigation. */}
+            <h1 className="hero-enter hero-enter-2 font-nova mt-6 text-[clamp(2.25rem,5vw,4rem)] font-bold leading-[1.04] tracking-[-0.02em] md:max-w-[26ch]">
+              {t("heroTitleA")}
+              <span className="mx-auto my-5 block aspect-[16/9] w-full overflow-hidden rounded-media align-middle sm:mx-[0.16em] sm:my-0 sm:inline-flex sm:h-[0.92em] sm:w-[1.42em] sm:aspect-auto">
+                <img
+                  src={LOCAL.timKopi}
+                  alt=""
+                  width={640}
+                  height={360}
+                  fetchPriority="high"
+                  decoding="async"
+                  className="h-full w-full object-cover"
+                />
+              </span>
+              {t("heroTitleB")}
             </h1>
+
             <p className="hero-enter hero-enter-3 mt-6 max-w-[46ch] text-base leading-relaxed text-soft md:text-lg">
               {t("heroSub")}
             </p>
-            <div className="hero-enter hero-enter-3 mt-8 flex flex-wrap items-center gap-4">
+
+            {/* One primary action. Everything else on this page is a link
+                into the content below, not a competing button. */}
+            <div className="hero-enter hero-enter-3 mt-8">
               <a href="#pekerjaan" className="btn-amber group min-h-[52px] px-7 text-[15px]">
                 {t("heroCta1")}
                 <span className="btn-island btn-island-dark" aria-hidden>
                   ↗
                 </span>
               </a>
-              <a href="#cara-kerja" className="link-more inline-flex min-h-[44px] items-center">
-                {t("heroCta2")}
-              </a>
             </div>
-            <p className="hero-enter hero-enter-4 mt-8 max-w-[52ch] border-t border-line pt-5 font-mono text-[11px] leading-relaxed text-muted">
-              {t("heroFlavor")}
-            </p>
+
+            {/* Proof strip: what is actually inside, honestly scoped.
+                Hairline-ruled instead of three chip-cards. */}
+            <dl className="hero-enter hero-enter-4 mt-9 grid grid-cols-3 gap-x-4 gap-y-5 border-t border-line pt-6">
+              {HERO_FACTS.map(([k, v]) => (
+                <div key={k}>
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
+                    {k}
+                  </dt>
+                  <dd className="mt-1.5 text-[13px] font-bold leading-snug text-ink">{v}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
 
           {/* Hero visual — generic method preview, no real case */}
           <div className="hero-enter hero-enter-4 relative lg:col-span-6 lg:col-start-7 lg:mt-10">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -inset-3 rounded-card border border-brand-700/15"
-            />
             <div className="glass-light relative overflow-hidden">
               <div className="flex items-center gap-2.5 border-b border-line bg-card px-5 py-4 md:px-6">
                 <span className="live-dot" aria-hidden />
@@ -111,13 +151,19 @@ export default async function LandingPage({ locale }: { locale: string }) {
                   <span className="h-2 w-2 rounded-full bg-signal" />
                 </span>
               </div>
+              {/* Cascade, not a simultaneous mount: each row arrives on its
+                  own beat so the list reads as a sequence of decisions. */}
               <ol className="divide-y divide-line">
                 {[
                   ["01", t("m1t"), t("m1d")],
                   ["02", t("m2t"), t("m2d")],
                   ["03", t("m3t"), t("m3d")],
-                ].map(([n, tt, d]) => (
-                  <li key={n} className="flex gap-5 px-5 py-5 md:px-6 md:py-6">
+                ].map(([n, tt, d], i) => (
+                  <li
+                    key={n}
+                    className="hero-enter flex gap-5 px-5 py-5 md:px-6 md:py-6"
+                    style={{ animationDelay: `${340 + i * 90}ms` }}
+                  >
                     <span className="tnum mt-0.5 font-mono text-[13px] font-bold text-brand-700">
                       {n}
                     </span>
@@ -147,7 +193,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
         <div className="marquee-track items-center font-mono text-[12px] font-bold uppercase tracking-[0.18em] text-soft">
           {[0, 1].map((dup) => (
             <div key={dup} aria-hidden={dup === 1} className="flex flex-none items-center gap-8 pr-8">
-              {["Digital Marketing Specialist", "Data Analyst", "UI/UX Designer", "Junior Accountant", "Software Engineer", "Cybersecurity Analyst"].map((r) => (
+              {TICKER.map((r) => (
                 <span key={r} className="flex flex-none items-center gap-8">
                   {r}
                   <span aria-hidden className="text-[10px] text-brand-700">◆</span>
@@ -158,19 +204,24 @@ export default async function LandingPage({ locale }: { locale: string }) {
         </div>
       </div>
 
-      {/* ── THE PROBLEM ──────────────────────────────────── */}
+      {/* ── THE PROBLEM ────────────────────────────────────
+          Header treatment 1/3: cobalt rule-rail in the margin, title and
+          standfirst offset into a 7/5 split. */}
       <section
         id="masalah"
         className="mx-auto max-w-7xl scroll-mt-32 px-4 py-20 md:py-32"
       >
         <Reveal>
-          <div aria-hidden className="mb-7 h-1 w-12 bg-brand-700" />
-          <h2 className="font-nova max-w-[22ch] text-4xl font-bold leading-[1.04] tracking-[-0.02em] md:text-5xl">
-            {t("probTitle")}
-          </h2>
-          <p className="mt-5 max-w-[58ch] text-base leading-relaxed text-soft md:text-lg">
-            {t("probSub")}
-          </p>
+          <div className="grid gap-6 md:grid-cols-12 md:gap-8">
+            <div className="rule-rail md:col-span-7">
+              <h2 className="font-nova max-w-[20ch] text-4xl font-bold leading-[1.04] tracking-[-0.02em] md:text-5xl">
+                {t("probTitle")}
+              </h2>
+            </div>
+            <p className="max-w-[46ch] self-end text-[15px] leading-relaxed text-soft md:col-span-5 md:text-base">
+              {t("probSub")}
+            </p>
+          </div>
         </Reveal>
         <div className="mt-12 grid gap-5 md:grid-cols-12">
           <Reveal className="md:col-span-7">
@@ -219,53 +270,84 @@ export default async function LandingPage({ locale }: { locale: string }) {
         </Reveal>
       </section>
 
-      {/* ── 01 · DEMAND PROOF ────────────────────────────── */}
+      {/* ── DEMAND PROOF ───────────────────────────────────
+          Header treatment 2/3: numbered mono index sitting on the title's
+          baseline, title right-aligned against the standfirst. */}
       <section
         id="pekerjaan"
         className="mx-auto max-w-7xl scroll-mt-32 px-4 pb-12 pt-20 md:pb-16 md:pt-32"
       >
         <Reveal>
-          <div aria-hidden className="mb-7 h-1 w-12 bg-brand-700" />
-          <h2 className="font-nova max-w-[22ch] text-4xl font-bold leading-[1.04] tracking-[-0.02em] md:text-5xl">
-            {t("jobsTitle")}
-          </h2>
-          <p className="mt-5 max-w-[58ch] text-base leading-relaxed text-soft md:text-lg">
-            {t("jobsSub")}
-          </p>
+          <div className="border-t border-line pt-8">
+            <div className="grid gap-6 md:grid-cols-12 md:items-end md:gap-8">
+              <div className="md:col-span-5">
+                <p aria-hidden className="tnum font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-brand-700">
+                  01
+                </p>
+                <p className="mt-4 max-w-[42ch] text-[15px] leading-relaxed text-soft">
+                  {t("jobsSub")}
+                </p>
+              </div>
+              <h2 className="font-nova max-w-[22ch] text-[32px] font-bold leading-[1.06] tracking-[-0.02em] md:col-span-7 md:text-right md:text-[40px]">
+                {t("jobsTitle")}
+              </h2>
+            </div>
+          </div>
         </Reveal>
-        <dl className="mt-10 grid gap-8 sm:grid-cols-3">
-          {DEMAND_STATS.map(([v, l]) => (
+
+        {/* Bento, not three equal columns: one dominant figure on a heavy
+            cobalt rule, two supporting figures on hairlines. */}
+        <dl className="mt-12 grid gap-x-8 gap-y-10 md:grid-cols-12">
+          {DEMAND_STATS.map(([v, l], i) => (
             <Reveal
               key={l}
-              className="border-t-2 border-brand-700 pt-5"
+              delay={i * 90}
+              className={
+                i === 0
+                  ? "border-t-2 border-brand-700 pt-6 md:col-span-7 md:row-span-2"
+                  : "border-t border-line pt-6 md:col-span-5"
+              }
             >
-              <dt className="tnum font-nova text-4xl font-bold tracking-[-0.02em] text-ink md:text-5xl">
+              <dt
+                className={`tnum font-nova font-bold tracking-[-0.03em] text-ink ${
+                  i === 0
+                    ? "text-[clamp(3rem,7vw,5.5rem)] leading-[0.94]"
+                    : "text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.05]"
+                }`}
+              >
                 {v}
               </dt>
-              <dd className="mt-2 max-w-[28ch] text-[13px] leading-snug text-muted">{l}</dd>
+              <dd
+                className={`mt-3 leading-snug text-muted ${
+                  i === 0 ? "max-w-[38ch] text-[14px]" : "max-w-[30ch] text-[13px]"
+                }`}
+              >
+                {l}
+              </dd>
             </Reveal>
           ))}
         </dl>
       </section>
 
-      {/* ── 02 · FEATURED EXAMPLE (full-bleed band) ─────────── */}
+      {/* ── FEATURED EXAMPLE (full-bleed band) ───────────────
+          The band IS the surface — the old build framed a bordered card
+          inside a bordered band, which is nesting for decoration. */}
       <section
         id="contoh-event"
         className="scroll-mt-32 border-y border-line bg-card"
       >
         <div className="mx-auto max-w-7xl px-4 py-14 md:py-20">
-        {/* Contoh 1 dari 4 — the single playable spotlight */}
-        <Reveal>
-          <div className="overflow-hidden rounded-card border-2 border-ink bg-paper">
-            <div className="grid gap-4 px-6 py-6 md:grid-cols-12 md:items-center md:gap-6 md:px-10 md:py-8">
+          {/* Contoh 1 dari 4 — the single playable spotlight */}
+          <Reveal>
+            <div className="grid gap-6 md:grid-cols-12 md:items-center md:gap-8">
               <div className="md:col-span-5">
                 <p className="inline-block rounded-full bg-signal/15 px-3 py-1 font-mono text-[11px] font-bold text-signal-strong">
                   {t("eventBadge")}
                 </p>
-                <p className="font-nova mt-3 text-2xl font-bold leading-tight tracking-[-0.02em] md:text-3xl">
-                  Event &amp; Brand Activation Supervisor
-                </p>
-                <p className="mt-2 max-w-[40ch] text-[15px] leading-relaxed text-soft">
+                <h3 className="font-nova mt-4 text-2xl font-bold leading-tight tracking-[-0.02em] md:text-3xl">
+                  {t("roleEvent")}
+                </h3>
+                <p className="mt-3 max-w-[40ch] text-[15px] leading-relaxed text-soft">
                   {t("eventMission")}
                 </p>
               </div>
@@ -273,13 +355,13 @@ export default async function LandingPage({ locale }: { locale: string }) {
                 className="flex flex-wrap content-center gap-1.5 md:col-span-3"
                 aria-label={t("eventCapsLabel")}
               >
-                {["Campaign Planning", "Vendor Management", "Crisis Management"].map((c) => (
+                {[t("capsEv1"), t("capsEv2"), t("capsEv3")].map((c) => (
                   <li key={c} className="chip !text-[12px]">
                     {c}
                   </li>
                 ))}
               </ul>
-              <div className="md:col-span-4 md:text-right">
+              <div className="border-t border-line pt-5 md:col-span-4 md:border-0 md:pt-0 md:text-right">
                 <p className="max-w-[36ch] font-mono text-[11px] leading-relaxed text-muted md:ml-auto">
                   {t("eventSignal")}
                 </p>
@@ -288,12 +370,13 @@ export default async function LandingPage({ locale }: { locale: string }) {
                 </Link>
               </div>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
         </div>
       </section>
 
-      {/* ── 03 · ROLE INDEX ────────────────────────────────── */}
+      {/* ── ROLE INDEX ───────────────────────────────────────
+          Rows, not cards: a ledger of three intro roles under one band
+          label, each name a real h3. */}
       <section
         id="semua-peran"
         className="mx-auto max-w-7xl scroll-mt-32 px-4 pb-20 pt-14 md:pb-32 md:pt-20"
@@ -314,9 +397,9 @@ export default async function LandingPage({ locale }: { locale: string }) {
                     <p aria-hidden className="tnum font-mono text-[12px] font-bold tracking-[0.14em] text-muted">
                       {String(i + 1).padStart(2, "0")}
                     </p>
-                    <p className="mt-1.5 text-lg font-extrabold tracking-tight md:text-xl">
+                    <h3 className="mt-1.5 text-lg font-extrabold tracking-tight md:text-xl">
                       {row.name}
-                    </p>
+                    </h3>
                     <p className="mt-1.5 text-sm leading-relaxed text-soft">
                       {row.mission}
                     </p>
@@ -383,46 +466,68 @@ export default async function LandingPage({ locale }: { locale: string }) {
         </Reveal>
       </section>
 
-      {/* ── HOW ROLEPATH WORKS ───────────────────────────────── */}
+      {/* ── HOW ROLEPATH WORKS ─────────────────────────────────
+          Header treatment 3/3: index and title on one baseline, standfirst
+          in the right rail. Steps are a ledger (number · title · body),
+          never a 5-up card grid — and each title is a real h3 so the page
+          has a heading outline instead of bold <p>s. */}
       <section
         id="cara-kerja"
         className="mx-auto max-w-7xl scroll-mt-32 px-4 py-20 md:py-32"
       >
         <Reveal>
-          <div aria-hidden className="mb-7 h-1 w-12 bg-brand-700" />
-          <h2 className="font-nova max-w-[22ch] text-4xl font-bold leading-[1.04] tracking-[-0.02em] md:text-5xl">
-            {t("stepsTitle")}
-          </h2>
+          <div className="border-t border-line pt-8">
+            <div className="grid gap-5 md:grid-cols-12 md:items-baseline md:gap-8">
+              <h2 className="font-nova max-w-[20ch] text-[32px] font-bold leading-[1.06] tracking-[-0.02em] md:col-span-7 md:text-[40px]">
+                <span aria-hidden className="tnum mr-4 align-super font-mono text-[13px] font-bold tracking-[0.2em] text-brand-700">
+                  02
+                </span>
+                {t("stepsTitle")}
+              </h2>
+              <p className="max-w-[40ch] text-[15px] leading-relaxed text-soft md:col-span-5">
+                {t("stepsSub")}
+              </p>
+            </div>
+          </div>
         </Reveal>
-        <ol className="mt-12 grid gap-x-6 gap-y-9 border-t border-line pt-8 sm:grid-cols-2 lg:grid-cols-5">
-          {STEPS.map(([st, d], i) => (
-            <Reveal as="li" key={st} delay={i * 60}>
-              <p aria-hidden className="tnum text-4xl font-extrabold tracking-tight text-brand-700/15 md:text-5xl">
-                {String(i + 1).padStart(2, "0")}
+
+        <ol className="mt-12 border-b border-line">
+          {STEPS.map(([n, st, d], i) => (
+            <Reveal
+              as="li"
+              key={n}
+              delay={i * 60}
+              className="group grid gap-x-8 gap-y-2 border-t border-line py-7 transition-colors duration-300 hover:bg-brand-50/60 md:grid-cols-12 md:items-baseline md:px-2"
+            >
+              <p className="tnum font-mono text-[13px] font-bold tracking-[0.12em] text-brand-700 md:col-span-2">
+                {n}
               </p>
-              <p className="mt-3 text-[15px] font-extrabold leading-snug tracking-tight text-ink">
+              <h3 className="text-[17px] font-extrabold leading-snug tracking-tight text-ink md:col-span-4 md:text-[19px]">
                 {st}
+              </h3>
+              <p className="max-w-[52ch] text-[15px] leading-relaxed text-soft md:col-span-6">
+                {d}
               </p>
-              <p className="mt-2 text-sm leading-relaxed text-soft">{d}</p>
             </Reveal>
           ))}
         </ol>
       </section>
 
-      {/* ── 08 · FINAL CTA ───────────────────────────────────── */}
+      {/* ── FINAL CTA ─────────────────────────────────────── */}
       <section id="siap" className="scroll-mt-32">
         <div className="mx-auto max-w-7xl px-4 py-20 md:py-32">
           <Reveal>
             <div className="relative overflow-hidden rounded-card bg-brand-700 px-6 py-12 md:p-16">
-              <div
-                aria-hidden
-                className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-2xl"
-              />
-              <div aria-hidden className="mb-7 h-1 w-12 bg-white/60" />
-              <h2 className="font-nova relative max-w-[22ch] text-4xl font-bold leading-[1.04] tracking-[-0.02em] text-white md:text-5xl">
+              {/* Ruled hairlines instead of a blurred glow orb: structure
+                  reads as craft, blur reads as filler. */}
+              <div aria-hidden className="grid-ink pointer-events-none absolute inset-0" />
+              <p aria-hidden className="relative font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">
+                03
+              </p>
+              <h2 className="font-nova relative mt-5 max-w-[22ch] text-[32px] font-bold leading-[1.06] tracking-[-0.02em] text-white md:text-[40px]">
                 {t("ctaTitle")}
               </h2>
-              <p className="relative mt-5 max-w-[58ch] text-base leading-relaxed text-white/90 md:text-lg">
+              <p className="relative mt-5 max-w-[52ch] text-[15px] leading-relaxed text-white/90">
                 {t("ctaSub")}
               </p>
               <div className="relative mt-8 flex flex-wrap items-center gap-4">
@@ -436,7 +541,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
                   {t("cta2")}
                 </Link>
               </div>
-              <p className="relative mt-5 font-mono text-[11px] leading-relaxed text-white/85">
+              <p className="relative mt-5 max-w-[56ch] font-mono text-[11px] leading-relaxed text-white/85">
                 {t("ctaNote")}
               </p>
             </div>

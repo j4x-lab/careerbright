@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { EmptyState } from "@/components/empty-state";
 import { searchCatalog, type CatalogCategory, type CatalogItem, type CatalogKind } from "@/lib/catalog";
 
 /* Cerah v2 — command-bar search + card grid v2. */
@@ -111,17 +112,20 @@ export function KatalogSearch() {
       </p>
 
       {results.length === 0 ? (
-        <div className="panel-warm mt-4 border-dashed p-10 text-center">
-          <p className="text-lg font-extrabold tracking-tight">{t("emptyTitle")}</p>
-          <p className="mx-auto mt-2 max-w-[44ch] text-sm text-soft">
-            {t("emptyHint")}
-          </p>
-          <button
-            onClick={() => { setQ(""); setCategory("Semua"); setKind("Semua"); setKonteksOnly(false); }}
-            className="btn-ghost mt-5 min-h-[44px] px-5 py-2.5 text-[13px]"
-          >
-            {t("resetBtn")}
-          </button>
+        <div className="mt-4">
+          <EmptyState
+            art="search"
+            title={t("emptyTitle")}
+            hint={t("emptyHint")}
+            action={
+              <button
+                onClick={() => { setQ(""); setCategory("Semua"); setKind("Semua"); setKonteksOnly(false); }}
+                className="btn-ghost min-h-[44px] px-5 py-2.5 text-[13px]"
+              >
+                {t("resetBtn")}
+              </button>
+            }
+          />
         </div>
       ) : (
         <ul className="mt-4 grid gap-4 md:grid-cols-2">

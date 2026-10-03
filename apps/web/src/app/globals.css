@@ -5,9 +5,6 @@
   --font-display: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-roboto-mono), ui-monospace, SFMono-Regular, monospace;
 
-  --text-display-xl: clamp(2.5rem, 5vw, 4.5rem);
-  --text-display-lg: clamp(2rem, 4vw, 3.5rem);
-  --text-display-md: clamp(1.5rem, 3vw, 2.5rem);
   --text-body-lg: 1.125rem;
 
   /* ── Surfaces: paper page → white cards → paper insets. No theme inversion. */
@@ -45,23 +42,9 @@
   --color-danger: #dc2626;
   --color-danger-bg: #fef2f2;
 
-  /* ── Nova landing theme (additive — used ONLY by the landing page).
-   Ember concept: warm parchment paper, espresso ink, ember CTA, forest
-   secondary. Every text/background pair below passes WCAG AA
-   (verified 2026-10-03: espresso 16.6 · bark 7.6 · sand 5.5 ·
-   white-on-ember 5.8 · white-on-forest 7.4 · white-on-emberdeep 7.9). */
-  --color-parchment: #FAF6ED;
-  --color-espresso: #231407;
-  --color-bark: #5F4B38;
-  --color-sand: #75604C;
-  --color-dune: rgba(35, 20, 7, 0.14);
-  --color-ember: #B83A12;
-  --color-ember-bright: #D9481C;
-  --color-ember-deep: #93300F;
-  --color-forest: #20604A;
-  --color-forest-bg: #E7F0EB;
-
-  /* Nova display face (landing only — body stays Jakarta). */
+/* Display face for the landing hero/headlines (Space Grotesk variable).
+     Body copy stays Plus Jakarta Sans — the grotesk is too wide for 65ch
+     reading, so it is a headline-only face. */
   --font-nova: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
 
   /* ── Shape lock v2: buttons 14px · cards 24px · media 20px · inputs 12px. */
@@ -69,10 +52,6 @@
   --radius-card: 24px;
   --radius-media: 20px;
   --radius-input: 12px;
-
-  --animate-fade-up: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
-  --animate-pulse-dot: pulse-dot 2s cubic-bezier(0.32, 0.72, 0, 1) infinite;
-  --animate-bar-grow: bar-grow 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
@@ -288,35 +267,23 @@ html.js .hero-enter { opacity: 0; transform: translateY(18px); animation: fade-u
 .chip { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; border: 1px solid rgba(10,17,40,0.12); padding: 6px 14px; font-size: 13px; background: var(--color-card); }
 .chip-on { background: var(--color-brand-700); color: #fff; border-color: var(--color-brand-700); }
 
-/* ---- Nova landing theme (landing page only) ---- */
-.nova-hero {
-  background:
-    radial-gradient(56rem 30rem at 88% -12%, rgba(217, 72, 28, 0.12), transparent 62%),
-    radial-gradient(44rem 26rem at -6% 108%, rgba(32, 96, 74, 0.1), transparent 60%),
-    linear-gradient(180deg, #fffdf8 0%, var(--color-parchment) 100%);
+/* ---- ruled motif for inverted (cobalt) surfaces ----
+   Replaces the old blurred glow orb: hairlines read as structure, blur reads
+   as decoration. Masked so the rules fade out instead of ending on a hard box. */
+.grid-ink {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(120% 90% at 88% 8%, black 20%, transparent 78%);
 }
-.eyebrow-nova {
-  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--color-ember);
+
+/* Editorial section marker: a short vertical cobalt rule that sits in the
+   margin beside a headline. Structural, not decorative. */
+.rule-rail {
+  border-left: 2px solid var(--color-brand-700);
+  padding-left: 18px;
 }
-.btn-ember {
-  display: inline-flex; align-items: center; gap: 10px;
-  border-radius: var(--radius-btn); font-weight: 800; font-size: 15px;
-  background: var(--color-ember); color: #fff; padding: 16px 28px;
-  box-shadow: 0 16px 34px -14px rgba(184, 58, 18, 0.65);
-  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1), background 0.3s, box-shadow 0.3s;
-}
-.btn-ember:hover { background: var(--color-ember-deep); box-shadow: 0 20px 40px -14px rgba(147, 48, 15, 0.7); }
-.btn-ember:active { transform: scale(0.98) translateY(1px); }
-.btn-ember-ghost {
-  display: inline-flex; align-items: center; gap: 10px;
-  border-radius: var(--radius-btn); font-weight: 700; font-size: 15px;
-  border: 1.5px solid rgba(35, 20, 7, 0.22); color: var(--color-espresso);
-  padding: 16px 28px; background: transparent;
-  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1), border-color 0.3s, background 0.3s;
-}
-.btn-ember-ghost:hover { border-color: var(--color-ember); background: rgba(184, 58, 18, 0.06); }
-.btn-ember-ghost:active { transform: scale(0.98) translateY(1px); }
+
 @keyframes marquee-x {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }

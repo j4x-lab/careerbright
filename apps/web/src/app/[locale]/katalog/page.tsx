@@ -14,13 +14,13 @@ export default async function KatalogPage({ params }: { params: Promise<{ locale
     messages: getLocaleMessages(locale),
   });
   return (
-    <main tabIndex={-1} className="overflow-x-clip bg-paper text-ink">
+    <main id="konten" tabIndex={-1} className="overflow-x-clip bg-paper text-ink">
       <a href="#konten" className="skip-link">{t("skip")}</a>
       <section className="hero-light relative overflow-hidden pt-[140px]">
         <div className="relative mx-auto max-w-7xl px-4 pb-10">
           <Link href="/" className="font-mono text-[12px] text-muted underline decoration-line underline-offset-4 hover:text-ink">{t("back")}</Link>
           <p className="eyebrow-light mt-6">{t("eyebrow")}</p>
-          <h1 id="konten" className="mt-3 max-w-[18ch] text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">
+          <h1 className="mt-3 max-w-[18ch] text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">
             {t.rich("title", { b: (chunks: ReactNode) => <span className="text-brand-700">{chunks}</span> })}
           </h1>
           <p className="mt-3 max-w-[56ch] text-[15px] leading-relaxed text-soft">

@@ -3,6 +3,7 @@ import { createTranslator } from "next-intl";
 import { getLocaleMessages } from "@/i18n/messages";
 import { appRouter } from "@/server/routers";
 import { CreateCourseForm } from "./create-course-form";
+import { EmptyState } from "@/components/empty-state";
 import { OpsShell } from "@/components/ops-shell";
 
 export default async function InstructorDashboard({ params }: { params: Promise<{ locale: string }> }) {
@@ -30,9 +31,6 @@ export default async function InstructorDashboard({ params }: { params: Promise<
       )}
       <div className="panel mt-4 p-5 md:p-6"><CreateCourseForm /></div>
       <div className="mt-4 grid gap-4 md:grid-cols-3">
-        {courses.length === 0 && dbOnline && (
-          <p className="text-sm text-soft">{t("empty")}</p>
-        )}
         {courses.map((c) => (
           <div key={c.id} className="spot panel p-5">
             <p className="font-extrabold">{c.titleId}</p>
@@ -40,6 +38,11 @@ export default async function InstructorDashboard({ params }: { params: Promise<
           </div>
         ))}
       </div>
+      {courses.length === 0 && dbOnline && (
+        <div className="mt-4">
+          <EmptyState art="ledger" title={t("emptyTitle")} hint={t("empty")} />
+        </div>
+      )}
     </OpsShell>
   );
 }
