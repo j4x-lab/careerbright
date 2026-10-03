@@ -2,6 +2,7 @@ import { Pool } from "pg";
 import { z } from "zod";
 import { protectedProcedure, publicProcedure, router } from "../trpc";
 import { adminRouter } from "./admin";
+import { metricsRouter } from "./metrics";
 
 /*
  * Catalog reads.
@@ -90,6 +91,7 @@ export const appRouter = router({
   paths: pathsRouter,
   courses: coursesRouter,
   admin: adminRouter,
+  metrics: metricsRouter,
 });
 
 export type AppRouter = typeof appRouter;

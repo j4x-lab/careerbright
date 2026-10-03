@@ -1,8 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
+import { useMutation } from "@tanstack/react-query";
+import { useTRPC } from "@/trpc/client";
 import { Link } from "@/i18n/navigation";
+import { LogVisit, getSessionKey } from "@/components/log-visit";
 import type { MicroScenario } from "@/lib/discovery";
 
 /* Micro-scenario player (PRD §4.4): context panel (simulated inbox thread),
@@ -18,7 +21,33 @@ const VERDICT_STYLE: Record<string, string> = {
 
 export function ScenarioPlayer({ scenario, backHref }: { scenario: MicroScenario; backHref: string }) {
   const t = useTranslations("scenario");
+  const trpc = useTRPC();
+  const log = useMutation(trpc.metrics.log.mutationOptions());
   const [selected, setSelected] = useState<string | null>(null);
+  // Completion Velocity (PRD §9) is measured start-to-verdict on the client:
+  // there is no server round-trip in between, so client timing is the truth.
+  const startedAt = useRef<number>(0);
+  if (startedAt.current === 0 && typeof performance !== "undefined") {
+    startedAt.current = performance.now();
+  }
+
+  function choose(id: string) {
+    if (selected !== null) return;
+    const opt = scenario.options.find((o) => o.id === id);
+    if (!opt) return;
+    setSelected(id);
+    log.mutate({
+      event: "scenario_complete",
+      roleId: scenario.roleId,
+      scenarioId: scenario.id,
+      durationMs: Math.max(
+        0,
+        Math.min(3_600_000, Math.round(performance.now() - startedAt.current))
+      ),
+      verdict: opt.type,
+      sessionKey: getSessionKey(),
+    });
+  }
 
   const picked = scenario.options.find((o) => o.id === selected) ?? null;
   const verdict = picked ? t(`result${picked.type}` as "resultOptimal" | "resultRisky" | "resultFatal") : null;
@@ -45,11 +74,12 @@ export function ScenarioPlayer({ scenario, backHref }: { scenario: MicroScenario
           {t("decideLabel")}
         </p>
         <div className="mt-3 grid gap-2" role="group" aria-label={t("decideLabel")}>
+          <LogVisit event="scenario_start" roleId={scenario.roleId} scenarioId={scenario.id} />
           {scenario.options.map((o) => (
             <button
               key={o.id}
               type="button"
-              onClick={() => setSelected(o.id)}
+              onClick={() => choose(o.id)}
               aria-pressed={selected === o.id}
               className={`flex min-h-[52px] items-start gap-3 rounded-btn border px-4 py-3 text-left transition ${
                 selected === o.id
@@ -82,7 +112,10 @@ export function ScenarioPlayer({ scenario, backHref }: { scenario: MicroScenario
               <div className="mt-4 flex flex-wrap gap-2">
                 <button
                   type="button"
-                  onClick={() => setSelected(null)}
+                  onClick={() => {
+                    setSelected(null);
+                    startedAt.current = performance.now();
+                  }}
                   className="btn-ghost px-5 py-2.5 text-[13px]"
                 >
                   {t("retry")}

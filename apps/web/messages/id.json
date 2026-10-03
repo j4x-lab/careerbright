@@ -462,7 +462,21 @@
     "errRole": "Akses ditolak atau data tidak valid.",
     "saving": "Menyimpan…",
     "kSessions": "Sesi aktif",
-    "kSessionsSub": "Better Auth · tabel session"
+    "kSessionsSub": "Better Auth · tabel session",
+    "metricsTitle": "Metrik produk",
+    "metricsSub": "30 hari terakhir, dihitung live dari event. Target PRD: breadth >4, play rate >50%, velocity <3 menit.",
+    "mBreadth": "Exploration breadth",
+    "mBreadthUnit": "peran/sesi",
+    "mBreadthSub": "Rata-rata peran unik dilihat per sesi, dari {n} sesi.",
+    "mPlayRate": "Scenario play rate",
+    "mPlayRateSub": "{n} sesi menyelesaikan ≥1 skenario.",
+    "mVelocity": "Completion velocity",
+    "mVelocitySub": "Median mulai-ke-keputusan, dari {n} penyelesaian.",
+    "mLatency": "AI latency",
+    "mLatencySub": "Belum ada evaluasi AI — tidak diukur.",
+    "mExport": "Portfolio export",
+    "mExportSub": "Belum ada fitur ekspor — tidak diukur.",
+    "mUninstrumented": "belum diukur"
   },
   "curriculum": {
     "catalogMetaLessons": "{n} materi · Gratis",

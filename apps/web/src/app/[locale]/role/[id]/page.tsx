@@ -2,6 +2,7 @@ import { createTranslator } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { getLocaleMessages } from "@/i18n/messages";
 import { SiteFooter, SiteNav } from "@/components/site-chrome";
+import { LogVisit } from "@/components/log-visit";
 import { getRole, getScenariosForRole } from "@/lib/discovery";
 import { notFound } from "next/navigation";
 
@@ -24,6 +25,7 @@ export default async function RolePage({ params }: { params: Promise<{ locale: s
   return (
     <main id="konten" tabIndex={-1} className="overflow-x-clip bg-paper text-ink">
       <a href="#konten" className="skip-link">{t("skip")}</a>
+      <LogVisit event="role_view" roleId={role.id} />
       <SiteNav />
       <section className="hero-light relative overflow-hidden pt-[140px]">
         <div className="relative mx-auto max-w-7xl px-4 pb-10">

@@ -100,6 +100,14 @@ export function AdminConsole() {
     })
   );
 
+  const metrics = useQuery(trpc.metrics.report.queryOptions());
+
+  function fmtMs(ms: number | null): string {
+    if (ms === null || ms === undefined) return "—";
+    const s = Math.round(ms / 1000);
+    return s < 60 ? `${s}s` : `${Math.floor(s / 60)}m ${String(s % 60).padStart(2, "0")}s`;
+  }
+
   const s = stats.data as Stats | undefined;
   /* Inventory KPIs only — every number is a live COUNT(*) from the database.
      The PRD §9 product metrics (activation rate, scenario completion, AI
@@ -148,6 +156,64 @@ export function AdminConsole() {
                 </div>
               ))}
         </div>
+      </section>
+
+      {/* ── PRD §9 product metrics (trailing 30 days) ──────────────
+          Breadth, play rate and velocity are computed live from MetricEvent.
+          AI latency and portfolio export have no underlying flow yet, so they
+          render as uninstrumented — the one thing this section will not do
+          is invent a percentage. */}
+      <section aria-labelledby="admin-metrics">
+        <div className="flex flex-wrap items-baseline justify-between gap-3 border-t border-line pt-6">
+          <h2 id="admin-metrics" className="font-nova text-2xl font-bold tracking-[-0.02em] md:text-3xl">
+            {t("metricsTitle")}
+          </h2>
+          <p className="max-w-[46ch] text-[13px] leading-relaxed text-muted">{t("metricsSub")}</p>
+        </div>
+        {metrics.isLoading ? (
+          <ul className="mt-5 grid gap-4 sm:grid-cols-2" aria-hidden>
+            {Array.from({ length: 4 }).map((_, i) => (
+              <li key={i} className="h-[76px] animate-pulse rounded-card bg-cream" />
+            ))}
+          </ul>
+        ) : metrics.data ? (
+          <dl className="mt-5 grid gap-x-8 gap-y-6 sm:grid-cols-2">
+            <div className="border-t border-line pt-4">
+              <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">{t("mBreadth")}</dt>
+              <dd className="tnum mt-1 font-nova text-3xl font-bold tracking-[-0.02em]">
+                {metrics.data.breadth}
+                <span className="ml-2 align-middle font-sans text-[13px] font-normal text-muted">{t("mBreadthUnit")}</span>
+              </dd>
+              <p className="mt-1 text-[12px] text-muted">{t("mBreadthSub", { n: metrics.data.viewerSessions })}</p>
+            </div>
+            <div className="border-t border-line pt-4">
+              <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">{t("mPlayRate")}</dt>
+              <dd className="tnum mt-1 font-nova text-3xl font-bold tracking-[-0.02em]">
+                {metrics.data.playRate}%
+              </dd>
+              <p className="mt-1 text-[12px] text-muted">{t("mPlayRateSub", { n: metrics.data.completerSessions })}</p>
+            </div>
+            <div className="border-t border-line pt-4">
+              <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">{t("mVelocity")}</dt>
+              <dd className="tnum mt-1 font-nova text-3xl font-bold tracking-[-0.02em]">
+                {fmtMs(metrics.data.velocityMs)}
+              </dd>
+              <p className="mt-1 text-[12px] text-muted">{t("mVelocitySub", { n: metrics.data.completions })}</p>
+            </div>
+            <div className="border-t border-dashed border-line pt-4">
+              <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">{t("mLatency")}</dt>
+              <dd className="mt-1 font-mono text-[13px] font-bold text-faint">{t("mUninstrumented")}</dd>
+              <p className="mt-1 text-[12px] text-muted">{t("mLatencySub")}</p>
+            </div>
+            <div className="border-t border-dashed border-line pt-4 sm:col-span-2">
+              <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">{t("mExport")}</dt>
+              <dd className="mt-1 font-mono text-[13px] font-bold text-faint">{t("mUninstrumented")}</dd>
+              <p className="mt-1 text-[12px] text-muted">{t("mExportSub")}</p>
+            </div>
+          </dl>
+        ) : (
+          <p className="mt-5 text-sm text-soft">{t("errRole")}</p>
+        )}
       </section>
 
       {/* ── Accounts: promote / demote ─────────────────────────────── */}

@@ -293,3 +293,30 @@ CREATE TABLE IF NOT EXISTS "verification" (
 
 CREATE INDEX IF NOT EXISTS session_userId_idx ON "session" ("userId");
 CREATE INDEX IF NOT EXISTS account_userId_idx ON "account" ("userId");
+
+/* PRD §9 product metrics (discovery tier).
+ *
+ * roleId / scenarioId reference roles.json / micro_scenarios.json, which live
+ * in the repo — not the database — so these are plain TEXT, deliberately not
+ * foreign keys. A dangling id means content was removed after the event was
+ * logged, and the aggregates below tolerate that.
+ *
+ * Privacy: no PII. userId is the Better Auth id when signed in, else null;
+ * sessionKey is a random client-generated key (localStorage) that lets us
+ * group anonymous visits into sessions without fingerprinting.
+ */
+CREATE TABLE IF NOT EXISTS "MetricEvent" (
+  id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  "event" TEXT NOT NULL CHECK ("event" IN ('role_view', 'scenario_start', 'scenario_complete')),
+  "roleId" TEXT,
+  "scenarioId" TEXT,
+  "durationMs" INTEGER CHECK ("durationMs" IS NULL OR ("durationMs" >= 0 AND "durationMs" <= 3600000)),
+  verdict TEXT CHECK (verdict IS NULL OR verdict IN ('Optimal', 'Risky', 'Fatal')),
+  "userId" TEXT,
+  "sessionKey" TEXT NOT NULL,
+  "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS metricevent_event_idx ON "MetricEvent" ("event");
+CREATE INDEX IF NOT EXISTS metricevent_created_idx ON "MetricEvent" ("createdAt");
+CREATE INDEX IF NOT EXISTS metricevent_session_idx ON "MetricEvent" ("sessionKey");

@@ -457,7 +457,21 @@
     "errRole": "Denied, or the input was invalid.",
     "saving": "Saving…",
     "kSessions": "Active sessions",
-    "kSessionsSub": "Better Auth · session table"
+    "kSessionsSub": "Better Auth · session table",
+    "metricsTitle": "Product metrics",
+    "metricsSub": "Trailing 30 days, computed live from events. PRD targets: breadth >4, play rate >50%, velocity <3 min.",
+    "mBreadth": "Exploration breadth",
+    "mBreadthUnit": "roles/session",
+    "mBreadthSub": "Avg distinct roles viewed per session, across {n} sessions.",
+    "mPlayRate": "Scenario play rate",
+    "mPlayRateSub": "{n} sessions completed ≥1 scenario.",
+    "mVelocity": "Completion velocity",
+    "mVelocitySub": "Median start-to-verdict, across {n} completions.",
+    "mLatency": "AI latency",
+    "mLatencySub": "No AI evaluation flow yet — unmeasured.",
+    "mExport": "Portfolio export",
+    "mExportSub": "No export feature yet — unmeasured.",
+    "mUninstrumented": "uninstrumented"
   },
   "curriculum": {
     "catalogMetaLessons": "{n} lessons · Free",
