@@ -6,6 +6,7 @@ import { protectedProcedure, router } from "../trpc";
 import { getSession } from "../guard";
 import { GeminiError, generateRoleDraft } from "../nim";
 import { ROLES as CONTENT_ROLES } from "../../lib/discovery";
+import { bustReleasesCache } from "../../lib/releases";
 
 /*
  * Admin operations.
@@ -220,6 +221,7 @@ export const adminRouter = router({
       );
       // Push the flip live now instead of waiting out the gate's TTL cache.
       // Best-effort: a revalidation failure must never fail the mutation.
+      bustReleasesCache();
       try {
         for (const p of [
           "/",

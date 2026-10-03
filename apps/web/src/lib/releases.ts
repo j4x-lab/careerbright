@@ -52,34 +52,55 @@ export const DEFAULT_RELEASED_ROLE_IDS: string[] = [
 
 /** Release-set cache: admin flips are rare, page views are not. A short
     TTL keeps every render off the database round-trip while bounding
-    staleness after a toggle to seconds (setRelease also revalidates the
-    affected paths). The in-flight promise dedupes concurrent renders. */
+    staleness after a toggle to seconds (setRelease busts the cache and
+    revalidates the affected paths). The in-flight promise dedupes
+    concurrent renders. */
 const CACHE_TTL_MS = 30_000;
 let cached: { at: number; value: Set<string> } | null = null;
 let inflight: Promise<Set<string>> | null = null;
 
-async function fetchReleased(): Promise<Set<string>> {
-  try {
-    const { rows } = await pool.query(
-      `select "roleId" from "RoleRelease" where released = true`
-    );
-    return new Set((rows as { roleId: string }[]).map((r) => r.roleId));
-  } catch {
-    return new Set(DEFAULT_RELEASED_ROLE_IDS);
-  }
+/** Drop the cached set. Called by admin.setRelease in the same process so
+    a flip is visible on the very next render instead of at TTL expiry. */
+export function bustReleasesCache(): void {
+  cached = null;
+}
+
+async function queryReleased(): Promise<Set<string>> {
+  const { rows } = await pool.query(
+    `select "roleId" from "RoleRelease" where released = true`
+  );
+  return new Set((rows as { roleId: string }[]).map((r) => r.roleId));
+}
+
+/* Cold databases (sleeping Neon compute) can take 10s+ to answer. Never
+   make the page wait for that: after RACE_TIMEOUT_MS the render proceeds
+   with the baked-in Wave-1 set, which is correct unless an admin flipped
+   something within the last seconds — and that path busts the cache. */
+const RACE_TIMEOUT_MS = 1_500;
+
+function timeoutFallback(): Promise<Set<string>> {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(new Set(DEFAULT_RELEASED_ROLE_IDS)), RACE_TIMEOUT_MS);
+  });
 }
 
 /** Role ids whose scenarios are playable right now. */
 export async function getReleasedRoleIds(): Promise<Set<string>> {
   if (cached && Date.now() - cached.at < CACHE_TTL_MS) return cached.value;
   if (!inflight) {
-    inflight = fetchReleased().finally(() => {
-      inflight = null;
-    });
+    inflight = (async () => {
+      try {
+        const value = await Promise.race([queryReleased(), timeoutFallback()]);
+        cached = { at: Date.now(), value };
+        return value;
+      } catch {
+        return new Set(DEFAULT_RELEASED_ROLE_IDS);
+      } finally {
+        inflight = null;
+      }
+    })();
   }
-  const value = await inflight;
-  cached = { at: Date.now(), value };
-  return value;
+  return inflight;
 }
 
 /** True when this role's scenarios may be played. */
