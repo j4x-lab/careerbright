@@ -1,5 +1,6 @@
 // Employer — search skill profiles by SKKNI/KKNI, verify via /verify/[id]
 import { createTranslator } from "next-intl";
+import { requireRole } from "@/server/guard";
 import { Link } from "@/i18n/navigation";
 import { getLocaleMessages } from "@/i18n/messages";
 import { PX, PHOTOS } from "@/lib/visual";
@@ -8,6 +9,7 @@ import { OpsShell } from "@/components/ops-shell";
 const CARDS = ["c1", "c2", "c3"] as const;
 
 export default async function EmployerDashboard({ params }: { params: Promise<{ locale: string }> }) {
+  await requireRole(["EMPLOYER", "ADMIN"]);
   const { locale } = await params;
   const t = await createTranslator({
     locale,

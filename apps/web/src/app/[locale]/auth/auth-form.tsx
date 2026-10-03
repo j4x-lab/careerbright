@@ -1,8 +1,8 @@
 "use client";
 
 import { useId, useState } from "react";
-import { useLocale, useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
+import { Link, useRouter } from "@/i18n/navigation";
 import { authClient } from "@/lib/auth-client";
 import { LOCAL } from "@/lib/visual";
 
@@ -10,7 +10,7 @@ import { LOCAL } from "@/lib/visual";
 
 export function AuthForm({ mode }: { mode: "in" | "up" }) {
   const t = useTranslations("auth");
-  const locale = useLocale();
+  const router = useRouter();
   const uid = useId();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +22,15 @@ export function AuthForm({ mode }: { mode: "in" | "up" }) {
   const [err, setErr] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
-  const dash = `/${locale === "id" ? "" : locale}/dashboard`;
+  // Hand-building the locale prefix (``/${locale === "id" ? "" : locale}/…``)
+  // is what produced the earlier /id/… and /undefined/… breakage. Let
+  // next-intl derive it from the active locale, and route on the client so
+  // server components re-read the session cookie instead of being served a
+  // cached shell.
+  function goToDashboard() {
+    router.replace("/dashboard");
+    router.refresh();
+  }
 
   async function emailSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -39,7 +47,7 @@ export function AuthForm({ mode }: { mode: "in" | "up" }) {
         if (res.error) throw new Error(res.error.message ?? t("failGeneric"));
         setOkMsg(t("okSignin"));
       }
-      window.location.href = dash;
+      goToDashboard();
     } catch (e) {
       setErr(e instanceof Error ? e.message : t("failGeneric"));
     } finally {
@@ -70,7 +78,7 @@ export function AuthForm({ mode }: { mode: "in" | "up" }) {
     try {
       const res = await authClient.phoneNumber.verify({ phoneNumber: phone, code });
       if (res?.error) throw new Error(res.error.message ?? t("failOtp"));
-      window.location.href = dash;
+      goToDashboard();
     } catch (e) {
       setErr(e instanceof Error ? e.message : t("failGeneric"));
     } finally {

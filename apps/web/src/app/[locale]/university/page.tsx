@@ -1,5 +1,6 @@
 // University — cohort analytics, curriculum→SKKNI gap map, export
 import { createTranslator } from "next-intl";
+import { requireRole } from "@/server/guard";
 import { getLocaleMessages } from "@/i18n/messages";
 import { PX, PHOTOS } from "@/lib/visual";
 import { OpsShell, StatCard } from "@/components/ops-shell";
@@ -7,6 +8,7 @@ import { OpsShell, StatCard } from "@/components/ops-shell";
 const STATS = ["s1", "s2", "s3"] as const;
 
 export default async function UniversityDashboard({ params }: { params: Promise<{ locale: string }> }) {
+  await requireRole(["UNIVERSITY", "ADMIN"]);
   const { locale } = await params;
   const t = await createTranslator({
     locale,

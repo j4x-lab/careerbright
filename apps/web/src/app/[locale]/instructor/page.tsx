@@ -1,5 +1,6 @@
 // Instructor Dashboard — backend: course.*, assessment.*, submission.review, payout.*
 import { createTranslator } from "next-intl";
+import { requireRole } from "@/server/guard";
 import { getLocaleMessages } from "@/i18n/messages";
 import { appRouter } from "@/server/routers";
 import { CreateCourseForm } from "./create-course-form";
@@ -7,6 +8,7 @@ import { EmptyState } from "@/components/empty-state";
 import { OpsShell } from "@/components/ops-shell";
 
 export default async function InstructorDashboard({ params }: { params: Promise<{ locale: string }> }) {
+  await requireRole(["INSTRUCTOR", "ADMIN"]);
   const { locale } = await params;
   const t = await createTranslator({
     locale,

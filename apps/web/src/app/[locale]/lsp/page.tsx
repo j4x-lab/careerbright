@@ -1,5 +1,6 @@
 // LSP Assessor — sessions, APL-02 verification, rubric scoring → credential.bNSPIssue
 import { createTranslator } from "next-intl";
+import { requireRole } from "@/server/guard";
 import { getLocaleMessages } from "@/i18n/messages";
 import { PX, PHOTOS } from "@/lib/visual";
 import { OpsShell, StatCard } from "@/components/ops-shell";
@@ -7,6 +8,7 @@ import { OpsShell, StatCard } from "@/components/ops-shell";
 const STATS = ["s1", "s2", "s3"] as const;
 
 export default async function LspDashboard({ params }: { params: Promise<{ locale: string }> }) {
+  await requireRole(["LSP_ASSESSOR", "ADMIN"]);
   const { locale } = await params;
   const t = await createTranslator({
     locale,

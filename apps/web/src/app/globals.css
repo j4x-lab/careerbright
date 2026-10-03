@@ -267,6 +267,30 @@ html.js .hero-enter { opacity: 0; transform: translateY(18px); animation: fade-u
 .chip { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; border: 1px solid rgba(10,17,40,0.12); padding: 6px 14px; font-size: 13px; background: var(--color-card); }
 .chip-on { background: var(--color-brand-700); color: #fff; border-color: var(--color-brand-700); }
 
+/* ---- mobile menu dialog ----
+   Visible at rest by construction. The cascade is driven by --i on each item,
+   which is set inline — no dependency on .hero-enter, and therefore no
+   dependency on html.js or on a keyframe animation actually running before
+   the user can read the menu. */
+.menu-panel { animation: menu-in 0.28s var(--ease-out-expo) backwards; }
+@keyframes menu-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: none; }
+}
+/* No `opacity: 0` in the base rule on purpose. `backwards` covers the delay
+   window from the keyframe's `from`, and once the animation finishes the
+   element falls back to its own styles (fully visible). So if the animation is
+   suppressed for any reason, the menu is readable rather than blank —
+   `forwards` + a zeroed base opacity would instead leave it invisible. */
+.menu-item {
+  animation: menu-item-in 0.42s var(--ease-out-expo) backwards;
+  animation-delay: calc(60ms + var(--i, 0) * 55ms);
+}
+@keyframes menu-item-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
 /* ---- ruled motif for inverted (cobalt) surfaces ----
    Replaces the old blurred glow orb: hairlines read as structure, blur reads
    as decoration. Masked so the rules fade out instead of ending on a hard box. */
@@ -312,6 +336,13 @@ html.js .hero-enter { opacity: 0; transform: translateY(18px); animation: fade-u
 
   /* Kinetic surfaces stop on their authored rest frame, not mid-travel. */
   .marquee-track { animation: none !important; transform: none !important; }
+
+  /* The menu must never depend on motion to become readable. */
+  .menu-panel, .menu-item {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 
   /* Bars report their value instantly instead of growing into it.
      mcq-quiz drives an inline transform, which still wins over this. */

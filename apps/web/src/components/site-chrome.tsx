@@ -84,26 +84,64 @@ export function SiteNav() {
   const panelRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
 
+  // Lock the real scroller. `body` is the document scroller here, and the
+  // panel itself is the only thing that should scroll while it is open.
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = prev;
     };
   }, [open]);
 
-  // Escape closes the overlay and returns focus to the control that opened it.
+  // Escape closes and returns focus to the control that opened it; Tab is
+  // trapped inside the dialog so focus can't wander onto the page behind.
   useEffect(() => {
     if (!open) return;
+    const panel = panelRef.current;
+    const FOCUSABLE =
+      'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])';
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
+        e.preventDefault();
         setOpen(false);
         toggleRef.current?.focus();
+        return;
+      }
+      if (e.key !== "Tab" || !panel) return;
+      const items = [...panel.querySelectorAll<HTMLElement>(FOCUSABLE)].filter(
+        (el) => el.offsetParent !== null
+      );
+      if (items.length === 0) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      const active = document.activeElement;
+      if (e.shiftKey && (active === first || !panel.contains(active))) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
       }
     };
     document.addEventListener("keydown", onKey);
-    panelRef.current?.querySelector<HTMLAnchorElement>("a")?.focus();
+    // Move focus into the dialog once it exists.
+    const first = panel?.querySelector<HTMLElement>(FOCUSABLE);
+    first?.focus();
     return () => document.removeEventListener("keydown", onKey);
   }, [open]);
+
+  // Leaving the lg breakpoint while open would otherwise leave an invisible
+  // dialog mounted (and the body scroll-locked) with no toggle to close it.
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const onChange = () => {
+      if (mq.matches) setOpen(false);
+    };
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -175,22 +213,36 @@ export function SiteNav() {
         <div
           id="site-menu"
           ref={panelRef}
-          className="fixed inset-0 z-40 bg-paper lg:hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-label={t("mainNav")}
+          /* Sits under the header (z-40 vs z-50) so the close control stays
+             reachable, and starts below it rather than behind it. */
+          className="menu-panel fixed inset-x-0 bottom-0 top-[104px] z-40 bg-paper lg:hidden"
         >
-          <nav aria-label={t("mainNav")} className="relative flex min-h-[100dvh] flex-col justify-center gap-2 overflow-y-auto px-8 pb-10 pt-32">
-            {[...NAV_LINKS.map(({ key, href }) => ({ label: t(key), href })), { label: t("login"), href: "/auth/masuk" as const }].map(({ label, href }, i, arr) => {
+          <nav
+            aria-label={t("mainNav")}
+            className="flex h-full flex-col justify-center gap-1 overflow-y-auto px-7 pb-8 pt-6"
+          >
+            {[
+              ...NAV_LINKS.map(({ key, href }) => ({ label: t(key), href })),
+              { label: t("login"), href: "/auth/masuk" as const },
+            ].map(({ label, href }, i, arr) => {
               const isAccount = i === arr.length - 1;
               return (
                 <Link
                   key={String(label) + i}
                   href={href}
                   onClick={() => setOpen(false)}
-                  style={{ animationDelay: `${80 + i * 55}ms` }}
-                  className={
+                  /* Visible by default. The old markup relied on .hero-enter,
+                     which is opacity:0 until a CSS animation runs — inside a
+                     dialog that is a bet on motion actually playing. */
+                  style={{ ["--i" as string]: i }}
+                  className={`menu-item ${
                     isAccount
-                      ? "hero-enter py-4 text-lg font-bold text-muted"
-                      : "hero-enter py-2 text-[40px] font-extrabold leading-[1.05] tracking-[-0.03em] text-ink"
-                  }
+                      ? "py-4 text-lg font-bold text-muted"
+                      : "py-2 text-[40px] font-extrabold leading-[1.05] tracking-[-0.03em] text-ink"
+                  }`}
                 >
                   {!isAccount && (
                     <span aria-hidden className="mr-3 align-super font-mono text-[11px] font-bold tracking-[0.2em] text-brand-700">

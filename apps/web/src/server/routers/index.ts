@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { prisma } from "@careerbright/db";
-import { publicProcedure, router } from "../trpc";
+import { protectedProcedure, publicProcedure, router } from "../trpc";
+import { adminRouter } from "./admin";
 
 export const pathsRouter = router({
   list: publicProcedure
@@ -24,7 +25,8 @@ export const coursesRouter = router({
   list: publicProcedure.query(() =>
     prisma.course.findMany({ orderBy: { updatedAt: "desc" }, include: { modules: true } })
   ),
-  create: publicProcedure
+  // Was publicProcedure: any anonymous visitor could create courses.
+  create: protectedProcedure
     .input(z.object({ slug: z.string().min(3), titleId: z.string().min(3), titleEn: z.string().optional() }))
     .mutation(({ input }) => prisma.course.create({ data: input })),
 });
@@ -32,6 +34,7 @@ export const coursesRouter = router({
 export const appRouter = router({
   paths: pathsRouter,
   courses: coursesRouter,
+  admin: adminRouter,
 });
 
 export type AppRouter = typeof appRouter;
