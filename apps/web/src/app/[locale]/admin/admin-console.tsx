@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTRPC } from "@/trpc/client";
 import { EmptyState } from "@/components/empty-state";
+import { ROLES as CONTENT_ROLES, getScenariosForRole } from "@/lib/discovery";
 
 /*
  * Admin console — the operations that used to require raw SQL.
@@ -117,6 +118,30 @@ export function AdminConsole() {
   );
 
   const metrics = useQuery(trpc.metrics.report.queryOptions());
+
+  /* Wave releases: every scenario-backed role with its gate state. A role
+     with no RoleRelease row (or released=false) stays locked everywhere —
+     landing, catalog, role page and direct scenario URLs. */
+  const releases = useQuery(trpc.admin.releases.queryOptions());
+  const setRelease = useMutation(
+    trpc.admin.setRelease.mutationOptions({
+      onSuccess: (r) => {
+        invalidate(trpc.admin.releases.queryKey());
+        const title = CONTENT_ROLES.find((x) => x.id === r.roleId)?.title ?? r.roleId;
+        flash.ok(
+          t("relSaved", {
+            title,
+            state: r.released ? t("relReleased") : t("relLocked"),
+          })
+        );
+      },
+      onError: () => flash.err(t("errRole")),
+    })
+  );
+  const releaseMap = new Map(
+    (releases.data ?? []).map((r) => [r.roleId as string, r.released as boolean])
+  );
+  const RELEASABLE = CONTENT_ROLES.filter((r) => getScenariosForRole(r.id).length > 0);
 
   function fmtMs(ms: number | null): string {
     if (ms === null || ms === undefined) return "—";
@@ -240,6 +265,66 @@ export function AdminConsole() {
           </dl>
         ) : (
           <p role="alert" className="mt-5 text-sm text-soft">{t("metricsError")}</p>
+        )}
+      </section>
+
+      {/* ── Wave releases: the only switch that opens a wave ─────── */}
+      <section aria-labelledby="admin-releases">
+        <div className="flex flex-wrap items-baseline justify-between gap-3 border-t border-line pt-6">
+          <h2 id="admin-releases" className="font-nova text-2xl font-bold tracking-[-0.02em] md:text-3xl">
+            {t("relTitle")}
+          </h2>
+          <p className="max-w-[46ch] text-[13px] leading-relaxed text-muted">{t("relSub")}</p>
+        </div>
+
+        {releases.isLoading ? (
+          <ul className="mt-5 space-y-2" aria-hidden>
+            {Array.from({ length: 6 }).map((_, i) => (
+              <li key={i} className="h-16 animate-pulse rounded-card bg-cream" />
+            ))}
+          </ul>
+        ) : (
+          <ul className="mt-5 border-b border-line">
+            {RELEASABLE.map((r) => {
+              const released = releaseMap.get(r.id) ?? false;
+              return (
+                <li
+                  key={r.id}
+                  className="grid gap-x-8 gap-y-3 border-t border-line py-4 transition-colors duration-200 hover:bg-brand-50/60 md:grid-cols-12 md:items-center md:px-2"
+                >
+                  <div className="md:col-span-6">
+                    <p className="font-bold">{r.title}</p>
+                    <p className="tnum font-mono text-[12px] text-muted">
+                      {r.category} · {getScenariosForRole(r.id).length} scenarios
+                    </p>
+                  </div>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-faint md:col-span-2">
+                    {released ? t("relReleased") : t("relLocked")}
+                  </p>
+                  <div className="md:col-span-4 md:text-right">
+                    <label className="sr-only" htmlFor={`rel-${r.id}`}>
+                      {t("relFor", { title: r.title })}
+                    </label>
+                    <select
+                      id={`rel-${r.id}`}
+                      className="field min-h-[44px] w-auto md:ml-auto"
+                      value={released ? "released" : "locked"}
+                      disabled={setRelease.isPending}
+                      onChange={(e) =>
+                        setRelease.mutate({
+                          roleId: r.id,
+                          released: e.target.value === "released",
+                        })
+                      }
+                    >
+                      <option value="released">{t("relReleased")}</option>
+                      <option value="locked">{t("relLocked")}</option>
+                    </select>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
         )}
       </section>
 

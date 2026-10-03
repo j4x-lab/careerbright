@@ -67,7 +67,7 @@ function promptFor(jobTitle: string): string {
     "{",
     '  "role": {',
     '    "id": "slug-kebab-case",',
-    '    "category": "salah satu dari: Tech & Product | Creative & Marketing | Business & Operations | Finance & Banking",',
+    '    "category": "salah satu dari: Tech & Product | Creative & Marketing | Business & Operations | Finance & Banking | Future & AI",',
     '    "title": "nama jabatan",',
     '    "shortDescription": "1 kalimat deskripsi kerja nyata (maks 140 karakter)",',
     '    "tools": ["4-6 tools nyata"],',

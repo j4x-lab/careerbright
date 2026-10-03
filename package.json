@@ -12,6 +12,7 @@
     "build": "npm run build --workspace=@careerbright/web",
     "lint": "npm run lint --workspace=@careerbright/web",
     "prod": "npm start --workspace=@careerbright/web",
+    "serve": "npm run build --workspace=@careerbright/web && npm start --workspace=@careerbright/web",
     "typecheck": "npm run typecheck --workspace=@careerbright/web",
     "db:generate": "npm run db:generate --workspace=@careerbright/db",
     "db:push": "npm run db:push --workspace=@careerbright/db",

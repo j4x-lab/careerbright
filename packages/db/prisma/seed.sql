@@ -59,3 +59,34 @@ INSERT INTO "LearningPathMilestone" (id, "learningPathId", "titleId", "order", "
   ('ms-sales-3', 'lp-b2b-sales', 'CRM & Pipeline Management', 3, 'SKKNI-SALES-U3'),
   ('ms-sales-4', 'lp-b2b-sales', 'Capstone: Mock Pitch ke Klien', 4, 'Simulasi + Asesmen AI')
 ON CONFLICT (id) DO NOTHING;
+
+-- Wave release gate: the 25 launched Wave-1 roles, released. New roles ship
+-- with NO row (locked) until an admin releases them from the dashboard.
+-- Mirrors DEFAULT_RELEASED_ROLE_IDS in apps/web/src/lib/releases.ts.
+INSERT INTO "RoleRelease" ("roleId", released) VALUES
+  ('social-media-specialist', TRUE),
+  ('hr-business-partner', TRUE),
+  ('frontend-developer', TRUE),
+  ('associate-product-manager', TRUE),
+  ('data-analyst', TRUE),
+  ('ui-ux-designer', TRUE),
+  ('account-executive', TRUE),
+  ('management-trainee', TRUE),
+  ('teller-bank', TRUE),
+  ('backend-developer', TRUE),
+  ('qa-engineer', TRUE),
+  ('copywriter', TRUE),
+  ('operations-executive', TRUE),
+  ('devops-engineer', TRUE),
+  ('graphic-designer', TRUE),
+  ('seo-specialist', TRUE),
+  ('hr-recruiter', TRUE),
+  ('credit-analyst', TRUE),
+  ('mobile-developer', TRUE),
+  ('network-engineer', TRUE),
+  ('cybersecurity-analyst', TRUE),
+  ('motion-designer', TRUE),
+  ('procurement-staff', TRUE),
+  ('financial-planner', TRUE),
+  ('retail-store-supervisor', TRUE)
+ON CONFLICT ("roleId") DO NOTHING;

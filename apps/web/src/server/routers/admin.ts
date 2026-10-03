@@ -1,9 +1,11 @@
 import { TRPCError } from "@trpc/server";
 import { Pool } from "pg";
 import { z } from "zod";
+import { revalidatePath } from "next/cache";
 import { protectedProcedure, router } from "../trpc";
 import { getSession } from "../guard";
 import { GeminiError, generateRoleDraft } from "../nim";
+import { ROLES as CONTENT_ROLES } from "../../lib/discovery";
 
 /*
  * Admin operations.
@@ -182,6 +184,55 @@ export const adminRouter = router({
       );
       if (rows.length === 0) {
         throw new TRPCError({ code: "NOT_FOUND", message: "No such row" });
+      }
+      return rows[0];
+    }),
+
+  /* Wave releases: which roles' micro-scenarios are playable. A missing row
+     means LOCKED — the dashboard is the only switch, so content commits can
+     never accidentally open a wave early. */
+  releases: adminProcedure.query(async () => {
+    const { rows } = await pool.query(
+      `select "roleId", released, "updatedAt" from "RoleRelease"
+        order by "roleId"`
+    );
+    return rows as { roleId: string; released: boolean; updatedAt: string }[];
+  }),
+
+  setRelease: adminProcedure
+    .input(
+      z.object({
+        roleId: z.string().min(1),
+        released: z.boolean(),
+      })
+    )
+    .mutation(async ({ input }) => {
+      if (!CONTENT_ROLES.some((r) => r.id === input.roleId)) {
+        throw new TRPCError({ code: "NOT_FOUND", message: "No such role" });
+      }
+      const { rows } = await pool.query(
+        `insert into "RoleRelease" ("roleId", released, "updatedAt")
+          values ($1, $2, now())
+          on conflict ("roleId")
+          do update set released = $2, "updatedAt" = now()
+          returning "roleId", released`,
+        [input.roleId, input.released]
+      );
+      // Push the flip live now instead of waiting out the gate's TTL cache.
+      // Best-effort: a revalidation failure must never fail the mutation.
+      try {
+        for (const p of [
+          "/",
+          "/en",
+          "/roles",
+          "/en/roles",
+          `/role/${input.roleId}`,
+          `/en/role/${input.roleId}`,
+        ]) {
+          revalidatePath(p);
+        }
+      } catch {
+        /* noop */
       }
       return rows[0];
     }),

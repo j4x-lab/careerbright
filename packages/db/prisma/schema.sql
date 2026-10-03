@@ -320,3 +320,14 @@ CREATE TABLE IF NOT EXISTS "MetricEvent" (
 CREATE INDEX IF NOT EXISTS metricevent_event_idx ON "MetricEvent" ("event");
 CREATE INDEX IF NOT EXISTS metricevent_created_idx ON "MetricEvent" ("createdAt");
 CREATE INDEX IF NOT EXISTS metricevent_session_idx ON "MetricEvent" ("sessionKey");
+
+/* Wave release gate: which roles' micro-scenarios are playable.
+ * A missing row means LOCKED — newly committed roles/scenarios stay dark
+ * until an admin flips them in the dashboard (tRPC admin.setRelease).
+ * roleId references roles.json (repo content), deliberately not a FK.
+ * Seed rows live in seed.sql (the 25 launched Wave-1 roles, released). */
+CREATE TABLE IF NOT EXISTS "RoleRelease" (
+  "roleId" TEXT PRIMARY KEY,
+  released BOOLEAN NOT NULL DEFAULT FALSE,
+  "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

@@ -40,14 +40,14 @@ const grotesk = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Career SuperBright — Coba Contoh Kerja 30 Hari Sebelum Lulus",
+  title: "Career SuperBright — Simulasikan Pekerjaan Impianmu Sebelum Lulus",
   description:
-    "Lihat 4 pilihan peran. 1 contoh Event bisa dicoba penuh 30 hari. 3 lainnya masih pengenalan.",
+    "Jelajahi 54 profesi. 25 bisa langsung dimainkan sebagai simulasi keputusan 3 menit.",
   metadataBase: new URL("https://careerbright.id"),
   openGraph: {
     title: "Career SuperBright — Don't just learn about the job. Practice doing it.",
     description:
-      "Try a 30-day work example before graduating. 1 Event demo playable, 3 intros.",
+      "Explore 54 roles before graduating. 25 playable as 3-minute decision sims.",
     type: "website",
     locale: "id_ID",
   },

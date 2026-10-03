@@ -24,17 +24,18 @@ const CAT_KEYS: Record<RoleCategory | "Semua", string> = {
   "Creative & Marketing": "catCreative",
   "Business & Operations": "catBiz",
   "Finance & Banking": "catFinance",
+  "Future & AI": "catFuture",
 };
 
-export function RoleCatalog() {
+export function RoleCatalog({ lockedIds = [] }: { lockedIds?: string[] }) {
   return (
     <Suspense>
-      <RoleCatalogInner />
+      <RoleCatalogInner lockedIds={lockedIds} />
     </Suspense>
   );
 }
 
-function RoleCatalogInner() {
+function RoleCatalogInner({ lockedIds }: { lockedIds: string[] }) {
   const t = useTranslations("roles");
   const initialQ = useSearchParams().get("q") ?? "";
   const [q, setQ] = useState(initialQ);
@@ -110,7 +111,12 @@ function RoleCatalogInner() {
                   <span className="rounded-full border border-line bg-paper px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-soft">
                     {r.category}
                   </span>
-                  <span className="font-mono text-[11px] text-muted">
+                  <span className="flex items-center gap-2 font-mono text-[11px] text-muted">
+                    {lockedIds.includes(r.id) && getScenariosForRole(r.id).length > 0 && (
+                      <span className="rounded-full border border-dashed border-line bg-paper px-2 py-0.5 font-bold uppercase tracking-[0.12em]">
+                        {t("lockedBadge")}
+                      </span>
+                    )}
                     {t("scenariosCount", { n: getScenariosForRole(r.id).length })}
                   </span>
                 </div>

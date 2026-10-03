@@ -58,4 +58,53 @@ const summary = obVerificationSummary(ob);
 assert.equal(summary.skkni, "M.691090.005.01");
 assert.equal(summary.verifyUrl, buildVerificationUrl("badge-1"));
 
+// i18n parity: every static t("key") used under a namespace must exist in
+// both dictionaries. Guards against MISSING_MESSAGE runtime errors when
+// copy and code are edited in parallel.
+import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
+const idMsgs = JSON.parse(readFileSync("apps/web/messages/id.json", "utf8"));
+const enMsgs = JSON.parse(readFileSync("apps/web/messages/en.json", "utf8"));
+function srcFiles(dir) {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
+    const p = join(dir, e.name);
+    if (e.isDirectory()) return srcFiles(p);
+    return /\.(tsx?|jsx?)$/.test(e.name) ? [p] : [];
+  });
+}
+const missing = [];
+for (const f of srcFiles("apps/web/src")) {
+  const src = readFileSync(f, "utf8");
+  // Split into module scope + one chunk per top-level function: the same
+  // variable name (t) is rebound per component, so attribution must be
+  // per-chunk. A key is reported only when it exists in NONE of the
+  // namespaces used by its own chunk — that state always crashes.
+  const declRe =
+    /const\s+(\w+)\s*=\s*(?:await\s+)?useTranslations\("([^"]+)"\)/g;
+  const declAsyncRe =
+    /const\s+(\w+)\s*=\s*await\s+createTranslator\(\{[\s\S]*?namespace:\s*"([^"]+)"[\s\S]*?\}\)/g;
+  const chunks = src.split(
+    /(?=^export\s+(?:default\s+)?(?:async\s+)?function\s+\w+|^function\s+\w+)/m
+  );
+  const modNs = new Map();
+  for (const m of chunks[0].matchAll(declRe)) modNs.set(m[1], m[2]);
+  for (const m of chunks[0].matchAll(declAsyncRe)) modNs.set(m[1], m[2]);
+  for (const chunk of chunks) {
+    const varNs = new Map(modNs);
+    for (const m of chunk.matchAll(declRe)) varNs.set(m[1], m[2]);
+    for (const m of chunk.matchAll(declAsyncRe)) varNs.set(m[1], m[2]);
+    if (varNs.size === 0) continue;
+    const nss = new Set(varNs.values());
+    for (const m of chunk.matchAll(/(^|[^\w$.])(\w+)\(\s*"([^"]+)"\s*[,)]/gm)) {
+      if (!varNs.has(m[2])) continue;
+      const ok = [...nss].some(
+        (ns) =>
+          idMsgs[ns]?.[m[3]] !== undefined && enMsgs[ns]?.[m[3]] !== undefined
+      );
+      if (!ok) missing.push(`${f} :: ${m[3]} (not in ${[...nss].join("/")})`);
+    }
+  }
+}
+assert.deepEqual(missing, []);
+
 console.log("smoke: all assertions passed");

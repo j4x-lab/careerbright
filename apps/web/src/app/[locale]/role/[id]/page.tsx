@@ -4,6 +4,7 @@ import { getLocaleMessages } from "@/i18n/messages";
 import { SiteFooter, SiteNav } from "@/components/site-chrome";
 import { LogVisit } from "@/components/log-visit";
 import { getRole, getScenariosForRole } from "@/lib/discovery";
+import { isRoleReleased } from "@/lib/releases";
 import { notFound } from "next/navigation";
 
 /* Role detail (PRD §4.3 /role/[id]): hero profile, then three anchored
@@ -17,6 +18,9 @@ export default async function RolePage({ params }: { params: Promise<{ locale: s
   const role = getRole(id);
   if (!role) notFound();
   const scenarios = getScenariosForRole(role.id);
+  // Locked roles keep their public profile (timeline, tools) but hide the
+  // playable list until an admin releases them from the dashboard.
+  const locked = scenarios.length > 0 && !(await isRoleReleased(role.id));
   const t = await createTranslator({
     locale,
     namespace: "role",
@@ -106,6 +110,18 @@ export default async function RolePage({ params }: { params: Promise<{ locale: s
           </p>
           {scenarios.length === 0 ? (
             <p className="mt-6 text-sm text-soft">{t("noScenarios")}</p>
+          ) : locked ? (
+            <div className="panel mt-6 p-6 md:p-8" role="status">
+              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
+                {t("lockedTitle")}
+              </p>
+              <p className="mt-3 max-w-[56ch] text-[15px] leading-relaxed text-soft">
+                {t("lockedBody")}
+              </p>
+              <Link href="/roles" className="link-more mt-4 inline-flex min-h-[44px] items-center">
+                {t("lockedCta")}
+              </Link>
+            </div>
           ) : (
             <ul className="mt-6 border-b border-line">
               {scenarios.map((s) => (

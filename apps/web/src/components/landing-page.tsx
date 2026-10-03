@@ -1,9 +1,13 @@
+import { Suspense } from "react";
 import { createTranslator } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { getLocaleMessages } from "@/i18n/messages";
 import { Reveal } from "@/components/reveal";
 import { SiteFooter, SiteNav } from "@/components/site-chrome";
 import { LOCAL } from "@/lib/visual";
+import { ROLES } from "@/lib/discovery";
+import { RoleIndex, RoleIndexSkeleton } from "@/components/role-index";
+import { CtaNoteText, JobsSubText } from "@/components/release-counts";
 
 /*
  * Career SuperBright landing — the anti-slop pass.
@@ -53,13 +57,10 @@ export default async function LandingPage({ locale }: { locale: string }) {
     [t("heroFact2k"), t("heroFact2v")],
     [t("heroFact3k"), t("heroFact3v")],
   ];
-  const WAVE1 = [
-    { name: t("roleDm"), mission: t("w1dmM"), caps: [t("capsDm1"), t("capsDm2"), t("capsDm3")], signal: t("w1dmS"), salary: t("w1dmPay") },
-    { name: t("roleDa"), mission: t("w1daM"), caps: [t("capsDa1"), t("capsDa2"), t("capsDa3")], signal: t("w1daS"), salary: t("w1daPay") },
-    { name: t("roleUx"), mission: t("w1uxM"), caps: [t("capsUx1"), t("capsUx2"), t("capsUx3")], signal: t("w1uxS"), salary: t("w1uxPay") },
-  ];
-  const WAVE2 = [t("roleJa"), t("roleSe"), t("roleCa")];
-  const TICKER = [t("roleDm"), t("roleDa"), t("roleUx"), ...WAVE2];
+  /* The ticker and hero stream immediately: only the islands below
+     (role index, count sentences) await the release gate, and they share
+     one deduped query. */
+  const TICKER = ROLES.map((r) => r.title);
   /* PRD 3-step value prop (Discover → Simulate → Decide). The old 5-step
      "siap kerja" ladder described the retired course model, not discovery. */
   const STEPS: [string, string, string][] = [
@@ -158,6 +159,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
                 [t("heroCatCreative"), "Creative & Marketing"],
                 [t("heroCatBiz"), "Business & Operations"],
                 [t("heroCatFinance"), "Finance & Banking"],
+                [t("heroCatFuture"), "Future & AI"],
               ].map(([label, cat]) => (
                 <li key={label}>
                   <Link href={`/roles?q=${encodeURIComponent(cat)}`} className="chip min-h-[44px] transition hover:border-ink">
@@ -328,9 +330,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
                 <p aria-hidden className="tnum font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-brand-700">
                   01
                 </p>
-                <p className="mt-4 max-w-[42ch] text-[15px] leading-relaxed text-soft">
-                  {t("jobsSub")}
-                </p>
+              <JobsSubText locale={locale} />
               </div>
               <h2 className="font-nova max-w-[22ch] text-[32px] font-bold leading-[1.06] tracking-[-0.02em] md:col-span-7 md:text-right md:text-[40px]">
                 {t("jobsTitle")}
@@ -373,142 +373,12 @@ export default async function LandingPage({ locale }: { locale: string }) {
         </dl>
       </section>
 
-      {/* ── FEATURED EXAMPLE (full-bleed band) ───────────────
-          The band IS the surface — the old build framed a bordered card
-          inside a bordered band, which is nesting for decoration. */}
-      <section
-        id="contoh-event"
-        className="scroll-mt-32 border-y border-line bg-card"
-      >
-        <div className="mx-auto max-w-7xl px-4 py-14 md:py-20">
-          {/* Contoh 1 dari 4 — the single playable spotlight */}
-          <Reveal>
-            <div className="grid gap-6 md:grid-cols-12 md:items-center md:gap-8">
-              <div className="md:col-span-5">
-                <p className="inline-block rounded-full bg-signal/15 px-3 py-1 font-mono text-[11px] font-bold text-signal-strong">
-                  {t("eventBadge")}
-                </p>
-                <h3 className="font-nova mt-4 text-2xl font-bold leading-tight tracking-[-0.02em] md:text-3xl">
-                  {t("roleEvent")}
-                </h3>
-                <p className="mt-3 max-w-[40ch] text-[15px] leading-relaxed text-soft">
-                  {t("eventMission")}
-                </p>
-              </div>
-              <ul
-                className="flex flex-wrap content-center gap-1.5 md:col-span-3"
-                aria-label={t("eventCapsLabel")}
-              >
-                {[t("capsEv1"), t("capsEv2"), t("capsEv3")].map((c) => (
-                  <li key={c} className="chip !text-[12px]">
-                    {c}
-                  </li>
-                ))}
-              </ul>
-              <div className="border-t border-line pt-5 md:col-span-4 md:border-0 md:pt-0 md:text-right">
-                <p className="max-w-[36ch] font-mono text-[11px] leading-relaxed text-muted md:ml-auto">
-                  {t("eventSignal")}
-                </p>
-                <Link href="/auth/daftar" className="btn-primary mt-4 min-h-[52px] md:mt-5">
-                  {t("eventCta")}
-                </Link>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── ROLE INDEX ───────────────────────────────────────
-          Rows, not cards: a ledger of three intro roles under one band
-          label, each name a real h3. */}
-      <section
-        id="semua-peran"
-        className="mx-auto max-w-7xl scroll-mt-32 px-4 pb-20 pt-14 md:pb-32 md:pt-20"
-      >
-        {/* Wave-1 rows — list, not twin cards */}
-        <Reveal>
-          <div className="overflow-hidden rounded-card border border-line bg-card">
-            <p className="border-b border-line bg-paper px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] text-muted md:px-10">
-              {t("waveBand")}
-            </p>
-            <ul className="divide-y divide-line">
-              {WAVE1.map((row, i) => (
-                <li
-                  key={row.name}
-                  className="grid gap-4 px-6 py-7 md:grid-cols-12 md:items-center md:gap-6 md:px-10"
-                >
-                  <div className="md:col-span-4">
-                    <p aria-hidden className="tnum font-mono text-[12px] font-bold tracking-[0.14em] text-muted">
-                      {String(i + 1).padStart(2, "0")}
-                    </p>
-                    <h3 className="mt-1.5 text-lg font-extrabold tracking-tight md:text-xl">
-                      {row.name}
-                    </h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-soft">
-                      {row.mission}
-                    </p>
-                  </div>
-                  <ul
-                    className="flex flex-wrap content-center gap-1.5 md:col-span-4"
-                    aria-label={`${t("capsLabel")} ${row.name}`}
-                  >
-                    {row.caps.map((c) => (
-                      <li key={c} className="chip !text-[12px]">
-                        {c}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="md:col-span-4 md:text-right">
-                    <p className="font-mono text-[11px] leading-relaxed text-muted">
-                      {row.signal}
-                    </p>
-                    <p className="tnum mt-1 font-mono text-[12px] font-bold text-brand-700">
-                      {row.salary}
-                    </p>
-                    <Link
-                      href="/auth/daftar"
-                      className="link-more mt-2 inline-flex min-h-[44px] items-center"
-                    >
-                      {t("earlyCta")}
-                    </Link>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Reveal>
-
-        <Reveal delay={80}>
-          <div className="mt-5 flex flex-col gap-2 rounded-card border border-dashed border-line bg-paper px-6 py-5 sm:flex-row sm:items-center sm:justify-between md:px-10">
-            <p className="text-sm text-soft">
-              <strong className="text-ink">{t("soon")}</strong>{" "}
-              {WAVE2.join(" · ")}
-            </p>
-            <Link href="/auth/daftar" className="link-more inline-flex min-h-[44px] flex-none items-center">
-              {t("earlyCta")}
-            </Link>
-          </div>
-          <p className="mt-4 font-mono text-[11px] leading-relaxed text-muted">
-            {t("sources")}
-          </p>
-        </Reveal>
-        <Reveal delay={120}>
-          <figure className="photo-cine mt-6 aspect-[21/9]">
-            <img
-              src={LOCAL.kantorJakarta}
-              alt={t("jobsPhotoAlt")}
-              loading="lazy"
-              decoding="async"
-              sizes="(max-width: 768px) 100vw, 1120px"
-              className="h-full w-full object-cover"
-            />
-            <figcaption className="photo-cap">
-              <span>{t("jobsPhotoCap")}</span>
-              <span className="opacity-70">Pexels</span>
-            </figcaption>
-          </figure>
-        </Reveal>
-      </section>
+      {/* ── ROLE INDEX (streaming island) ────────────────────────
+          The gate-backed list fills in behind a skeleton so everything
+          above streams instantly. */}
+      <Suspense fallback={<RoleIndexSkeleton />}>
+        <RoleIndex locale={locale} />
+      </Suspense>
 
       {/* ── HOW IT WORKS (PRD 3-step value prop) ────────────────
           Header treatment 3/3: index and title on one baseline. The ledger
@@ -581,9 +451,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
                   {t("cta2")}
                 </Link>
               </div>
-              <p className="relative mt-5 max-w-[56ch] font-mono text-[11px] leading-relaxed text-white/85">
-                {t("ctaNote")}
-              </p>
+              <CtaNoteText locale={locale} />
             </div>
           </Reveal>
         </div>

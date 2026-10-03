@@ -74,6 +74,37 @@ const MILESTONES: Record<string, { titleId: string; skkni: string }[]> = {
   ],
 };
 
+// Wave release gate: the 25 launched Wave-1 roles, released. New roles ship
+// with NO row (locked) until an admin releases them from the dashboard.
+// Mirrors seed.sql and DEFAULT_RELEASED_ROLE_IDS in apps/web/src/lib/releases.ts.
+const RELEASED_ROLES = [
+  "social-media-specialist",
+  "hr-business-partner",
+  "frontend-developer",
+  "associate-product-manager",
+  "data-analyst",
+  "ui-ux-designer",
+  "account-executive",
+  "management-trainee",
+  "teller-bank",
+  "backend-developer",
+  "qa-engineer",
+  "copywriter",
+  "operations-executive",
+  "devops-engineer",
+  "graphic-designer",
+  "seo-specialist",
+  "hr-recruiter",
+  "credit-analyst",
+  "mobile-developer",
+  "network-engineer",
+  "cybersecurity-analyst",
+  "motion-designer",
+  "procurement-staff",
+  "financial-planner",
+  "retail-store-supervisor",
+];
+
 async function main() {
   for (const f of FRAMEWORKS) {
     await prisma.competencyFramework.upsert({
@@ -103,6 +134,14 @@ async function main() {
     }
   }
   console.log(`Seeded ${FRAMEWORKS.length} frameworks, ${PATHS.length} paths + milestones`);
+  for (const roleId of RELEASED_ROLES) {
+    await prisma.roleRelease.upsert({
+      where: { roleId },
+      update: { released: true },
+      create: { roleId, released: true },
+    });
+  }
+  console.log(`Seeded ${RELEASED_ROLES.length} role releases (Wave 1)`);
 }
 
 main().then(() => process.exit(0)).catch((e) => { console.error(e); process.exit(1); });

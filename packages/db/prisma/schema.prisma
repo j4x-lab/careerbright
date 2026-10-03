@@ -310,3 +310,14 @@ model Verification {
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 }
+
+// ---- Wave release gate (discovery content) ----
+// Which roles' micro-scenarios are playable. A missing row means LOCKED, so
+// newly committed roles/scenarios stay dark until an admin releases them.
+// Runtime access is raw pg (see apps/web/src/server/routers/admin.ts), not
+// Prisma — `prisma generate` cannot run on Android.
+model RoleRelease {
+  roleId    String   @id
+  released  Boolean  @default(false)
+  updatedAt DateTime @updatedAt
+}

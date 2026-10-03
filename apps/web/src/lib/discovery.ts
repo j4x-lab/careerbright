@@ -15,6 +15,7 @@ export const RoleCategory = z.enum([
   "Creative & Marketing",
   "Business & Operations",
   "Finance & Banking",
+  "Future & AI",
 ]);
 export type RoleCategory = z.infer<typeof RoleCategory>;
 
@@ -23,6 +24,7 @@ export const ROLE_CATEGORIES: RoleCategory[] = [
   "Creative & Marketing",
   "Business & Operations",
   "Finance & Banking",
+  "Future & AI",
 ];
 
 const TimelineEntry = z.object({ time: z.string(), event: z.string() });

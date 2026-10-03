@@ -742,8 +742,450 @@
     },
     {
       "time": "20:00 WIB",
-      "event": "Closing: hitung omzet, cek selisih, kunci toko."
-    }
-  ]
-}
+        "event": "Closing: hitung omzet, cek selisih, kunci toko."
+      }
+    ]
+  },
+  {
+    "id": "ai-engineer",
+    "category": "Future & AI",
+    "title": "AI Engineer",
+    "shortDescription": "Bukan cuma panggil API AI, tapi bikin produk AI yang tidak halusinasi saat dipakai ribuan user. Gaji junior Rp8–16 juta (lowongan Jobstreet 2026).",
+    "tools": ["Python", "LangChain", "Docker", "PostgreSQL"],
+    "mythVsReality": {
+      "myth": "AI engineer kerjanya suruh AI bikin apa saja, beres dalam sehari.",
+      "reality": "80% waktunya habis untuk evaluasi: mengukur halusinasi, menekan biaya token, dan memasang pagar agar AI tidak ngawur di produksi."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Cek metrik evaluasi semalam: akurasi, biaya token, latensi." },
+      { "time": "10:30 WIB", "event": "Debug RAG: kenapa chatbot menjawab ngawur untuk 3% pertanyaan." },
+      { "time": "14:00 WIB", "event": "Tuning prompt + guardrail sebelum deploy ke staging." },
+      { "time": "16:00 WIB", "event": "Review tagihan API: satu fitur boros Rp2 juta/hari, harus dioptimasi." }
+    ]
+  },
+  {
+    "id": "data-scientist",
+    "category": "Future & AI",
+    "title": "Data Scientist",
+    "shortDescription": "Bukan cuma bikin model keren, tapi membuktikan modelmu menghasilkan uang. Gaji junior Rp8–15 juta di e-commerce (2025–2026).",
+    "tools": ["Python", "SQL", "scikit-learn", "MLflow"],
+    "mythVsReality": {
+      "myth": "Data scientist tiap hari menemukan insight revolusioner dengan machine learning.",
+      "reality": "Berbulan-bulan membersihkan data, dan satu model yang dipakai pun harus dipertahankan dengan eksperimen A/B."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Cek performa model churn semalam: akurasi turun 2%." },
+      { "time": "11:00 WIB", "event": "Meeting dengan bisnis: menerjemahkan akurasi 87% jadi bahasa rupiah." },
+      { "time": "14:00 WIB", "event": "Feature engineering: 3 variabel baru dari data transaksi." },
+      { "time": "16:00 WIB", "event": "Dokumentasi eksperimen agar bisa direproduksi tim." }
+    ]
+  },
+  {
+    "id": "ai-automation-specialist",
+    "category": "Future & AI",
+    "title": "AI Automation Specialist",
+    "shortDescription": "Bukan cuma mainan no-code, tapi memangkas kerja manual berjam-jam jadi alur otomatis. Gaji junior Rp10–16 juta (2026).",
+    "tools": ["n8n", "Python", "WhatsApp API", "Google Sheets"],
+    "mythVsReality": {
+      "myth": "Otomatisasi itu tinggal drag-and-drop, tidak perlu mikir.",
+      "reality": "Satu workflow menyentuh 5 sistem berbeda — dan saat satu API berubah, semua antrean berhenti dan teleponnya ke kamu."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Cek log workflow semalam: 2 gagal karena format data berubah." },
+      { "time": "11:00 WIB", "event": "Demo ke klien: bot CS yang membalas 300 chat per jam." },
+      { "time": "14:00 WIB", "event": "Bangun integrasi baru: order masuk, invoice otomatis, notif WA terkirim." },
+      { "time": "16:00 WIB", "event": "Hitung ROI: otomatisasi ini menghemat 40 jam kerja per minggu." }
+    ]
+  },
+  {
+    "id": "cloud-solutions-architect",
+    "category": "Future & AI",
+    "title": "Cloud Solutions Architect",
+    "shortDescription": "Bukan cuma sewa server, tapi merancang infrastruktur yang tidak jebol saat promo 12.12. Termasuk gaji junior tertinggi di tech.",
+    "tools": ["AWS", "Terraform", "Kubernetes", "Grafana"],
+    "mythVsReality": {
+      "myth": "Cloud architect tinggal klik-klik di console AWS lalu gajian.",
+      "reality": "Satu arsitektur salah bisa bikin tagihan Rp500 juta per bulan atau downtime saat traffic puncak — dua-duanya salahmu."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Review tagihan cloud kemarin: ada resource nganggur Rp8 juta per bulan." },
+      { "time": "11:00 WIB", "event": "Desain arsitektur baru untuk traffic 10x lipat akhir tahun." },
+      { "time": "14:00 WIB", "event": "Presentasi trade-off ke CTO: murah versus anti-rubuh." },
+      { "time": "16:00 WIB", "event": "Tulis infrastructure-as-code agar bisa direplikasi satu perintah." }
+    ]
+  },
+  {
+    "id": "esg-analyst",
+    "category": "Future & AI",
+    "title": "ESG & Sustainability Analyst",
+    "shortDescription": "Bukan cuma laporan hijau-hijauan, tapi mengukur jejak karbon dan risiko yang dilihat investor. Profesi baru yang naik daun sejak regulasi OJK.",
+    "tools": ["Excel", "Power BI", "GRI Standards", "CDP"],
+    "mythVsReality": {
+      "myth": "ESG itu kerjaan seremonial: tanam pohon lalu foto-foto.",
+      "reality": "Investor dan bank menilai skor ESG-mu sebelum mengucurkan dana — datanya harus diaudit, bukan karangan."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Kumpulkan data emisi 3 pabrik untuk laporan kuartal." },
+      { "time": "11:00 WIB", "event": "Verifikasi data supplier: ada yang laporannya tidak masuk akal." },
+      { "time": "14:00 WIB", "event": "Susun draf pengungkapan sesuai standar POJK keberlanjutan." },
+      { "time": "16:00 WIB", "event": "Presentasi gap analysis ke direksi: 12 indikator masih merah." }
+    ]
+  },
+  {
+    "id": "robotics-engineer",
+    "category": "Future & AI",
+    "title": "Robotics Engineer",
+    "shortDescription": "Bukan cuma rakit robot keren, tapi memastikan robot pabrik tidak berhenti di tengah shift malam.",
+    "tools": ["Python", "ROS", "C++", "SolidWorks"],
+    "mythVsReality": {
+      "myth": "Robotics engineer tiap hari bikin robot humanoid seperti di film.",
+      "reality": "Kerjaannya kalibrasi sensor yang melenceng 2mm dan ladder PLC yang ditulis vendor 10 tahun lalu."
+    },
+    "timeline": [
+      { "time": "08:00 WIB", "event": "Cek downtime lengan robot shift malam: 47 menit." },
+      { "time": "10:00 WIB", "event": "Kalibrasi ulang sensor + uji 50 siklus." },
+      { "time": "13:00 WIB", "event": "Troubleshooting: conveyor berhenti, cari tahu robot atau sensornya." },
+      { "time": "15:30 WIB", "event": "Update dokumentasi maintenance untuk teknisi shift." }
+    ]
+  },
+  {
+    "id": "embedded-iot-engineer",
+    "category": "Future & AI",
+    "title": "Embedded & IoT Engineer",
+    "shortDescription": "Bukan cuma main Arduino, tapi bikin ribuan sensor lapangan yang hemat baterai bertahun-tahun.",
+    "tools": ["C/C++", "ESP32", "MQTT", "KiCad"],
+    "mythVsReality": {
+      "myth": "IoT itu tinggal beli modul jadi, sambung WiFi, beres.",
+      "reality": "Firmware-mu berjalan di tempat tanpa teknisi: satu bug berarti kirim orang naik tower atau turun ke sumur."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Analisa data baterai: 200 sensor drop lebih cepat dari hitungan." },
+      { "time": "11:00 WIB", "event": "Flash firmware hemat daya + uji semalam." },
+      { "time": "14:00 WIB", "event": "Debug paket data hilang di gateway daerah blank spot." },
+      { "time": "16:00 WIB", "event": "Desain PCB revisi: tambah proteksi petir untuk musim hujan." }
+    ]
+  },
+  {
+    "id": "data-engineer",
+    "category": "Tech & Product",
+    "title": "Data Engineer",
+    "shortDescription": "Bukan cuma bikin pipeline, tapi orang yang disalahkan saat dashboard kosong pagi hari. Gaji junior di atas rata-rata tech.",
+    "tools": ["SQL", "Python", "Airflow", "BigQuery"],
+    "mythVsReality": {
+      "myth": "Data engineer tinggal copy data dari A ke B.",
+      "reality": "Pipeline pecah jam 3 pagi, definisi tabel berubah tanpa kabar, dan 5 tim menunggu datamu."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Cek DAG semalam: 1 job gagal, backfill 3 hari." },
+      { "time": "11:00 WIB", "event": "Revisi skema: tim produk ganti format event tanpa bilang." },
+      { "time": "14:00 WIB", "event": "Optimasi query Rp12 juta per bulan jadi Rp3 juta." },
+      { "time": "16:00 WIB", "event": "Tulis data contract agar kejadian ini tidak berulang." }
+    ]
+  },
+  {
+    "id": "game-developer",
+    "category": "Tech & Product",
+    "title": "Game Developer",
+    "shortDescription": "Bukan cuma main game seharian, tapi kejar 60 fps di HP kentang harga Rp1 jutaan.",
+    "tools": ["Unity", "C#", "Blender", "Git"],
+    "mythVsReality": {
+      "myth": "Game developer kerjaannya main game lalu dibayar.",
+      "reality": "Crunch sebelum rilis, review bintang 1 karena bug sepele, dan monetisasi yang menentukan gajimu."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Triage bug dari 200 ulasan Play Store semalam." },
+      { "time": "11:00 WIB", "event": "Optimasi draw call: HP low-end drop ke 20 fps." },
+      { "time": "14:00 WIB", "event": "Balancing: pemain protes gacha terlalu pelit." },
+      { "time": "16:00 WIB", "event": "Build malam + tulis catatan rilis." }
+    ]
+  },
+  {
+    "id": "site-reliability-engineer",
+    "category": "Tech & Product",
+    "title": "Site Reliability Engineer",
+    "shortDescription": "Bukan cuma jaga server, tapi orang yang ditelepon saat aplikasi mati tengah malam — dengan target 99,9% hidup.",
+    "tools": ["Kubernetes", "Prometheus", "Terraform", "Go"],
+    "mythVsReality": {
+      "myth": "SRE itu DevOps dengan nama keren.",
+      "reality": "Kamu menulis kode agar sistem sembuh sendiri — dan ikut on-call saat ia gagal sembuh."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Review insiden semalam: 12 menit downtime checkout." },
+      { "time": "11:00 WIB", "event": "Tulis postmortem tanpa menyalahkan + action item." },
+      { "time": "14:00 WIB", "event": "Chaos experiment di staging: matikan 1 zona, lihat apa yang pecah." },
+      { "time": "16:00 WIB", "event": "Automasi runbook: lain kali tidak perlu dibangunkan." }
+    ]
+  },
+  {
+    "id": "solutions-architect",
+    "category": "Tech & Product",
+    "title": "Solutions Architect (Enterprise)",
+    "shortDescription": "Bukan cuma jualan, tapi merancang solusi teknis yang bikin klien korporat tanda tangan kontrak miliaran.",
+    "tools": ["AWS", "Draw.io", "Postman", "Salesforce"],
+    "mythVsReality": {
+      "myth": "Solutions architect itu sales yang bisa ngomong teknis dikit.",
+      "reality": "Demo gagal di depan direksi berarti kontrak hilang; arsitektur salah berarti tim delivery yang menderita."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Siapkan demo POC untuk tender bank minggu depan." },
+      { "time": "11:00 WIB", "event": "Jawab 40 pertanyaan keamanan dari tim IT klien." },
+      { "time": "14:00 WIB", "event": "Hitung TCO 3 tahun untuk proposal." },
+      { "time": "16:00 WIB", "event": "Handover ke tim delivery: janji yang kamu buat harus bisa dibangun." }
+    ]
+  },
+  {
+    "id": "it-business-analyst",
+    "category": "Tech & Product",
+    "title": "IT Business Analyst",
+    "shortDescription": "Bukan cuma bikin dokumen, tapi penerjemah antara bos yang tidak teknis dan developer yang tidak sabar.",
+    "tools": ["Jira", "Confluence", "SQL", "Figma"],
+    "mythVsReality": {
+      "myth": "BA tinggal catat maunya user lalu oper ke developer.",
+      "reality": "User tidak tahu maunya apa, developer tidak mau baca dokumen — kamu yang menjembatani keduanya."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Gali kebutuhan: user minta tombol, masalah sebenarnya alur approval." },
+      { "time": "11:00 WIB", "event": "Tulis user story + acceptance criteria yang tidak ambigu." },
+      { "time": "14:00 WIB", "event": "UAT: 8 dari 20 skenario gagal, prioritaskan dengan user." },
+      { "time": "16:00 WIB", "event": "Update BRD yang berubah untuk ketiga kalinya minggu ini." }
+    ]
+  },
+  {
+    "id": "management-consultant",
+    "category": "Business & Operations",
+    "title": "Management Consultant (Associate)",
+    "shortDescription": "Bukan cuma bikin slide cantik, tapi 70 jam per minggu memecahkan masalah direksi. Gaji awal Rp7–9 juta, tapi lintasan tercepat ke kursi direktur.",
+    "tools": ["Excel", "PowerPoint", "SQL", "Bahasa Inggris"],
+    "mythVsReality": {
+      "myth": "Konsultan itu dibayar mahal untuk bilang hal yang sudah diketahui klien.",
+      "reality": "70 jam per minggu, revisi slide jam 2 pagi, dan hipotesis yang salah harus dibuang tanpa drama."
+    },
+    "timeline": [
+      { "time": "08:00 WIB", "event": "Daily hypothesis: data kemarin membunuh 2 dari 3 teori." },
+      { "time": "11:00 WIB", "event": "Interview manajer klien yang defensif soal divisinya." },
+      { "time": "14:00 WIB", "event": "Bangun model market sizing 5 tahun dengan data seadanya." },
+      { "time": "20:00 WIB", "event": "Revisi deck 60 slide untuk steering committee besok." }
+    ]
+  },
+  {
+    "id": "corporate-strategy-analyst",
+    "category": "Business & Operations",
+    "title": "Corporate Strategy Analyst",
+    "shortDescription": "Bukan cuma rapat strategi, tapi analis in-house yang menentukan perusahaan buka cabang di mana tahun depan.",
+    "tools": ["Excel", "PowerPoint", "SQL", "Power BI"],
+    "mythVsReality": {
+      "myth": "Strategy itu kerja visioner: mikir besar sambil ngopi.",
+      "reality": "90% kerjaannya spreadsheet kompetitor dan memo yang dibaca direksi 3 menit."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Update competitive landscape: kompetitor rilis fitur baru." },
+      { "time": "11:00 WIB", "event": "Model skenario ekspansi: 3 kota, 2 asumsi demand." },
+      { "time": "14:00 WIB", "event": "Benchmark: kenapa margin kita 4% di bawah rival." },
+      { "time": "16:00 WIB", "event": "Ringkas 40 halaman analisa jadi 1 halaman untuk direksi." }
+    ]
+  },
+  {
+    "id": "investment-analyst",
+    "category": "Finance & Banking",
+    "title": "Investment Analyst",
+    "shortDescription": "Bukan cuma beli saham murah, tapi orang yang menyarankan ke mana miliaran dana dikelola. Gaji junior di papan atas finansial.",
+    "tools": ["Excel", "Bloomberg Terminal", "PowerPoint", "SQL"],
+    "mythVsReality": {
+      "myth": "Analis investasi tinggal ikut feeling pasar lalu kaya.",
+      "reality": "Satu rekomendasi salah berarti komite investasi menatapmu; model valuasimu dibedah baris per baris."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Update model valuasi emiten yang rilis laporan kemarin." },
+      { "time": "11:00 WIB", "event": "Call dengan manajemen perusahaan untuk validasi asumsi." },
+      { "time": "14:00 WIB", "event": "Tulis investment memo: beli, tahan, atau jual beserta alasannya." },
+      { "time": "16:00 WIB", "event": "Presentasi ke komite: pertahankan rating-mu." }
+    ]
+  },
+  {
+    "id": "actuarial-associate",
+    "category": "Finance & Banking",
+    "title": "Actuarial Associate (Aktuaris)",
+    "shortDescription": "Bukan cuma hitung premi, tapi profesi langka: menghitung kapan orang sakit dan berapa biayanya. Sepi peminat, gaji di atas rata-rata.",
+    "tools": ["Excel", "R", "SQL", "Prophet"],
+    "mythVsReality": {
+      "myth": "Aktuaris itu tukang hitung asuransi yang kerjanya monoton.",
+      "reality": "Ujian profesi PAI bertingkat-tingkat — lulus satu level, gajimu naik signifikan."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Validasi tabel mortalitas baru terhadap portofolio." },
+      { "time": "11:00 WIB", "event": "Hitung cadangan teknis kuartal: selisih 1% berarti miliaran." },
+      { "time": "14:00 WIB", "event": "Belajar untuk ujian PAI malam hari, rutin tiap analis." },
+      { "time": "16:00 WIB", "event": "Review pricing produk baru: preminya cukup atau perusahaan rugi." }
+    ]
+  },
+  {
+    "id": "external-auditor",
+    "category": "Finance & Banking",
+    "title": "External Auditor (KAP Big Four)",
+    "shortDescription": "Bukan cuma cek angka, tapi peak season 3 bulan lembur tiap hari demi opini audit. Gaji junior Rp6–12 juta (EY/PwC 2025).",
+    "tools": ["Excel", "CaseWare", "SAP", "Bahasa Inggris"],
+    "mythVsReality": {
+      "myth": "Auditor KAP itu gengsi: kerja di menara kaca, gaji selangit sejak awal.",
+      "reality": "Gaji awal standar, lembur brutal Januari sampai Maret, dan klien yang menyembunyikan dokumen."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Vouching: cocokkan 150 faktur dengan jurnal." },
+      { "time": "11:00 WIB", "event": "Stock opname di gudang klien: hitung fisik sampai malam." },
+      { "time": "14:00 WIB", "event": "Temuan: selisih Rp800 juta, konfirmasi ke manajemen." },
+      { "time": "19:00 WIB", "event": "Lembur susun working paper untuk review manager." }
+    ]
+  },
+  {
+    "id": "tax-consultant",
+    "category": "Finance & Banking",
+    "title": "Tax Consultant",
+    "shortDescription": "Bukan cuma isi SPT, tapi menyelamatkan klien dari denda miliaran lewat celah yang legal. Aturan berubah tiap tahun — itu job security-mu.",
+    "tools": ["Coretax DJP", "Excel", "e-Faktur", "PPh"],
+    "mythVsReality": {
+      "myth": "Konsultan pajak hafal semua pasal di luar kepala.",
+      "reality": "Kerjaannya riset aturan baru tiap minggu plus negosiasi dengan pemeriksa pajak."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Review SPT klien sebelum batas lapor: ada risiko kurang bayar." },
+      { "time": "11:00 WIB", "event": "Riset aturan PMK baru yang terbit minggu lalu." },
+      { "time": "14:00 WIB", "event": "Dampingi klien pemeriksaan pajak: siapkan data 3 tahun." },
+      { "time": "16:00 WIB", "event": "Tulis tax memo: struktur transaksi yang paling efisien." }
+    ]
+  },
+  {
+    "id": "treasury-analyst",
+    "category": "Finance & Banking",
+    "title": "Treasury Analyst",
+    "shortDescription": "Bukan cuma transfer uang, tapi penjaga likuiditas: memastikan gaji 5.000 karyawan cair dan dolar dibeli di kurs terbaik.",
+    "tools": ["Excel", "Bloomberg Terminal", "Core Banking", "PowerPoint"],
+    "mythVsReality": {
+      "myth": "Treasury itu tinggal klik transfer antar rekening.",
+      "reality": "Salah timing lindung nilai Rp10 miliar bisa menguapkan laba kuartal."
+    },
+    "timeline": [
+      { "time": "08:00 WIB", "event": "Cek posisi kas + kurs pembuka: rupiah melemah 0,8%." },
+      { "time": "10:00 WIB", "event": "Eksekusi hedging untuk pembayaran impor minggu depan." },
+      { "time": "13:00 WIB", "event": "Rekonsiliasi 12 rekening bank grup usaha." },
+      { "time": "15:00 WIB", "event": "Laporan likuiditas harian untuk CFO." }
+    ]
+  },
+  {
+    "id": "assistant-brand-manager",
+    "category": "Creative & Marketing",
+    "title": "Assistant Brand Manager",
+    "shortDescription": "Bukan cuma bikin campaign viral, tapi pemilik P&L merek dari riset sampai angka penjualan. Asisten Rp7–9 juta, manager rata-rata Rp12 juta ke atas (Jobstreet/Indeed 2026).",
+    "tools": ["Google Analytics", "Meta Ads Manager", "Figma", "Excel"],
+    "mythVsReality": {
+      "myth": "Brand manager kerjanya photoshoot dan launch party.",
+      "reality": "70% waktunya membaca data penjualan dan berdebat budget dengan finance."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Cek market share: turun 0,5 poin bulan ini." },
+      { "time": "11:00 WIB", "event": "Brief agensi: kampanye baru dengan budget dipotong 20%." },
+      { "time": "14:00 WIB", "event": "Review packaging: revisi ke-8 dengan R&D dan legal." },
+      { "time": "16:00 WIB", "event": "Presentasi brand plan ke GM dengan angka, bukan selera." }
+    ]
+  },
+  {
+    "id": "pr-specialist",
+    "category": "Creative & Marketing",
+    "title": "PR & Communications Specialist",
+    "shortDescription": "Bukan cuma kirim press release, tapi orang pertama yang ditelepon saat brand kena krisis jam 11 malam.",
+    "tools": ["Google Docs", "Canva", "Media List", "TikTok"],
+    "mythVsReality": {
+      "myth": "PR itu tinggal undang wartawan makan siang.",
+      "reality": "Satu pernyataan salah kutip bisa jadi headline nasional — dan krisis tidak kenal jam kerja."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Monitoring: 3 pemberitaan negatif muncul pagi ini." },
+      { "time": "11:00 WIB", "event": "Tulis holding statement + koordinasi dengan legal." },
+      { "time": "14:00 WIB", "event": "Pitch 5 jurnalis untuk peluncuran produk minggu depan." },
+      { "time": "16:00 WIB", "event": "Siapkan Q&A direksi untuk doorstop wartawan." }
+    ]
+  },
+  {
+    "id": "video-editor",
+    "category": "Creative & Marketing",
+    "title": "Video Editor",
+    "shortDescription": "Bukan cuma potong klip, tapi penentu 3 detik pertama yang bikin orang berhenti scrolling.",
+    "tools": ["Premiere Pro", "After Effects", "CapCut", "DaVinci Resolve"],
+    "mythVsReality": {
+      "myth": "Video editor tinggal tempel transisi keren dari preset.",
+      "reality": "Revisi 'kurang greget' tanpa arahan jelas plus render 4K yang bikin laptop menangis."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Sortir 3 jam footage jadi 90 detik rough cut." },
+      { "time": "11:00 WIB", "event": "Revisi klien: ganti musik dan pacing lebih cepat." },
+      { "time": "14:00 WIB", "event": "Color grading + mixing audio untuk 3 versi aspek rasio." },
+      { "time": "17:00 WIB", "event": "Render antre 2 jam, jangan sampai corrupt." }
+    ]
+  },
+  {
+    "id": "content-strategist",
+    "category": "Creative & Marketing",
+    "title": "Content Strategist",
+    "shortDescription": "Bukan cuma nulis artikel, tapi arsitek seluruh mesin konten yang mendatangkan traffic organik.",
+    "tools": ["Notion", "GA4", "SEMrush", "Figma"],
+    "mythVsReality": {
+      "myth": "Content strategist itu blogger yang digaji perusahaan.",
+      "reality": "Setiap artikel harus punya keyword, funnel stage, dan target konversi — atau tidak ditulis."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Review performa 50 artikel: 5 menghasilkan 80% traffic." },
+      { "time": "11:00 WIB", "event": "Audit kompetitor: mereka ranking untuk 30 keyword kita." },
+      { "time": "14:00 WIB", "event": "Brief 4 writer + tentukan angle tiap artikel." },
+      { "time": "16:00 WIB", "event": "Presentasi content ROI ke marketing manager." }
+    ]
+  },
+  {
+    "id": "kol-specialist",
+    "category": "Creative & Marketing",
+    "title": "KOL & Influencer Specialist",
+    "shortDescription": "Bukan cuma endorse artis, tapi mengelola 100 nano-KOL dengan budget seefisien iklan — plus drama brief yang tidak dibaca.",
+    "tools": ["TikTok", "Shopee Affiliate", "Excel", "WhatsApp Business"],
+    "mythVsReality": {
+      "myth": "KOL specialist kerjanya nongkrong dengan influencer.",
+      "reality": "80% KOL telat posting, rate card digelembungin, dan ROI harus bisa dipertanggungjawabkan."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Cek 40 posting KOL semalam: 12 belum tayang." },
+      { "time": "11:00 WIB", "event": "Negosiasi rate: rate card Rp5 juta, budget Rp1,5 juta." },
+      { "time": "14:00 WIB", "event": "Seeding produk + brief 20 nano-KOL baru." },
+      { "time": "16:00 WIB", "event": "Hitung CPE dan GMV per KOL untuk laporan." }
+    ]
+  },
+  {
+    "id": "junior-art-director",
+    "category": "Creative & Marketing",
+    "title": "Junior Art Director",
+    "shortDescription": "Bukan cuma asisten desainer, tapi pemilik arah visual kampanye — dari konsep sampai file cetak.",
+    "tools": ["Photoshop", "Illustrator", "Figma", "InDesign"],
+    "mythVsReality": {
+      "myth": "Art director tinggal tunjuk-tunjuk hasil kerja desainer.",
+      "reality": "Kamu yang presentasi konsep ke klien dan menerima semua revisinya."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Kembangkan 3 arah visual dari brief semalam." },
+      { "time": "11:00 WIB", "event": "Presentasi internal: 1 arah lolos, 2 dibantai." },
+      { "time": "14:00 WIB", "event": "Directing photoshoot: lighting, angle, talent." },
+      { "time": "16:00 WIB", "event": "Final check file cetak: bleed, CMYK, resolusi." }
+    ]
+  },
+  {
+    "id": "ux-researcher",
+    "category": "Creative & Marketing",
+    "title": "UX Researcher",
+    "shortDescription": "Bukan cuma wawancara user, tapi detektif yang membuktikan asumsi PM salah dengan data. Gaji di atas desainer UI biasa.",
+    "tools": ["Maze", "Dovetail", "Notion", "Figma"],
+    "mythVsReality": {
+      "myth": "UX researcher tinggal ngobrol dengan user lalu bikin persona.",
+      "reality": "Rekrut responden yang tepat itu 50% pekerjaan — sisanya meyakinkan tim yang tidak mau dengar temuannya."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Screening 60 pendaftar jadi 8 responden yang valid." },
+      { "time": "11:00 WIB", "event": "Moderasi 3 sesi interview tanpa menggiring jawaban." },
+      { "time": "14:00 WIB", "event": "Affinity mapping: 120 sticky notes jadi 5 insight." },
+      { "time": "16:00 WIB", "event": "Presentasi temuan: 1 fitur yang dibanggakan PM harus dibunuh." }
+    ]
+  }
 ]
