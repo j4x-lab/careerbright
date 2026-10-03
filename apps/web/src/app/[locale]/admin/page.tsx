@@ -8,6 +8,10 @@ import { OpsShell } from "@/components/ops-shell";
 import { requireRole } from "@/server/guard";
 import { AdminConsole } from "./admin-console";
 
+// Session-gated: never prerender at build time (would hit Neon during
+// "Generating static pages" and log Better Auth schema-validation noise).
+export const dynamic = "force-dynamic";
+
 export default async function AdminDashboard({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const session = await requireRole(["ADMIN"]);

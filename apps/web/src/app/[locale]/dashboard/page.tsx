@@ -13,6 +13,10 @@ import { EmptyState } from "@/components/empty-state";
 import { getMySnapshot } from "@/lib/my-snapshot";
 import { requireRole } from "@/server/guard";
 
+// Session-gated: never prerender at build time (would hit Neon during
+// "Generating static pages" and log Better Auth schema-validation noise).
+export const dynamic = "force-dynamic";
+
 export default async function StudentDashboard({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const session = await requireRole(["STUDENT"]);

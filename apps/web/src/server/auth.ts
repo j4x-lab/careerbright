@@ -19,15 +19,21 @@ const baseURL = process.env.BETTER_AUTH_URL ?? "http://localhost:3000";
 
 // Build-safe: never throw at import time (Next imports this while collecting
 // page data, and `next build` runs without env). Only the first query fails.
-const pool = connectionString
-  ? new Pool({
-      connectionString,
-      max: 5,
-      // Neon pooled endpoints recycle idle clients; don't let the pool hang on.
-      idleTimeoutMillis: 30_000,
-      connectionTimeoutMillis: 10_000,
-    })
-  : null;
+// NEXT_PHASE is set during `next build` prerender: session-gated pages import
+// this module while generating static pages, so skip the Pool there — otherwise
+// Better Auth tries to validate the schema against Neon at build time and logs
+// "Could not validate the database schema" even though the build succeeds.
+const isBuildPhase = process.env.NEXT_PHASE === "phase-production-build";
+const pool =
+  connectionString && !isBuildPhase
+    ? new Pool({
+        connectionString,
+        max: 5,
+        // Neon pooled endpoints recycle idle clients; don't let the pool hang on.
+        idleTimeoutMillis: 30_000,
+        connectionTimeoutMillis: 10_000,
+      })
+    : null;
 
 /*
  * Origin rules.
