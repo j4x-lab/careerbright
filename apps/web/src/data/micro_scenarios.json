@@ -1,0 +1,224 @@
+[
+  {
+    "id": "sosmed-crisis-1",
+    "roleId": "social-media-specialist",
+    "title": "Krisis PR: Salah Upload di Akun Brand",
+    "context": {
+      "message": "Kamu tidak sengaja membalas komentar hater menggunakan akun official brand (seharusnya pakai akun pribadi). Komentar tersebut sudah di-screenshot oleh netizen dan mulai viral di Twitter.",
+      "sender": "Simulated Reality",
+      "time": "19:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Langsung hapus komentar, pura-pura tidak tahu, dan matikan notifikasi HP.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Screenshot buktinya, laporkan ke Manager/PR, lalu siapkan draft permintaan maaf resmi.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Balas lagi menggunakan akun official, ajak berdebat netizen untuk membela diri.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Langsung post permintaan maaf di timeline tanpa lapor atasan agar cepat selesai.",
+        "type": "Risky"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Di agensi atau korporat, SOP krisis mengharuskan kamu eskalasi ke atasan atau tim PR sebelum mengambil tindakan publik. Transparansi internal adalah kunci.",
+      "Fatal": "Jejak digital itu abadi. Menghapus tanpa mitigasi internal akan membuat brand terlihat pengecut saat screenshotnya viral, dan kamu bisa langsung di-SP.",
+      "PractitionerQuote": "Di industri agensi Jakarta, kalau ada blunder digital, hukum pertamanya: Jangan pernah ambil keputusan publik sendirian. Langsung telpon atasan, sediakan kronologi, dan tunggu arahan komunikasi resmi."
+    }
+  },
+  {
+    "id": "frontend-timeout-1",
+    "roleId": "frontend-developer",
+    "title": "API Timeout Saat Flash Sale 12.12",
+    "context": {
+      "message": "EM dari tim backend: API checkout timeout di atas 8 detik sejak 5 menit lalu. Traffic naik 10x karena flash sale. User mulai komplain di Twitter.",
+      "sender": "Engineering Manager (Slack)",
+      "time": "20:15 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Tunggu backend memperbaiki, sambil balas komplain user satu per satu.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Aktifkan fallback UI: tampilkan skeleton + antrean virtual, batasi retry otomatis, dan pasang banner status.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Naikkan timeout client jadi 60 detik supaya request tidak gagal.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Rollback deploy terakhir tanpa cek dulu apa penyebabnya.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Graceful degradation menyelamatkan pengalaman user saat backend kewalahan: antrean virtual + retry terbatas + komunikasi status. Ini pola standar saat Harbolnas.",
+      "Fatal": "Menunggu pasif atau rollback buta memperbesar blast radius. Rollback tanpa diagnosis bisa mematikan fix yang sedang berjalan.",
+      "PractitionerQuote": "Di software house Jakarta, aturan flash sale: frontend tidak boleh ikut mati saat backend batuk. Skeleton, antrean, dan banner status itu wajib — bukan pemanis."
+    }
+  },
+  {
+    "id": "apm-titipan-1",
+    "roleId": "associate-product-manager",
+    "title": "Titipan Fitur dari CEO via WA",
+    "context": {
+      "message": "CEO: 'Tolong minggu depan sudah ada tombol share ke TikTok di halaman produk ya. Kompetitor sudah punya.' Sprint sudah penuh dengan 3 bug kritikal.",
+      "sender": "CEO (WhatsApp)",
+      "time": "21:40 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Langsung masukkan ke sprint dan geser bug ke sprint depan.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Tulis one-pager trade-off: estimasi effort, bug yang tertunda, dan dampak metrik — lalu minta keputusan eksplisit.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Abaikan pesan CEO sampai sprint selesai.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Janji akan dikerjakan tanpa cek kapasitas tim engineering.",
+        "type": "Risky"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. PM tidak bilang ya atau tidak — PM membuat trade-off terlihat. One-pager memaksa keputusan berbasis data, bukan hirarki.",
+      "Fatal": "Menggeser bug kritikal demi titipan merusak kepercayaan tim, dan mengabaikan CEO merusak kepercayaanmu sendiri.",
+      "PractitionerQuote": "Di startup lokal, titipan itu pasti ada. Senjata APM bukan penolakan, tapi dokumen satu halaman yang bikin biaya keputusan kelihatan."
+    }
+  },
+  {
+    "id": "hrbp-underperform-1",
+    "roleId": "hr-business-partner",
+    "title": "Karyawan Underperform Minta Naik Gaji",
+    "context": {
+      "message": "Engineering Manager: 'Anggota tim saya, D, minta naik gaji 30%, tapi performanya 2 kuartal terakhir di bawah ekspektasi. Saya tidak mau dia resign karena rekrut pengganti butuh 3 bulan.'",
+      "sender": "Engineering Manager (1-on-1)",
+      "time": "11:00 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Setujui kenaikan gaji supaya dia tidak resign.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Susun PIP 60 hari dengan target terukur + jadwalkan review; kenaikan gaji dikaitkan ke hasil PIP.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Tolak mentah-mentah dan ancam dengan SP.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Naikkan sedikit (10%) sebagai kompromi tanpa syarat.",
+        "type": "Risky"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. HRBP menjembatani bisnis dan karyawan: PIP melindungi perusahaan secara legal sekaligus memberi karyawan jalur yang adil. Gaji mengikuti bukti, bukan ancaman resign.",
+      "Fatal": "Menuruti ancaman merusak struktur gaji tim; ancaman SP tanpa proses merusak kepercayaan dan berisiko hukum.",
+      "PractitionerQuote": "Di korporat Indonesia, prinsipnya: tidak ada keputusan SDM tanpa kertas. PIP, target terukur, dan tenggat tertulis — itu yang menyelamatkan semua pihak."
+    }
+  },
+  {
+    "id": "analyst-mismatch-1",
+    "roleId": "data-analyst",
+    "title": "Angka Dashboard Beda 8% dengan Finance",
+    "context": {
+      "message": "Head of Marketing: 'Angka dashboard kamu beda 8% dengan laporan finance. Promo 3 divisi nunggu angka final hari ini. Angka mana yang benar?'",
+      "sender": "Head of Marketing (Slack)",
+      "time": "10:05 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Pakai angka finance sementara supaya promo jalan hari ini.",
+        "type": "Risky"
+      },
+      {
+        "id": "B",
+        "text": "Bekukan dashboard, audit lineage query, temukan sumber selisih, lalu rilis angka final dengan catatan metodologi.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Bilang dashboard yang benar tanpa bukti, karena kamu yang membangunnya.",
+        "type": "Fatal"
+      },
+      {
+        "id": "D",
+        "text": "Hapus dashboard supaya tidak ada yang komplain.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Integritas data mengalahkan kecepatan rilis. Audit lineage menemukan akar selisih dan catatan metodologi mencegah drama yang sama bulan depan.",
+      "Fatal": "Memaksakan angka tanpa bukti menghancurkan kepercayaan — sekali stakeholder tidak percaya dashboard, mereka tidak akan pernah kembali.",
+      "PractitionerQuote": "Di e-commerce lokal, selisih angka itu pasti terjadi. Yang membedakan analis junior dan senior: junior buru-buru rilis, senior buru-buru menemukan kenapa beda."
+    }
+  },
+  {
+    "id": "designer-checkout-1",
+    "roleId": "ui-ux-designer",
+    "title": "40% User Gagal Checkout",
+    "context": {
+      "message": "Hasil usability testing ronde 2: 40% responden gagal checkout. Rilis 24 layar sudah dijadwalkan minggu depan dan PM mulai panik.",
+      "sender": "UX Researcher (Maze report)",
+      "time": "09:30 WIB"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Rilis saja dulu, perbaiki setelah ada komplain user asli.",
+        "type": "Fatal"
+      },
+      {
+        "id": "B",
+        "text": "Sederhanakan form + tambah opsi COD berdasarkan pola kegagalan, lalu uji ulang 5 user sebelum rilis.",
+        "type": "Optimal"
+      },
+      {
+        "id": "C",
+        "text": "Redesain total semua 24 layar dari nol.",
+        "type": "Risky"
+      },
+      {
+        "id": "D",
+        "text": "Salahkan responden testing yang tidak representatif.",
+        "type": "Fatal"
+      }
+    ],
+    "feedback": {
+      "Optimal": "Tepat. Perbaiki pola kegagalan terbesar dulu, validasi dengan 5 user lagi — cukup untuk menangkap 80% masalah tanpa menunda rilis berbulan-bulan.",
+      "Fatal": "Rilis dengan 40% kegagalan berarti sengaja mengirim user ke tembok. Menyalahkan responden menutup satu-satunya sumber kebenaran yang kamu punya.",
+      "PractitionerQuote": "Di agensi dan startup Jakarta, testing itu bukan vonis — itu peta. Perbaiki satu pola terbesar, uji 5 orang lagi, baru bicara rilis."
+    }
+  }
+]

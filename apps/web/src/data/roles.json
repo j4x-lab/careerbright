@@ -1,0 +1,205 @@
+[
+  {
+    "id": "social-media-specialist",
+    "category": "Creative & Marketing",
+    "title": "Social Media Specialist",
+    "shortDescription": "Bukan cuma main TikTok, tapi mengelola budget, krisis PR, dan kalender konten.",
+    "tools": ["Meta Ads Manager", "Figma", "Sprout Social", "CapCut"],
+    "mythVsReality": {
+      "myth": "Kerjanya jalan-jalan, bikin konten estetik, dan scrolling medsos seharian.",
+      "reality": "90% waktunya habis untuk menganalisa data engagement, revisi caption dari klien, dan pusing mengejar metrics."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Cek daily metrics (Engagement, CTR) dari campaign kemarin." },
+      { "time": "10:30 WIB", "event": "Sync dengan tim design untuk revisi aset visual." },
+      { "time": "14:00 WIB", "event": "Drafting kalender konten bulan depan untuk approval Manager." },
+      { "time": "16:30 WIB", "event": "Community management: Balas komen dan komplain customer di Instagram." }
+    ]
+  },
+  {
+    "id": "hr-business-partner",
+    "category": "Business & Operations",
+    "title": "HR Business Partner (HRBP)",
+    "shortDescription": "Jembatan antara manajemen perusahaan dan kebutuhan karyawan. Fokus pada strategi, bukan cuma absen.",
+    "tools": ["Workday", "Excel", "Lattice"],
+    "mythVsReality": {
+      "myth": "HR itu cuma urus gaji, cuti, dan kasih SP.",
+      "reality": "HRBP harus ngerti target bisnis perusahaan dan bantu Manager tim lain mengatur strategi hiring & firing."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Review data turnover karyawan divisi Tech." },
+      { "time": "11:00 WIB", "event": "1-on-1 dengan Engineering Manager bahas karyawan underperform." },
+      { "time": "14:00 WIB", "event": "Meeting komite performance appraisal." }
+    ]
+  },
+  {
+    "id": "frontend-developer",
+    "category": "Tech & Product",
+    "title": "Frontend Developer",
+    "shortDescription": "Bukan cuma bikin tampilan bagus, tapi menangani API timeout, handoff Figma yang incomplete, dan legacy code.",
+    "tools": ["React", "TypeScript", "Figma", "Git"],
+    "mythVsReality": {
+      "myth": "Kerjanya cuma slicing design Figma jadi kode yang pixel-perfect.",
+      "reality": "Sebagian besar waktu habis untuk debugging API yang timeout, negosiasi scope dengan PM, dan memperbaiki code orang lain."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Standup: update progress sprint dan blockers kemarin." },
+      { "time": "10:00 WIB", "event": "Investigasi bug checkout yang hanya terjadi di HP Android RAM kecil." },
+      { "time": "13:00 WIB", "event": "Sync dengan designer: handoff Figma kurang state empty dan error." },
+      { "time": "15:30 WIB", "event": "Code review PR teman + bantu debug API timeout saat flash sale." }
+    ]
+  },
+  {
+    "id": "associate-product-manager",
+    "category": "Tech & Product",
+    "title": "Associate Product Manager (APM)",
+    "shortDescription": "Bukan cuma bikin roadmap keren, tapi memprioritaskan bug, menolak titipan CEO, dan menulis PRD.",
+    "tools": ["Jira", "Notion", "Figma", "Mixpanel"],
+    "mythVsReality": {
+      "myth": "PM itu kerjaannya brainstorming fitur keren dan presentasi ke direksi.",
+      "reality": "Kerjanya 70% menulis dokumen, memprioritaskan backlog, dan bilang tidak ke stakeholder — termasuk CEO."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Grooming backlog: 40 tiket bug vs 3 permintaan fitur baru." },
+      { "time": "11:00 WIB", "event": "CEO titip fitur baru via WA. Tulis analisis trade-off-nya." },
+      { "time": "14:00 WIB", "event": "Sync dengan engineering: estimasi scope PRD sprint depan." },
+      { "time": "16:00 WIB", "event": "Review metrik: kenapa retention turun setelah rilis kemarin." }
+    ]
+  },
+  {
+    "id": "data-analyst",
+    "category": "Tech & Product",
+    "title": "Data Analyst",
+    "shortDescription": "Bukan cuma bikin chart cantik, tapi membersihkan data kotor dan mempertahankan angka di depan finance.",
+    "tools": ["SQL", "Python", "Metabase", "Excel"],
+    "mythVsReality": {
+      "myth": "Kerjanya query SQL sebentar lalu dashboard jadi sendiri.",
+      "reality": "80% waktu habis untuk validasi data, dan sisanya meyakinkan stakeholder bahwa angkamu benar."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Cek scheduled query malam: ada yang gagal atau anomali." },
+      { "time": "10:30 WIB", "event": "Finance komplain angka dashboard beda 8% dengan laporan mereka." },
+      { "time": "13:00 WIB", "event": "Audit lineage query + tracing definisi metrik." },
+      { "time": "15:00 WIB", "event": "Presentasi insight ke tim marketing dalam bahasa non-teknis." }
+    ]
+  },
+  {
+    "id": "ui-ux-designer",
+    "category": "Creative & Marketing",
+    "title": "UI/UX Designer",
+    "shortDescription": "Bukan cuma bikin layar estetik di Figma, tapi berdebat dengan developer soal padding dan stakeholder soal revisi.",
+    "tools": ["Figma", "Maze", "Notion", "Illustrator"],
+    "mythVsReality": {
+      "myth": "Designer itu seniman digital yang bebas berkreasi seharian.",
+      "reality": "Kerjanya riset user, revisi berulang dari stakeholder, dan negosiasi handoff dengan developer."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Review hasil usability testing ronde kemarin." },
+      { "time": "11:00 WIB", "event": "Revisi wireframe setelah feedback PM yang bertolak belakang dengan riset." },
+      { "time": "14:00 WIB", "event": "Handoff ke developer: spek 1 layar + edge case yang sering dilupakan." },
+      { "time": "16:00 WIB", "event": "Design critique mingguan: presentasi dan terima feedback tajam." }
+    ]
+  },
+  {
+    "id": "account-executive",
+    "category": "Business & Operations",
+    "title": "Account Executive",
+    "shortDescription": "Bukan cuma meeting dan makan siang dengan klien, tapi kejar target kuota tiap kuartal.",
+    "tools": ["Salesforce", "Excel", "LinkedIn", "WhatsApp Business"],
+    "mythVsReality": {
+      "myth": "Sales itu bakat ngomong, yang penting supel dan punya relasi.",
+      "reality": "Kerjanya pipeline management, follow-up disiplin, dan ditolak berkali-kali sebelum satu deal close."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Review pipeline: deal mana yang bisa close minggu ini." },
+      { "time": "10:30 WIB", "event": "Follow-up prospek yang ghosting setelah demo minggu lalu." },
+      { "time": "13:00 WIB", "event": "Demo produk ke klien + tangani objeksi harga." },
+      { "time": "16:00 WIB", "event": "Update CRM + forecast kuartal ke manager." }
+    ]
+  },
+  {
+    "id": "management-trainee",
+    "category": "Business & Operations",
+    "title": "Management Trainee (MT)",
+    "shortDescription": "Bukan jalur cepat jadi manajer, tapi rotasi divisi dengan target mustahil tiap 3 bulan.",
+    "tools": ["Excel", "PowerPoint", "SAP", "Power BI"],
+    "mythVsReality": {
+      "myth": "MT itu program elit: digaji besar sambil disiapkan jadi direktur.",
+      "reality": "Rotasi tiap beberapa bulan berarti selalu jadi anak baru — dinilai ketat dan bisa gugur kapan saja."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Briefing rotasi baru: target 90 hari yang belum jelas ukurannya." },
+      { "time": "11:00 WIB", "event": "Shadowing supervisor cabang + catat semua SOP yang tidak tertulis." },
+      { "time": "14:00 WIB", "event": "Kerjakan project improvement dengan data seadanya." },
+      { "time": "16:30 WIB", "event": "Presentasi progress ke panel reviewer MT." }
+    ]
+  },
+  {
+    "id": "junior-accountant",
+    "category": "Finance & Banking",
+    "title": "Junior Accountant",
+    "shortDescription": "Bukan cuma input angka ke Excel, tapi kejar tutup buku tiap bulan dan hadapi audit.",
+    "tools": ["Excel", "SAP", "e-Faktur", " accurate"],
+    "mythVsReality": {
+      "myth": "Akuntan itu kerja rapi 9-to-5, angkanya selalu balance.",
+      "reality": "Akhir bulan lembur kejar closing, selisih Rp1.000 bisa bikin pulang malam."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Rekonsiliasi bank: cari selisih kemarin." },
+      { "time": "11:00 WIB", "event": "Input faktur vendor + cek NPWP dan e-Faktur." },
+      { "time": "14:00 WIB", "event": "Siapkan laporan untuk review senior sebelum closing." },
+      { "time": "16:30 WIB", "event": "Follow-up piutang yang telat bayar via WA sopan tapi tegas." }
+    ]
+  },
+  {
+    "id": "teller-bank",
+    "category": "Finance & Banking",
+    "title": "Teller Bank",
+    "shortDescription": "Bukan cuma duduk manis di balik kaca, tapi target cross-selling plus antrean yang tidak habis.",
+    "tools": ["Core Banking", "Mesin hitung uang", "QMS antrean"],
+    "mythVsReality": {
+      "myth": "Teller itu kerja santai, tinggal layani nasabah yang datang.",
+      "reality": "Ada target produk tiap bulan, kas harus nol selisih, dan komplain antrean jadi tanggung jawabmu."
+    },
+    "timeline": [
+      { "time": "08:00 WIB", "event": "Hitung kas awal + cek selisih hari sebelumnya." },
+      { "time": "09:00 WIB", "event": "Layani setoran, tarikan, dan keluhan antrean." },
+      { "time": "13:00 WIB", "event": "Tawarkan produk tabungan/deposito ke nasabah yang cocok." },
+      { "time": "16:30 WIB", "event": "Closing kas: hitung ulang sampai nol selisih." }
+    ]
+  },
+  {
+    "id": "content-creator-agency",
+    "category": "Creative & Marketing",
+    "title": "Content Creator (Agency)",
+    "shortDescription": "Bukan cuma pegang kamera, tapi revisi konsep berkali-kali sampai klien bilang oke.",
+    "tools": ["CapCut", "Premiere", "Figma", "TikTok"],
+    "mythVsReality": {
+      "myth": "Content creator agency itu kerja kreatif bebas tiap hari.",
+      "reality": "Brief klien berubah-ubah, deadline mepet, dan performa konten diukur angka — bukan selera."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Cek performa konten kemarin: view, CTR, komen." },
+      { "time": "11:00 WIB", "event": "Shooting + revisi konsep setelah klien ganti arah." },
+      { "time": "14:00 WIB", "event": "Edit + subtitle + jadwalkan posting." },
+      { "time": "16:00 WIB", "event": "Laporan mingguan ke klien dengan angka, bukan opini." }
+    ]
+  },
+  {
+    "id": "customer-success",
+    "category": "Business & Operations",
+    "title": "Customer Success Specialist",
+    "shortDescription": "Bukan cuma ramah ke pelanggan, tapi mencegah churn dengan data dan follow-up.",
+    "tools": ["Zendesk", "HubSpot", "Excel", "WhatsApp Business"],
+    "mythVsReality": {
+      "myth": "CS itu tinggal jawab chat dengan template ramah.",
+      "reality": "Harus baca health score akun, eskalasi bug ke produk, dan menyelamatkan klien yang mau kabur."
+    },
+    "timeline": [
+      { "time": "09:00 WIB", "event": "Cek health dashboard: akun mana yang merah minggu ini." },
+      { "time": "10:30 WIB", "event": "Onboarding call klien baru + set ekspektasi." },
+      { "time": "13:00 WIB", "event": "Eskalasi bug kritis ke tim produk dengan kronologi." },
+      { "time": "15:30 WIB", "event": "QBR mini: tunjukkan ROI ke klien yang mau churn." }
+    ]
+  }
+]

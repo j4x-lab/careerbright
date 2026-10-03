@@ -60,12 +60,12 @@ export default async function LandingPage({ locale }: { locale: string }) {
   ];
   const WAVE2 = [t("roleJa"), t("roleSe"), t("roleCa")];
   const TICKER = [t("roleDm"), t("roleDa"), t("roleUx"), ...WAVE2];
+  /* PRD 3-step value prop (Discover → Simulate → Decide). The old 5-step
+     "siap kerja" ladder described the retired course model, not discovery. */
   const STEPS: [string, string, string][] = [
-    [t("step1n"), t("step1t"), t("step1d")],
-    [t("step2n"), t("step2t"), t("step2d")],
-    [t("step3n"), t("step3t"), t("step3d")],
-    [t("step4n"), t("step4t"), t("step4d")],
-    [t("step5n"), t("step5t"), t("step5d")],
+    ["01", t("value1t"), t("value1d")],
+    ["02", t("value2t"), t("value2d")],
+    ["03", t("value3t"), t("value3d")],
   ];
   return (
     <main id="konten" tabIndex={-1} className="overflow-x-clip bg-paper text-ink">
@@ -122,6 +122,51 @@ export default async function LandingPage({ locale }: { locale: string }) {
                 </span>
               </a>
             </div>
+
+            {/* In-hero search (PRD §4.1): plain GET form so it works without
+                JS; the catalog reads ?q= as its initial query. */}
+            <form
+              action={locale === "id" ? "/roles" : `/${locale}/roles`}
+              method="get"
+              className="hero-enter hero-enter-4 mt-6"
+              role="search"
+            >
+              <label htmlFor="hero-cari" className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand-700">
+                {t("heroSearchLabel")}
+              </label>
+              <div className="relative mt-2.5 flex gap-2">
+                <div className="relative min-w-0 flex-1">
+                  <span aria-hidden className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-faint">⌕</span>
+                  <input
+                    id="hero-cari"
+                    name="q"
+                    type="search"
+                    placeholder={t("heroSearchPh")}
+                    className="field !pl-11 !py-3.5 !text-[15px]"
+                    autoComplete="off"
+                  />
+                </div>
+                <button type="submit" className="btn-primary min-h-[52px] flex-none px-6 text-sm">
+                  {t("heroSearchCta")}
+                </button>
+              </div>
+            </form>
+
+            {/* Role categories (PRD §4.1): four plain links into the directory. */}
+            <ul className="hero-enter hero-enter-4 mt-5 flex flex-wrap gap-2">
+              {[
+                [t("heroCatTech"), "Tech & Product"],
+                [t("heroCatCreative"), "Creative & Marketing"],
+                [t("heroCatBiz"), "Business & Operations"],
+                [t("heroCatFinance"), "Finance & Banking"],
+              ].map(([label]) => (
+                <li key={label}>
+                  <Link href="/roles" className="chip min-h-[44px] transition hover:border-ink">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
             {/* Proof strip: what is actually inside, honestly scoped.
                 Hairline-ruled instead of three chip-cards. */}
@@ -466,11 +511,10 @@ export default async function LandingPage({ locale }: { locale: string }) {
         </Reveal>
       </section>
 
-      {/* ── HOW ROLEPATH WORKS ─────────────────────────────────
-          Header treatment 3/3: index and title on one baseline, standfirst
-          in the right rail. Steps are a ledger (number · title · body),
-          never a 5-up card grid — and each title is a real h3 so the page
-          has a heading outline instead of bold <p>s. */}
+      {/* ── HOW IT WORKS (PRD 3-step value prop) ────────────────
+          Header treatment 3/3: index and title on one baseline. The ledger
+          below carries the three steps; each title is a real h3 so the page
+          keeps a heading outline instead of bold <p>s. */}
       <section
         id="cara-kerja"
         className="mx-auto max-w-7xl scroll-mt-32 px-4 py-20 md:py-32"
@@ -480,13 +524,10 @@ export default async function LandingPage({ locale }: { locale: string }) {
             <div className="grid gap-5 md:grid-cols-12 md:items-baseline md:gap-8">
               <h2 className="font-nova max-w-[20ch] text-[32px] font-bold leading-[1.06] tracking-[-0.02em] md:col-span-7 md:text-[40px]">
                 <span aria-hidden className="tnum mr-4 align-super font-mono text-[13px] font-bold tracking-[0.2em] text-brand-700">
-                  02
+                  03
                 </span>
-                {t("stepsTitle")}
+                {t("valueEyebrow")}
               </h2>
-              <p className="max-w-[40ch] text-[15px] leading-relaxed text-soft md:col-span-5">
-                {t("stepsSub")}
-              </p>
             </div>
           </div>
         </Reveal>
