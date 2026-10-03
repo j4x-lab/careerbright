@@ -86,6 +86,21 @@ export function AdminConsole() {
     })
   );
 
+  const [jobTitle, setJobTitle] = useState("");
+  const [draft, setDraft] = useState<unknown>(null);
+  const generate = useMutation(
+    trpc.admin.generateDraft.mutationOptions({
+      onSuccess: (d) => {
+        setDraft(d);
+        flash.ok(t("draftReady"));
+      },
+      onError: (e) => {
+        setDraft(null);
+        flash.err(`${t("errRole")} ${e.message}`);
+      },
+    })
+  );
+
   const [slug, setSlug] = useState("");
   const [titleId, setTitleId] = useState("");
   const [titleEn, setTitleEn] = useState("");
@@ -213,6 +228,70 @@ export function AdminConsole() {
           </dl>
         ) : (
           <p className="mt-5 text-sm text-soft">{t("errRole")}</p>
+        )}
+      </section>
+
+      {/* ── AI content generator (PRD: Scalability Engine) ──────────
+          Generates a validated role + scenarios draft from a job title.
+          Review it here; publication is a manual repo commit, never automatic. */}
+      <section aria-labelledby="admin-gen">
+        <div className="flex flex-wrap items-baseline justify-between gap-3 border-t border-line pt-6">
+          <h2 id="admin-gen" className="font-nova text-2xl font-bold tracking-[-0.02em] md:text-3xl">
+            {t("genTitle")}
+          </h2>
+          <p className="max-w-[46ch] text-[13px] leading-relaxed text-muted">{t("genSub")}</p>
+        </div>
+        <form
+          className="panel mt-5 p-5 md:p-6"
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (jobTitle.trim().length >= 3) generate.mutate({ jobTitle: jobTitle.trim() });
+          }}
+        >
+          <div className="grid gap-4 md:grid-cols-12">
+            <label className="grid gap-2 text-sm md:col-span-9">
+              {t("genLabel")}
+              <input
+                name="jobTitle" required minLength={3} maxLength={80}
+                value={jobTitle} onChange={(e) => setJobTitle(e.target.value)}
+                placeholder={t("genPh")} className="field"
+              />
+            </label>
+            <div className="flex items-end md:col-span-3">
+              <button
+                type="submit" disabled={generate.isPending || jobTitle.trim().length < 3}
+                className="btn-primary min-h-[44px] w-full justify-center text-sm disabled:opacity-50"
+              >
+                {generate.isPending ? t("saving") : t("genCta")}
+              </button>
+            </div>
+          </div>
+        </form>
+        {draft !== null && (
+          <div className="panel mt-4 overflow-hidden">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line bg-paper px-5 py-3">
+              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
+                {t("genReview")}
+              </p>
+              <button
+                type="button"
+                onClick={async () => {
+                  try {
+                    await navigator.clipboard.writeText(JSON.stringify(draft, null, 2));
+                    flash.ok(t("genCopied"));
+                  } catch {
+                    flash.err(t("errRole"));
+                  }
+                }}
+                className="btn-ghost min-h-[44px] px-4 py-2 text-[13px]"
+              >
+                {t("genCopy")}
+              </button>
+            </div>
+            <pre className="max-h-[480px] overflow-auto bg-paper p-5 font-mono text-[12px] leading-relaxed text-soft">
+              {JSON.stringify(draft, null, 2)}
+            </pre>
+          </div>
         )}
       </section>
 

@@ -3,6 +3,7 @@ import { Pool } from "pg";
 import { z } from "zod";
 import { protectedProcedure, router } from "../trpc";
 import { getSession } from "../guard";
+import { GeminiError, generateRoleDraft } from "../nim";
 
 /*
  * Admin operations.
@@ -113,6 +114,25 @@ export const adminRouter = router({
         throw new TRPCError({ code: "NOT_FOUND", message: "No such row" });
       }
       return rows[0];
+    }),
+
+  /* AI content generator (PRD: "The Scalability Engine"). Staff type a job
+     title; Gemini returns a validated role + scenarios draft for human
+     review. Publication stays manual (copy the JSON into the repo and
+     commit) so every addition keeps a reviewer and a git history. */
+  generateDraft: adminProcedure
+    .input(z.object({ jobTitle: z.string().min(3).max(80) }))
+    .mutation(async ({ input }) => {
+      try {
+        return await generateRoleDraft(input.jobTitle);
+      } catch (e) {
+        if (e instanceof GeminiError) {
+          const code =
+            e.code === "NO_KEY" ? "PRECONDITION_FAILED" : "BAD_GATEWAY";
+          throw new TRPCError({ code, message: e.message });
+        }
+        throw e;
+      }
     }),
 
   courses: adminProcedure.query(async () => {

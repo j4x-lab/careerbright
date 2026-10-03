@@ -476,7 +476,16 @@
     "mLatencySub": "Belum ada evaluasi AI — tidak diukur.",
     "mExport": "Portfolio export",
     "mExportSub": "Belum ada fitur ekspor — tidak diukur.",
-    "mUninstrumented": "belum diukur"
+    "mUninstrumented": "belum diukur",
+    "genTitle": "Generator konten AI",
+    "genSub": "Ketik jabatan, Gemini mengembalikan draf peran + micro-skenario yang sudah lolos validasi skema. Review di sini; penerbitan tetap lewat commit manual.",
+    "genLabel": "Jabatan",
+    "genPh": "contoh: Account Executive",
+    "genCta": "Generate draf",
+    "genReview": "Draf untuk direview — belum diterbitkan",
+    "genCopy": "Salin JSON",
+    "genCopied": "JSON tersalin. Tempel ke roles.json / micro_scenarios.json lalu commit.",
+    "draftReady": "Draf jadi dan lolos validasi. Review sebelum diterbitkan."
   },
   "curriculum": {
     "catalogMetaLessons": "{n} materi · Gratis",

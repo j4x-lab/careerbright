@@ -471,7 +471,16 @@
     "mLatencySub": "No AI evaluation flow yet — unmeasured.",
     "mExport": "Portfolio export",
     "mExportSub": "No export feature yet — unmeasured.",
-    "mUninstrumented": "uninstrumented"
+    "mUninstrumented": "uninstrumented",
+    "genTitle": "AI content generator",
+    "genSub": "Type a job title; Gemini returns a schema-validated role + micro-scenario draft. Review it here; publication stays a manual commit.",
+    "genLabel": "Job title",
+    "genPh": "e.g. Account Executive",
+    "genCta": "Generate draft",
+    "genReview": "Draft for review — not published",
+    "genCopy": "Copy JSON",
+    "genCopied": "JSON copied. Paste into roles.json / micro_scenarios.json, then commit.",
+    "draftReady": "Draft ready and schema-valid. Review before publishing."
   },
   "curriculum": {
     "catalogMetaLessons": "{n} lessons · Free",
