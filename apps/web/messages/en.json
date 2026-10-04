@@ -1,9 +1,9 @@
 {
-  "common": { 
-    "skip": "Skip to main content", 
-    "langToggle": "ID / EN", 
-    "home": "← Home", 
-    "langSwitchLabel": "View the {lang} version" 
+  "common": {
+    "skip": "Skip to main content",
+    "langToggle": "ID / EN",
+    "home": "← Home",
+    "langSwitchLabel": "View the {lang} version"
   },
   "nav": {
     "flag": "Indonesian flag",
@@ -172,7 +172,23 @@
     "roleEvent": "Event & Brand Activation Supervisor",
     "capsEv1": "Campaign Planning",
     "capsEv2": "Vendor Management",
-    "capsEv3": "Crisis Management"
+    "capsEv3": "Crisis Management",
+    "profEyebrow": "Explore first, then choose",
+    "profTitle": "Know the profession before taking its mission.",
+    "profSub": "{total} mapped professions — {ready} already have practice missions. Search, filter by category, then do the work.",
+    "profSearchLabel": "Search professions or missions",
+    "profSearchPh": "e.g. Data Analyst, coffee, tax…",
+    "profSearchCta": "Search",
+    "profCatLabel": "Category",
+    "profRolesUnit": "roles",
+    "profCatMeta": "{mission} with missions · {popular} popular",
+    "profExplore": "Explore category →",
+    "profPopularLabel": "Start with the most wanted",
+    "profViewAll": "View all {n} professions →",
+    "profCtaEyebrow": "Mission catalog",
+    "profCtaTitle": "All {n} professions, each with its practice mission.",
+    "profCtaButton": "Open mission catalog",
+    "profSalaryNote": "Salaries are 2025–2026 Indonesian entry-level estimates from job aggregators — not placement promises."
   },
   "belajar": {
     "skip": "Skip to main content",
@@ -191,7 +207,15 @@
     "lessonsTitle": "Lessons · {n}",
     "recTitle": "Up Next: {title}",
     "next": "Continue Learning",
-    "experience": ["Short videos", "Reading materials", "Quizzes", "Hands-on practice", "Real-world projects", "Assessments", "Certificate"],
+    "experience": [
+      "Short videos",
+      "Reading materials",
+      "Quizzes",
+      "Hands-on practice",
+      "Real-world projects",
+      "Assessments",
+      "Certificate"
+    ],
     "metaDefaultLevel": "All levels",
     "metaDefaultDuration": "{n} lessons",
     "metaDefaultSkills": "Practical skills",
@@ -199,12 +223,73 @@
     "metaDefaultUpdated": "Oct 2026 · v1.0",
     "photoAltDefault": "Junior analyst working on a laptop in a Jakarta office",
     "meta": {
-      "js-dasar-analis": { "level": "Beginner–Intermediate", "duration": "6 hours · 2 lessons", "skills": ["JavaScript", "Arrays", "Functions", "Data aggregation"], "project": "A revenue-calculation function that passes 3 automated tests.", "updated": "Oct 2026 · v1.0" },
-      "cv-siap-lamar": { "level": "All levels", "duration": "3 hours · 2 lessons", "skills": ["Résumé writing", "Portfolio building", "Personal branding"], "project": "A structured one-page résumé and a public profile ready for applications.", "updated": "Oct 2026 · v1.0" },
-      "interview-pertama": { "level": "All levels", "duration": "3 hours · 2 lessons", "skills": ["HR interviews", "Salary negotiation", "Professional communication"], "project": "A 2-minute mock interview evaluated by AI.", "updated": "Oct 2026 · v1.0" },
-      "digital-marketing-umkm": { "level": "Beginner", "duration": "4 hours · 2 lessons", "skills": ["Marketplace strategy", "Content creation", "Micro-budget advertising"], "project": "A Rp50K advertising plan optimized to generate customer inquiries.", "updated": "Oct 2026 · v1.0" },
-      "keuangan-gaji-bulanan": { "level": "All levels", "duration": "3 hours · 2 lessons", "skills": ["Budgeting", "Emergency funds", "Fraud awareness"], "project": "A personal 50-30-20 budget plan with an automated savings setup.", "updated": "Oct 2026 · v1.0" },
-      "kerja-kantor-indonesia": { "level": "All levels", "duration": "3 hours · 2 lessons", "skills": ["Office hierarchy", "Meeting etiquette", "Handling feedback"], "project": "A workplace simulation on managing impossible tasks and responding to critical feedback.", "updated": "Oct 2026 · v1.0" }
+      "js-dasar-analis": {
+        "level": "Beginner–Intermediate",
+        "duration": "6 hours · 2 lessons",
+        "skills": [
+          "JavaScript",
+          "Arrays",
+          "Functions",
+          "Data aggregation"
+        ],
+        "project": "A revenue-calculation function that passes 3 automated tests.",
+        "updated": "Oct 2026 · v1.0"
+      },
+      "cv-siap-lamar": {
+        "level": "All levels",
+        "duration": "3 hours · 2 lessons",
+        "skills": [
+          "Résumé writing",
+          "Portfolio building",
+          "Personal branding"
+        ],
+        "project": "A structured one-page résumé and a public profile ready for applications.",
+        "updated": "Oct 2026 · v1.0"
+      },
+      "interview-pertama": {
+        "level": "All levels",
+        "duration": "3 hours · 2 lessons",
+        "skills": [
+          "HR interviews",
+          "Salary negotiation",
+          "Professional communication"
+        ],
+        "project": "A 2-minute mock interview evaluated by AI.",
+        "updated": "Oct 2026 · v1.0"
+      },
+      "digital-marketing-umkm": {
+        "level": "Beginner",
+        "duration": "4 hours · 2 lessons",
+        "skills": [
+          "Marketplace strategy",
+          "Content creation",
+          "Micro-budget advertising"
+        ],
+        "project": "A Rp50K advertising plan optimized to generate customer inquiries.",
+        "updated": "Oct 2026 · v1.0"
+      },
+      "keuangan-gaji-bulanan": {
+        "level": "All levels",
+        "duration": "3 hours · 2 lessons",
+        "skills": [
+          "Budgeting",
+          "Emergency funds",
+          "Fraud awareness"
+        ],
+        "project": "A personal 50-30-20 budget plan with an automated savings setup.",
+        "updated": "Oct 2026 · v1.0"
+      },
+      "kerja-kantor-indonesia": {
+        "level": "All levels",
+        "duration": "3 hours · 2 lessons",
+        "skills": [
+          "Office hierarchy",
+          "Meeting etiquette",
+          "Handling feedback"
+        ],
+        "project": "A workplace simulation on managing impossible tasks and responding to critical feedback.",
+        "updated": "Oct 2026 · v1.0"
+      }
     },
     "photoAlt": {
       "js-dasar-analis": "Junior analyst working on a laptop in a Jakarta office",
@@ -247,15 +332,49 @@
         "alt": "Junior developer coding on a laptop in a Jakarta office",
         "caption": "Work to professional standards — starting from day one",
         "stages": [
-          { "name": "Beginner", "items": "HTML → CSS → JavaScript", "formats": "Videos · Reading materials · Quizzes" },
-          { "name": "Intermediate", "items": "TypeScript → React → API → Git", "formats": "Coding labs · Simulations" },
-          { "name": "Advanced", "items": "Testing → Architecture → Performance → Deployment", "formats": "Projects · AI code review" },
-          { "name": "Portfolio", "items": "Real Indonesian business website + technical case study", "formats": "Mock client project · Unaffiliated" },
-          { "name": "Career", "items": "Résumé → Interviews → Technical assessments", "formats": "HR simulator · Technical tests" }
+          {
+            "name": "Beginner",
+            "items": "HTML → CSS → JavaScript",
+            "formats": "Videos · Reading materials · Quizzes"
+          },
+          {
+            "name": "Intermediate",
+            "items": "TypeScript → React → API → Git",
+            "formats": "Coding labs · Simulations"
+          },
+          {
+            "name": "Advanced",
+            "items": "Testing → Architecture → Performance → Deployment",
+            "formats": "Projects · AI code review"
+          },
+          {
+            "name": "Portfolio",
+            "items": "Real Indonesian business website + technical case study",
+            "formats": "Mock client project · Unaffiliated"
+          },
+          {
+            "name": "Career",
+            "items": "Résumé → Interviews → Technical assessments",
+            "formats": "HR simulator · Technical tests"
+          }
         ],
-        "skills": ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Git", "REST APIs", "Testing"],
+        "skills": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "TypeScript",
+          "React",
+          "Git",
+          "REST APIs",
+          "Testing"
+        ],
         "project": "A corporate profile website and e-commerce storefront for a simulated Bandung SME.",
-        "career": ["Résumé + LinkedIn optimization", "superbright.id/u/yourname public portfolio", "HR mock interviews", "Technical tests + AI feedback"],
+        "career": [
+          "Résumé + LinkedIn optimization",
+          "superbright.id/u/yourname public portfolio",
+          "HR mock interviews",
+          "Technical tests + AI feedback"
+        ],
         "context": "Local integrations: QRIS checkout flows, inter-island shipping logic, Indonesian-language product catalogs."
       },
       "umkm-digital-entrepreneur": {
@@ -268,14 +387,41 @@
         "alt": "University student reviewing business materials in Jakarta",
         "caption": "Learn business strategy on your own schedule",
         "stages": [
-          { "name": "Foundation", "items": "Business basics → Customer research → Brand positioning", "formats": "Videos · Strategy templates" },
-          { "name": "Sales", "items": "Marketplace strategy → Social media engagement → Digital ads", "formats": "Case studies · Hands-on practice" },
-          { "name": "Finance", "items": "Basic accounting → Foundational tax → Analytics", "formats": "Spreadsheets · Quizzes" },
-          { "name": "Final Project", "items": "Complete digital strategy for a simulated Bandung coffee shop", "formats": "Presentation · Mentor review" }
+          {
+            "name": "Foundation",
+            "items": "Business basics → Customer research → Brand positioning",
+            "formats": "Videos · Strategy templates"
+          },
+          {
+            "name": "Sales",
+            "items": "Marketplace strategy → Social media engagement → Digital ads",
+            "formats": "Case studies · Hands-on practice"
+          },
+          {
+            "name": "Finance",
+            "items": "Basic accounting → Foundational tax → Analytics",
+            "formats": "Spreadsheets · Quizzes"
+          },
+          {
+            "name": "Final Project",
+            "items": "Complete digital strategy for a simulated Bandung coffee shop",
+            "formats": "Presentation · Mentor review"
+          }
         ],
-        "skills": ["Brand positioning", "Marketplace strategy", "Digital advertising", "Basic accounting", "Tax fundamentals", "Analytics"],
+        "skills": [
+          "Brand positioning",
+          "Marketplace strategy",
+          "Digital advertising",
+          "Basic accounting",
+          "Tax fundamentals",
+          "Analytics"
+        ],
         "project": "A comprehensive digital strategy document detailing positioning, sales channels, ad budgets, and 90-day targets.",
-        "career": ["Strategic portfolio", "Investor pitch simulation", "Local SME community access"],
+        "career": [
+          "Strategic portfolio",
+          "Investor pitch simulation",
+          "Local SME community access"
+        ],
         "context": "Halal certification processes, operational licensing, and Indonesian SME tax laws — always updated with current effective dates."
       },
       "data-analyst": {
@@ -288,14 +434,41 @@
         "alt": "Business team analyzing data on a screen in a modern office",
         "caption": "Learn to present data that drives decisions, not just reports that get ignored",
         "stages": [
-          { "name": "Foundation", "items": "Excel → SQL → Statistics", "formats": "Videos · Dataset exercises" },
-          { "name": "Tools", "items": "Python → Data Visualization → Power BI", "formats": "Coding labs · Projects" },
-          { "name": "Project", "items": "Indonesian e-commerce sales analysis", "formats": "Public datasets · Interactive dashboards" },
-          { "name": "Career", "items": "Certificate → Portfolio → Interview simulation", "formats": "Public verification profile" }
+          {
+            "name": "Foundation",
+            "items": "Excel → SQL → Statistics",
+            "formats": "Videos · Dataset exercises"
+          },
+          {
+            "name": "Tools",
+            "items": "Python → Data Visualization → Power BI",
+            "formats": "Coding labs · Projects"
+          },
+          {
+            "name": "Project",
+            "items": "Indonesian e-commerce sales analysis",
+            "formats": "Public datasets · Interactive dashboards"
+          },
+          {
+            "name": "Career",
+            "items": "Certificate → Portfolio → Interview simulation",
+            "formats": "Public verification profile"
+          }
         ],
-        "skills": ["Excel", "SQL", "Statistics", "Python", "Data Visualization", "Power BI"],
+        "skills": [
+          "Excel",
+          "SQL",
+          "Statistics",
+          "Python",
+          "Data Visualization",
+          "Power BI"
+        ],
         "project": "A functional Power BI dashboard providing promotional recommendations based on 3 months of transaction data.",
-        "career": ["Data Analytics Certificate", "Auto-generated portfolio", "HR interview simulation"],
+        "career": [
+          "Data Analytics Certificate",
+          "Auto-generated portfolio",
+          "HR interview simulation"
+        ],
         "context": "Local datasets featuring: Indonesian e-commerce transactions, regional SMEs, and domestic tourism data."
       },
       "siap-kerja": {
@@ -308,15 +481,46 @@
         "alt": "Recent graduate smiling confidently in front of an office building",
         "caption": "Bridge the gap from university to the corporate world",
         "stages": [
-          { "name": "Résumé", "items": "One-page optimized CV + professional email setup", "formats": "Templates · Checklists" },
-          { "name": "Portfolio", "items": "superbright.id/u/you: highlighting projects and certificates", "formats": "Public portfolio link" },
-          { "name": "Interview", "items": "2-minute introduction + salary expectations + behavioral questions", "formats": "HR simulation tool" },
-          { "name": "Workplace", "items": "Navigating hierarchy + meeting etiquette + receiving feedback", "formats": "Indonesian workplace scenarios" },
-          { "name": "Apply", "items": "Submitting applications + professional WhatsApp follow-up etiquette", "formats": "Action plan" }
+          {
+            "name": "Résumé",
+            "items": "One-page optimized CV + professional email setup",
+            "formats": "Templates · Checklists"
+          },
+          {
+            "name": "Portfolio",
+            "items": "superbright.id/u/you: highlighting projects and certificates",
+            "formats": "Public portfolio link"
+          },
+          {
+            "name": "Interview",
+            "items": "2-minute introduction + salary expectations + behavioral questions",
+            "formats": "HR simulation tool"
+          },
+          {
+            "name": "Workplace",
+            "items": "Navigating hierarchy + meeting etiquette + receiving feedback",
+            "formats": "Indonesian workplace scenarios"
+          },
+          {
+            "name": "Apply",
+            "items": "Submitting applications + professional WhatsApp follow-up etiquette",
+            "formats": "Action plan"
+          }
         ],
-        "skills": ["Résumé Writing", "Portfolio Curation", "Interviewing", "LinkedIn Optimization", "Workplace Etiquette"],
+        "skills": [
+          "Résumé Writing",
+          "Portfolio Curation",
+          "Interviewing",
+          "LinkedIn Optimization",
+          "Workplace Etiquette"
+        ],
         "project": "A complete job application package: an optimized CV, a public profile, and recorded mock interview performances.",
-        "career": ["ATS-friendly CV", "Verified project portfolio", "Interview practice simulations", "First-day office etiquette"],
+        "career": [
+          "ATS-friendly CV",
+          "Verified project portfolio",
+          "Interview practice simulations",
+          "First-day office etiquette"
+        ],
         "context": "Includes regional salary benchmarks across Indonesian cities, proper WhatsApp etiquette for recruiters, and navigating local corporate hierarchy."
       },
       "junior-accountant": {
@@ -329,14 +533,39 @@
         "alt": "Junior accountant working diligently in a Jakarta office",
         "caption": "Learn to close the books accurately and on time, every single month",
         "stages": [
-          { "name": "Phase 1", "items": "Financial Accounting Fundamentals", "formats": "Videos · Quizzes" },
-          { "name": "Phase 2", "items": "Corporate Tax & e-Faktur compliance", "formats": "e-Faktur simulations" },
-          { "name": "Phase 3", "items": "PSAK/IFRS Regulatory Reporting", "formats": "Case studies" },
-          { "name": "Capstone", "items": "Mock Client Tax Return + AI Evaluation", "formats": "Portfolio Project" }
+          {
+            "name": "Phase 1",
+            "items": "Financial Accounting Fundamentals",
+            "formats": "Videos · Quizzes"
+          },
+          {
+            "name": "Phase 2",
+            "items": "Corporate Tax & e-Faktur compliance",
+            "formats": "e-Faktur simulations"
+          },
+          {
+            "name": "Phase 3",
+            "items": "PSAK/IFRS Regulatory Reporting",
+            "formats": "Case studies"
+          },
+          {
+            "name": "Capstone",
+            "items": "Mock Client Tax Return + AI Evaluation",
+            "formats": "Portfolio Project"
+          }
         ],
-        "skills": ["Financial Accounting", "Corporate Income Tax (PPh)", "e-Faktur", "PSAK Standards"],
+        "skills": [
+          "Financial Accounting",
+          "Corporate Income Tax (PPh)",
+          "e-Faktur",
+          "PSAK Standards"
+        ],
         "project": "Prepare a complete annual tax return for a simulated corporate client, including all supporting working papers.",
-        "career": ["Skills Certificate", "Working-paper portfolio", "Technical interview simulation"],
+        "career": [
+          "Skills Certificate",
+          "Working-paper portfolio",
+          "Technical interview simulation"
+        ],
         "context": "Tax regulations are taught with strict attention to effective dates and updated immediately when local laws change."
       }
     }
@@ -395,14 +624,13 @@
     "sCredentialsSub": "OB 3.0 / VC 2.0 standard, publicly verifiable",
     "pathStatus": "Status: {status}",
     "noPathYet": "You haven't enrolled in a career path yet.",
-    "browsePaths": "Browse the course catalog",
+    "browsePaths": "Browse the role directory",
     "finishedTitle": "Completed Modules",
     "finishedSub": "Every row here represents a competency unit you have successfully finished.",
     "completedItem": "Competency unit completed",
     "doneBadge": "Completed",
     "emptyTitle": "No modules completed yet",
     "emptyHint": "Choose a career path and start learning. Every module you finish will appear here as verified evidence of your skills.",
-    "browsePaths": "Browse the role directory",
     "moreEyebrow": "Keep exploring",
     "moreTitle": "Tried one role? See how it compares to the rest.",
     "moreSub": "An hour of exploring is better than a semester of guessing. Browse the directory, read the profiles, and play the micro-scenarios."
@@ -478,7 +706,12 @@
     "recSame": "This is in the same path as {t} — keep your momentum going.",
     "recTop": "The most popular follow-up to {t} among other learners.",
     "community": "Community",
-    "catNames": { "Teknologi": "Technology", "Karier": "Careers", "Bisnis": "Business", "Indonesia": "Indonesia" },
+    "catNames": {
+      "Teknologi": "Technology",
+      "Karier": "Careers",
+      "Bisnis": "Business",
+      "Indonesia": "Indonesia"
+    },
     "catalogDesc": {
       "js-dasar-analis": "Core JavaScript for analysts: mastering arrays, functions, and data aggregation.",
       "cv-siap-lamar": "Build a one-page CV and public portfolio that are ready to send to recruiters.",
@@ -510,12 +743,22 @@
             "quiz": [
               {
                 "q": "Which array method is the best choice for calculating a total sum?",
-                "options": ["map", "filter", "reduce", "forEach"],
+                "options": [
+                  "map",
+                  "filter",
+                  "reduce",
+                  "forEach"
+                ],
                 "explain": "The reduce method folds an array down into a single value, making it perfect for calculating totals and averages."
               },
               {
                 "q": "What does the expression 'typeof null' return in JavaScript?",
-                "options": ["\"null\"", "\"object\"", "\"undefined\"", "\"boolean\""],
+                "options": [
+                  "\"null\"",
+                  "\"object\"",
+                  "\"undefined\"",
+                  "\"boolean\""
+                ],
                 "explain": "'typeof null' returns 'object'. This is a historical bug in JavaScript that every analyst simply needs to memorize."
               }
             ]
@@ -529,7 +772,17 @@
             ],
             "lab": {
               "starter": "function solve(input) {\n  // TODO: sum only the valid numbers in the array\n  return 0;\n}",
-              "tests": [{ "name": "Basic sum" }, { "name": "Ignore null values" }, { "name": "Handle empty arrays" }]
+              "tests": [
+                {
+                  "name": "Basic sum"
+                },
+                {
+                  "name": "Ignore null values"
+                },
+                {
+                  "name": "Handle empty arrays"
+                }
+              ]
             }
           }
         ]
@@ -547,7 +800,12 @@
             "quiz": [
               {
                 "q": "How long should a fresh graduate's CV be?",
-                "options": ["One page", "Two pages", "Three pages", "As long as necessary — more detail is better"],
+                "options": [
+                  "One page",
+                  "Two pages",
+                  "Three pages",
+                  "As long as necessary — more detail is better"
+                ],
                 "explain": "HR recruiters scan dozens of CVs rapidly. One dense, highly relevant page is always better than three pages of fluff."
               },
               {
@@ -617,7 +875,12 @@
               },
               {
                 "q": "What is the ideal length for your initial self-introduction?",
-                "options": ["Around 2 minutes", "Around 10 minutes", "As quickly as possible", "Keep talking until the interviewer interrupts"],
+                "options": [
+                  "Around 2 minutes",
+                  "Around 10 minutes",
+                  "As quickly as possible",
+                  "Keep talking until the interviewer interrupts"
+                ],
                 "explain": "Two minutes gives you enough time to cover the key points without losing the interviewer's attention."
               }
             ]
@@ -862,15 +1125,49 @@
         "caption": "Work to professional standards — starting from day one",
         "meta": "4–6 mo · IDR 8–25M",
         "stages": [
-          { "name": "Beginner", "items": "HTML → CSS → JavaScript", "formats": "Videos · Reading materials · Quizzes" },
-          { "name": "Intermediate", "items": "TypeScript → React → API → Git", "formats": "Coding labs · Simulations" },
-          { "name": "Advanced", "items": "Testing → Architecture → Performance → Deployment", "formats": "Projects · AI code review" },
-          { "name": "Portfolio", "items": "Real Indonesian business website + technical case study", "formats": "Mock client project · Unaffiliated" },
-          { "name": "Career", "items": "Résumé → Interviews → Technical assessments", "formats": "HR simulator · Technical tests" }
+          {
+            "name": "Beginner",
+            "items": "HTML → CSS → JavaScript",
+            "formats": "Videos · Reading materials · Quizzes"
+          },
+          {
+            "name": "Intermediate",
+            "items": "TypeScript → React → API → Git",
+            "formats": "Coding labs · Simulations"
+          },
+          {
+            "name": "Advanced",
+            "items": "Testing → Architecture → Performance → Deployment",
+            "formats": "Projects · AI code review"
+          },
+          {
+            "name": "Portfolio",
+            "items": "Real Indonesian business website + technical case study",
+            "formats": "Mock client project · Unaffiliated"
+          },
+          {
+            "name": "Career",
+            "items": "Résumé → Interviews → Technical assessments",
+            "formats": "HR simulator · Technical tests"
+          }
         ],
-        "skills": ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Git", "REST APIs", "Testing"],
+        "skills": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "TypeScript",
+          "React",
+          "Git",
+          "REST APIs",
+          "Testing"
+        ],
         "project": "A corporate profile website and e-commerce storefront for a simulated Bandung SME.",
-        "career": ["Résumé + LinkedIn optimization", "superbright.id/u/yourname public portfolio", "HR mock interviews", "Technical tests + AI feedback"],
+        "career": [
+          "Résumé + LinkedIn optimization",
+          "superbright.id/u/yourname public portfolio",
+          "HR mock interviews",
+          "Technical tests + AI feedback"
+        ],
         "context": "Local integrations: QRIS checkout flows, inter-island shipping logic, Indonesian-language product catalogs."
       },
       "umkm-digital-entrepreneur": {
@@ -884,14 +1181,41 @@
         "caption": "Learn business strategy on your own schedule",
         "meta": "10 modules · Flexible schedule",
         "stages": [
-          { "name": "Foundation", "items": "Business basics → Customer research → Brand positioning", "formats": "Videos · Strategy templates" },
-          { "name": "Sales", "items": "Marketplace strategy → Social media engagement → Digital ads", "formats": "Case studies · Hands-on practice" },
-          { "name": "Finance", "items": "Basic accounting → Foundational tax → Analytics", "formats": "Spreadsheets · Quizzes" },
-          { "name": "Final Project", "items": "Complete digital strategy for a simulated Bandung coffee shop", "formats": "Presentation · Mentor review" }
+          {
+            "name": "Foundation",
+            "items": "Business basics → Customer research → Brand positioning",
+            "formats": "Videos · Strategy templates"
+          },
+          {
+            "name": "Sales",
+            "items": "Marketplace strategy → Social media engagement → Digital ads",
+            "formats": "Case studies · Hands-on practice"
+          },
+          {
+            "name": "Finance",
+            "items": "Basic accounting → Foundational tax → Analytics",
+            "formats": "Spreadsheets · Quizzes"
+          },
+          {
+            "name": "Final Project",
+            "items": "Complete digital strategy for a simulated Bandung coffee shop",
+            "formats": "Presentation · Mentor review"
+          }
         ],
-        "skills": ["Brand positioning", "Marketplace strategy", "Digital advertising", "Basic accounting", "Tax fundamentals", "Analytics"],
+        "skills": [
+          "Brand positioning",
+          "Marketplace strategy",
+          "Digital advertising",
+          "Basic accounting",
+          "Tax fundamentals",
+          "Analytics"
+        ],
         "project": "A comprehensive digital strategy document detailing positioning, sales channels, ad budgets, and 90-day targets.",
-        "career": ["Strategic portfolio", "Investor pitch simulation", "Local SME community access"],
+        "career": [
+          "Strategic portfolio",
+          "Investor pitch simulation",
+          "Local SME community access"
+        ],
         "context": "Halal certification processes, operational licensing, and Indonesian SME tax laws — always updated with current effective dates."
       },
       "data-analyst": {
@@ -905,14 +1229,41 @@
         "caption": "Learn to present data that drives decisions, not just reports that get ignored",
         "meta": "7 modules · IDR 7–18M",
         "stages": [
-          { "name": "Foundation", "items": "Excel → SQL → Statistics", "formats": "Videos · Dataset exercises" },
-          { "name": "Tools", "items": "Python → Data Visualization → Power BI", "formats": "Coding labs · Projects" },
-          { "name": "Project", "items": "Indonesian e-commerce sales analysis", "formats": "Public datasets · Interactive dashboards" },
-          { "name": "Career", "items": "Certificate → Portfolio → Interview simulation", "formats": "Public verification profile" }
+          {
+            "name": "Foundation",
+            "items": "Excel → SQL → Statistics",
+            "formats": "Videos · Dataset exercises"
+          },
+          {
+            "name": "Tools",
+            "items": "Python → Data Visualization → Power BI",
+            "formats": "Coding labs · Projects"
+          },
+          {
+            "name": "Project",
+            "items": "Indonesian e-commerce sales analysis",
+            "formats": "Public datasets · Interactive dashboards"
+          },
+          {
+            "name": "Career",
+            "items": "Certificate → Portfolio → Interview simulation",
+            "formats": "Public verification profile"
+          }
         ],
-        "skills": ["Excel", "SQL", "Statistics", "Python", "Data Visualization", "Power BI"],
+        "skills": [
+          "Excel",
+          "SQL",
+          "Statistics",
+          "Python",
+          "Data Visualization",
+          "Power BI"
+        ],
         "project": "A functional Power BI dashboard providing promotional recommendations based on 3 months of transaction data.",
-        "career": ["Data Analytics Certificate", "Auto-generated portfolio", "HR interview simulation"],
+        "career": [
+          "Data Analytics Certificate",
+          "Auto-generated portfolio",
+          "HR interview simulation"
+        ],
         "context": "Local datasets featuring: Indonesian e-commerce transactions, regional SMEs, and domestic tourism data."
       },
       "siap-kerja": {
@@ -926,15 +1277,46 @@
         "caption": "Bridge the gap from university to the corporate world",
         "meta": "4 weeks · Entry-level market rate",
         "stages": [
-          { "name": "Résumé", "items": "One-page optimized CV + professional email setup", "formats": "Templates · Checklists" },
-          { "name": "Portfolio", "items": "superbright.id/u/you: highlighting projects and certificates", "formats": "Public portfolio link" },
-          { "name": "Interview", "items": "2-minute introduction + salary expectations + behavioral questions", "formats": "HR simulation tool" },
-          { "name": "Workplace", "items": "Navigating hierarchy + meeting etiquette + receiving feedback", "formats": "Indonesian workplace scenarios" },
-          { "name": "Apply", "items": "Submitting applications + professional WhatsApp follow-up etiquette", "formats": "Action plan" }
+          {
+            "name": "Résumé",
+            "items": "One-page optimized CV + professional email setup",
+            "formats": "Templates · Checklists"
+          },
+          {
+            "name": "Portfolio",
+            "items": "superbright.id/u/you: highlighting projects and certificates",
+            "formats": "Public portfolio link"
+          },
+          {
+            "name": "Interview",
+            "items": "2-minute introduction + salary expectations + behavioral questions",
+            "formats": "HR simulation tool"
+          },
+          {
+            "name": "Workplace",
+            "items": "Navigating hierarchy + meeting etiquette + receiving feedback",
+            "formats": "Indonesian workplace scenarios"
+          },
+          {
+            "name": "Apply",
+            "items": "Submitting applications + professional WhatsApp follow-up etiquette",
+            "formats": "Action plan"
+          }
         ],
-        "skills": ["Résumé Writing", "Portfolio Curation", "Interviewing", "LinkedIn Optimization", "Workplace Etiquette"],
+        "skills": [
+          "Résumé Writing",
+          "Portfolio Curation",
+          "Interviewing",
+          "LinkedIn Optimization",
+          "Workplace Etiquette"
+        ],
         "project": "A complete job application package: an optimized CV, a public profile, and recorded mock interview performances.",
-        "career": ["ATS-friendly CV", "Verified project portfolio", "Interview practice simulations", "First-day office etiquette"],
+        "career": [
+          "ATS-friendly CV",
+          "Verified project portfolio",
+          "Interview practice simulations",
+          "First-day office etiquette"
+        ],
         "context": "Includes regional salary benchmarks across Indonesian cities, proper WhatsApp etiquette for recruiters, and navigating local corporate hierarchy."
       },
       "junior-accountant": {
@@ -948,14 +1330,39 @@
         "caption": "Learn to close the books accurately and on time, every single month",
         "meta": "24 weeks · IDR 6–9M",
         "stages": [
-          { "name": "Phase 1", "items": "Financial Accounting Fundamentals", "formats": "Videos · Quizzes" },
-          { "name": "Phase 2", "items": "Corporate Tax & e-Faktur compliance", "formats": "e-Faktur simulations" },
-          { "name": "Phase 3", "items": "PSAK/IFRS Regulatory Reporting", "formats": "Case studies" },
-          { "name": "Capstone", "items": "Mock Client Tax Return + AI Evaluation", "formats": "Portfolio Project" }
+          {
+            "name": "Phase 1",
+            "items": "Financial Accounting Fundamentals",
+            "formats": "Videos · Quizzes"
+          },
+          {
+            "name": "Phase 2",
+            "items": "Corporate Tax & e-Faktur compliance",
+            "formats": "e-Faktur simulations"
+          },
+          {
+            "name": "Phase 3",
+            "items": "PSAK/IFRS Regulatory Reporting",
+            "formats": "Case studies"
+          },
+          {
+            "name": "Capstone",
+            "items": "Mock Client Tax Return + AI Evaluation",
+            "formats": "Portfolio Project"
+          }
         ],
-        "skills": ["Financial Accounting", "Corporate Income Tax (PPh)", "e-Faktur", "PSAK Standards"],
+        "skills": [
+          "Financial Accounting",
+          "Corporate Income Tax (PPh)",
+          "e-Faktur",
+          "PSAK Standards"
+        ],
         "project": "Prepare a complete annual tax return for a simulated corporate client, including all supporting working papers.",
-        "career": ["Skills Certificate", "Working-paper portfolio", "Technical interview simulation"],
+        "career": [
+          "Skills Certificate",
+          "Working-paper portfolio",
+          "Technical interview simulation"
+        ],
         "context": "Tax regulations are taught with strict attention to effective dates and updated immediately when local laws change."
       }
     }
@@ -1036,4 +1443,3 @@
     "lockedBody": "This series belongs to a wave that is not open yet. Explore the roles that are already playable."
   }
 }
-

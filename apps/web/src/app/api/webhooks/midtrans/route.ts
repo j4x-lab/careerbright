@@ -32,7 +32,23 @@ export async function POST(req: Request) {
       where: { orderNumber: n.order_id },
       data: { status: "PAID", gatewayPayload: n as never },
     });
-    // Phase 2: mark UserLearningPath.lspUpgradeStatus = PAID + notify via WhatsApp.
+    // Subscription activation: SUBSCRIPTION orders extend AppUser subscription.
+    // Raw pg (not Prisma) — Prisma client can't regenerate on Termux, and the
+    // new subscriptionTier/subscriptionEndsAt columns exist in schema.sql.
+    try {
+      const { Pool } = await import("pg");
+      const pool = new Pool({ connectionString: process.env.DATABASE_URL ?? "" });
+      const { rows } = await pool.query(`select "userId", type, "gatewayPayload" from "Order" where "orderNumber"=$1 limit 1`, [n.order_id]);
+      const order = rows[0] as { userId?: string; type?: string; gatewayPayload?: { tier?: string } | string } | undefined;
+      const tier = (typeof order?.gatewayPayload === "string" ? undefined : order?.gatewayPayload?.tier) ?? "MONTHLY";
+      if (order?.type === "SUBSCRIPTION" && order.userId && order.userId !== "pending-auth") {
+        const days = tier === "ANNUAL" ? 365 : tier === "SEMESTER" ? 180 : 30;
+        await pool.query(`update "AppUser" set "subscriptionTier"=$1, "subscriptionEndsAt"=now() + ($2 || ' days')::interval where id=$3`, [tier, String(days), order.userId]);
+      }
+      await pool.end().catch(() => {});
+    } catch {
+      /* best-effort: order already PAID above */
+    }
   }
   return Response.json({ ok: true });
 }

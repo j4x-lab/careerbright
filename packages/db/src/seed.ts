@@ -105,6 +105,9 @@ const RELEASED_ROLES = [
   "retail-store-supervisor",
 ];
 
+// Single source of truth: apps/web catalog (54 missions, 1 per profession).
+import { MISSIONS_CATALOG as MISSIONS } from "../../../apps/web/src/lib/missions-catalog.ts";
+
 async function main() {
   for (const f of FRAMEWORKS) {
     await prisma.competencyFramework.upsert({
@@ -142,6 +145,15 @@ async function main() {
     });
   }
   console.log(`Seeded ${RELEASED_ROLES.length} role releases (Wave 1)`);
+  for (const m of MISSIONS) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    await (prisma as any).mission.upsert({
+      where: { slug: m.slug },
+      update: { ...m, publishedAt: new Date() },
+      create: { ...m, publishedAt: new Date() },
+    });
+  }
+  console.log(`Seeded ${MISSIONS.length} practice missions (Exec Summary 5-step loop)`);
 }
 
 main().then(() => process.exit(0)).catch((e) => { console.error(e); process.exit(1); });

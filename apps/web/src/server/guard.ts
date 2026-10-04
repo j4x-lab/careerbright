@@ -20,6 +20,7 @@ export const ROLES = [
   "LSP_ASSESSOR",
   "EMPLOYER",
   "UNIVERSITY",
+  "CONTRIBUTOR",
 ] as const;
 
 export type Role = (typeof ROLES)[number];
@@ -39,11 +40,12 @@ export async function getSession() {
  *  loop back here). */
 const HOME_FOR: Record<Role, string> = {
   STUDENT: "/dashboard",
-  INSTRUCTOR: "/roles",
+  INSTRUCTOR: "/kontributor",
   ADMIN: "/admin",
-  LSP_ASSESSOR: "/roles",
-  EMPLOYER: "/roles",
-  UNIVERSITY: "/roles",
+  LSP_ASSESSOR: "/admin",
+  EMPLOYER: "/misi",
+  UNIVERSITY: "/misi",
+  CONTRIBUTOR: "/kontributor",
 };
 
 export async function requireRole(allowed: Role[]) {

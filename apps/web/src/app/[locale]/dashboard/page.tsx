@@ -91,7 +91,7 @@ export default async function StudentDashboard({ params }: { params: Promise<{ l
                     {t("noPathYet")}
                   </p>
                   <Link
-                    href="/roles"
+                    href="/misi"
                     className="btn-primary mt-6 min-h-[52px] px-7 text-[15px]"
                   >
                     {t("browsePaths")}
@@ -176,7 +176,7 @@ export default async function StudentDashboard({ params }: { params: Promise<{ l
               {t("moreSub")}
             </p>
             <div className="relative mt-8">
-              <Link href="/roles" className="inline-flex min-h-[52px] items-center gap-2.5 rounded-btn bg-white px-7 text-[15px] font-extrabold text-brand-700 transition hover:bg-paper active:translate-y-[1px]">
+              <Link href="/misi" className="inline-flex min-h-[52px] items-center gap-2.5 rounded-btn bg-white px-7 text-[15px] font-extrabold text-brand-700 transition hover:bg-paper active:translate-y-[1px]">
                 {t("browsePaths")}
                 <span className="btn-island btn-island-dark" aria-hidden>
                   ↗

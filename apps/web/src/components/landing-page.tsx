@@ -126,7 +126,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
             {/* In-hero search (PRD §4.1): plain GET form so it works without
                 JS; the catalog reads ?q= as its initial query. */}
             <form
-              action={locale === "id" ? "/roles" : `/${locale}/roles`}
+              action={locale === "id" ? "/misi" : `/${locale}/misi`}
               method="get"
               className="hero-enter hero-enter-4 mt-6"
               role="search"
@@ -162,7 +162,7 @@ export default async function LandingPage({ locale }: { locale: string }) {
                 [t("heroCatFuture"), "Future & AI"],
               ].map(([label, cat]) => (
                 <li key={label}>
-                  <Link href={`/roles?q=${encodeURIComponent(cat)}`} className="chip min-h-[44px] transition hover:border-ink">
+                  <Link href={`/misi?kategori=${encodeURIComponent(cat)}`} className="chip min-h-[44px] transition hover:border-ink">
                     {label}
                   </Link>
                 </li>

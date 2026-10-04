@@ -14,6 +14,7 @@ enum UserRole {
   LSP_ASSESSOR
   EMPLOYER
   UNIVERSITY
+  CONTRIBUTOR
 }
 
 enum RoleCategory {
@@ -112,23 +113,31 @@ model LearningPathMilestone {
 }
 
 model AppUser {
-  id            String   @id @default(cuid())
-  email         String   @unique
-  phone         String?  @unique
-  name          String
-  role          UserRole @default(STUDENT)
-  kkniLevel     Int?
-  nik           String?  @unique
-  ktpVerified   Boolean  @default(false)
-  language      String   @default("id")
-  timezone      String   @default("Asia/Jakarta")
-  enrollments   UserLearningPath[]
-  submissions   AssessmentSubmission[]
-  credentials   Credential[]
-  orders        Order[]
-  courses       Course[]
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  id               String   @id @default(cuid())
+  email            String   @unique
+  phone            String?  @unique
+  name             String
+  role             UserRole @default(STUDENT)
+  kkniLevel        Int?
+  nik              String?  @unique
+  ktpVerified      Boolean  @default(false)
+  language         String   @default("id")
+  timezone         String   @default("Asia/Jakarta")
+  enrollments      UserLearningPath[]
+  submissions      AssessmentSubmission[]
+  credentials      Credential[]
+  orders           Order[]
+  courses          Course[]
+  // Practice-platform (Exec Summary) fields
+  subscriptionTier String   @default("FREE")
+  subscriptionEndsAt DateTime?
+  campusLicenseId  String?
+  campusLicense    CampusLicense? @relation(fields: [campusLicenseId], references: [id])
+  missionAttempts  MissionAttempt[]
+  portfolioEntries PortfolioEntry[]
+  contributorProfile Contributor?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
 }
 
 model UserLearningPath {
@@ -215,8 +224,237 @@ model Order {
   paymentGateway String   @default("MIDTRANS")
   gatewayOrderId String?
   gatewayPayload Json?
+  // Practice-platform order types: SUBSCRIPTION | CAMPUS_LICENSE | LSP_UPGRADE
+  type           String   @default("LSP_UPGRADE")
+  missionId      String?
+  campusLicenseId String?
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
+}
+
+// ---- Professional Practice Platform (Exec Summary 5-step loop) ----
+
+enum MissionStatus {
+  DRAFT
+  CURATION_PENDING
+  PUBLISHED
+  ARCHIVED
+}
+
+enum AttemptStatus {
+  IN_PROGRESS
+  SUBMITTED
+  AI_REVIEWED
+  NEEDS_HUMAN_REVIEW
+  GRADED
+  REVISED
+}
+
+enum ArtifactMode {
+  DOCUMENT
+  SPREADSHEET
+  IMAGE
+  LINK
+  CODE
+}
+
+enum FeedbackStatus {
+  AI_GENERATED
+  HUMAN_APPROVED
+  HUMAN_OVERRIDDEN
+}
+
+enum ContributorStatus {
+  PENDING
+  APPROVED
+  SUSPENDED
+}
+
+enum LicenseStatus {
+  ACTIVE
+  EXPIRED
+  SUSPENDED
+}
+
+enum PayoutStatus {
+  PENDING
+  PROCESSING
+  PAID
+}
+
+model Mission {
+  id              String        @id @default(cuid())
+  slug            String        @unique
+  roleId          String
+  titleId         String
+  titleEn         String?
+  briefId         String
+  briefEn         String?
+  deliverableSpec Json
+  rubric          Json
+  skkniUnitCode   String
+  kkniLevel       Int           @default(5)
+  difficulty      Int           @default(1)
+  estimatedMin    Int           @default(60)
+  maxRevisions    Int           @default(3)
+  status          MissionStatus @default(DRAFT)
+  authorId        String?
+  author          Contributor?  @relation(fields: [authorId], references: [id])
+  reviewerId      String?
+  publishedAt     DateTime?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  attempts        MissionAttempt[]
+  portfolioEntries PortfolioEntry[]
+  payouts         ContributorPayout[]
+
+  @@index([roleId, status])
+  @@index([status, publishedAt])
+}
+
+model MissionAttempt {
+  id           String        @id @default(cuid())
+  missionId    String
+  mission      Mission       @relation(fields: [missionId], references: [id], onDelete: Cascade)
+  userId       String
+  user         AppUser       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  attemptNum   Int           @default(1)
+  status       AttemptStatus @default(IN_PROGRESS)
+  score        Float?
+  confidence   Float?
+  startedAt    DateTime      @default(now())
+  submittedAt  DateTime?
+  reviewedAt   DateTime?
+  artifacts    SubmissionArtifact[]
+  aiFeedback   AIFeedback?
+  revisions    Revision[]
+  portfolioEntry PortfolioEntry?
+
+  @@unique([missionId, userId, attemptNum])
+  @@index([userId, missionId])
+  @@index([status, submittedAt])
+}
+
+model SubmissionArtifact {
+  id        String       @id @default(cuid())
+  attemptId String
+  attempt   MissionAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  revisionId String?
+  revision  Revision?    @relation(fields: [revisionId], references: [id], onDelete: SetNull)
+  mode      ArtifactMode
+  content   String
+  metadata  Json?
+  order     Int          @default(0)
+
+  @@index([attemptId, order])
+}
+
+model AIFeedback {
+  id              String         @id @default(cuid())
+  attemptId       String         @unique
+  attempt         MissionAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  criterionScores Json
+  consensusScore  Float
+  confidence      Float
+  feedbackId      String
+  feedbackEn      String?
+  reflectionId    String?
+  reflectionEn    String?
+  promptVersion   String         @default("judge-v1")
+  status          FeedbackStatus @default(AI_GENERATED)
+  reviewedBy      String?
+  reviewedAt      DateTime?
+  createdAt       DateTime       @default(now())
+}
+
+model Revision {
+  id           String   @id @default(cuid())
+  attemptId    String
+  attempt      MissionAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  revisionNum  Int
+  noteId       String?
+  createdAt    DateTime @default(now())
+  artifacts    SubmissionArtifact[]
+
+  @@unique([attemptId, revisionNum])
+}
+
+model PortfolioEntry {
+  id             String   @id @default(cuid())
+  userId         String
+  user           AppUser  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  missionId      String
+  mission        Mission  @relation(fields: [missionId], references: [id])
+  attemptId      String   @unique
+  attempt        MissionAttempt @relation(fields: [attemptId], references: [id])
+  briefSnapshot  Json
+  artifacts      Json
+  rubricSnapshot Json
+  aiFeedback     Json?
+  revisions      Json?
+  reflectionId   String?
+  reflectionEn   String?
+  isPublic       Boolean  @default(true)
+  publishedAt    DateTime @default(now())
+
+  @@index([userId, publishedAt])
+  @@index([missionId, publishedAt])
+}
+
+model Contributor {
+  id            String            @id @default(cuid())
+  userId        String            @unique
+  user          AppUser           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  displayName   String
+  bioId         String?
+  bioEn         String?
+  expertise     String[]
+  status        ContributorStatus @default(PENDING)
+  payoutRate    Int               @default(750)
+  totalEarnings Int               @default(0)
+  bankName      String?
+  bankAccount   String?
+  createdAt     DateTime          @default(now())
+  updatedAt     DateTime          @updatedAt
+  missions      Mission[]
+  payouts       ContributorPayout[]
+}
+
+model CampusLicense {
+  id           String        @id @default(cuid())
+  universityId String
+  name         String
+  contactEmail String
+  seats        Int
+  pricePerSeat Int
+  startsAt     DateTime
+  endsAt       DateTime
+  status       LicenseStatus @default(ACTIVE)
+  inviteCode   String        @unique @default(cuid())
+  members      AppUser[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@index([universityId, status])
+}
+
+model ContributorPayout {
+  id            String      @id @default(cuid())
+  contributorId String
+  contributor   Contributor @relation(fields: [contributorId], references: [id], onDelete: Cascade)
+  missionId     String
+  mission       Mission     @relation(fields: [missionId], references: [id])
+  completions   Int
+  amount        Int
+  method        String      @default("MANUAL")
+  reference     String?
+  periodStart   DateTime
+  periodEnd     DateTime
+  paidAt        DateTime?
+  status        PayoutStatus @default(PENDING)
+  createdAt     DateTime    @default(now())
+
+  @@index([contributorId, status])
 }
 
 // ---- Phase 1: LMS content ----

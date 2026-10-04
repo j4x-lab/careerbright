@@ -68,6 +68,9 @@ CREATE TABLE IF NOT EXISTS "AppUser" (
   "ktpVerified" BOOLEAN NOT NULL DEFAULT FALSE,
   language TEXT NOT NULL DEFAULT 'id',
   timezone TEXT NOT NULL DEFAULT 'Asia/Jakarta',
+  "subscriptionTier" TEXT NOT NULL DEFAULT 'FREE',
+  "subscriptionEndsAt" TIMESTAMP(3),
+  "campusLicenseId" TEXT REFERENCES "CampusLicense"(id),
   "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -148,6 +151,9 @@ CREATE TABLE IF NOT EXISTS "Order" (
   "paymentGateway" TEXT NOT NULL DEFAULT 'MIDTRANS',
   "gatewayOrderId" TEXT,
   "gatewayPayload" JSONB,
+  type TEXT NOT NULL DEFAULT 'LSP_UPGRADE',
+  "missionId" TEXT,
+  "campusLicenseId" TEXT,
   "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -331,3 +337,150 @@ CREATE TABLE IF NOT EXISTS "RoleRelease" (
   released BOOLEAN NOT NULL DEFAULT FALSE,
   "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Professional Practice Platform (Exec Summary 5-step loop).
+-- Enums stored as TEXT, validated app-side.
+
+CREATE TABLE IF NOT EXISTS "Contributor" (
+  id TEXT PRIMARY KEY,
+  "userId" TEXT UNIQUE NOT NULL REFERENCES "AppUser"(id) ON DELETE CASCADE,
+  "displayName" TEXT NOT NULL,
+  "bioId" TEXT,
+  "bioEn" TEXT,
+  expertise JSONB NOT NULL DEFAULT '[]',
+  status TEXT NOT NULL DEFAULT 'PENDING',
+  "payoutRate" INTEGER NOT NULL DEFAULT 750,
+  "totalEarnings" INTEGER NOT NULL DEFAULT 0,
+  "bankName" TEXT,
+  "bankAccount" TEXT,
+  "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS "CampusLicense" (
+  id TEXT PRIMARY KEY,
+  "universityId" TEXT NOT NULL,
+  name TEXT NOT NULL,
+  "contactEmail" TEXT NOT NULL,
+  seats INTEGER NOT NULL,
+  "pricePerSeat" INTEGER NOT NULL,
+  "startsAt" TIMESTAMP(3) NOT NULL,
+  "endsAt" TIMESTAMP(3) NOT NULL,
+  status TEXT NOT NULL DEFAULT 'ACTIVE',
+  "inviteCode" TEXT UNIQUE NOT NULL,
+  "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS campuslicense_university_idx ON "CampusLicense"("universityId", status);
+
+CREATE TABLE IF NOT EXISTS "Mission" (
+  id TEXT PRIMARY KEY,
+  slug TEXT UNIQUE NOT NULL,
+  "roleId" TEXT NOT NULL,
+  "titleId" TEXT NOT NULL,
+  "titleEn" TEXT,
+  "briefId" TEXT NOT NULL,
+  "briefEn" TEXT,
+  "deliverableSpec" JSONB NOT NULL,
+  rubric JSONB NOT NULL,
+  "skkniUnitCode" TEXT NOT NULL,
+  "kkniLevel" INTEGER NOT NULL DEFAULT 5,
+  difficulty INTEGER NOT NULL DEFAULT 1,
+  "estimatedMin" INTEGER NOT NULL DEFAULT 60,
+  "maxRevisions" INTEGER NOT NULL DEFAULT 3,
+  status TEXT NOT NULL DEFAULT 'DRAFT',
+  "authorId" TEXT REFERENCES "Contributor"(id),
+  "reviewerId" TEXT,
+  "publishedAt" TIMESTAMP(3),
+  "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS mission_role_status_idx ON "Mission"("roleId", status);
+CREATE INDEX IF NOT EXISTS mission_status_pub_idx ON "Mission"(status, "publishedAt");
+
+CREATE TABLE IF NOT EXISTS "MissionAttempt" (
+  id TEXT PRIMARY KEY,
+  "missionId" TEXT NOT NULL REFERENCES "Mission"(id) ON DELETE CASCADE,
+  "userId" TEXT NOT NULL REFERENCES "AppUser"(id) ON DELETE CASCADE,
+  "attemptNum" INTEGER NOT NULL DEFAULT 1,
+  status TEXT NOT NULL DEFAULT 'IN_PROGRESS',
+  score DOUBLE PRECISION,
+  confidence DOUBLE PRECISION,
+  "startedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "submittedAt" TIMESTAMP(3),
+  "reviewedAt" TIMESTAMP(3),
+  UNIQUE ("missionId", "userId", "attemptNum")
+);
+CREATE INDEX IF NOT EXISTS missionattempt_user_mission_idx ON "MissionAttempt"("userId", "missionId");
+CREATE INDEX IF NOT EXISTS missionattempt_status_idx ON "MissionAttempt"(status, "submittedAt");
+
+CREATE TABLE IF NOT EXISTS "Revision" (
+  id TEXT PRIMARY KEY,
+  "attemptId" TEXT NOT NULL REFERENCES "MissionAttempt"(id) ON DELETE CASCADE,
+  "revisionNum" INTEGER NOT NULL,
+  "noteId" TEXT,
+  "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE ("attemptId", "revisionNum")
+);
+
+CREATE TABLE IF NOT EXISTS "SubmissionArtifact" (
+  id TEXT PRIMARY KEY,
+  "attemptId" TEXT NOT NULL REFERENCES "MissionAttempt"(id) ON DELETE CASCADE,
+  "revisionId" TEXT REFERENCES "Revision"(id) ON DELETE SET NULL,
+  mode TEXT NOT NULL,
+  content TEXT NOT NULL,
+  metadata JSONB,
+  "order" INTEGER NOT NULL DEFAULT 0
+);
+CREATE INDEX IF NOT EXISTS artifact_attempt_order_idx ON "SubmissionArtifact"("attemptId", "order");
+
+CREATE TABLE IF NOT EXISTS "AIFeedback" (
+  id TEXT PRIMARY KEY,
+  "attemptId" TEXT UNIQUE NOT NULL REFERENCES "MissionAttempt"(id) ON DELETE CASCADE,
+  "criterionScores" JSONB NOT NULL,
+  "consensusScore" DOUBLE PRECISION NOT NULL,
+  confidence DOUBLE PRECISION NOT NULL,
+  "feedbackId" TEXT NOT NULL,
+  "feedbackEn" TEXT,
+  "reflectionId" TEXT,
+  "reflectionEn" TEXT,
+  "promptVersion" TEXT NOT NULL DEFAULT 'judge-v1',
+  status TEXT NOT NULL DEFAULT 'AI_GENERATED',
+  "reviewedBy" TEXT,
+  "reviewedAt" TIMESTAMP(3),
+  "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS "PortfolioEntry" (
+  id TEXT PRIMARY KEY,
+  "userId" TEXT NOT NULL REFERENCES "AppUser"(id) ON DELETE CASCADE,
+  "missionId" TEXT NOT NULL REFERENCES "Mission"(id),
+  "attemptId" TEXT UNIQUE NOT NULL REFERENCES "MissionAttempt"(id),
+  "briefSnapshot" JSONB NOT NULL,
+  artifacts JSONB NOT NULL,
+  "rubricSnapshot" JSONB NOT NULL,
+  "aiFeedback" JSONB,
+  revisions JSONB,
+  "reflectionId" TEXT,
+  "reflectionEn" TEXT,
+  "isPublic" BOOLEAN NOT NULL DEFAULT TRUE,
+  "publishedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS portfolio_user_pub_idx ON "PortfolioEntry"("userId", "publishedAt");
+CREATE INDEX IF NOT EXISTS portfolio_mission_pub_idx ON "PortfolioEntry"("missionId", "publishedAt");
+
+CREATE TABLE IF NOT EXISTS "ContributorPayout" (
+  id TEXT PRIMARY KEY,
+  "contributorId" TEXT NOT NULL REFERENCES "Contributor"(id) ON DELETE CASCADE,
+  "missionId" TEXT NOT NULL REFERENCES "Mission"(id),
+  completions INTEGER NOT NULL,
+  amount INTEGER NOT NULL,
+  method TEXT NOT NULL DEFAULT 'MANUAL',
+  reference TEXT,
+  "periodStart" TIMESTAMP(3) NOT NULL,
+  "periodEnd" TIMESTAMP(3) NOT NULL,
+  "paidAt" TIMESTAMP(3),
+  status TEXT NOT NULL DEFAULT 'PENDING',
+  "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS payout_contrib_status_idx ON "ContributorPayout"("contributorId", status);

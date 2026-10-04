@@ -3,6 +3,7 @@ import { z } from "zod";
 import { protectedProcedure, publicProcedure, router } from "../trpc";
 import { adminRouter } from "./admin";
 import { metricsRouter } from "./metrics";
+import { missionsRouter } from "./missions";
 
 /*
  * Catalog reads.
@@ -92,6 +93,7 @@ export const appRouter = router({
   courses: coursesRouter,
   admin: adminRouter,
   metrics: metricsRouter,
+  missions: missionsRouter,
 });
 
 export type AppRouter = typeof appRouter;
